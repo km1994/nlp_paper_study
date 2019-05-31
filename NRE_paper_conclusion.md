@@ -218,7 +218,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
    
     本文提出了一个多级别的基于注意力的卷积神经网络模型，如下图所示：
 
-    ![acnn_structure](T3_relation-classification-via-attention-model/img/acnn_structure.png)
+    ![acnn_structure](T3_RC_via_attention_model/img/acnn_structure.png)
 
     设计了相对复杂的两层Attention机制来尽可能突出句子中哪些部分对relation label有更大的贡献。使用了word similarity来定义句子中word与target entity的相似度，从而根据相似度来引入权重，这是第一层的Attention. 第二层Attention则是对卷积之后Pooling阶段，采用Attention Pooling 而不是Max Pooling. 通过这些操作来减弱噪音，加强相关性强的词的权重。此外也改进了前面Santos提出的Ranking Loss. 下面对文中详细介绍.
 
@@ -226,7 +226,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
     采用 word embedding + position embedding，所以词的表示形式如下所示：
 
-    ![Input_and_Primary_attention](T3_relation-classification-via-attention-model/img/Input_and_Primary_attention.webp)
+    ![Input_and_Primary_attention](T3_RC_via_attention_model/img/Input_and_Primary_attention.webp)
 
 
     $$\mathbf{w}_{i}^{\mathrm{M}}=\left[\left(\mathbf{w}_{i}^{\mathrm{d}}\right)^{\top},\left(\mathbf{w}_{i, 1}^{\mathrm{p}}\right)^{\top},\left(\mathbf{w}_{i, 2}^{\mathrm{p}}\right)^{\top}\right]^{\top}$$
@@ -282,7 +282,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 3. 实验
    
-    ![Input_and_Primary_attention](T3_relation-classification-via-attention-model/img/result.webp)
+    ![Input_and_Primary_attention](T3_RC_via_attention_model/img/result.webp)
 
 4. 个人点评
 
