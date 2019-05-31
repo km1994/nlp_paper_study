@@ -216,71 +216,71 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 2. 论文思路
    
-https://github.com/km1994/relation_extraction_study/blob/master/T3_RC_via_attention_model_new/img/acnn_structure.png
 
-    本文提出了一个多级别的基于注意力的卷积神经网络模型，如下图所示：
+  本文提出了一个多级别的基于注意力的卷积神经网络模型，如下图所示：
 
-    ![acnn_structure](T3_RC_via_attention_model_new/img/acnn_structure.png)
+  ![acnn_structure](T3_RC_via_attention_model_new/img/acnn_structure.png)
 
-    设计了相对复杂的两层Attention机制来尽可能突出句子中哪些部分对relation label有更大的贡献。使用了word similarity来定义句子中word与target entity的相似度，从而根据相似度来引入权重，这是第一层的Attention. 第二层Attention则是对卷积之后Pooling阶段，采用Attention Pooling 而不是Max Pooling. 通过这些操作来减弱噪音，加强相关性强的词的权重。此外也改进了前面Santos提出的Ranking Loss. 下面对文中详细介绍.
+  设计了相对复杂的两层Attention机制来尽可能突出句子中哪些部分对relation label有更大的贡献。使用了word similarity来定义句子中word与target entity的相似度，从而根据相似度来引入权重，这是第一层的Attention. 第二层Attention则是对卷积之后Pooling阶段，采用Attention Pooling 而不是Max Pooling. 通过这些操作来减弱噪音，加强相关性强的词的权重。此外也改进了前面Santos提出的Ranking Loss. 下面对文中详细介绍.
 
-    2.1. Input Layer
+  2.1. Input Layer
 
-    采用 word embedding + position embedding，所以词的表示形式如下所示：
+  采用 word embedding + position embedding，所以词的表示形式如下所示：
 
-    ![Input_and_Primary_attention](T3_RC_via_attention_model_new/img/Input_and_Primary_attention.webp)
+  ![Input_and_Primary_attention](T3_RC_via_attention_model_new/img/Input_and_Primary_attention.webp)
 
 
-    $$\mathbf{w}_{i}^{\mathrm{M}}=\left[\left(\mathbf{w}_{i}^{\mathrm{d}}\right)^{\top},\left(\mathbf{w}_{i, 1}^{\mathrm{p}}\right)^{\top},\left(\mathbf{w}_{i, 2}^{\mathrm{p}}\right)^{\top}\right]^{\top}$$
+  $$\mathbf{w}_{i}^{\mathrm{M}}=\left[\left(\mathbf{w}_{i}^{\mathrm{d}}\right)^{\top},\left(\mathbf{w}_{i, 1}^{\mathrm{p}}\right)^{\top},\left(\mathbf{w}_{i, 2}^{\mathrm{p}}\right)^{\top}\right]^{\top}$$
 
-    将trigram信息融合进去，设置一个滑动窗口k，以每个word 为中心，左右$k/2$个词作为上下文，然后直接串起来，这样每个词的embedding size变为:$(d_w+2*d_p)∗k$，如下:
+  将trigram信息融合进去，设置一个滑动窗口k，以每个word 为中心，左右$k/2$个词作为上下文，然后直接串起来，这样每个词的embedding size变为:$(d_w+2*d_p)∗k$，如下:
 
-    $$\mathbf{z}_{i}=\left[\left(\mathbf{w}_{i-(k-1) / 2}^{\mathrm{M}}\right)^{\top}, \ldots,\left(\mathbf{w}_{i+(k-1) / 2}^{\mathrm{M}}\right)^{\top}\right]^{\top}$$
+  $$\mathbf{z}_{i}=\left[\left(\mathbf{w}_{i-(k-1) / 2}^{\mathrm{M}}\right)^{\top}, \ldots,\left(\mathbf{w}_{i+(k-1) / 2}^{\mathrm{M}}\right)^{\top}\right]^{\top}$$
 
-    其实这个n-gram过程现在完成，然后卷积的时候，卷积核的size设置为1就可以了。或者现在不做，卷积核设置为k，可以达到同样的效果。但是后面有Attention，因此在这篇文章中，先做了n-gram。 输入层到这里为止，与其他文章完全一样。 下面就是加入 Input Attention 过程。 首先引入两个对角矩阵$A_1,A_2$ 对应每个句子的两个entity. 然后使用word embedding的向量内积运算来衡量某个词$w_i$ 与 $entity e_j,j=1,2$的相关性，这样对角矩阵A的元素就是: $A_{i, i}^{j}=f\left(e_{j}, w_{i}\right)$,其中f就内积运算。最后使用softamx归一化，来定义Attention的权重:
+  其实这个n-gram过程现在完成，然后卷积的时候，卷积核的size设置为1就可以了。或者现在不做，卷积核设置为k，可以达到同样的效果。但是后面有Attention，因此在这篇文章中，先做了n-gram。 输入层到这里为止，与其他文章完全一样。 下面就是加入 Input Attention 过程。 首先引入两个对角矩阵$A_1,A_2$ 对应每个句子的两个entity. 然后使用word embedding的向量内积运算来衡量某个词$w_i$ 与 $entity e_j,j=1,2$的相关性，这样对角矩阵A的元素就是: $A_{i, i}^{j}=f\left(e_{j}, w_{i}\right)$,其中f就内积运算。最后使用softamx归一化，来定义Attention的权重:
 
-    $$
-    \alpha_{i}^{j}=\frac{\exp \left(A_{i, i}^{j}\right)}{\sum_{i^{\prime}=1}^{n} \exp \left(A_{i^{\prime}, i^{\prime}}^{j}\right)}
-    $$
+  $$
+  \alpha_{i}^{j}=\frac{\exp \left(A_{i, i}^{j}\right)}{\sum_{i^{\prime}=1}^{n} \exp \left(A_{i^{\prime}, i^{\prime}}^{j}\right)}
+  $$
 
-    每个词都有对两个entity的权重:$α_1,α_2$. 这样把权重融合到已经得到的$z_i$中。融合的方法文中给了三个:
+  每个词都有对两个entity的权重:$α_1,α_2$. 这样把权重融合到已经得到的$z_i$中。融合的方法文中给了三个:
 
-    - average：$r_{i}=z_{i} \frac{\alpha_{i}^{1}+\alpha_{i}^{2}}{2}$,这种方式直接简单，不过从经验感觉，直接求和比平均要好；
-    - concat：$r_{i}=\left[\left(z_{i} \alpha_{i}^{1}\right)^{T},\left(z_{i}, \alpha_{i}^{2}\right) T\right]^{T}$ 这种方式理论上保留的信息量最大；
-    - substract：$r_{i}=z_{i} \frac{\alpha_{i}^{1}-\alpha_{i}^{2}}{2}$ 这种方式其实有点类似于TranE，将relation视为两个权重的差。
+  - average：$r_{i}=z_{i} \frac{\alpha_{i}^{1}+\alpha_{i}^{2}}{2}$,这种方式直接简单，不过从经验感觉，直接求和比平均要好；
+  - concat：$r_{i}=\left[\left(z_{i} \alpha_{i}^{1}\right)^{T},\left(z_{i}, \alpha_{i}^{2}\right) T\right]^{T}$ 这种方式理论上保留的信息量最大；
+  - substract：$r_{i}=z_{i} \frac{\alpha_{i}^{1}-\alpha_{i}^{2}}{2}$ 这种方式其实有点类似于TranE，将relation视为两个权重的差。
 
-    这样整个句子表示为: $R=[r_1,r_2,...,r_n]$, 至此包含第一层的Attention的Input Layer 完成.
+  这样整个句子表示为: $R=[r_1,r_2,...,r_n]$, 至此包含第一层的Attention的Input Layer 完成.
 
-    之后是卷积层，这里跟其他文章中卷积相同:
+  之后是卷积层，这里跟其他文章中卷积相同:
 
-    $$R^{*}=\tanh \left(W_{\mathrm{f}} R+B_{\mathrm{f}}\right)$$
+  $$R^{*}=\tanh \left(W_{\mathrm{f}} R+B_{\mathrm{f}}\right)$$
 
-    其中 $W_f$是卷积核，size为$d^{c} \times k\left(d^{w}+2 d^{p}\right)$, 前面已经说过了，由于已经在input处做过了tri-gram操作，这里的$d_c$一般为1.
 
-    2.2. Attention Based Pooling Layer
+  其中 $W_f$是卷积核，size为$d^{c} \times k\left(d^{w}+2 d^{p}\right)$, 前面已经说过了，由于已经在input处做过了tri-gram操作，这里的$d_c$一般为1.
 
-    大部分文章直接使用Max Pooling来处理，这样可能会有一些过于简单，有时候并不能抽出跟后续的relation labels 更相关的部分，这也是这篇文章提出Attention Based Pooling的动机。 定义一个关联矩阵表示卷积之后的结果R∗的每一个元素与relation labels的相关性，如下:
+  2.2. Attention Based Pooling Layer
 
-    $$G=R^{* \top} U W^{\mathrm{L}}$$
+  大部分文章直接使用Max Pooling来处理，这样可能会有一些过于简单，有时候并不能抽出跟后续的relation labels 更相关的部分，这也是这篇文章提出Attention Based Pooling的动机。 定义一个关联矩阵表示卷积之后的结果R∗的每一个元素与relation labels的相关性，如下:
 
-    其中U是Attention中的权重矩阵，$W^L$ 表示relation labels的embedding，跟word/position embedding一样，需要在训练过程更新。这样的G就是一个相关矩阵，每一个元素$G_(i,j)$就表示R∗的第i个元素与第j个label的相关性。然后在对G做列归一化:
+  $$G=R^{* \top} U W^{\mathrm{L}}$$
 
-    $$A_{i, j}^{\mathrm{p}}=\frac{\exp \left(G_{i, j}\right)}{\sum_{i^{\prime}=1}^{n} \exp \left(G_{i^{\prime}, j}\right)}$$
+  其中U是Attention中的权重矩阵，$W^L$ 表示relation labels的embedding，跟word/position embedding一样，需要在训练过程更新。这样的G就是一个相关矩阵，每一个元素$G_(i,j)$就表示R∗的第i个元素与第j个label的相关性。然后在对G做列归一化:
 
-    有了Attention Pooling矩阵，在做max pooling：
-    $$\mathbf{w}_{i}^{\mathrm{O}}=\max _{j}\left(R^{*} A^{\mathrm{p}}\right)_{i, j}$$
+  $$A_{i, j}^{\mathrm{p}}=\frac{\exp \left(G_{i, j}\right)}{\sum_{i^{\prime}=1}^{n} \exp \left(G_{i^{\prime}, j}\right)}$$
 
-    2.3. Loss Function Layer
+  有了Attention Pooling矩阵，在做max pooling：
+  $$\mathbf{w}_{i}^{\mathrm{O}}=\max _{j}\left(R^{*} A^{\mathrm{p}}\right)_{i, j}$$
 
-    最后介绍模型改进的损失函数，根据Santos 2015提出的Ranking Loss, 这篇文章同样使用margin based ranking loss function. 一般的margin function都需要定义一个distance/score function, 从而来区分正负样例. 在santos文中，直接使用了网络最后的输出score。这篇文章利用relation embedding $W_{y}^{L}$, 定义了如下的score distance function:
+  2.3. Loss Function Layer
 
-    $$\delta_{\theta}(S, y)=\left\|\frac{\mathbf{w}^{\mathrm{O}}}{\left|\mathbf{w}^{\mathrm{O}}\right|}-W_{y}^{\mathrm{L}}\right\|$$
+  最后介绍模型改进的损失函数，根据Santos 2015提出的Ranking Loss, 这篇文章同样使用margin based ranking loss function. 一般的margin function都需要定义一个distance/score function, 从而来区分正负样例. 在santos文中，直接使用了网络最后的输出score。这篇文章利用relation embedding $W_{y}^{L}$, 定义了如下的score distance function:
 
-    来衡量模型的输出$w^O$与正确label对应的vector $W_{y}^{L}$的相关度，然后就是margin function:
+  $$\delta_{\theta}(S, y)=\left\|\frac{\mathbf{w}^{\mathrm{O}}}{\left|\mathbf{w}^{\mathrm{O}}\right|}-W_{y}^{\mathrm{L}}\right\|$$
 
-    $$\begin{array}{l}{\mathcal{L}=\left[\delta_{\theta}(S, y)+\left(1-\delta_{\theta}\left(S, \hat{y}^{-}\right)\right)\right]+\beta\|\theta\|^{2}} \\ {=\left[1+\left\|\frac{\mathbf{w}^{\mathrm{O}}}{\left|\mathbf{w}^{\mathrm{O}}\right|}-W_{y}^{L}\right\|-\left\|\frac{\mathbf{w}^{\mathrm{O}}}{\left|\mathbf{w}^{\mathrm{O}}\right|}-W_{\hat{y}^{-}}^{\mathrm{L}}\right\|\right]} \\ {\quad+\beta\|\theta\|^{2}}\end{array}$$
+  来衡量模型的输出$w^O$与正确label对应的vector $W_{y}^{L}$的相关度，然后就是margin function:
 
-    这里直接设置了1为margin，y−是错误标签，最后用SGD等方法去优化。
+  $$\begin{array}{l}{\mathcal{L}=\left[\delta_{\theta}(S, y)+\left(1-\delta_{\theta}\left(S, \hat{y}^{-}\right)\right)\right]+\beta\|\theta\|^{2}} \\ {=\left[1+\left\|\frac{\mathbf{w}^{\mathrm{O}}}{\left|\mathbf{w}^{\mathrm{O}}\right|}-W_{y}^{L}\right\|-\left\|\frac{\mathbf{w}^{\mathrm{O}}}{\left|\mathbf{w}^{\mathrm{O}}\right|}-W_{\hat{y}^{-}}^{\mathrm{L}}\right\|\right]} \\ {\quad+\beta\|\theta\|^{2}}\end{array}$$
+
+  这里直接设置了1为margin，y−是错误标签，最后用SGD等方法去优化。
 
 3. 实验
    
