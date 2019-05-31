@@ -50,10 +50,15 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 ##### 一、Relation Classification via Convolutional Deep Neural Network
 
 > Zeng,et.al. (2014). Relation Classification via Convolutional Deep Neural Network. Coling, 2335–2344
+> 
 > 论文地址：https://www.aclweb.org/anthology/C14-1220
+> 
 > 读书笔记：https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001827&idx=4&sn=e23122678e7a297df8cbc403456a0989
+> 
 > 论文源码地址：
+> 
 >  - pytorch实现：https://github.com/Thidtc/Relation-Classification-via-Convolutional-Deep-Neural-Network
+> 
 >  - tensorflow实现: https://github.com/FrankWork/conv_relation
 
 1. 论文动机
@@ -113,6 +118,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
     ![PF](T1_Relation_Classification_via_CDNN/img/PF.jpg)
 
     > 图中，单词 been 距离 entity1 的距离为 2，距离 entity2 的距离为-4.
+
     > 这样每个word 就有了两个位置特征[d1,d2]，这两个特征也需要再额外使用Lookup-Table 做Embedding，投影成低维向量，也就是每个相对距离，都对应到一个低维实数向量。 这个Position Feature 的引入其实是突出了两个entity的作用，实验证明PF对效果的提升很明显。   
 
     因此，每个 word 的 Sentence Level Feature 维度为：$d_w + d_p * 2$，其中，$d_w$为word embedding 的维度，$d_p$为position embedding 的维度。
@@ -146,10 +152,15 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 ##### 二、Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification
 
 > Zhou. (2016). Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification. ACL
+> 
 > 论文地址：https://www.aclweb.org/anthology/C14-1220
+> 
 > 读书笔记：https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001827&idx=2&sn=27cd33fa69eaf376a92352f65b293e90
+> 
 > 论文源码地址：
+> 
 >  - tensorflow实现: https://github.com/crownpku/Information-Extraction-Chinese/tree/master/RE_BGRU_2ATT
+> 
 >  - 复现版本：https://github.com/km1994/relation_extraction_study/tree/master/Attention-Based-BiLSTM-relation-extraction
 
 1. 论文动机
@@ -188,9 +199,13 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 ##### 三、Relation Classification via Multi-Level Attention CNNs
 
 > Wang. (2016). Relation Classification via Multi-Level Attention CNNs. ACL
+> 
 > 论文地址：http://iiis.tsinghua.edu.cn/~weblt/papers/relation-classification.pdf
+> 
 > 读书笔记：https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001827&idx=5&sn=f125b23b172f9755c0f02991919deee6 
+> 
 > 论文源码地址：
+> 
 >   - tensorflow 版本：https://github.com/lawlietAi/relation-classification-via-attention-model
 
 
@@ -283,9 +298,13 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 ##### 二、Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification
 
 > Zhou. (2016). Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification. ACL
+> 
 > 论文地址：
+> 
 > 读书笔记：
+> 
 > 论文源码地址：
+> 
 >  - tensorflow实现: 
 
 1. 论文动机
