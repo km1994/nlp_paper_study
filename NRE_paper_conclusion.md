@@ -230,11 +230,12 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
   ![Input_and_Primary_attention](T3_RC_via_attention_model_new/img/Input_and_Primary_attention.webp)
 
 
-  $$\mathbf{w}_{i}^{\mathrm{M}}=\left[\left(\mathbf{w}_{i}^{\mathrm{d}}\right)^{\top},\left(\mathbf{w}_{i, 1}^{\mathrm{p}}\right)^{\top},\left(\mathbf{w}_{i, 2}^{\mathrm{p}}\right)^{\top}\right]^{\top}$$
+$$\mathbf{w}_{i}^{\mathrm{M}}=\left[\left(\mathbf{w}_{i}^{\mathrm{d}}\right)^{\top},\left(\mathbf{w}_{i, 1}^{\mathrm{p}}\right)^{\top},\left(\mathbf{w}_{i, 2}^{\mathrm{p}}\right)^{\top}\right]^{\top}$$
 
   将trigram信息融合进去，设置一个滑动窗口k，以每个word 为中心，左右$k/2$个词作为上下文，然后直接串起来，这样每个词的embedding size变为:$(d_w+2*d_p)∗k$，如下:
 
-  $$\mathbf{z}_{i}=\left[\left(\mathbf{w}_{i-(k-1) / 2}^{\mathrm{M}}\right)^{\top}, \ldots,\left(\mathbf{w}_{i+(k-1) / 2}^{\mathrm{M}}\right)^{\top}\right]^{\top}$$
+ $$\mathbf{z}_{i}=\left[\left(\mathbf{w}_{i-(k-1) / 2}^{\mathrm{M}}\right)^{\top}, \ldots,\left(\mathbf{w}_{i+(k-1) / 2}^{\mathrm{M}}\right)^{\top}\right]^{\top}$$
+
 
   其实这个n-gram过程现在完成，然后卷积的时候，卷积核的size设置为1就可以了。或者现在不做，卷积核设置为k，可以达到同样的效果。但是后面有Attention，因此在这篇文章中，先做了n-gram。 输入层到这里为止，与其他文章完全一样。 下面就是加入 Input Attention 过程。 首先引入两个对角矩阵$A_1,A_2$ 对应每个句子的两个entity. 然后使用word embedding的向量内积运算来衡量某个词$w_i$ 与 $entity e_j,j=1,2$的相关性，这样对角矩阵A的元素就是: $A_{i, i}^{j}=f\left(e_{j}, w_{i}\right)$,其中f就内积运算。最后使用softamx归一化，来定义Attention的权重:
 
@@ -265,7 +266,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
   其中U是Attention中的权重矩阵，$W^L$ 表示relation labels的embedding，跟word/position embedding一样，需要在训练过程更新。这样的G就是一个相关矩阵，每一个元素$G_(i,j)$就表示R∗的第i个元素与第j个label的相关性。然后在对G做列归一化:
 
-  $$A_{i, j}^{\mathrm{p}}=\frac{\exp \left(G_{i, j}\right)}{\sum_{i^{\prime}=1}^{n} \exp \left(G_{i^{\prime}, j}\right)}$$
+$$A_{i, j}^{\mathrm{p}}=\frac{\exp \left(G_{i, j}\right)}{\sum_{i^{\prime}=1}^{n} \exp \left(G_{i^{\prime}, j}\right)}$$
 
   有了Attention Pooling矩阵，在做max pooling：
   $$\mathbf{w}_{i}^{\mathrm{O}}=\max _{j}\left(R^{*} A^{\mathrm{p}}\right)_{i, j}$$
