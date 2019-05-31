@@ -216,6 +216,8 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 2. 论文思路
    
+https://github.com/km1994/relation_extraction_study/blob/master/T3_RC_via_attention_model/img/acnn_structure.png
+
     本文提出了一个多级别的基于注意力的卷积神经网络模型，如下图所示：
 
     ![acnn_structure](T3_RC_via_attention_model/img/acnn_structure.png)
