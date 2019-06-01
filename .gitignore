@@ -13,6 +13,8 @@ data/
 **/data/
 **/saved_models/
 
+T1_Relation_Classification_via_CDNN/saved_models/*
+
 # .tfstate files
 *.tfstate
 *.tfstate.*
