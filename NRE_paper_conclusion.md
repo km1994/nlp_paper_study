@@ -70,7 +70,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
    
    本篇论文的模型框架包含三部分：Word Representation, Feature Extraction, and Output，整体框架如下图所示：
 
-   ![框架](T1_Relation_Classification_via_CDNN/img/frame.jpg)
+   ![框架](T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/img/frame.jpg)
 
     - Word Representation Layer：本文采用 [Turian 2010ACL] 的 Pre-Train 的词向量；
     - Feature Extraction Layer：分别提取 Lexical Leval Feature 和 Sentence Leval Feature；
@@ -84,7 +84,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
     Lexical-Feature 一共分为以下5部分，如下图所示：
 
-      ![Lexical-Feature](T1_Relation_Classification_via_CDNN/img/Lexical-Feature.webp)
+      ![Lexical-Feature](T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/img/Lexical-Feature.webp)
 
       - L1: entity1
       - L2: entity2
@@ -108,14 +108,14 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
     本文提出 CNN 来获取 Sentence Level representation 和自动提取 Sentence Level Feature，该模型架构如下图所示：
 
-    ![Sentence Level Feature](T1_Relation_Classification_via_CDNN/img/Sentence_Level_Feature.webp)
+    ![Sentence Level Feature](T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/img/Sentence_Level_Feature.webp)
 
 
     (2.1) Window Processing Layer 中每个词包含两种特征：
     - WF(word feature)：词向量
     - PF(position feature)：位置特征，针对 CNN 存在无法捕获长距离特征及语义成分，本文采用了 位置特征。每个 word 与两个entity将的相对距离。如下图所示：
 
-    ![PF](T1_Relation_Classification_via_CDNN/img/PF.jpg)
+    ![PF](T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/img/PF.jpg)
 
     > 图中，单词 been 距离 entity1 的距离为 2，距离 entity2 的距离为-4.
 
@@ -136,7 +136,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
     实验结果如下表所示。
 
-    ![实验结果](T1_Relation_Classification_via_CDNN/img/result.png)
+    ![实验结果](T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/img/result.png)
 
 
 4. 个人点评
@@ -173,13 +173,13 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
     本文提出了一种新的神经网络Att-BLSTM用于关系分类。 我们的模型利用双向长短期记忆网络（BLSTM）的神经注意机制来捕获句子中最重要的语义信息。该框架如下图所示：
 
-    ![Att-BLSTM](T2_Attention-Based_BiLSTM_for_RC/img/Att-BLSTM.png)
+    ![Att-BLSTM](T1_FullySupervisedLearning/T2_Attention-Based_BiLSTM_for_RC/img/Att-BLSTM.png)
 
     - Input Layer： 将句子输入到模型中；
     - Embedding Layer：将每个词映射到低维度向量中；
     - BiLSTM Layer：利用 BiLSTM 获取句子中Sentence Level Feature；
     - Attention Layer：生成权重向量，并通过乘以权重向量将每个时间步长的词级特征合并到Sentence Level Feature向量中；设$H=[h_1,h_2,h_3,..h_T]$为BiLSTM的所有step的输出矩阵，$T$为句子长度. 然后经过下面的操作来计算每个step的权重:
-    ![Attention](T2_Attention-Based_BiLSTM_for_RC/img/Attention.png)
+    ![Attention](T1_FullySupervisedLearning/T2_Attention-Based_BiLSTM_for_RC/img/Attention.png)
 
         这样$α$ 就是weight vector, $r$就是最终的Attention-BiLSTM的输出，也即sentence的embedding, 之后使用了softmax来分类，损失函数使用对数似然。
 
@@ -189,7 +189,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
    
    实验结果如下表所示：
 
-   ![Attention](T2_Attention-Based_BiLSTM_for_RC/img/result.jpg)
+   ![Attention](T1_FullySupervisedLearning/T2_Attention-Based_BiLSTM_for_RC/img/result.jpg)
 
 
 4. 个人点评
@@ -219,7 +219,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
   本文提出了一个多级别的基于注意力的卷积神经网络模型，如下图所示：
 
-  ![acnn_structure](T3_RC_via_attention_model_new/img/acnn_structure.png)
+  ![acnn_structure](T1_FullySupervisedLearning/T3_RC_via_attention_model_new/img/acnn_structure.png)
 
   设计了相对复杂的两层Attention机制来尽可能突出句子中哪些部分对relation label有更大的贡献。使用了word similarity来定义句子中word与target entity的相似度，从而根据相似度来引入权重，这是第一层的Attention. 第二层Attention则是对卷积之后Pooling阶段，采用Attention Pooling 而不是Max Pooling. 通过这些操作来减弱噪音，加强相关性强的词的权重。此外也改进了前面Santos提出的Ranking Loss. 下面对文中详细介绍.
 
@@ -227,7 +227,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
   采用 word embedding + position embedding，所以词的表示形式如下所示：
 
-  ![Input_and_Primary_attention](T3_RC_via_attention_model_new/img/Input_and_Primary_attention.webp)
+  ![Input_and_Primary_attention](T1_FullySupervisedLearning/T3_RC_via_attention_model_new/img/Input_and_Primary_attention.webp)
 
   $$\mathbf{w}_{i}^{\mathrm{M}}=\left[\left(\mathbf{w}_{i}^{\mathrm{d}}\right)^{\top},\left(\mathbf{w}_{i, 1}^{\mathrm{p}}\right)^{\top},\left(\mathbf{w}_{i, 2}^{\mathrm{p}}\right)^{\top}\right] \mathbf{T}$$
 
@@ -265,7 +265,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
   $$A_{i, j}^{\mathrm{p}}=\frac{\exp \left(G_{i, j}\right)}{\sum_{i^{\prime}=1}^{n} \exp \left(G_{i^{\prime}, j}\right)}$$
 
   有了Attention Pooling矩阵，在做max pooling：
-  
+
   $$\mathbf{w}_{i}^{\mathrm{O}}=\max _{j}\left(R^{*} A^{\mathrm{p}}\right)_{i, j}$$
 
   2.3. Loss Function Layer
@@ -282,7 +282,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 3. 实验
    
-    ![Input_and_Primary_attention](T3_RC_via_attention_model_new/img/result.webp)
+    ![Input_and_Primary_attention](T1_FullySupervisedLearning/T3_RC_via_attention_model_new/img/result.webp)
 
 4. 个人点评
 
@@ -295,6 +295,154 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
   - 结构复杂 复杂度高，收敛困难，尤其是第二个Attention
 
 **示例**
+
+
+
+
+#### Distant Supervised Learning
+
+上一章的全监督方法都是在完全正确的标注数据集上来做的，因此数据量很小，SemEval 2010 一共是10000左右条文本。因此开始考虑研究如何在大数据集上做关系抽取。2010年提出Distant Supervision可以自动标注训练样本，原理很简单。**利用知识图谱中的两个entity以及对应的某个relation，在corpus中进行回标，如果某个句子中同时包含了两个entity，那么就假定这个句子包含了上述的relation**. 这样就可以获得大量的标注数据。当然缺陷就是假设太强，会引入了很多噪音数据， 因为包含两个entity的句子不一定可以刻画对应的relation，如下, 对于NYT 语料中的第一个句子的确描述了 Founder的关系，但是第二句就不是这个关系，因此属于噪音:
+
+![Distant Supervised Learning](DistantSupervisedLearning/img/dis-1.png)
+
+在2011年提出了Multi Instance Learning的方法来改进原始的Distance supervision的方法，有一个At-Least-One 的前提: **包含两个entity的所有句子中，至少有一个句子可以体现relation，即至少有一个标注正确的句子。**通过结合FreeBase 对NYT语料做Entity Linking，Relation Aligning等操作进行标注， 最终得到一个被广泛使用的关系抽取数据集, 在开始已经描述过详情。正如前面声明，这里面会有噪音数据。 因此在这一系列的文章中，都会针对该噪音问题做一些工作，其中大部分基于Multi Instance来做。简单引用介绍Multi Instance Learning:
+
+> 多示例学习可以被描述为：假设训练数据集中的每个数据是一个包(Bag)，每个包都是一个示例(instance)的集合,每个包都有一个训练标记，而包中的示例是没有标记的；如果包中至少存在一个正标记的示例，则包被赋予正标记；而对于一个有负标记的包，其中所有的示例均为负标记。（这里说包中的示例没有标记，而后面又说包中至少存在一个正标记的示例时包为正标记包，是相对训练而言的，也就是说训练的时候是没有给示例标记的，只是给了包的标记，但是示例的标记是确实存在的，存在正负示例来判断正负类别）。通过定义可以看出，与监督学习相比，多示例学习数据集中的样本示例的标记是未知的，而监督学习的训练样本集中，每个示例都有一个一已知的标记；与非监督学习相比，多示例学习仅仅只有包的标记是已知的，而非监督学习样本所有示例均没有标记。但是多示例学习有个特点就是它广泛存在真实的世界中，潜在的应用前景非常大。 from http://blog.csdn.net/tkingreturn/article/details/39959931
+
+从这个介绍中可以看出来在Multi Instance Learning很适合用在NYT+FreeBase数据集上。
+
+##### 一、Distant Supervision for Relation Extraction via Piecewise Convolutional Neural Networks （未看）
+
+> Zeng (2015). Distant Supervision for Relation Extraction via Piecewise Convolutional Neural Networks. EMNLP
+> 
+> 论文地址：
+> 
+> 读书笔记：
+> 
+> 论文源码地址：
+> 
+>  - tensorflow实现: 
+
+1. 论文动机
+
+  - Distant supervised 会产生有大量噪音或者被错误标注的数据，直接使用supervised的方法进行关系分类，效果很差。
+  - 原始方法大都是基于词法、句法特征来处理， 无法自动提取特征。而且句法树等特征在句子长度边长的话，正确率很显著下降。
+
+2. 论文思路
+
+因此文中使用Multi Instance Learning的at least one假设来解决第一个问题； 在Zeng 2014 的CNN基础上修改了Pooling的方式，解决第二个问题。 先介绍改进的CNN: Piece Wise CNN(PCNN). 总体结构如下, 与Zeng 2014 很类似:
+
+![PCNN](T2_DistantSupervisedLearning/T1_Piecewise_Convolutional_Neural_Networks/img/pcnn-1.png)
+
+输入仍然是一个sentence，Input Layer依然是word embedding + position embedding, 后面接卷积操作。 之后的Pooling层并没有直接使用全局的Max Pooling, 而是局部的max pooling. 文中把一个句子分为三部分，以两个entity为边界把句子分为三段，然后卷积之后对每一段取max pooling, 这样可以得到三个值，相比传统的max-pooling 每个卷积核只能得到一个值，这样可以更加充分有效的得到句子特征信息。 假设一共有个N个卷积核，最终pooling之后得到的sentence embedding的size为: $3N$, 后面再加softmax进行分类，最终得到输出向量$o$, 上面的示意图很清晰了，其中的$c1,c2,c3$是不同卷积核的结果，然后都分为3段进行Pooling。 下面可以减弱错误label问题的Multi-Instance Learning。这里面有一个概念， 数据中包含两个entity的所有句子称为一个Bag。先做几个定义:
+
+  - $$M=M_{1}, M_{2}, \ldots, M_{T}$$ 表示训练数据中的T个bags，每个bags都有一个relation标签.
+  - $M_{i}=m_{i}^{1}, m_{i}^{2}, \ldots, m_{i}^{q_{i}}$ 表示第i个bag内有个$q_i$ instance，也就是句子。
+  - $o$ 表示给定$m_i$的网络模型的输出(未经过softmax)，其中$o_r$表示第r个relation的score
+
+  这样经过softmax 就可以计算每一个类别的概率了
+
+  $$p\left(r | m_{i}^{j} ; \theta\right)=\frac{e^{o_{r}}}{\sum_{k=1}^{n_{1}} e^{o_{k}}}$$
+
+  这里需要说明的是，我们的目的得到每个bag的标签，并不关注bag里面instances的。因为每个bag上的label就是两个entity的relation。 而上面的概率是计算的bag里面某一个instance的，所以需要定义基于Bag的损失函数，文中采取的措施是根据At-Least-One的假设，每个Bag都有至少有一个标注正确的句子，这样就可以从每个bag中找一个得分最高的句子来表示整个bag,于是定义如下的目标函数: 假设训练数据为T个bags: $<M_i,y_i>$:
+
+  ![PCNN](T2_DistantSupervisedLearning/T1_Piecewise_Convolutional_Neural_Networks/img/pcnn-3.png)
+
+  这样到此为止，模型部分完毕，完整的算法如下:
+
+  ![PCNN](T2_DistantSupervisedLearning/T1_Piecewise_Convolutional_Neural_Networks/img/pcnn-4.png)
+
+3. 实验
+
+4. 个人点评
+
+  这篇文章在NYT + FreeBase 数据集上比较好的效果， 也是第一篇使用CNN+Multi Instance来处理Distant Supervision 的关系抽取。相比与Zeng 2014，将Piecewise Pooling 加入到CNN中，以及将Multi Instance来处理Distance Supervised，从而减弱噪音的影响。当然在MIL中直接取了置信度最高的instance作为bag的，肯定会损失一部分信息，因此后续一些文章在上面做了工作。
+
+
+##### 二、Neural Relation Extraction with Selective Attention over Instances
+
+> Lin (2016). Neural Relation Extraction with Selective Attention over Instances.ACL
+> 
+> 论文地址： https://www.aclweb.org/anthology/P16-1200
+> 
+> 读书笔记：https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001827&idx=3&sn=b898f436ae1f97268f6967658d9214f4
+> 
+> 论文源码地址：
+> 
+>  - tensorflow实现: 
+
+1. 论文动机
+   
+  [Zeng 2015] 提出的将许多实例学习与神经网络模型相结合，并在远程监督数据集中取得了不错的效果，但是，该方法假设至少有一个涉及实体对的句子能够表达该实体对间的关系，并且仅在训练和预测中为每个实体对选择最可能的句子，即每一个包中仅仅取置信度最高的instance，而抛弃其他置信度低的instance。这种方法带来的问题是会损失一部分有用的instance，而一个 bag 内可能存在许多个 positive instance。
+
+2. 论文思路
+   
+   论文利用带有 sentence-level 选择注意力机制的 CNN 处理每一个 bag 中所有的 instance，该方法不仅能够减少instance中的噪音，而且还能加强 position instance ，以充分利用训练数据。该模型的整体框架如下图所示：
+
+   ![sentence-level attention-based CNN](T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/img/sentence_level_attention_based_CNN.png)
+
+  本文分为两部分：
+  - Sentence Encoder：利用 CNN 构建句子的分布式表示；
+  - Selective Attention over Instance： 使用基于句子级别的注意力机制来选取 position instance。
+
+  2.1 Sentence Encoder
+
+  ![Sentence_Encoder](T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/img/Sentence_Encoder.png)
+
+  通过以下步骤对实现 Sentence Encoder：
+  - 将句子中的词转化为词向量；
+  - 利用 convolutional layer，max-pooling 和 non-linear 构建 instance 的分布式表示。 
+
+  2.2 Selective Attention over Instance
+
+  为了充分获取 instance 中的信息，论文对所有 instance 进行加权：
+
+  $$\mathbf{s}=\sum_{i} \alpha_{i} \mathbf{x}_{i}$$
+
+  论文提出了两种不同的加权方式：
+
+  - Average：
+    假设集合 X 中所有 instance 的对集合表示的贡献度一样，所以有：
+
+    $$\mathbf{s}=\sum_{i} \frac{1}{n} \mathbf{x}_{i}$$
+
+    **存在问题：数据集中的错误标签的 instance 将带来噪声污染。**
+
+  - Selective Attention
+
+    使用 Selective Attention 来弱化噪声 instance，所以 $\alpha$定义如下：
+
+    $$\alpha_{i}=\frac{\exp \left(e_{i}\right)}{\sum_{k} \exp \left(e_{k}\right)}$$
+
+    其中，$e_i$ 为基于查询的函数，其对输入句子$x_i$ 和预测关系 $r$的匹配程度进行评分。我们选择双线性形式，在不同的备选方案中实现最佳性能：
+
+    $$e_{i}=\mathbf{x}_{i} \mathbf{A} \mathbf{r}$$
+
+    其中，$A$对权重对角矩阵，$r$ 是表示与关系$r$相关联的查询向量。
+
+  最后，得到了加权的s就是bag-level的embedding。最后的输出需要注意，并不是直接用一个全连接层+softmax.而是根据向量的相似度计算bag的emebdding 与 每个relation的相似度作为relation的score，比如relation r的score计算方式:
+
+  $$\mathbf{o}=\mathbf{M s}+\mathbf{d}$$
+  
+  
+  每个relation的score计算完之后，通过 softmax 层定义条件概率 $p(r | S, \theta)$：
+
+  $$p(r | S, \theta)=\frac{\exp \left(o_{r}\right)}{\sum_{k=1}^{n_{r}} \exp \left(o_{k}\right)}$$
+
+
+  因此，当具有最高概率的句子的权重被设置为1而其他的权重被设置为0时，它们用于多实例学习的方法可以被视为特殊情况作为我们的选择性注意。
+
+3. 实验
+   
+  ![Sentence_Encoder](T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/img/f3.webp)
+
+  ![Sentence_Encoder](T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/img/t2.webp)
+
+4. 个人点评
+
+
+
+
 ##### 二、Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification
 
 > Zhou. (2016). Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification. ACL
@@ -314,10 +462,11 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 
 ### 参考资料
-[Turian 2010ACL] [Word representations: a simple and general method for semi-supervised learning](https://www.aclweb.org/anthology/P10-1040)
+[Turian 2010ACL][Word representations: a simple and general method for semi-supervised learning](https://www.aclweb.org/anthology/P10-1040)
 
+[关系抽取(分类)总结][关系抽取(分类)总结](http://shomy.top/2018/02/28/relation-extraction/)
 
-
+[Zeng 2015][Distant Supervision for Relation Extraction via Piecewise Convolutional Neural Networks](http://www.emnlp2015.org/proceedings/EMNLP/pdf/EMNLP203.pdf)
 
 
 
