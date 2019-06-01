@@ -231,7 +231,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 
 $$
-\mathbf{w}_{i}^{\mathrm{M}}=\left[\left(\mathbf{w}_{i}^{\mathrm{d}}\right)^{\top},\left(\mathbf{w}_{i, 1}^{\mathrm{p}}\right)^{\top},\left(\mathbf{w}_{i, 2}^{\mathrm{p}}\right)^{\top}\right]^{\top}
+\mathbf{w}_{i}^{\mathrm{M}}=\left[\left(\mathbf{w}_{i}^{\mathrm{d}}\right)^{\top},\left(\mathbf{w}_{i, 1}^{\mathrm{p}}\right)^{\top},\left(\mathbf{w}_{i, 2}^{\mathrm{p}}\right)^{\top}\right] \mathbf{T}
 $$
 
   将trigram信息融合进去，设置一个滑动窗口k，以每个word 为中心，左右$k/2$个词作为上下文，然后直接串起来，这样每个词的embedding size变为:$(d_w+2*d_p)∗k$，如下:
