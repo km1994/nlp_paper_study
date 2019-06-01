@@ -18,6 +18,7 @@ data/
 *.tfstate.*
 *checkpoint
 **/model.ckpt*
+*.ckpt*
 # .tfvars files
 *.tfvars
 *.hdf5
