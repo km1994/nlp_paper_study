@@ -11,11 +11,13 @@ model/
 data/
 **/model/
 **/data/
+**/saved_models/
 
 # .tfstate files
 *.tfstate
 *.tfstate.*
-
+*checkpoint
+*model.ckpt*
 # .tfvars files
 *.tfvars
 *.hdf5
