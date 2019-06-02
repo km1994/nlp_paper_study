@@ -303,7 +303,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 上一章的全监督方法都是在完全正确的标注数据集上来做的，因此数据量很小，SemEval 2010 一共是10000左右条文本。因此开始考虑研究如何在大数据集上做关系抽取。2010年提出Distant Supervision可以自动标注训练样本，原理很简单。**利用知识图谱中的两个entity以及对应的某个relation，在corpus中进行回标，如果某个句子中同时包含了两个entity，那么就假定这个句子包含了上述的relation**. 这样就可以获得大量的标注数据。当然缺陷就是假设太强，会引入了很多噪音数据， 因为包含两个entity的句子不一定可以刻画对应的relation，如下, 对于NYT 语料中的第一个句子的确描述了 Founder的关系，但是第二句就不是这个关系，因此属于噪音:
 
-![Distant Supervised Learning](DistantSupervisedLearning/img/dis-1.png)
+![Distant Supervised Learning](T2_DistantSupervisedLearning/img/dis-1.png)
 
 在2011年提出了Multi Instance Learning的方法来改进原始的Distance supervision的方法，有一个At-Least-One 的前提: **包含两个entity的所有句子中，至少有一个句子可以体现relation，即至少有一个标注正确的句子。**通过结合FreeBase 对NYT语料做Entity Linking，Relation Aligning等操作进行标注， 最终得到一个被广泛使用的关系抽取数据集, 在开始已经描述过详情。正如前面声明，这里面会有噪音数据。 因此在这一系列的文章中，都会针对该噪音问题做一些工作，其中大部分基于Multi Instance来做。简单引用介绍Multi Instance Learning:
 
@@ -336,7 +336,7 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 输入仍然是一个sentence，Input Layer依然是word embedding + position embedding, 后面接卷积操作。 之后的Pooling层并没有直接使用全局的Max Pooling, 而是局部的max pooling. 文中把一个句子分为三部分，以两个entity为边界把句子分为三段，然后卷积之后对每一段取max pooling, 这样可以得到三个值，相比传统的max-pooling 每个卷积核只能得到一个值，这样可以更加充分有效的得到句子特征信息。 假设一共有个N个卷积核，最终pooling之后得到的sentence embedding的size为: $3N$, 后面再加softmax进行分类，最终得到输出向量$o$, 上面的示意图很清晰了，其中的$c1,c2,c3$是不同卷积核的结果，然后都分为3段进行Pooling。 下面可以减弱错误label问题的Multi-Instance Learning。这里面有一个概念， 数据中包含两个entity的所有句子称为一个Bag。先做几个定义:
 
-  - $$M=M_{1}, M_{2}, \ldots, M_{T}$$ 表示训练数据中的T个bags，每个bags都有一个relation标签.
+  -  $M=M_{1}, M_{2}, \ldots, M_{T}$表示训练数据中的T个bags，每个bags都有一个relation标签.
   - $M_{i}=m_{i}^{1}, m_{i}^{2}, \ldots, m_{i}^{q_{i}}$ 表示第i个bag内有个$q_i$ instance，也就是句子。
   - $o$ 表示给定$m_i$的网络模型的输出(未经过softmax)，其中$o_r$表示第r个relation的score
 
@@ -352,9 +352,9 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
   ![PCNN](T2_DistantSupervisedLearning/T1_Piecewise_Convolutional_Neural_Networks/img/pcnn-4.png)
 
-3. 实验
+1. 实验
 
-4. 个人点评
+2. 个人点评
 
   这篇文章在NYT + FreeBase 数据集上比较好的效果， 也是第一篇使用CNN+Multi Instance来处理Distant Supervision 的关系抽取。相比与Zeng 2014，将Piecewise Pooling 加入到CNN中，以及将Multi Instance来处理Distance Supervised，从而减弱噪音的影响。当然在MIL中直接取了置信度最高的instance作为bag的，肯定会损失一部分信息，因此后续一些文章在上面做了工作。
 
@@ -434,12 +434,36 @@ m.0ccvx    m.05gf08    queens    belle_harbor    /location/location/contains    
 
 3. 实验
    
+  文中首先做了在CNN/PCNN的基础上，如何使用bag内的信息的对比试验，结果如下，其中CNN/PCNN表示没有引入MIL，+ONE表示ZENG2015的取置信度最高的一个，+AVE与+ATT则是文中提出的两个:
+
   ![Sentence_Encoder](T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/img/f3.webp)
 
+  可以看出来，Attention的效果最好, 而且+ONE比+AVE要稍微好一些，也很容易理解，+AVE对噪音数据放大了影响。 第二个对比实验则是与传统方法的对比:
+  ![Sentence_Encoder](T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/img/PerformanceComparison.png)
+
+  最后一组实验则是更进一步验证Attention的作用。 因为在测试数据中，有超过3/4的bags 只有一个句子。 因此文中把拥有多个句子的entity pair 提取出来验证效果，在该子集上使用一下三种设置:
+
+  - One: 表示在每个bag里面随机选择一个句子来进行预测
+  - Two: 表示在每个bag里面随机选择两个句子来进行预测
+  - All: 使用bag里面所有的句子来进行测试
+  评价指标使用P@N，结果如下:
   ![Sentence_Encoder](T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/img/t2.webp)
 
 4. 个人点评
 
+  相比于前三期论文采用label完全准确的SemEval 2010 Task 8 数据集来进行关系分类的全监督方法，本期的论文所采用的是利用Distant Supervision的方法自动标注训练样本的NYT 语料，这种方法虽然能够获取更多的训练集，但是也带来了噪声污染（因为有些包含同一对实体对的句子不一定表达相同的关系）。
+  动机：本文是在【Zeng 2015】基础上的一个改进，Zeng 2015 的方法只取每一个bag中置信度最高的instance，这样会丢失很多的信息，因为每一个bag内可能有很多个positive instance。应用Attention机制可以减弱噪音，加强正样本，因此可以更充分的利用信息。
+  
+  问题与思考：
+  1. 虽然本论文采用基于position 的词向量，但是该方法是否能够真的有效解决 CNN 在处理长句子时所出现的长距离依赖问题？
+  2. 是否能够解决一对实体对在不同的句子中所表达的关系差异问题？
+  3. 前几期论文的方法，更多的是在给定实体对的情况下进行关系抽取，是否能够向百度竞赛里面一样，只给出一个分好词的句子以及每个词的词性，然后模型自动抽取里面的关系实体？
+
+- 优点
+    
+    [Zeng 2015] 提出的将许多实例学习与神经网络模型相结合，并在远程监督数据集中取得了不错的效果，但是，该方法假设至少有一个涉及实体对的句子能够表达该实体对间的关系，并且仅在训练和预测中为每个实体对选择最可能的句子，即每一个包中仅仅取置信度最高的instance，而抛弃其他置信度低的instance。这种方法带来的问题是会损失一部分有用的instance，而一个 bag 内可能存在许多个 positive instance。
+
+- 缺点
 
 
 
