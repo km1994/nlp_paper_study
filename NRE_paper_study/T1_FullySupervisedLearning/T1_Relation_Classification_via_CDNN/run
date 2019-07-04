@@ -1,0 +1,12 @@
+#! /bin/bash
+
+mkdir -p saved_models
+
+CUDA_VISIBLE_DEVICES=2 python3  src/train.py  --num_epochs=200 --word_dim=50
+# python src/train.py  --num_epochs=200 --word_dim=50 --test
+# src/scorer.pl data/results.txt data/test_keys.txt 
+
+# python src/train.py  --num_epochs=200 --word_dim=300
+# python src/train.py  --num_epochs=200 --word_dim=300 --test
+# src/scorer.pl data/results.txt data/test_keys.txt 
+
