@@ -1,5 +1,14 @@
 # 对话系统
 
+> 译者：哈工大SCIR本科生 文灏洋（指导老师：车万翔）
+> 地址：https://zhuanlan.zhihu.com/p/45210996
+> 转载：莲说
+> 地址：https://github.com/km1994/relation_extraction_study/tree/master/QA_study
+> 思维导图：https://shimo.im/mindmaps/gN9AlwSxna0iU2JN
+> 论文：A Survey on Dialogue Systems: Recent Advances and New Frontiers
+> 原文：https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1711.01731v1
+
+
 ## 摘要
 
 对话系统已经越来越引起人们的注意。对话系统的最新进展绝大多数是由深度学习技术所贡献的，这些技术已经被用来强化各类大数据应用，如计算机视觉，自然语言处理和推荐系统。对于对话系统，深度学习技术可以通过利用大规模数据来学习有意义的特征表示和回复生成策略，同时只需要极少量手工特征。在这篇文章中，我们从不同视角，对近期对话系统的进展进行概述，并讨论一些可能的研究方向。具体而言，我们将现有对话系统大致分为了面向任务型与非面向任务型两种模型，然后描述深度学习是如何利用表示算法提升现有性能，最后讨论一些引人注目的、可以带领对话系统研究进入新的高度的研究方向。
