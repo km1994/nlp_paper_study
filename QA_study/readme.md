@@ -1,11 +1,17 @@
 # 对话系统
 
 > 译者：哈工大SCIR本科生 文灏洋（指导老师：车万翔）
+> 
 > 地址：https://zhuanlan.zhihu.com/p/45210996
+> 
 > 转载：莲说
+> 
 > 地址：https://github.com/km1994/relation_extraction_study/tree/master/QA_study
+> 
 > 思维导图：https://shimo.im/mindmaps/gN9AlwSxna0iU2JN
+> 
 > 论文：A Survey on Dialogue Systems: Recent Advances and New Frontiers
+> 
 > 原文：https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1711.01731v1
 
 
