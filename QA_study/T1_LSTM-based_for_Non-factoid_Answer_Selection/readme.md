@@ -71,7 +71,7 @@ BiLSTM generates distributed representations for both the question and answer in
 Following the same ranking loss in (Feng et al., 2015; Weston et al., 2014; Hu et al., 2014), we define the training objective as a hinge loss.
 
 $$
-L=\max \left\{0, M-\operatorname{cosin} e\left(q, a_{+}\right)+\operatorname{cosin} e\left(q, a_{-}\right)\right\}
+L=\max {0, M-\operatorname{cosin} e(q, a_{+})+\operatorname{cosin} e(q, a_{-})}
 $$
 
 优点：因为对于共享层网络，问题和答案向量中的对应元素表示相同的biLSTM输出。
