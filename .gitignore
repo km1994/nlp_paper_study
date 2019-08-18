@@ -41,4 +41,10 @@ task/.idea/*
 *.tsv
 *.neg
 *.pos
+*.pdf
+*.ppt
+*.pptx
+*.doc
+*.docx
+
 
