@@ -104,6 +104,7 @@ XLNet-Base和BERT-Base用的语料一样。但是貌似没说参数量一样。�
 
 [4] [XLNet Generalized Autoregressive Pretraining for Language Understanding 翻译](https://yuanxiaosc.github.io/2019/07/03/XLNet_Generalized_Autoregressive_Pretraining_for_Language_Understanding翻译/)
 
+[5] [XLNet:运行机制及和Bert的异同比较](https://zhuanlan.zhihu.com/p/70257427)
 
 
 
