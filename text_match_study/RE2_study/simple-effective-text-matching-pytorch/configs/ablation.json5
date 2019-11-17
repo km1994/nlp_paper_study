@@ -1,0 +1,183 @@
+[
+    // original version
+    {
+        name: 'original',
+        __parents__: [
+            'default',
+            'data/snli',
+        ],
+        __repeat__: 10,
+    },
+    {
+        name: 'original',
+        __parents__: [
+            'default',
+            'data/scitail',
+        ],
+        __repeat__: 10,
+    },
+    {
+        name: 'original',
+        __parents__: [
+            'default',
+            'data/quora',
+        ],
+        __repeat__: 10,
+    },
+    {
+        name: 'original',
+        __parents__: [
+            'default',
+            'data/wikiqa',
+        ],
+        __repeat__: 10,
+    },
+    // alignment alternative
+    {
+        name: 'alignment-alt',
+        __parents__: [
+            'default',
+            'data/snli',
+        ],
+        alignment: 'identity',
+        __repeat__: 10,
+    },
+    {
+        name: 'alignment-alt',
+        __parents__: [
+            'default',
+            'data/scitail',
+        ],
+        __repeat__: 10,
+        alignment: 'linear'
+    },
+    {
+        name: 'alignment-alt',
+        __parents__: [
+            'default',
+            'data/quora',
+        ],
+        __repeat__: 10,
+        alignment: 'identity'
+    },
+    {
+        name: 'alignment-alt',
+        __parents__: [
+            'default',
+            'data/wikiqa',
+        ],
+        __repeat__: 10,
+        alignment: 'identity'
+    },
+    // prediction alternative
+    {
+        name: 'prediction-alt',
+        __parents__: [
+            'default',
+            'data/snli',
+        ],
+        prediction: 'simple',
+        __repeat__: 10,
+    },
+    {
+        name: 'prediction-alt',
+        __parents__: [
+            'default',
+            'data/scitail',
+        ],
+        __repeat__: 10,
+        prediction: 'simple',
+    },
+    {
+        name: 'prediction-alt',
+        __parents__: [
+            'default',
+            'data/quora',
+        ],
+        __repeat__: 10,
+        prediction: 'simple',
+    },
+    {
+        name: 'prediction-alt',
+        __parents__: [
+            'default',
+            'data/wikiqa',
+        ],
+        __repeat__: 10,
+        prediction: 'full',
+    },
+    // residual connection
+    {
+        name: 'residual-conn',
+        __parents__: [
+            'default',
+            'data/snli',
+        ],
+        connection: 'residual',
+        __repeat__: 10,
+    },
+    {
+        name: 'residual-conn',
+        __parents__: [
+            'default',
+            'data/scitail',
+        ],
+        __repeat__: 10,
+        connection: 'residual'
+    },
+    {
+        name: 'residual-conn',
+        __parents__: [
+            'default',
+            'data/quora',
+        ],
+        __repeat__: 10,
+        connection: 'residual'
+    },
+    {
+        name: 'residual-conn',
+        __parents__: [
+            'default',
+            'data/wikiqa',
+        ],
+        __repeat__: 10,
+        connection: 'residual'
+    },
+    // simple fusion
+    {
+        name: 'simple-fusion',
+        __parents__: [
+            'default',
+            'data/snli',
+        ],
+        __repeat__: 10,
+        fusion: 'simple'
+    },
+    {
+        name: 'simple-fusion',
+        __parents__: [
+            'default',
+            'data/scitail',
+        ],
+        __repeat__: 10,
+        fusion: 'simple'
+    },
+    {
+        name: 'simple-fusion',
+        __parents__: [
+            'default',
+            'data/quora',
+        ],
+        __repeat__: 10,
+        fusion: 'simple'
+    },
+    {
+        name: 'simple-fusion',
+        __parents__: [
+            'default',
+            'data/wikiqa',
+        ],
+        __repeat__: 10,
+        fusion: 'simple'
+    }
+]

@@ -1,4 +1,4 @@
-# XLNet Generalized Autoregressive Pretraining for Language Understanding
+# Transformer-XL
 
 面向任务：Language Understanding
 论文地址：[https://arxiv.org/abs/1901.02860](https://arxiv.org/abs/1901.02860)

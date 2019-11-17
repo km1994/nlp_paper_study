@@ -1,0 +1,81 @@
+{
+    basic: {
+        output_dir: 'default',
+        seed: null,
+        cuda: true,
+        multi_gpu: false,
+        deterministic: true, // GPU deterministic mode, will slow down training
+    },
+
+    data: {
+        data_dir: 'default',
+        min_df: 5,
+        max_vocab: 999999, // capacity for words including out of embedding words
+        max_len: 999, // large enough number, treated as unlimited
+        min_len: 1,
+        lower_case: true, // whether to treat the data and embedding as lowercase.
+        sort_by_len: false,
+        pretrained_embeddings: 'F:/document/datasets/nlpData/word_embedding/glove_embeddings/glove_840B_300d.txt',
+        embedding_dim: 300,
+        embedding_mode: 'freq', // (options: 'freq', 'last', 'avg', 'strict') what to do when duplicated embedding tokens (after normalization) are found.
+    },
+
+    model: {
+        hidden_size: 150,
+        dropout: 0.2,
+        blocks: 2,
+        fix_embeddings: true,
+        encoder: {
+            encoder: 'cnn', // cnn, lstm
+            enc_layers: 2,
+            kernel_sizes: [3],
+        },
+        alignment: 'linear', // linear, identity
+        fusion: 'full', // full, simple
+        connection: 'aug', // aug, residual
+        prediction: 'full', // full, symmetric, simple
+
+    },
+
+    logging: {
+        log_file: 'log.txt',
+        log_per_samples: 5120,
+        summary_per_logs: 20,
+        tensorboard: true,
+    },
+
+    training: {
+        epochs: 30,
+        batch_size: 128,
+        grad_clipping: 5,
+        weight_decay: 0,
+        lr: 1e-3,
+        beta1: 0.9,
+        beta2: 0.999,
+        max_loss: 999., // tolerance for unstable training
+        lr_decay_rate: 0.95, // exp decay rate for lr
+        lr_decay_samples: 128000,
+        min_lr: 6e-5,
+        lr_warmup_samples: 0, // linear warmup steps for lr
+    },
+
+    evaluation: {
+        // available metrics: acc, auc, f1, map, mrr
+        metric: 'acc', // for early stopping
+        watch_metrics: ['auc', 'f1'], // shown in logs
+        eval_file: 'dev',
+        eval_per_samples: 6400,
+        eval_per_samples_warmup: 40000,
+        eval_warmup_samples: 0, // after this many steps warmup mode for eval ends
+        min_samples: 0, // train at least these many steps, not affected by early stopping
+        tolerance_samples: 400000, // early stopping
+        eval_epoch: true, // eval after epoch
+        eval_subset: null,
+    },
+
+    persistence: {
+        resume: null,
+        save: true,
+        save_all: false,
+    },
+}

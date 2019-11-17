@@ -1,0 +1,38 @@
+[
+    {
+        name: 'benchmark',
+        __parents__: [
+            'default',
+            'data/snli',
+        ],
+        __repeat__: 10,
+        eval_file: 'test',
+    },
+    {
+        name: 'benchmark',
+        __parents__: [
+            'default',
+            'data/scitail',
+        ],
+        __repeat__: 10,
+        eval_file: 'test',
+    },
+    {
+        name: 'benchmark',
+        __parents__: [
+            'default',
+            'data/quora',
+        ],
+        __repeat__: 10,
+        eval_file: 'test',
+    },
+    {
+        name: 'benchmark',
+        __parents__: [
+            'default',
+            'data/wikiqa',
+        ],
+        __repeat__: 10,
+        eval_file: 'test',
+    },
+]
