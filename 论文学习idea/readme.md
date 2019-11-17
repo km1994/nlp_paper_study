@@ -162,7 +162,7 @@
 
 #### 效果图
 
-![](img/1.png)
+
 
 
 ### Arxiv Vanity
