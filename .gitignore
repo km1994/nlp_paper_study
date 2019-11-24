@@ -10,6 +10,8 @@
 model/
 data/
 **/model/
+**/models/
+**/outputs/
 **/data/
 **/saved_models/
 
@@ -25,6 +27,7 @@ text_simple_study/RE2_study/simple-effective-text-matching-pytorch/*
 *.ckpt*
 # .tfvars files
 *.tfvars
+*.all
 *.hdf5
 *.json
 *.txt

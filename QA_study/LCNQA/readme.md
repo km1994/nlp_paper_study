@@ -18,8 +18,9 @@ We conduct extensive experiments on both document-based question answering and k
 - 融合词级和字级信息的方法，在一定程度上可以缓解不同分词方法之间的不匹配问题，但这些方法仍然受到原有词序结构的影响。 它们通常依赖于一个现有的词的标记，这必须在同一时间做出分词选择，例如，“中国”(China)和“中国人”(Chinese)处理“中国人民”(Chinese people)。 混合只是在它们的框架中的一个位置进行指导。
 
 - 特定的任务，如问题回答(QA)可以提出进一步的挑战，短文本匹配。 
-  - 在基于文档的问答系统(DBQA)中，匹配度被认为是反映一个句子回答给定问题的可能性的指标，其中问题和候选答案通常来自不同的来源，并且可能表现出明显不同的风格或句法结构，例如网页搜索中的查询和网页中的句子。 这可能会进一步加剧错配问题。 
-  - 在基于知识的问题回答(KBQA)中，关键任务之一是用知识库谓词语句匹配问题中的关系表达式，例如成立公司的地方。 这里，两种表达方式的差异更为明显，自然语言问题中可能有数十种不同的语言表达方式，而这些语言表达方式只对应于一个知识库谓词短语。 这些表达问题使 KBQA 成为一个更加艰巨的任务。 以往的研究[ Yih，He，and Meek2014，Yih et al. 2015]对不同的表达方式采用字母三叉树，这与汉字的字符水平相似。 格是词和字的组合，所以格可以同时利用词的信息。
+  - 基于文档的问答系统(DBQA)。匹配度反映对一个给定的问题，一个句子是他的回答的概率，问题和回答来源不同，因此会存在风格和句法结构都不同的问题。
+  
+  - 基于知识的问题回答(KBQA)。一个关键任务是对知识库的谓词短语来匹配问题的关系表达式。
 
 - 最近的研究进展致力于多粒度信息的匹配建模。 [ Seo 等人2016，Wang，Hamza 和 Florian2017]将单词和字符混合成一个简单的序列(单词级) ，并且[ Chen 等人2018]利用多个卷积内核大小来捕获不同的 n-grams。 但是汉语中的大多数字都可以看作是单独的词，因此直接将汉字与相应的词组合起来可能会失去这些字所能表达的意义。 由于顺序输入的原因，他们要么在处理字符序列时丢失字级信息，要么不得不做出分词选择。
 
@@ -39,13 +40,13 @@ SIAMESE ARCHITECTURE 及其变体已被广泛应用于句子匹配和基于匹�
 
 ![](img/2.png)
 
-> $ f_{qu} $ 和 $ f_{can} $ 分别表示通过 CNNs 编码之后的 question 和 candidate 的特征向量。⊙是元素级乘法。 
+> $f_{qu}$ 和 $f_{can}$ 分别表示通过 CNNs 编码之后的 question 和 candidate 的特征向量。⊙是元素级乘法。 
 
 训练目标是最小化二进制交叉熵损失，定义为:
 
 ![](img/3.png)
 
-> $ f_{i} $ 是第 i 哥训练对的 {0，1} 标签。
+> $f_{i}$ 是第 i 哥训练对的 {0，1} 标签。
 
 **关键问题：** 句子表示可以是原始 CNN，也可以是 Lattice CNN。在原始 CNN 中，卷积核按照顺序扫描每个 n-gram，并得到一个特征向量，该向量可以看作是中心词的表示，并被传递至下一层。但是，每一个词在每一个 lattice 中可能具有不同粒度的上下文词，并且可以被视为具有相同长度的卷积核的中心。因此，不同于原始 CNN，lattice CNN 对于一个词可能产生多个特征向量，这是将标准CNN直接用于lattice输入的关键挑战。
 
@@ -98,7 +99,7 @@ word lattice可以看作有向图，并通过 Direct Graph Convolutional network
 数据集选自 NLPCC-2016 评估任务的中文问答数据集：
 
 - DBQA：是一个基于文档的问题回答数据集。 在测试集中有8.8 k 的问题和182k 的问句对用于训练，6k 的问题和123k 的问句对用于测试。 平均每个问题有20.6个候选句子和1.04个黄金答案。 问题的平均长度为15.9个字符，每个候选句子平均有38.4个字符。 问句和句子都是自然语言的句子，可能比 KBQA 更多地共享相似的词语和表达方式。 但是候选句子是从网页上提取出来的，而且通常比问句长得多，还有许多不相关的从句。
-- DBQA：是一种基于知识的关系抽取数据集。 我们按照与[ Lai 等人2017]相同的预处理过程来清理数据集，并将问题中提到的实体替换为特殊标记。 在训练集中有14.3 k 问题，其中问题谓词对为273k，问题谓词对为156k，问题谓词对为9.4 k。 每个问题只包含一个黄金谓词。 每个问题平均有18.1个候选谓词和8.1个字符长度，而一个 KB 谓词平均只有3.4个字符长。 注意，知识库谓词通常是一个简洁的短语，与自然语言问题相比，用词选择有很大的不同，这给解决带来了不同的挑战。
+- KBQA：是一种基于知识的关系抽取数据集。 我们按照与[ Lai 等人2017]相同的预处理过程来清理数据集，并将问题中提到的实体替换为特殊标记。 在训练集中有14.3 k 问题，其中问题谓词对为273k，问题谓词对为156k，问题谓词对为9.4 k。 每个问题只包含一个黄金谓词。 每个问题平均有18.1个候选谓词和8.1个字符长度，而一个 KB 谓词平均只有3.4个字符长。 注意，知识库谓词通常是一个简洁的短语，与自然语言问题相比，用词选择有很大的不同，这给解决带来了不同的挑战。
 
 我们用来构造 word lattice 的词汇表包含 156k 个单词，其中包括 9.1k 个单字符的单词。 平均而言，每个 DBQA 问题在其 lattice 中包含 22.3 个标记(单词或字符) ，每个 DBQA 候选句子有 55.8 个标记，每个 KBQA 问题有 10.7 个标记，每个 KBQA 谓词包含 5.1 个标记。
 
@@ -113,3 +114,8 @@ word lattice可以看作有向图，并通过 Direct Graph Convolutional network
 
 In this paper, we propose a novel neural network matching method (LCNs) for matching based question-answering in Chinese. Rather than relying on a word sequence only, our model takes word lattice as input. By performing CNNs over multiple n-gram context to exploit multi-granularity information, LCNs can relieve the word mismatch challenges. Thorough experiments show that our model can better explore the word lattice via convolutional operations and rich context-aware pooling, thus outperforms the state-of-the-art models and competitive baselines by a large margin. Further analyses exhibit that lattice input takes advantage of the word and character-level information, and the vocabulary-based lattice constructor outperforms the strategies that combine characters and different word segmentation together. （在本文中，我们提出了一种新的基于神经网络的中文匹配问题的神经网络匹配方法（LCN）。 我们的模型不是仅依赖单词序列，而是将单词晶格作为输入。 通过在多个n-gram上下文上执行CNN以利用多粒度信息，LCN可以缓解单词不匹配的挑战。 全面的实验表明，我们的模型可以通过卷积运算和丰富的上下文感知池更好地探索单词晶格，因此在很大程度上优于最新模型和竞争基准。 进一步的分析表明，晶格输入利用了单词和字符级别的信息，而基于词汇的晶格构造器的性能优于将字符和不同的单词分割组合在一起的策略。） 
 
+## 参考资料
+
+1. [Lattice CNNs for Matching Based Chinese Question Answering](https://arxiv.org/pdf/1902.09087)
+2. [github: Lattice CNNs for Matching Based Chinese Question Answering](https://github.com/Erutan-pku/LCN-for-Chinese-QA)
+3. [Lattice CNNs for Matching Based Chinese Question Answering 读书笔记](https://blog.csdn.net/weixin_40341844/article/details/101767163)
