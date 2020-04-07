@@ -20,21 +20,30 @@ Adversarial training, which minimizes the maximal risk for label-preserving inpu
 
 ## ADVERSARIAL TRAINING FOR LANGUAGE UNDERSTANDING
 
-### PGD FOR ADVERSARIAL TRAINING   PGD 对抗体训练中心
+### Min-Max公式
 
-标准对抗训练的目的是找出一系列参数 $\theta^{*}$ ，以尽量减少正常球内任何一个$\delta$的最大风险:
+![](img/4.png)
 
-![1](img/1.png)
+该公式分为两个部分，一个是内部损失函数的最大化，一个是外部经验风险的最小化。 
 
-其中 D 是数据分布，y 是标号，L 是某个损失函数。 我们使用 Frobenius 范数来约束 $\delta$。 对于神经网络，外部的“最小”是非凸的，内部的“最大”是非凹的。 然而，2018年的马德里论证表明，这个鞍点问题可以可靠地解决与 SGD 的外部最小化和 PGD (大规模约束优化的标准方法，见 combettes2011近端和 goldstein2014场)的内部最大化。
+1. 内部 max 是为了找到 worst-case 的扰动，也就是攻击，其中，L 为损失函数，S 为扰动的范围空间。 
 
-特别地，对于约束 ${||δ||}_{F}≤ϵ$ ，在附加损失函数为局部线性的假设下，PGD 在每次迭代中采取以下步骤(步长) :
+2. 外部 min 是为了基于该攻击方式，找到最鲁棒的模型参数，也就是防御，其中 D 是输入样本的分布。 
 
-![](img/2.png)
+公式简单清晰地定义了对抗样本攻防“矛与盾”的两个问题：如何构造足够强的对抗样本？以及，如何使模型变得刀枪不入？剩下的，就是如何求解的问题了。
 
-### LARGE-BATCH ADVERSARIAL TRAINING FOR FREE
+## 对抗训练的作用
 
-![](img/3.png)
+一是提高模型对恶意攻击的鲁棒性；
+
+二是提高模型的泛化能力。
+
+在 CV 任务，根据经验性的结论，对抗训练往往会使得模型在非对抗样本上的表现变差，然而神奇的是，在 NLP 任务中，模型的泛化能力反而变强了。
+
+在 NLP 任务中，对抗训练的角色不再是为了防御基于梯度的恶意攻击，反而更多的是作为一种 regularization，提高模型的泛化能力。
+
+
+
 
 ## 结论
 
