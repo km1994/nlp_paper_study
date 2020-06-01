@@ -234,3 +234,4 @@ $$h_{u}^{0}=W \operatorname{ord}(u) \oplus P O S(u)$$
 1. [论文阅读课3-GraphRel: Modeling Text as Relational Graphs for(实体关系联合抽取，重叠关系，关系之间的关系，自动提取特征）](https://blog.csdn.net/weixin_40485502/article/details/104311665)
 2. [《GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction》阅读记录](https://blog.csdn.net/qq_40931181/article/details/102709340)
 3. [NLP论文阅读笔记（Ⅲ）](https://doublebelief.github.io/2019/12/31/NLPpaperNotes3/)
+4. [《基于关系图的实体关系联合抽取》论文笔记](https://zhuanlan.zhihu.com/p/75745899)
