@@ -165,7 +165,7 @@ $$h_{u}^{0}=W \operatorname{ord}(u) \oplus P O S(u)$$
 ##### Extraction of Entities and Relations
 
 - 输入：以上特征
-- 损失函数： categorical loss ($ eloss_{1p}$)
+- 损失函数： categorical loss ($eloss_{1p}$)
 - 步骤
   - 预测词的实体
   - 提取每一对词的关系
@@ -199,7 +199,7 @@ $$h_{u}^{0}=W \operatorname{ord}(u) \oplus P O S(u)$$
 
 3. Bi-GCN 考虑关系权重的传递，并且从每个词中提取出更充足的特征
 
-4. 利用来自第二阶段的较新单词特征，再次执行命名实体和关系分类，以进行更可靠的关系预测，此时对应的损失函数为 $ eloss_{2p}$和$rloss_{2p}$
+4. 利用来自第二阶段的较新单词特征，再次执行命名实体和关系分类，以进行更可靠的关系预测，此时对应的损失函数为 $eloss_{2p}$和$rloss_{2p}$
 
 
 #### Training Detail
