@@ -103,6 +103,7 @@
 
 > 引用文章：[中文NER的正确打开方式: 词汇增强方法总结 (从Lattice LSTM到FLAT)](https://zhuanlan.zhihu.com/p/142615620)
 > 作者：[JayLou娄杰【知乎专栏《高能NLP》作者】](https://zhuanlan.zhihu.com/p/142615620)
+> github: [DeepIE: Deep Learning for Information Extraction](https://github.com/loujie0822/DeepIE)
 
 ### 4.1 前言
 
@@ -292,7 +293,137 @@ $p_d$的计算方式与vanilla Transformer相同。
 综上，FLAT采取这种全连接自注意力结构，可以直接字符与其所匹配词汇间的交互，同时捕捉长距离依赖。如果将字符与词汇间的attention进行masked，性能下降明显，可见引入词汇信息对于中文NER 的重要性。此外，相关实验表明，FLAT有效的原因是：新的相对位置encoding有利于定位实体span，而引入词汇的word embedding有利于实体type的分类。
 
 
-[中文NER的正确打开方式: 词汇增强方法总结 (从Lattice LSTM到FLAT)](https://zhuanlan.zhihu.com/p/142615620)
+#### 4.3.2 Adaptive Embedding 范式
+
+> Adaptive Embedding范式仅在embedding层对于词汇信息进行自适应，后面通常接入LSTM+CRF和其他通用网络，这种范式与模型无关，具备可迁移性。
+
+##### [6] [WC-LSTM: An Encoding Strategy Based Word-Character LSTM for Chinese NER Lattice LSTM（NAACL2019）](https://link.zhihu.com/?target=https%3A//pdfs.semanticscholar.org/43d7/4cd04fb22bbe61d650861766528e369e08cc.pdf%3F_ga%3D2.158312058.1142019791.1590478401-1756505226.1584453795)
+
+###### 引言
+
+**Lattice LSTM中每个字符只能获取以它为结尾的词汇数量是动态的、不固定**的，这也是导致Lattice LSTM**不能batch并行化**的原因。
+
+###### 思路
+
+WC-LSTM为改进这一问题，采取** Words Encoding Strategy**，**将每个字符为结尾的词汇信息进行固定编码表示**，即每一个字符引入的词汇表征是静态的、固定的，如果没有对应的词汇则用<PAD>代替，从而可以进行batch并行化。
+
+这四种 encoding 策略分别为：最短词汇信息、最长词汇信息、average、self-attenion。以「average」为例：即将当前字符引入所有相关的词汇信息对应的词向量进行平均。
+
+![](img/20200609123825.png)
+
+###### 存在问题
+
+WC-LSTM仍然**存在信息损失问题**，无法获得‘inside’的词汇信息，不能充分利用词汇信息。虽然是Adaptive Embedding范式，但WC-LSTM仍然采取LSTM进行编码，建模能力有限、存在效率问题。
+
+##### [7] [Multi-digraph: A Neural Multi-digraph Model for Chinese NER with Gazetteers（ACL2019）](https://link.zhihu.com/?target=https%3A//www.aclweb.org/anthology/P19-1141.pdf)
+
+###### 引言
+
+之前介绍的论文通过利用一个词表来引入词汇信息（由论文Lattice LSTM 提供，没有实体标签，通常需要提取对应的word embedding）。
+
+本篇论文引入词汇信息的方式是利用实体词典（Gazetteers，含实体类型标签）。
+
+###### 思路
+
+虽然引入实体词典等有关知识信息对NER性能可能会有所帮助，但实体词典可能会包含不相关甚至错误的信息，这会损害系统的性能。如上图所示，利用4个实体词典：「PER1」、「PER2」、「LOC1」、「LOC2」进行匹配，错误实体就有2个。
+
+![](img/20200609124437.png)
+
+![](img/20200609124525.png)
+
+为了更好的利用词典信息，本文提出了一种多图结构更好地显示建模字符和词典的交互。如上图所示，结合自适应的Gated Graph Sequence Neural Networks (GGNN)和LSTM+CRF，基于上下文信息对来自不同词典的信息进行加权融合，解决词典匹配冲突的问题。
+
+具体地，本文通过图结构建模Gazetteers信息，关键在于怎么融入不同词典的信息。上述图结构中「边」的label信息即包含字符间的连接信息，也包含来自不同m个Gazetteers的实体匹配信息，共有L个label：
+
+![](img/20200609124647.png)
+
+而传统的GGNN不能处理带有不同label信息的「边」，为了能够处理上述的多图结构，本文将邻接矩阵A扩展为包括不同标签的边，对边的每一个label分配相应的可训练参数：
+
+![](img/20200609124729.png)
+
+上述图结构的隐状态采用GRU更新，具体更新方式可参考原论文。最后，将基于GGNN提取字符所对应的特征表示喂入LSTM+CRF中。
+
+##### [8] [Simple-Lexicon：Simplify the Usage of Lexicon in Chinese NER（ACL2020）](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1908.05969.pdf)
+
+###### 引言
+
+由上述分析可以发现Lattice LSTM只适配于LSTM，不具备向其他网络迁移的特性，同样Lattice LSTM存在的信息损失也不容小觑。
+
+###### 思路
+
+本篇论文为避免设计复杂的模型结构、同时为便于迁移到其他序列标注框架，提出了一种在embedding层简单利用词汇的方法。本文先后对比了三种不同的融合词汇的方式：
+
+**第一种：Softword**
+
+![](img/20200609125118.png)
+
+如上图所示，Softword通过中文分词模型后，对每一个字符进行BMESO的embedding嵌入。显而易见，这种Softword方式存在由分词造成的误差传播问题，同时也无法引入词汇对应word embedding。
+
+**第二种：ExtendSoftword**
+
+![](img/20200609125232.png)
+
+ExtendSoftword则将所有可能匹配到的词汇结果对字符进行编码表示。如上图中，对于字符「山」来说，其可匹配到的词汇有中山、中山西、山西路，「山」隶属 {B,M,E}。论文对于字符对应的词汇信息按照BMESO编码构建5维二元向量，如「山」表示为[1,1,1,0,0].
+
+ExtendSoftword也会存在一些问题：1）仍然无法引入词汇对应的word embedding；2）也会造成信息损失，无法恢复词汇匹配结果，例如，假设有两个词汇列表[中山，山西，中山西路]和[中山，中山西，山西路]，按照ExtendSoftword方式，两个词汇列表对应字符匹配结果是一致的；换句话说，当前ExtendSoftword匹配结果无法复原原始的词汇信息是怎样的，从而导致信息损失。
+
+**第三种：Soft-lexicon**
+
+![](img/20200609125343.png)
+
+为了解决Softword和ExtendSoftword存在的问题，Soft-lexicon对当前字符，依次获取BMES对应所有词汇集合，然后再进行编码表示。
+
+![](img/20200609125430.png)
+
+为了解决Softword和ExtendSoftword存在的问题，Soft-lexicon对当前字符，依次获取BMES对应所有词汇集合，然后再进行编码表示。
+
+![](img/20200609125552.png)
+
+由上图可以看出，对于字符[语]，其标签B对应的词汇集合涵盖[语言，语言学]；标签M对应[中国语言]；标签E对应[国语、中国语]；标签S对应[语]。当前字符引入词汇信息后的特征表示为：
+
+![](img/20200609125636.png)
+
+很容易理解，上述公式则将BMES对应的词汇编码 $v^s$ 与字符编码 $x^c$ 进行拼接。$v^s$表示当前标签（BMES）下对应的词汇集合编码，其计算方式为：
+
+![](img/20200609125824.png)
+
+$S$ 为词汇集合， $z(w)$ 代表词频。考虑计算复杂度，本文没有采取动态加权方法，而采取如同上式的静态加权方法，即：对词汇集合中的词汇对应的word embedding通过其词频大小进行加权。词频根据训练集和测试集可离线统计。
+
+综上可见，Soft-lexicon这种方法没有造成信息损失，同时又可以引入word embedding，此外，本方法的一个特点就是模型无关，可以适配于其他序列标注框架。
+
+### 4.4 总结
+
+通过第二部分对于「词汇增强」方法主要论文的介绍，我们可以发现无论是Dynamic Architecture还是Adaptive Embedding，都是想**如何更好的融入词汇信息**。这些方法的出发点无外于两点：
+- 1）如何更充分的利用词汇信息、最大程度避免词汇信息损失；
+- 2）如何设计更为兼容词汇的Architecture，加快推断速度。
+
+下面对于上述「词汇增强」方法进行汇总：
+
+![](img/20200609130051.png)
+
+ACL2020中的两篇论文FLAT和Simple-Lexicon分别对应于Dynamic Architecture和Adaptive Embedding，这两种方法相比于其他方法：
+- 1）能够充分利用词汇信息，避免信息损失；
+- 2）FLAT不去设计或改变原生编码结构，设计巧妙的位置向量就融合了词汇信息；Simple-Lexicon对于词汇信息的引入更加简单有效，采取静态加权的方法可以提前离线计算。
+
+最后，我们来看一下，上述各种「词汇增强」方法在中文NER任务上的性能：
+
+![](img/20200609130230.png)
+
+上图可以发现：总的来看，ACL2020中的FLAT和Simple-Lexicon效果最佳。具体地说：
+
+1. 引入词汇信息的方法，都相较于baseline模型biLSTM+CRF有较大提升，可见引入词汇信息可以有效提升中文NER性能。
+2. 采用相同词表对比时，FLAT和Simple-Lexicon好于其他方法。
+3. 结合BERT效果会更佳。
+
+除了上述中文NER任务，笔者还在医疗NER任务（CCKS2019）上进行了简单实验：
+
+![](img/20200609130350.png)
+
+同样也可以发现，词汇增强可有效提升中文NER性能。
+
+而在推断速度方面，FLAT论文也与其他方法进行了对比，在指标领先的同时推断速度明显优于其他方法。
+
+![](img/20200609130428.png)
 
 ## 总结
 
