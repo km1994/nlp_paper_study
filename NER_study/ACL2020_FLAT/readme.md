@@ -1,5 +1,8 @@
 # FLAT: Chinese NER Using Flat-Lattice Transformer
 
+> 论文：[](https://arxiv.org/pdf/2004.11795.pdf)
+> 源码：[Flat-Lattice-Transformer](https://github.com/LeeSureman/Flat-Lattice-Transformer)
+
 ## 摘要
 
 Recently, the character-word lattice structure has been proved to be effective for Chinese named entity recognition (NER) by incorporating the word information.  （lattice 结构的有效）
