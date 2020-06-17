@@ -1,152 +1,86 @@
-# FLAT: Chinese NER Using Flat-Lattice Transformer
+# LR-CNN:CNN-Based Chinese NER with Lexicon Rethinking(IJCAI2019)
 
-> 论文：[](https://arxiv.org/pdf/2004.11795.pdf)
-> 源码：[Flat-Lattice-Transformer](https://github.com/LeeSureman/Flat-Lattice-Transformer)
+> 论文：[](https://pdfs.semanticscholar.org/1698/d96c6fffee9ec969e07a58bab62cb4836614.pdf)
+> 源码：[LR-CNN]()
 
 ## 摘要
 
-Recently, the character-word lattice structure has been proved to be effective for Chinese named entity recognition (NER) by incorporating the word information.  （lattice 结构的有效）
+Character-level Chinese named entity recognition (NER) that applies long short-term memory (LSTM) to incorporate lexicons has achieved great success.
 
-However, since the lattice structure is complex and dynamic, most existing lattice-based models are hard to fully utilize the parallel computation of GPUs and usually have a low inference-speed.  （问题：计算资源未充分利用）
+ However, this method fails to fully exploit GPU parallelism and candidate lexicons can conflict.
 
-In this paper, we propose FLAT: Flat-LAttice Transformer for Chinese NER, which converts the lattice structure into a flat structure consisting of spans. Each span corresponds to a character or latent word and its position in the original lattice. （FLAT：将 lattice 结构转换为由span组成的平面结构，每个 span 对应一个字符或潜在单词及其在原始 lattice 中的位置。）
+ - 动机
+   - 充分利用 GPU 问题
+   - 词汇信息冲突问题
+ 
+ In this work, we propose a faster alternative to Chinese NER: a convolutional neural network (CNN)-based method that incorporates lexicons using a rethinking mechanism. The proposed method can model all the characters and potential words that match the sentence in parallel. In addition, the rethinking mechanism can address the word conflict by feeding back the high-level features to refine the networks. 
+ 
+ Experimental results on four datasets show that the proposed method can achieve better performance than both word-level and character-level baseline methods. In addition, the proposed method performs up to 3.21 times faster than state-of-the-art methods, while realizing better performance.
 
-With the power of Transformer and well-designed position encoding, FLAT can fully leverage the lattice information and has an excellent parallelization ability. 
+ ## 动机
 
-Experiments on four datasets show FLAT outperforms other lexicon-based models in performance and efficiency.
-
-## 动机
-
-### 1. Lattice structure
-
-#### 介绍
-
-利用词典匹配句子，以获得句子中潜在词，然后转化为如下图结构：
-
-![](img/20200610083057.png)
-
-> 结构：有向图
-> 节点：每个字符 或 潜在词
-
-##### 问题
-
-1. 不能获得句子顺序；
-2. 词的第一个字符和最后一个字符决定其位置
-
-###### 举例
-
-如上图，“人和药店” 能够用于区分 地点实体“重庆”和组织实体“重庆人”
-
-
-### 前期方法
-
-- 方法一：设计一个动态框架，能够兼容词汇输入；
-  - 代表模型： 
-    - Lattice LSTM：利用额外的单词单元编码可能的单词，并利用注意力机制融合每个位置的变量节点
-
-    ![](img/20200610084812.png)
-
-    - LR-CNN：采用不同窗口大小的卷积核来编码 潜在词
-  - 问题：
-    - RNN 和 CNN 难以解决长距离依赖问题，它对于 NER 是有用的，例如： coreference（共指）
-    - 无法充分利用 GPU 的并行计算能力
-
-- 方法二：将 Lattice 转化到图中并使用 GNN 进行编码：
-  - 代表模型
-    - Lexicon-based GN(LGN)
-    - Collaborative GN(CGN)
-  - 问题
-    - 虽然顺序结构对于NER仍然很重要，并且 Graph 是一般的对应物，但它们之间的差距不可忽略;
-    - 需要使用 LSTM 作为底层编码器，带有顺序感性偏置，使模型变得复杂。
-
-## 方法简介
-
-In this paper, we propose FLAT: Flat LAttice Transformer for Chinese NER. 
-
-Transformer (Vaswani et al., 2017) adopts fully-connected self-attention to model the long-distance dependencies in a sequence.  (self-attention 解决长距离依赖问题)
-
-To keep the position information, Transformer introduces the position representation for each token in the sequence. （位置编码信息的保存）
-
-Inspired by the idea of position representation, we design an ingenious position encoding for the lattice-structure, as shown in Figure 1(c). 
-
-![](img/20200610091230.png)
-
-In detail, we assign two positional indices for a token (character or word): 
-- head position and tail position, by which we can reconstruct a lattice from a set of tokens. Thus, we can directly use Transformer to fully model the lattice input. （从一系列 tokens 中重建 lattice）
--  The self-attention mechanism of Transformer enables characters to directly interact with any potential word, including self-matched words. To a character, its self-matched words denote words which include it. （Transformer 的 self-attention 机制使 characters 可以直接与任何可能的单词（包括自匹配单词）进行交互。 对于一个字符，它的自匹配单词表示包括该单词本身。）
+ - 词信息引入问题；
+ - lattice LSTM 问题：
+   - 基于 RNN 结构方法不能充分利用 GPU 并行计算资源；
+     - 1. 针对句子中字符计算；
+     - 2. 针对匹配词典中潜在词
+   - 很难处理被合并到词典中的潜在单词之间的冲突：
+     - 一个字符可能对应词典中多个潜在词，误导模型、
   
-For example, in Figure 1(a), self-matched words of “药 (Drug)” are “人和药 店(Renhe Pharmacy)” and “药店 (Pharmacy)”(Sui et al., 2019). Experimental results show our model outperforms other lexicon-based methods on the performance and inference-speed.
+![](img/20200615130720.png)
 
-## Model 介绍
+> 字符 [长] 可以匹配到词汇 [市长] 和 [长隆]，不同的匹配会导致[长] 得到不同的标签
 
-### 3.1 Converting Lattice into Flat Structure
+## 论文思路
 
-1. 利用 词典从句子中获取 lattice；
-2. flat-lattice : 定义一系列的 spans，每个 spans 对应 token（词 or 字符）、头字符位置、尾字符位置
+- Lexicon-Based CNNs：采取CNN对字符特征进行编码，感受野大小为2提取bi-gram特征，堆叠多层获得multi-gram信息；同时采取注意力机制融入词汇信息（word embed）；
+- Refining Networks with Lexicon Rethinking：由于上述提到的词汇信息冲突问题，LR-CNN采取rethinking机制增加feedback layer来调整词汇信息的权值：具体地，将高层特征作为输入通过注意力模块调节每一层词汇特征分布，利用这种方式来利用高级语义来完善嵌入单词的权重并解决潜在单词之间的冲突。
 
-### 3.2 Relative Position Encoding of Spans
+![](img/20200615131537.png)
 
-- 问题：flat-lattice 结构包含不同长度的 spans;
-- 解决方法：spans 的关系位置编码
-  - 对于在lattice中的 spans $x_i$ 和 $x_j$ 存在三种关系：
-    - intersection
-    - inclusion and separation (包容和分离)
-    - determined by their heads and tails (由他们的头和尾确定)
-  - 使用一个 dense vector 对这些关系建模，他通过继续转换 head 和 tail 信息进行计算；
-    - 优点
-      - 能够表示两个 token 间关系；
-      - 表示更多详细信息；
-    - 举例
-      - 例如 一个词和字符间的距离
-      - 对于 span $x_i$ 的开始位置 $head[i]$ 和结束位置$tail[i$
-      - 四种类型相对距离 可以用于 表示 $x_i$和$x_j$间的关系：
+> 高层特征得到的 [广州市] 和 [长隆]会降低 [市长] 在输出特征中的权重分布。最终对每一个字符位置提取对应的调整词汇信息分布后的multi-gram特征，喂入CRF中解码。
 
-      ![](img/20200610184316.png)
+### Lexicon-Based CNNs
 
-    > $d^{(ht)}_{ij}$表示 $x_i$ 的 head 和$x_j$的 head 的距离,以此类推
-  - spans 的最后位置编码是这四个距离的简单的非线性转换：
+- 动机：如何充分利用 GPU 并行计算资源
+- 方法
+  - 句子表示：将输入句子表示为 $C=c_1,c_2,...,c_n$;($c_i$ 表示句子中第$i$个字符维度为$d$的 wmbedding);
+  - 词典匹配：利用词典匹配输入句子中词语，并表示为$w^l_m={c_m,..,c_{m+l-1}}$;($m$表示字符下标，$l$表示词语长度，如上图 $w^2_i$=广州，$w^3_1$=广州市)；
+  - CNN 模型编码：利用 CNN 模型对字符序列进行编码，并通过 Attention 模块融合 词典 信息。采用窗口大小为 l 的卷积核提取 l-gram 特征 $C^l_m$，并将对应的 $w^l_m$ 通过 Attention 操作融入 词典信息：
 
-    ![](img/20200611082125.png)
+![](img/20200616083045.png)
 
-    > $W_r$ 可学习参数，$⊕$为连接计算符，$p_d$ 通过以下方式计算：
+### Refining Networks with Lexicon Rethinking
 
-    ![](img/20200611082432.png)
+- 动机：CNN 的分层结构，容易造成底层 potential words 信息 无法影响高层 words，所以采用 rethinking 机制处理词汇中的 potential words 的冲突问题
+- 方法
+  - CNN的顶层特征 $X^L_m$作为高层特征，通过向每一层CNN添加一个feedback layer来调整lexicon的权值，具体计算如下:
 
-    > $d$ 就是 $d^{(hh)}_{ij}$、$d^{(ht)}_{ij}$、$d^{(th)}_{ij}$ 和 $d^{(tt)}_{ij}$
-    > $k$ 表示位置编码的维度索引
-  - 利用 variant of self-attention (Dai et al., 2019) leverage 的相对span位置编码：
-  
-  ![](img/20200611082858.png)
+![](img/20200616083518.png)
 
-  - 利用 vanilla Transformer 计算：
+> 举例：如果没有高层特征得到的"广州市"和"长隆"，那么"市长"一词会对误导模型对字符"市"产生错误的预测。因此，需要通过高层特征(“广州市”)来降低"市长"一词在输出特征中权重。
 
-  ![](img/20200611083312.png)
+  - 在通过卷积核抽取 l−gram 特征的同时，句子中每个位置上的字符分别都得到了一个表示，因此通过 Attention 机制将同一字符在不同卷积尺度下的特征进行融合:
 
-  - 利用 CRF 作为输出层
+![](img/20200616083725.png)
 
-## 实验分析
+  - 最后得到的$X_{att}=\{X^{att}_1,X^{att}_2, ..., X^{att}_M\}$ 将作为CRF层进行标签预测的输入。
 
-### 数据集选取
+### Predicting with CRF
 
-![](img/20200611083854.png)
+  以$X_{att}$为输入，通过CRF层对字符标签进行预测
 
-### 效果对比
+## 论文贡献
 
-![](img/20200611084332.png)
+ 1) We propose a novel CNN structure for incorporating lexicons into Chinese NER, which effectively accelerates the model training by its use of parallelism; 
+ 2) we apply a rethinking mechanism to tackle the conflict between potential words in the lexicon, and the proposed model can leverage the highlevel semantic to identify the correct words; 
+ 3) experimental results on four datasets demonstrate that the proposed model can achieve better performance, and performs up to 3.21 times faster than state-of-the-art methods.
 
-![](img/20200611090959.png)
+## 论文总结
 
-### FLAT 优势
-
-相比 lattice LSTM 优点：
-
-1. All characters can directly interact with its self-matched words；
-2. Long-distance dependencies can be fully modeled
-
-## 结论
-
-In this paper, we introduce a flat-lattice Transformer to incorporate lexicon information for Chinese NER. The core of our model is converting lattice structure into a set of spans and introducing the specific position encoding. Experimental results show our model outperforms other lexiconbased models in the performance and efficiency. We leave adjusting our model to different kinds of lattice or graph as our future work. 
-
-## 参考资料
-
-1. [FLAT: Chinese NER Using Flat-Lattice Transformer](https://zhuanlan.zhihu.com/p/142927260)
+- 动机
+  - 如何充分利用 GPU 资源；
+  - 如何解决词汇冲突问题；
+- 方法
+  - Lexicon-Based CNNs：利用 卷积核提取 字符特征，然后利用 Attention 融入 词典信息；
+  - Refining Networks with Lexicon Rethinking： CNN的顶层特征 $X^L_m$作为高层特征，通过向每一层CNN添加一个feedback layer来调整lexicon的权值
