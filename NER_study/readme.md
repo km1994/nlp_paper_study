@@ -155,7 +155,7 @@
 
 > Dynamic Architecture范式通常需要设计相应结构以融入词汇信息。
 
-##### [1] [Lattice LSTM：Chinese NER Using Lattice LSTM（ACL2018）](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1805.02023) 
+##### [1] [Lattice LSTM：Chinese NER Using Lattice LSTM（ACL2018）](https://arxiv.org/abs/1805.02023) 
 
 ###### 方法介绍
 
@@ -185,7 +185,7 @@ Lattice LSTM 的提出，将词汇信息引入，有效提升了NER性能；但�
   - 2）由于RNN特性，采取BiLSTM时其前向和后向的词汇信息不能共享。
 - 可迁移性差：只适配于LSTM，不具备向其他网络迁移的特性。
 
-##### [2] [LR-CNN:CNN-Based Chinese NER with Lexicon Rethinking(IJCAI2019)](https://link.zhihu.com/?target=https%3A//pdfs.semanticscholar.org/1698/d96c6fffee9ec969e07a58bab62cb4836614.pdf)
+##### [2] [LR-CNN:CNN-Based Chinese NER with Lexicon Rethinking(IJCAI2019)](https://pdfs.semanticscholar.org/1698/d96c6fffee9ec969e07a58bab62cb4836614.pdf)
 
 ###### 动机
 
@@ -215,7 +215,7 @@ Lattice LSTM 存在问题：
   - LR-CNN仍然计算复杂；
   - 不具备可迁移性
 
-##### [3] [CGN: Leverage Lexical Knowledge for Chinese Named Entity Recognition via Collaborative Graph Network（ EMNLP2019）](https://link.zhihu.com/?target=https%3A//www.aclweb.org/anthology/D19-1396.pdf)
+##### [3] [CGN: Leverage Lexical Knowledge for Chinese Named Entity Recognition via Collaborative Graph Network（ EMNLP2019）](https://www.aclweb.org/anthology/D19-1396.pdf)
 
 ###### 动机
 
@@ -241,7 +241,7 @@ Lattice LSTM 存在问题：
 
 涉及GAN的相关计算公式可参考原论文。
 
-##### [4] [LGN: A Lexicon-Based Graph Neural Network for Chinese NER(EMNLP2019)](https://link.zhihu.com/?target=https%3A//www.aclweb.org/anthology/D19-1096.pdf)
+##### [4] [LGN: A Lexicon-Based Graph Neural Network for Chinese NER(EMNLP2019)](https://www.aclweb.org/anthology/D19-1096.pdf)
 
 ###### 动机
 
@@ -255,7 +255,7 @@ Lattice LSTM 存在问题：
 
 ![](img/20200609091503.png)
 
-##### [5] [FLAT: Chinese NER Using Flat-Lattice Transformer（ACL2020）](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/2004.11795.pdf)
+##### [5] [FLAT: Chinese NER Using Flat-Lattice Transformer（ACL2020）](https://arxiv.org/pdf/2004.11795.pdf)
 
 ###### 动机
 
@@ -297,7 +297,7 @@ $p_d$的计算方式与vanilla Transformer相同。
 
 > Adaptive Embedding范式仅在embedding层对于词汇信息进行自适应，后面通常接入LSTM+CRF和其他通用网络，这种范式与模型无关，具备可迁移性。
 
-##### [6] [WC-LSTM: An Encoding Strategy Based Word-Character LSTM for Chinese NER Lattice LSTM（NAACL2019）](https://link.zhihu.com/?target=https%3A//pdfs.semanticscholar.org/43d7/4cd04fb22bbe61d650861766528e369e08cc.pdf%3F_ga%3D2.158312058.1142019791.1590478401-1756505226.1584453795)
+##### [6] [WC-LSTM: An Encoding Strategy Based Word-Character LSTM for Chinese NER Lattice LSTM（NAACL2019）](https://pdfs.semanticscholar.org/43d7/4cd04fb22bbe61d650861766528e369e08cc.pdf%3F_ga%3D2.158312058.1142019791.1590478401-1756505226.1584453795)
 
 ###### 引言
 
@@ -315,7 +315,7 @@ WC-LSTM为改进这一问题，采取** Words Encoding Strategy**，**将每个�
 
 WC-LSTM仍然**存在信息损失问题**，无法获得‘inside’的词汇信息，不能充分利用词汇信息。虽然是Adaptive Embedding范式，但WC-LSTM仍然采取LSTM进行编码，建模能力有限、存在效率问题。
 
-##### [7] [Multi-digraph: A Neural Multi-digraph Model for Chinese NER with Gazetteers（ACL2019）](https://link.zhihu.com/?target=https%3A//www.aclweb.org/anthology/P19-1141.pdf)
+##### [7] [Multi-digraph: A Neural Multi-digraph Model for Chinese NER with Gazetteers（ACL2019）](https://www.aclweb.org/anthology/P19-1141.pdf)
 
 ###### 引言
 
@@ -343,7 +343,7 @@ WC-LSTM仍然**存在信息损失问题**，无法获得‘inside’的词汇信
 
 上述图结构的隐状态采用GRU更新，具体更新方式可参考原论文。最后，将基于GGNN提取字符所对应的特征表示喂入LSTM+CRF中。
 
-##### [8] [Simple-Lexicon：Simplify the Usage of Lexicon in Chinese NER（ACL2020）](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1908.05969.pdf)
+##### [8] [Simple-Lexicon：Simplify the Usage of Lexicon in Chinese NER（ACL2020）](https://arxiv.org/pdf/1908.05969.pdf)
 
 ###### 引言
 
