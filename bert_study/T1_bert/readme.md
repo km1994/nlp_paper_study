@@ -48,7 +48,7 @@
   - CBOW vs Skip-gram
 - CBOW
   - 思想：用周围词预测中心词
-  - ![](img/v2-02f5f0a3a2bc5c8a0931e677df2a78a6_r.jpg)
+  - ![](img/20200629083749.png)
 - Skip-gram
   - 思想：用中心词预测周围词
   - ![](img/20200629083749.png)
