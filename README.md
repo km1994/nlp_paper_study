@@ -16,7 +16,7 @@
     - [经典论文研读篇](https://github.com/km1994/nlp_paper_study#%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB%E7%AF%87)
     - [transformer 学习篇](https://github.com/km1994/nlp_paper_study#transformer-学习篇)
     - [预训练模型篇](https://github.com/km1994/nlp_paper_study#预训练模型篇)
-    - [NLP 经典任务篇]([https://github.com/km1994/nlp_paper_study#NLP 经典任务篇](https://github.com/km1994/nlp_paper_study#nlp-%E7%BB%8F%E5%85%B8%E4%BB%BB%E5%8A%A1%E7%AF%87))
+    - [NLP 经典任务篇]([https://github.com/km1994/nlp_paper_study#NLP-经典任务篇](https://github.com/km1994/nlp_paper_study#nlp-%E7%BB%8F%E5%85%B8%E4%BB%BB%E5%8A%A1%E7%AF%87))
       - [细粒度情感分析论文研读](ABSC_study/)
       - [主动学习论文研读](active_learn_study/)：
       - [对抗训练论文研读](adversarial_training_study/)：
