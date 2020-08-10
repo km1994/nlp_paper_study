@@ -425,6 +425,27 @@ ACL2020中的两篇论文FLAT和Simple-Lexicon分别对应于Dynamic Architectur
 
 ![](img/20200609130428.png)
 
+
+
+## 五、常用数据集
+
+### 5.1 字向量
+
+1. Character embeddings (gigaword_chn.all.a2b.uni.ite50.vec): [Google Drive](https://drive.google.com/file/d/1_Zlf0OAZKVdydk7loUpkzD2KPEotUE8u/view?usp=sharing) or [Baidu Pan](https://pan.baidu.com/s/1pLO6T9D)
+
+### 5.2 词向量
+
+1. Word(Lattice) embeddings (ctb.50d.vec): [Google Drive](https://drive.google.com/file/d/1K_lG3FlXTgOOf8aQ4brR9g3R40qi1Chv/view?usp=sharing) or [Baidu Pan](https://pan.baidu.com/s/1pLO6T9D)
+
+
+### 5.3 语料库
+
+ 1. [OntoNotes](https://catalog.ldc.upenn.edu/LDC2011T03)
+ 2. [MSRA](http://sighan.cs.uchicago.edu/bakeoff2006/)
+ 3. [Weibo](https://github.com/hltcoe/golden-horse)
+ 4. [Resume](https://github.com/jiesutd/LatticeLSTM/tree/master/ResumeNER)
+
+
 ## 总结
 
 科研有时候是使用新技术解决旧问题，而同时，新技术的使用也会带来新的问题，这一点在命名实体识别领域让我感触尤为深刻。一方面，得益于深度学习的发展，命名实体识别模型实现了更好的效果，对各种细节问题也有了精细化的建模；而另一方面，深度学习技术也带来了一些问题，比如标注数据同参数规模不匹配的问题，精细模型并行化程度不高的问题等。

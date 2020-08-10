@@ -27,7 +27,7 @@ In this paper, we describe BERTSUM, a simple variant of BERT, for extractive sum
 
 ## 动机
 
-- BertSum 在抽取式文本摘要中的应用
+- Bert 在抽取式文本摘要中的应用
   - 问题：
     - 如何获得每个句子向量？
     - 如何将向量用于二分类问题？

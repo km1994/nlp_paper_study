@@ -1,6 +1,6 @@
 # 【关于Bert】 那些的你不知道的事
 
-> 作者：小莫
+> 作者：杨夕
 > 
 > 论文链接：https://arxiv.org/pdf/1810.04805.pdf
 > 
@@ -10,9 +10,9 @@
 
 ## 引言
 
-本博客 主要 是本人在学习 Bert 时的**所遇、所思、所解**，通过以 **十五连弹** 的方式帮助大家更好的理解 该问题。
+本博客 主要 是本人在学习 Bert 时的**所遇、所思、所解**，通过以 **十二连弹** 的方式帮助大家更好的理解 该问题。
 
-## 十五连弹
+## 十二连弹
 
 1. 【演变史】one-hot 是什么及所存在问题?
 2. 【演变史】word2vec 是什么及所存在问题?
@@ -24,6 +24,8 @@
 8. 【BERT】Bert 预训练任务？
 9. 【BERT】Bert 预训练任务 Masked LM 怎么做？
 10. 【BERT】Bert 预训练任务 Next Sentence Prediction 怎么做？
+11. 【BERT】如何 fine-turning？
+12. 【对比】多义词问题及解决方法？
 
 
 
@@ -292,10 +294,25 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
   - 微调期间添加的唯一新参数是分类层向量$W∈R^{KxH}$，其中K是分类器标签的数量。
   - 该标签概率$P∈R^K$用标准softmax函数，P=softmax(CWT)计算。BERT和W的所有参数都经过联动地微调，以最大化正确标签的对数概率
 
+### 【对比】多义词问题及解决方法？
+
+- 问题：什么是多义词？
+  - 一个单词在不同场景下意思不同
+    - 举例：
+      - 单词 Bank，有“银行”、“河岸”两个含义
+- 问题：word2vec 为什么解决不了多义词问题？
+  - 由于 word2vec 采用静态方式，
+    - 第一阶段：训练结束后，每个单词 只对应 一个固定的词向量；
+    - 第二阶段：在使用时， 该词向量 不会 根据上下文场景 而变化
+  - 因此 word2vec 解决不了 多义词 问题
+- 问题：为什么 elmo、GPT、Bert能够解决多义词问题？（以 elmo 为例）
+  - elmo 的 解决方式：
+    - 预训练时，使用语言模型学习一个单词的emb（**多义词无法解决**）；
+    - 使用时，单词间具有特定上下文，可根据上下文单词语义调整单词的emb表示（**可解决多义词问题**）
+      - 理解：因为预训练过程中，**emlo 中 的 lstm 能够学习到 每个词 对应的 上下文信息**，并保存在网络中，在 fine-turning 时，**下游任务 能够对 该 网络进行 fine-turning，使其 学习到新特征**； 
+    - 因此 elmo能够解决 多义词 问题（GPT、Bert 采用 的 是 transformer）
+
 
 ## 参考
 
-1. [知识网络](https://shimo.im/mindmaps/hGxYWjcvvvwJWrGR)
-2. [ELMO、BERT、ERNIE、GPT](https://blog.csdn.net/Forlogen/article/details/92011185)
-3. [搞懂 NLP 中的词向量，看这一篇就足够](https://www.infoq.cn/article/PFvZxgGDm27453BbS24W)
-4. [后BERT时代：15个预训练模型对比分析与关键点探索（附链接）](https://www.jiqizhixin.com/articles/2019-08-26-16)
+1. [CS224n](http://web.stanford.edu/class/cs224n/index.html)

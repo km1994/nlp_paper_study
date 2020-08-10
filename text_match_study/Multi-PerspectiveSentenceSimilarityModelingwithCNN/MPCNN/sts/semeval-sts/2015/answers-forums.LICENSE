@@ -1,0 +1,30 @@
+
+Stack Exchange Inc. generously made the data used to construct the STS 2015 answer-answer statement pairs available under a Creative Commons Attribution-ShareAlike (cc-by-sa) 3.0 license.
+
+The license is reproduced below from: https://archive.org/details/stackexchange
+
+The STS.input.answers-forums.txt file should be redistributed with the STS.input.ansers.forums.LICENSE file and the accompanying files in STS.input.answers-forums.FILES.zip. The tsv files in the zip file contain the additional information that's needed to comply with the license.
+
+--
+
+All user content contributed to the Stack Exchange network is cc-by-sa 3.0 licensed, intended to be shared and remixed. We even provide all our data as a convenient data dump.
+
+http://creativecommons.org/licenses/by-sa/3.0/
+
+But our cc-by-sa 3.0 licensing, while intentionally permissive, does *require attribution*:
+
+"Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)."
+
+Specifically the attribution requirements are as follows:
+
+  1. Visually display or otherwise indicate the source of the content as coming from the Stack Exchange Network. This requirement is satisfied with a discreet text blurb, or some other unobtrusive but clear visual indication.
+
+  2. Ensure that any Internet use of the content includes a hyperlink directly to the original question on the source site on the Network (e.g., http://stackoverflow.com/questions/12345)
+
+  3. Visually display or otherwise clearly indicate the author names for every question and answer so used.
+
+  4. Ensure that any Internet use of the content includes a hyperlink for each author name directly back to his or her user profile page on the source site on the Network (e.g., http://stackoverflow.com/users/12345/username), directly to the Stack Exchange domain, in standard HTML (i.e. not through a Tinyurl or other such indirect hyperlink, form of obfuscation or redirection), without any “nofollow” command or any other such means of avoiding detection by search engines, and visible even with JavaScript disabled.
+
+Our goal is to maintain the spirit of fair attribution. That means attribution to the website, and more importantly, to the individuals who so generously contributed their time to create that content in the first place!
+
+For more information, see the Stack Exchange Terms of Service: http://stackexchange.com/legal/terms-of-service

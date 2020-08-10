@@ -4,6 +4,8 @@
 
 ## 目录介绍
 
+- [会议]
+  - [ACL2020](ACL/ACL2020.md)
 - [ABSC_study](ABSC_study/)： 细粒度情感分析论文研读
   - [LCF](ABSC_study/LCF/): A Local Context Focus Mechanism for Aspect-Based Sentiment Classiﬁcation
 - [active_learn_study](active_learn_study/)：主动学习论文研读
@@ -11,9 +13,12 @@
 - [adversarial_training_study](adversarial_training_study/)：对抗训练论文研读
   - [FreeLB: Enhanced Adversarial Training for Language Understanding 加强语言理解的对抗性训练](adversarial_training_study/FREELB/)
 - [bert_study](bert_study/)：Bert论文研读
+  - [【关于Bert】 那些的你不知道的事](bert_study/T1_bert/)
   - [XLNet Generalized Autoregressive Pretraining for Language Understanding](bert_study/T2_XLNet/)
   - [RoBERTa: A Robustly Optimized BERT Pretraining Approach](bert_study/T4_RoBERTa/)
   - [ A lite BERT for self-supervised learning of language representations](bert_study/T5_ALBERT/)
+  - [FastBERT](bert_study/FastBERT/)
+  - [distilbert](bert_study/distilbert/)
 - [ERE_study](ERE_study/)：实体关系联合抽取论文研读
   - [Incremental Joint Extraction of Entity Mentions and Relations](ERE_study/T2014_joint_extraction/)
   - [Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy](ERE_study/JointER/)
@@ -48,20 +53,15 @@
   - [Lattice CNNs for Matching Based Chinese Question Answering](QA_study/LCNQA/)
   - [LSTM-based Deep Learning Models for Non-factoid Answer Selection](QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
   - [Denoising Distantly Supervised Open-Domain Question Answering](QA_study/T4_DenoisingDistantlySupervisedODQA/)
-- [QA_study](Style_Transformer/) 问答系统论文学习
-  - [Style_Transformer](Style_Transformer/LCNQA/)
 - [summarization_study](summarization_study/) 文本摘要论文学习
   - [Fine-tune BERT for Extractive Summarization](summarization_study/EMNLP2019_bertsum/)
-- [summarization_study](text_match_study/) 文本摘要论文学习
+- [text_match_study](text_match_study/) 文本匹配论文学习
   - [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
   - [Simple and Effective Text Matching with Richer Alignment Features](text_match_study/Multi-RE2_study/)
-- [summarization_study](transformer_study/)  transformer 论文学习
+- [transformer_study](transformer_study/)  transformer 论文学习
+  - [【关于Transformer】 那些的你不知道的事](transformer_study/Transformer/)
   - [Transformer-XL](transformer_study/T3_Transformer_XL/)
   - [Single Headed Attention RNN: Stop Thinking With Your Head 单头注意力 RNN: 停止用你的头脑思考](transformer_study/SHA_RNN_study/)
   - [ Universal Transformers](transformer_study/T4_Universal_Transformers/)
-
-
-
-- 
-
-
+  - [Style_Transformer](Style_Transformer/LCNQA/)
+  - [ACL2020_Linformer](transformer_study/ACL2020_Linformer)
