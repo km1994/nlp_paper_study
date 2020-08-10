@@ -11,17 +11,44 @@
 - [论文工具篇](论文学习idea/)
 - 会议收集篇
 - [ML 小白入门篇](https://github.com/km1994/ML_beginer)
-- [NLP 学习篇]()
-  - [理论学习篇]()
-  - [视频学习篇]()
-  - [实战篇]()
-- [GCN_study学习篇](https://github.com/km1994/GCN_study)
-- [Java 实战篇](https://github.com/km1994/3y)
-- [百度百科 ES 全文检索平台构建 实战篇](https://github.com/km1994/baidu_es)
-- [面试篇]()
+- [NLP 学习篇](https://github.com/km1994/nlp_paper_study#nlp-学习篇)
+  - [理论学习篇](https://github.com/km1994/nlp_paper_study#%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AF%87)
+    - [经典论文研读篇](https://github.com/km1994/nlp_paper_study#%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB%E7%AF%87)
+    - [transformer 学习篇](https://github.com/km1994/nlp_paper_study#transformer-学习篇)
+    - [预训练模型篇](https://github.com/km1994/nlp_paper_study#预训练模型篇)
+    - [NLP 经典任务篇]([https://github.com/km1994/nlp_paper_study#NLP 经典任务篇](https://github.com/km1994/nlp_paper_study#nlp-%E7%BB%8F%E5%85%B8%E4%BB%BB%E5%8A%A1%E7%AF%87))
+      - [细粒度情感分析论文研读](ABSC_study/)
+      - [主动学习论文研读](active_learn_study/)：
+      - [对抗训练论文研读](adversarial_training_study/)：
+      - [实体关系联合抽取论文研读](ERE_study/)：
+      - [GCN 在 NLP 上的应用 论文研读](GCN2NLP/)：
+      - [命名实体识别论文研读](NER_study/)：
+      - [关系抽取论文研读](NRE_paper_study/)
+      - [文本预处理](pre_study/)
+      - [问答系统论文学习](QA_study/) 
+      - [文本摘要论文学习](summarization_study/) 
+      - [文本匹配论文学习](text_match_study/) 
+  - [视频学习篇](https://github.com/km1994/nlp_paper_study#%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E7%AF%87)
+    - [CS224n 视频学习篇](https://github.com/km1994/Datawhale_NLP_CS224n)
+  - [实战篇](https://github.com/km1994/nlp_paper_study#实战篇)
+    - [爬虫 实战篇](https://github.com/km1994/Conversation_Wp/tree/master/t11_scrapyWp)
+    - [特征提取 实战篇](https://github.com/km1994/text_feature_extraction)
+    - [词向量预训练 实战篇](https://github.com/km1994/TextClassifier/tree/master/word2vec_train)
+    - [中文情感分析 实战篇](https://github.com/km1994/sentiment_analysis)
+    - [中文文本分类 实战篇](https://github.com/km1994/TextClassifier)
+    - [命名实体识别 “史诗级” 入门教程](https://github.com/km1994/NERer)
+    - [知识图谱 实战篇]()
+    - [问答系统 实战篇](https://github.com/km1994/Conversation_Wp/tree/master/baidu_qa_zh_process)
+    - [文本匹配 实战篇]()
+    - [预训练模型 实战篇]()
+    - [模型蒸馏 实战篇]()
+- [GCN_study学习篇](https://github.com/km1994/nlp_paper_study#gcn_study学习篇)
+- [Java 实战篇](https://github.com/km1994/nlp_paper_study#java-实战篇)
+- [百度百科 ES 全文检索平台构建 实战篇](https://github.com/km1994/nlp_paper_study#百度百科-es-全文检索平台构建-实战篇)
+- [面试篇](https://github.com/km1994/nlp_paper_study#面试篇)
   - [Leetcode 篇](https://github.com/km1994/leetcode/blob/master/README.md)
   - [DeepLearning-500-questions](https://github.com/km1994/DeepLearning-500-questions)
-- [大数据 实战篇]()
+- [大数据 实战篇](https://github.com/km1994/nlp_paper_study#大数据-实战篇)
 - [资源篇](https://github.com/km1994/funNLP)
 - [CV 入门 实战篇](https://github.com/km1994/cv_entrance)
 
@@ -207,9 +234,6 @@
 - [文本匹配论文学习](text_match_study/) 
   - [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
   - [Simple and Effective Text Matching with Richer Alignment Features](text_match_study/Multi-RE2_study/)
-
-
-
 
 #### 视频学习篇
 
