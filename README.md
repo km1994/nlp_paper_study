@@ -28,6 +28,7 @@
       - [问答系统论文学习](QA_study/) 
       - [文本摘要论文学习](summarization_study/) 
       - [文本匹配论文学习](text_match_study/) 
+      - [文本分类论文学习](classifier_study/)
   - [视频学习篇](https://github.com/km1994/nlp_paper_study#%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E7%AF%87)
     - [CS224n 视频学习篇](https://github.com/km1994/Datawhale_NLP_CS224n)
   - [实战篇](https://github.com/km1994/nlp_paper_study#实战篇)
@@ -234,6 +235,8 @@
 - [文本匹配论文学习](text_match_study/) 
   - [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
   - [Simple and Effective Text Matching with Richer Alignment Features](text_match_study/Multi-RE2_study/)
+
+- [文本分类论文学习](classifier_study/)
 
 #### 视频学习篇
 
