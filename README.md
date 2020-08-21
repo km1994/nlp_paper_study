@@ -29,6 +29,7 @@
       - [文本摘要论文学习](summarization_study/) 
       - [文本匹配论文学习](text_match_study/) 
       - [文本分类论文学习](classifier_study/)
+      - [机器翻译论文学习](MachineTranslation/)
   - [Elastrsearch 学习](es_study/)
   - [推荐系统 学习篇](CTR_study)
   - [竞赛篇](game_study)
@@ -186,6 +187,8 @@
   - [Densely Interactive Inference Network（DIIN）](text_match_study/T2017_DIIN/)
 
 - [文本分类论文学习](classifier_study/)
+- [Neural Machine Translation of Rare Words with Subword Units 论文学习](MachineTranslation/NeuralMachineTranslationOfRareWordsWithSubwordUnits/)
+  - 
 
 #### Elastrsearch 学习篇
 
