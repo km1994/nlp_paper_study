@@ -1,6 +1,6 @@
 # 【关于Transformer】 那些的你不知道的事
 
-> 作者：小莫
+> 作者：杨夕
 > 
 > 论文链接：https://arxiv.org/pdf/1706.03762.pdf
 > 

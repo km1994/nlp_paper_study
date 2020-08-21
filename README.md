@@ -1,4 +1,4 @@
-# NLP_paper_study
+# NLP 小小白研读论文记
 
 > 作者：杨夕
 > 
@@ -29,6 +29,10 @@
       - [文本摘要论文学习](summarization_study/) 
       - [文本匹配论文学习](text_match_study/) 
       - [文本分类论文学习](classifier_study/)
+  - [Elastrsearch 学习](es_study/)
+  - [推荐系统 学习篇](CTR_study)
+  - [竞赛篇](game_study)
+  
   - [视频学习篇](https://github.com/km1994/nlp_paper_study#%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E7%AF%87)
     - [CS224n 视频学习篇](https://github.com/km1994/Datawhale_NLP_CS224n)
   - [实战篇](https://github.com/km1994/nlp_paper_study#实战篇)
@@ -83,68 +87,8 @@
     - [OpenReview](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#openreview) 
     - [Scirate](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#scirate) 
 
-
-
-
 ### 会议收集篇
 - [ACL2020](ACL/ACL2020.md)
-
-### [ML 小白入门篇](https://github.com/km1994/ML_beginer)
-
-- [概率图模型串烧 （HMM->MEMM->CRF）](https://github.com/km1994/ML_beginer/tree/master/CRF_study)
-
-- [KNN 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B8%80knnstudy)
-  - [理论篇](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000006&idx=7&sn=f040e0a95376880349378ce7afd634af&chksm=1bbfe43c2cc86d2a5942e0938c871375cffcd72c9795a3e8b39fdb0c8285348631e7bf8a27b4)
-  - [实战篇](https://github.com/km1994/MLStudy/blob/master/KNNStudy/KNNClass.py)
-
-- [朴素贝叶斯算法 学习篇](https://github.com/km1994/MLStudy#%E4%BA%8Cnbstudy)
-  - [NB 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
-  - [NB 算法实现](https://github.com/km1994/MLStudy/blob/master/NBStudy/NBStudy.py)
-
-- [Apriori 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B8%89aprioristudy)
-  - [Apriori 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
-  - [Apriori 算法实现](https://github.com/km1994/MLStudy/blob/master/AprioriStudy/AprioriMyTest.py)
-
-
-- [Softmax 算法学习篇](https://github.com/km1994/MLStudy#%E5%8D%81softmax-numpy-%E5%AE%9E%E7%8E%B0)
-  - [Softmax 理论学习](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001925&idx=5&sn=20c5ead4f4b5f8f88c30043fb3703557&chksm=1bbfedbf2cc864a96b5fc4575e09294478f6f4cff65d654b8d775fed78766f80faf333d8ca08&scene=20&xtrack=1#rd)
-  - [Softmax 算法实现](https://github.com/km1994/MLStudy/blob/master/softmaxStudy/softmaxStudy.py)
-
-
-- [Gradient Descent 算法学习篇](https://github.com/km1994/MLStudy#%E5%9B%9Bgradientdescentstudy)
-  - [GradientDescent 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
-  - [GradientDescent 算法实现](https://github.com/km1994/MLStudy/blob/master/GradientDescentStudy/GradientDescentTest.py)
-
-
-- [随机森林算法 学习篇](https://github.com/km1994/MLStudy#%E4%BA%94randomforest)
-  - [RandomForest 算法理论学习](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001388&idx=1&sn=21bae727bf3510fad98b3ec4a89d124e&chksm=1bbfe3562cc86a40769ea726f96e3a45185697f9582a2e3fbbbeec3af90dd722ebe09b635ddc&scene=20&xtrack=1#rd)
-  - [RandomForest 算法实现](https://github.com/km1994/MLStudy/blob/master/RandomForest/xiechengRF/RandomForestClass.py)
-  - [基于PCA 的 RandomForest 算法实现](https://github.com/km1994/MLStudy/blob/master/RandomForest/xiechengRF/xiechengPCARF.py)
-
-
-- [EM 算法学习篇](https://github.com/km1994/ML_beginer/tree/master/EM_study)
-
-- [SVM 算法学习篇](https://github.com/km1994/MLStudy#%E5%85%ADsvn)
-  - [SVN 算法理论学习](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001388&idx=1&sn=21bae727bf3510fad98b3ec4a89d124e&chksm=1bbfe3562cc86a40769ea726f96e3a45185697f9582a2e3fbbbeec3af90dd722ebe09b635ddc&scene=20&xtrack=1#rd)
-  - [SVM 算法学习篇](https://github.com/km1994/ML_beginer/tree/master/SVM_study)
-  - [SVN 算法实现](https://github.com/km1994/MLStudy/blob/master/SVN/PCAandSVN.py)
-
-
-- [BPNN 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B8%83bpnn)
-  - [BPNN 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
-  - [BPNN 算法实现](https://github.com/km1994/MLStudy/blob/master/ANN/BP/test.py)
-
-
-- [PCA 算法 学习篇](https://github.com/km1994/MLStudy#%E5%85%ABpca)
-  - [PCA 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
-  - [PCA 算法实现](https://github.com/km1994/MLStudy/blob/master/DimensionalityReduction/PCA/PCAClass.py)
-
-
-- [CNN 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B9%9Dcnn-numpy-%E5%AE%9E%E7%8E%B0)
-  - [卷积运算的定义、动机](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000973&idx=2&sn=4eced9e7204274a4e3798cb73a140c72&chksm=1bbfe1f72cc868e1f63262fad39b4f735a6d424c064f6bee755e438b94487bf75b5d41cc02c0&scene=20&xtrack=1&key=fe048f5ad4fa1bcff1ed72e320faab18cb01c02c1a16279c60775734b428e42206e9f5a8f3c402ae96c01259df639ca04206da43e2ab1b42bfaf44bb4068c793df27faa893ea0301a375086e4adfd3b7&ascene=1&uin=MjQ3NDIwNTMxNw%3D%3D&devicetype=Windows+10&version=62060426&lang=zh_CN&pass_ticket=906xy%2Fk9TQJp5jnyekYc89wLa17ODmZRkas9HXdX%2BtYcy0q32NIxLHOhFx519Yxa)
-  - [反卷积Deconvolution](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000973&idx=3&sn=8a787cc0e165fa071ca7a602f16fae17&chksm=1bbfe1f72cc868e1249a3ebe90021e2a6e12c3d8021fcc1877a5390eed36f5a8a6698eb65216&scene=20&xtrack=1#rd)
-  - [池化运算的定义](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000973&idx=4&sn=cebf71790dd7e0e497fa36fa199c368d&chksm=1bbfe1f72cc868e1017d26a996f1eb7602fad1efced62713def3012b8df1b85b6ba46c0ebae8&scene=20&xtrack=1#rd)
-  - [CNN 算法 numpy 实现](https://github.com/km1994/MLStudy/blob/master/CNN-Numpy_suss/view.py)
 
 ### NLP 学习篇
 
@@ -235,8 +179,29 @@
 - [文本匹配论文学习](text_match_study/) 
   - [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
   - [Simple and Effective Text Matching with Richer Alignment Features](text_match_study/Multi-RE2_study/)
+  - [Deep Structured Semantic Model](text_match_study/cikm2013_DSSM/)
+  - [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](text_match_study/TACL2016_ABCNN/)
+  - [Enhanced LSTM for Natural Language Inference](text_match_study/TACL2017_ESIM/)
+  - [Bilateral Multi-perspective Matching](text_match_study/IJCAI2017_BiMPM/)
+  - [Densely Interactive Inference Network（DIIN）](text_match_study/T2017_DIIN/)
 
 - [文本分类论文学习](classifier_study/)
+
+#### Elastrsearch 学习篇
+
+- [Elastrsearch 学习](es_study/)
+  - [ElasticSearch架构解析与最佳实践.md](es_study/ElasticSearch架构解析与最佳实践.md)
+
+#### 推荐系统 学习篇
+
+- [CTR 论文学习](CTR_study)
+  - [DeepFM 论文学习](CTR_study/DeepFM_study)
+  - [DeepWalk 论文学习](CTR_study/DeepWalk)
+  - [ESMM 论文学习](CTR_study/ESMM_study)
+  
+#### 竞赛篇
+
+- [竞赛篇](game_study)
 
 #### 视频学习篇
 
@@ -441,7 +406,8 @@
 - [问答系统 实战篇](https://github.com/km1994/Conversation_Wp/tree/master/baidu_qa_zh_process)
   - [基于 百度问答 的问答系统](https://github.com/km1994/Conversation_Wp/tree/master/baidu_qa_zh_process/Baidu_WebQA_model.ipynb)
 
-- [文本匹配 实战篇]()
+- [文本匹配 实战篇](https://github.com/km1994/TextMatching)
+  - [TextMatching](https://github.com/km1994/TextMatching)
   - [TextMatch](https://github.com/km1994/TextMatch)
   - [Text_Matching（文本匹配算法）](https://github.com/km1994/Text_Matching)
 
@@ -479,6 +445,56 @@
   - [DGL 入门](https://github.com/km1994/GCN_study/blob/master/DGL_study/DGL_introduction.md)
   - [DGL 入门 —— GCN 实现](https://github.com/km1994/GCN_study/blob/master/DGL_study/DGL_GCN_introduction.md)
 
+### [ML 小白入门篇](https://github.com/km1994/ML_beginer)
+
+- [概率图模型串烧 （HMM->MEMM->CRF）](https://github.com/km1994/ML_beginer/tree/master/CRF_study)
+
+- [KNN 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B8%80knnstudy)
+  - [理论篇](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000006&idx=7&sn=f040e0a95376880349378ce7afd634af&chksm=1bbfe43c2cc86d2a5942e0938c871375cffcd72c9795a3e8b39fdb0c8285348631e7bf8a27b4)
+  - [实战篇](https://github.com/km1994/MLStudy/blob/master/KNNStudy/KNNClass.py)
+
+- [朴素贝叶斯算法 学习篇](https://github.com/km1994/MLStudy#%E4%BA%8Cnbstudy)
+  - [NB 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
+  - [NB 算法实现](https://github.com/km1994/MLStudy/blob/master/NBStudy/NBStudy.py)
+
+- [Apriori 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B8%89aprioristudy)
+  - [Apriori 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
+  - [Apriori 算法实现](https://github.com/km1994/MLStudy/blob/master/AprioriStudy/AprioriMyTest.py)
+
+- [Softmax 算法学习篇](https://github.com/km1994/MLStudy#%E5%8D%81softmax-numpy-%E5%AE%9E%E7%8E%B0)
+  - [Softmax 理论学习](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001925&idx=5&sn=20c5ead4f4b5f8f88c30043fb3703557&chksm=1bbfedbf2cc864a96b5fc4575e09294478f6f4cff65d654b8d775fed78766f80faf333d8ca08&scene=20&xtrack=1#rd)
+  - [Softmax 算法实现](https://github.com/km1994/MLStudy/blob/master/softmaxStudy/softmaxStudy.py)
+
+- [Gradient Descent 算法学习篇](https://github.com/km1994/MLStudy#%E5%9B%9Bgradientdescentstudy)
+  - [GradientDescent 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
+  - [GradientDescent 算法实现](https://github.com/km1994/MLStudy/blob/master/GradientDescentStudy/GradientDescentTest.py)
+
+- [随机森林算法 学习篇](https://github.com/km1994/MLStudy#%E4%BA%94randomforest)
+  - [RandomForest 算法理论学习](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001388&idx=1&sn=21bae727bf3510fad98b3ec4a89d124e&chksm=1bbfe3562cc86a40769ea726f96e3a45185697f9582a2e3fbbbeec3af90dd722ebe09b635ddc&scene=20&xtrack=1#rd)
+  - [RandomForest 算法实现](https://github.com/km1994/MLStudy/blob/master/RandomForest/xiechengRF/RandomForestClass.py)
+  - [基于PCA 的 RandomForest 算法实现](https://github.com/km1994/MLStudy/blob/master/RandomForest/xiechengRF/xiechengPCARF.py)
+
+- [EM 算法学习篇](https://github.com/km1994/ML_beginer/tree/master/EM_study)
+
+- [SVM 算法学习篇](https://github.com/km1994/MLStudy#%E5%85%ADsvn)
+  - [SVN 算法理论学习](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100001388&idx=1&sn=21bae727bf3510fad98b3ec4a89d124e&chksm=1bbfe3562cc86a40769ea726f96e3a45185697f9582a2e3fbbbeec3af90dd722ebe09b635ddc&scene=20&xtrack=1#rd)
+  - [SVM 算法学习篇](https://github.com/km1994/ML_beginer/tree/master/SVM_study)
+  - [SVN 算法实现](https://github.com/km1994/MLStudy/blob/master/SVN/PCAandSVN.py)
+
+- [BPNN 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B8%83bpnn)
+  - [BPNN 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
+  - [BPNN 算法实现](https://github.com/km1994/MLStudy/blob/master/ANN/BP/test.py)
+
+- [PCA 算法 学习篇](https://github.com/km1994/MLStudy#%E5%85%ABpca)
+  - [PCA 算法理论学习](https://github.com/km1994/MLStudy/blob/master)
+  - [PCA 算法实现](https://github.com/km1994/MLStudy/blob/master/DimensionalityReduction/PCA/PCAClass.py)
+
+- [CNN 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B9%9Dcnn-numpy-%E5%AE%9E%E7%8E%B0)
+  - [卷积运算的定义、动机](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000973&idx=2&sn=4eced9e7204274a4e3798cb73a140c72&chksm=1bbfe1f72cc868e1f63262fad39b4f735a6d424c064f6bee755e438b94487bf75b5d41cc02c0&scene=20&xtrack=1&key=fe048f5ad4fa1bcff1ed72e320faab18cb01c02c1a16279c60775734b428e42206e9f5a8f3c402ae96c01259df639ca04206da43e2ab1b42bfaf44bb4068c793df27faa893ea0301a375086e4adfd3b7&ascene=1&uin=MjQ3NDIwNTMxNw%3D%3D&devicetype=Windows+10&version=62060426&lang=zh_CN&pass_ticket=906xy%2Fk9TQJp5jnyekYc89wLa17ODmZRkas9HXdX%2BtYcy0q32NIxLHOhFx519Yxa)
+  - [反卷积Deconvolution](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000973&idx=3&sn=8a787cc0e165fa071ca7a602f16fae17&chksm=1bbfe1f72cc868e1249a3ebe90021e2a6e12c3d8021fcc1877a5390eed36f5a8a6698eb65216&scene=20&xtrack=1#rd)
+  - [池化运算的定义](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000973&idx=4&sn=cebf71790dd7e0e497fa36fa199c368d&chksm=1bbfe1f72cc868e1017d26a996f1eb7602fad1efced62713def3012b8df1b85b6ba46c0ebae8&scene=20&xtrack=1#rd)
+  - [CNN 算法 numpy 实现](https://github.com/km1994/MLStudy/blob/master/CNN-Numpy_suss/view.py)
+
 ### [Java 实战篇](https://github.com/km1994/3y)
 
 ### [百度百科 ES 全文检索平台构建 实战篇](https://github.com/km1994/baidu_es)
@@ -511,223 +527,29 @@
 
 #### [Leetcode 篇](https://github.com/km1994/leetcode/blob/master/README.md)
 
-- [简单题](topic1_easy/)
-  1. [74. 搜索二维矩阵](topic1_easy/T74_searchMatrix/)
-  2. [88. 合并两个有序数组](topic1_easy/T88_merge/)
-  3. [136. 只出现一次的数字](topic1_easy/T136_ingleNumber/)
-  4. [240. 搜索二维矩阵 II](topic1_easy/T240_searchMatrix2/)
-  5. [50. Pow(x, n)](topic1_easy/T50_myPow/)【[leetcode]](https://leetcode-cn.com/problems/powx-n/)】 【简单】
-  6. [118. 杨辉三角 I](topic1_easy/T118_generate/)【[leetcode]](https://leetcode-cn.com/problems/pascals-triangle/)】 【简单】
-  7. [119. 杨辉三角 II](topic1_easy/T119_getRow/)【[leetcode]](https://leetcode-cn.com/problems/pascals-triangle-ii/)】 【简单】
-
-- [数组](topic2_arr/)
-  1. [350. 两个数组的交集 II](topic2_arr/T_select_max_min/)
-  2. [1. 两数之和](topic2_arr/T1_twoSum/)
-  3. [56. 合并区间](topic2_arr/T56_merge/)
-  4. [152. 乘积最大子序列](topic2_arr/T152_maxProduct/)
-  5. [217. 存在重复元素](topic2_arr/T217_containsDuplicate/)
-  6. [238. 除自身以外数组的乘积](topic2_arr/T238_productExceptSelf/)
-  7. [在一个未排序的整型数组中，如何找到最大和最小的数字？](topic2_arr/T268_missingNumber/)
-  8. [283. 移动零](topic2_arr/T283_moveZeroes/)
-  9. [287. 寻找重复数](topic2_arr/T287_findDuplicate/)
-  10. [334. 递增的三元子序列](topic2_arr/T334_increasingTriplet/)
-  11. [349. 两个数组的交集](topic2_arr/T349_intersection/)
-  12. [350. 两个数组的交集 II](topic2_arr/T350_intersect/)
-  13. [836. 矩形重叠](topic2_arr/T836_isRectangleOverlap/)
-  14. [118. 杨辉三角](topic2_arr/T118_generate/)
-  15. [119. 杨辉三角 II](topic2_arr/T119_getRow/)
-  16. [1431. 拥有最多糖果的孩子](topic2_arr/T1431_kidsWithCandies/) 【简单】【[leetcode](https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/)】
-  17. [面试题29. 顺时针打印矩阵](topic2_arr/MS29_spiralOrder/) 【简单】【[leetcode](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/)】
-  18. [14. 最长公共前缀](topic2_arr/T14_longestCommonPrefix/) 【简单】【[leetcode](https://leetcode-cn.com/problems/longest-common-prefix/)】
-
-- [链表](topic3_List/)
-**[思路汇总](topic3_List/)**
-  1. [在未排序链表中，怎样移除重复的节点?](topic3_List/T_removeRepeat/)
-  2. [在一次遍历中，怎样发现单个链表的中间元素?](topic3_List/T_selectmid/)
-  3. [链表实现](topic3_List/T0_ListDifine/)
-  4. [21. 合并两个有序链表](topic3_List/T21_mergeTwoLists/)
-  5. [141. 环形链表](topic3_List/T141_hasCycle/)
-  6. [21. 合并两个有序链表](topic3_List/T148_sortList/)
-  7. [160. 相交链表](topic3_List/T160_getIntersectionNode/)
-  8. [234. 回文链表](topic3_List/T234_isPalindrome/)
-  9. [328. 奇偶链表](topic3_List/T328_oddEvenList/)
-  10. [23. 合并K个排序链表](topic3_List/T23_mergeKLists/)
-  11. [25. K 个一组翻转链表](topic3_List/T25_reverseKGroup/)
-
-- [动态规划](topic4_dynamic_planning_study/)
-**[思路汇总](topic4_dynamic_planning_study/)**
-  - 只需借鉴 上一步 （定义变量类型）
-    - 介绍
-      - 此类题型的特点在于，当前位置的取值，仅与前一个位置相关，与其他位置无关，所以只需定义一个变量保存前一个值即可；
-    - 类型题介绍
-  
-      1. [53. 最大子序和](topic4_dynamic_planning_study/T53_maxSubArray/) 【简单】
-      2. [198. 打家劫舍](topic4_dynamic_planning_study/T198_rob/) 【[leetcode](https://leetcode-cn.com/problems/house-robber/)】 【简单】
-      3. [面试题46. 把数字翻译成字符串](topic4_dynamic_planning_study/MS46_translateNum/) 【[leetcode](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/)】 【中等】
-   
-   - 需要借鉴之前步骤（定义数组类型）
-     - 介绍
-       - 此类题型的特点在于，当前位置的取值，不仅与前一个位置相关，而且与其他位置相关， 所以需定义一个长度为 len+1 的向量保存之前所计算得到的值；
-     - 类型题介绍
-       1. [300. 最长上升子序列](topic4_dynamic_planning_study/T300_lengthOfLIS/) 【中等】
-       2. [139. 单词拆分](topic4_dynamic_planning_study/T139_wordBreak/) 【中等】
-       3. [983. 最低票价](topic4_dynamic_planning_study/T983_mincostTickets/) 【中等】
-       4. [70. 爬楼梯](topic4_dynamic_planning_study/T70_climbStairs/) 【简单】
-
-   - 需要借鉴之前步骤（定义矩阵类型）
-     - 介绍
-       - 此类题型的特点在于，当前位置的取值，不仅与前一个位置相关，而且与其他位置相关， 而且该问题需要 上升 到 矩阵层次上考虑，所以需定义一个矩阵保存之前所计算得到的值；
-     - 类型题介绍
-       1. [221. 最大正方形](topic4_dynamic_planning_study/T221_maximalSquare/) 【中等】
-   - 0-1 背包问题
-     - 介绍
-        - 此类题型的特点在于元素要么取，要么不取
-     - 类型题介绍
-       1. [416. 分割等和子集](topic4_dynamic_planning_study/T416_canPartition/) 【中等】
-
-   - 未分类
-     1. [在未排序链表中，怎样移除重复的节点?](topic4_dynamic_planning_study/0811_waysToChange/)
-     2. [牛妹的蛋糕](topic4_dynamic_planning_study/NK_cakeNumber/)
-     3. [887. 鸡蛋掉落](topic4_dynamic_planning_study/T887_superEggDrop/)
-     4. [0-1背包问题](topic4_dynamic_planning_study/T200322_bestValue/)
-     5. [322. 零钱兑换](topic4_dynamic_planning_study/T200322_coinChange/)
-     6. [面试题10- I. 斐波那契数列](topic4_dynamic_planning_study/T200322_ib_study/)
-     7. [62. 不同路径](topic4_dynamic_planning_study/T200323_uniquePathsWithObstacles/)
-     8. [63. 不同路径 II](topic4_dynamic_planning_study/T200323_uniquePaths/)
-     9. [837. 新21点](topic4_dynamic_planning_study/T873_new21Game/) 【中等】 【[leetcode](https://leetcode-cn.com/problems/new-21-game/)】
-
-- [字符串](topic5_string/)
-**[思路汇总](topic5_string/)**
-  1. [5. 最长回文子串](topic5_string/T5_longestPalindrome/)
-  2. [125. 验证回文串](topic5_string/T125_isPalindrome/)
-  3. [242. 有效的字母异位词](topic5_string/T242_isAnagram/)
-  4. [387. 字符串中的第一个唯一字符](topic5_string/T387_firstUniqChar/)
-  5. [466. 统计重复个数](topic5_string/T466_getMaxRepetitions/)
-  6. [1371. 每个元音包含偶数次的最长子字符串](topic5_string/T1371_findTheLongestSubstring/)
-  7. [3. 无重复字符的最长子串](topic5_string/T3_lengthOfLongestSubstring/)
-
-- [栈](topic6_stack/)
-**[思路汇总](topic6_stack/)**
-  1. [150. 逆波兰表达式求值](topic6_stack/T387_firstUniqChar/)
-  2. [155. 最小栈](topic6_stack/T155_MinStack/)
-  3. [394. 字符串解码](topic6_stack/T394_decodeString/) 【[leetcode](https://leetcode-cn.com/problems/decode-string/)】【中等】
-  4. [394. 字符串解码](topic6_stack/T84_ilargestRectangleArea/) 【[leetcode](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)】【中等】
-  5. [739. 每日温度](topic6_stack/T739_dailyTemperatures/)【[leetcode](https://leetcode-cn.com/problems/daily-temperatures/)】【中等】
-
-- [排序](topic7_sorted/)
-**[思路汇总](topic7_sorted/)**
-  1. [插入排序](topic7_sorted/T_insert_sorted/)
-  2. [快速排序](topic7_sorted/T_quick_sort/)
-  3. [376. 摆动序列](topic7_sorted/T376_wiggleMaxLength/)
-
-- [二分查找](topic8_binary_search/)
-**[思路汇总](topic8_binary_search/)**
-  1. [15. 三数之和](topic8_binary_search/T15_three_sum/)
-  2. [18. 四数之和](topic8_binary_search/T18_forth_sum/)
-  3. [33. 搜索旋转排序数组](topic8_binary_search/T33_search/)
-  4. [162. 寻找峰值](topic8_binary_search/T162_findPeakElement/)
-  5. [1095. 山脉数组中查找目标值](topic8_binary_search/T1095_findInMountainArray/)
-  6. [11. 盛最多水的容器](topic8_binary_search/T11_maxArea/)
-  7. [面试题 08.11. 硬币](topic8_binary_search/T1248_numberOfSubarrays/)
-  8. [神奇数字](topic8_binary_search/NK_change/) 【[牛客网](https://www.nowcoder.com/practice/01e7bedf5dd2421aa6f879fd8055e51d?tpId=110&tqId=33453&tPage=1&rp=1&ru=/ta/job-code&qru=/ta/job-code/question-ranking)】 【难度：1】
-  9. [69. x 的平方根](topic8_binary_search/T69_mySqrt/) 【[leetcode]](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)】 【困难】
-  10. [4. 寻找两个正序数组的中位数](topic8_binary_search/T4_findMedianSortedArrays/) 【[leetcode]](https://leetcode-cn.com/problems/sqrtx/)】 【简单】
-  11. [1300. 转变数组后最接近目标值的数组和](topic8_binary_search/T1300_findBestValue/) 【[leetcode]](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/)】 【中等】
-
-- [哈希表](topic9_hash_table/)
-**[思路汇总](topic9_hash_table/)**
-  1. [171. Excel表列序号](topic9_hash_table/T171_titleToNumber/)
-  2. [454. 四数相加 II](topic9_hash_table/T454_forth_sum/)
-  3. [面试题56 - I. 数组中数字出现的次数](topic1_easy/MST56_1_singleNumbers/)
-  4. [141. 环形链表](topic9_hash_table/T141_hasCycle/)
-  5. [560. 和为K的子数组](topic9_hash_table/T560_subarraySum/)
-  6. [1. 两数之和](topic9_hash_table/T1_twoSum/)
-  7. [1010. 总持续时间可被 60 整除的歌曲](topic9_hash_table/T1010_numPairsDivisibleBy60/) 【[leetcode](https://leetcode-cn.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/submissions/)】【简单】
-
-- [队列](topic10_queue/)
-**[思路汇总](topic10_queue/)**
-  1. [239. 滑动窗口最大值](topic10_queue/T239_maxSlidingWindow/)
-  2. [347. 前 K 个高频元素](topic10_queue/T347_topKFrequent/)
-  3. [621. 任务调度器](topic10_queue/T621_leastInterval/)
-  4. [933. 最近的请求次数](topic10_queue/T933_RecentCounter/)
-
-- [堆](topic11_heap/)
-**[思路汇总](topic11_heap/)**
-  1. [堆排序](topic11_heap/T_HeapSort)
-  2. [215. 数组中的第K个最大元素](topic11_heap/T215_findKthLargest/)
-  3. [295. 数据流的中位数](topic11_heap/T295_MedianFinder/)
-  4. [378. 有序矩阵中第K小的元素](topic11_heap/T378_kthSmallest/)
-
-- [回溯法](topic12_backtrack/)
-**[思路汇总](topic12_backtrack/)**
-  1. [22. 括号生成](topic12_backtrack/T22_generateParenthesis/)
-  2. [46. 全排列](topic12_backtrack/T46_permute/)
-  3. [79. 单词搜索](topic12_backtrack/T79_exist/)
-  4. [131. 分割回文串](topic12_backtrack/T131_partition/)
-  5. [200. 岛屿数量](topic12_backtrack/T200_numIslands/)
-  6. [212. 单词搜索 II](topic12_backtrack/T212_findWords/)
-  7. [980. 不同路径 III](topic12_backtrack/T980_uniquePathsIII/)
-  8. [98. 验证二叉搜索树](topic12_backtrack/T98_isValidBST/) 【中等】
-  9. [140. 单词拆分 II](topic12_backtrack/T140_wordBreak/) 【困难】
-  10. [210. 课程表 II](topic12_backtrack/T210_findOrder/) 【[leetcode](https://leetcode-cn.com/problems/course-schedule-ii/)】【中等】
-  11. [1028. 从先序遍历还原二叉树](topic12_backtrack/T1028_recoverFromPreorder/) 【[leetcode](https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal/)】【困难】
-
-- [树](topic13_tree/)
-**[思路汇总](topic13_tree/)**
-  1. [树构建](topic13_tree/T_tree)
-  2. [面试题28. 对称的二叉树](topic13_tree/T28_isSymmetric/)
-  3. [104. 二叉树的最大深度](topic13_tree/T104_maxDepth/)
-  4. [110. 平衡二叉树](topic13_tree/T110_isBalanced/)
-  5. [111. 二叉树的最小深度](topic13_tree/T111_minDepth/)
-  6. [112. 路径总和](topic13_tree/T112_hasPathSum/)
-  7. [113. 路径总和 II](topic13_tree/T113_pathSum/)
-  8. [129. 求根到叶子节点数字之和](topic13_tree/T129_sumNumbers/)
-  9. [230. 二叉搜索树中第K小的元素](topic13_tree/T230_kthSmallest/)
-  10. [236. 二叉树的最近公共祖先](topic13_tree/T236_lowestCommonAncestor/)
-  11. [257. 二叉树的所有路径](topic13_tree/T257_binaryTreePaths/)
-  12. [297. 二叉树的序列化与反序列化](topic13_tree/T297_Codec/)
-  13. [563. 二叉树的坡度](topic13_tree/T563_findTilt/)
-
-- [归并排序](topic15_merge/)
-**[思路汇总](topic15_merge/)**
-  1. [面试题51. 数组中的逆序对](topic15_merge/TM51_reversePairs/)
-
-- [快慢指针](topic16_speed_pointer/)
-**[思路汇总](topic16_speed_pointer/)**
-  1. [202. 快乐数](topic16_speed_pointer/T202_isHappy/)
-  2. [283. 移动零](topic16_speed_pointer/T283_moveZeroes/) 【简单】
-
-- [贪心算法](topic17_greedy/)
-**[思路汇总](topic17_greedy/)**
-  1. [45. 跳跃游戏 II](topic17_greedy/T45_jump/)
-
-- [递归](topic18_recursive/)
-**[思路汇总](topic18_recursive/)**
-
-- [分治](topic19_divide_and_conquer/)
-**[思路汇总](topic19_divide_and_conquer/)**
-
-- [分支限界法](topic20_branch_and_bound_method/)
-**[思路汇总](topic20_branch_and_bound_method/)**
-  1. [210. 课程表 II](topic12_backtrack/T210_findOrder/) 【[leetcode](https://leetcode-cn.com/problems/course-schedule-ii/)】【中等】
-  2. [126. 单词接龙 II](topic12_backtrack/T126_ffindLadders/) 【[leetcode](https://leetcode-cn.com/problems/word-ladder-ii/submissions/)】【困难】
-
-- [位运算](topic21_Bit_operation/)
-**[思路汇总](topic21_Bit_operation/)**
-  1. [136. 只出现一次的数字](topic21_Bit_operation/T136_ingleNumber/)
-
-- [滑动窗口](topic22_move_window/)
-**[思路汇总](topic22_move_window/)**
-  1. [76. 最小覆盖子串](topic22_move_window/T76_minWindow/)
-
-- [数学题](topic23_math/)
-**[思路汇总](topic23_math/)**
-  1. [976. 三角形的最大周长](topic23_math/T976_largestPerimeter/) 【简单】
-  2. [990. 等式方程的可满足性](topic23_math/T990_UnionFind/) 【中等】
-
-- [面试题](interview/)
-  1. [美团 2020 年春招](interview/meituan_interview/)
-  2. [携程 2020 年春招](interview/ctrip_interview/)
+- [简单题](https://github.com/km1994/leetcode/blob/master/topic1_easy/)
+- [数组](https://github.com/km1994/leetcode/blob/master/topic2_arr/)
+- [链表](https://github.com/km1994/leetcode/blob/master/topic3_List/)
+- [动态规划](https://github.com/km1994/leetcode/blob/master/topic4_dynamic_planning_study/)
+- [字符串](https://github.com/km1994/leetcode/blob/master/topic5_string/)
+- [栈](https://github.com/km1994/leetcode/blob/master/topic6_stack/)
+- [排序](https://github.com/km1994/leetcode/blob/master/topic7_sorted/)
+- [二分查找](https://github.com/km1994/leetcode/blob/master/topic8_binary_search/)
+- [哈希表](https://github.com/km1994/leetcode/blob/master/topic9_hash_table/)
+- [队列](https://github.com/km1994/leetcode/blob/master/topic10_queue/)
+- [堆](https://github.com/km1994/leetcode/blob/master/topic11_heap/)
+- [回溯法](https://github.com/km1994/leetcode/blob/master/topic12_backtrack/)
+- [树](https://github.com/km1994/leetcode/blob/master/topic13_tree/)
+- [归并排序](https://github.com/km1994/leetcode/blob/master/topic15_merge/)
+- [快慢指针](https://github.com/km1994/leetcode/blob/master/topic16_speed_pointer/)
+- [贪心算法](https://github.com/km1994/leetcode/blob/master/topic17_greedy/)
+- [递归](https://github.com/km1994/leetcode/blob/master/topic18_recursive/)
+- [分治](https://github.com/km1994/leetcode/blob/master/topic19_divide_and_conquer/)
+- [分支限界法](https://github.com/km1994/leetcode/blob/master/topic20_branch_and_bound_method/)
+- [位运算](https://github.com/km1994/leetcode/blob/master/topic21_Bit_operation/)
+- [滑动窗口](https://github.com/km1994/leetcode/blob/master/topic22_move_window/)
+- [数学题](https://github.com/km1994/leetcode/blob/master/topic23_math/)
+- [面试题](https://github.com/km1994/leetcode/blob/master/interview/)
 
 #### [DeepLearning-500-questions](https://github.com/km1994/DeepLearning-500-questions)
 

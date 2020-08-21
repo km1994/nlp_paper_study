@@ -1,10 +1,38 @@
-# 论文学习方法
+# 你还在为如何搞科研而发愁么？
 
 > 作者：杨夕
 > 
 > 项目地址：https://github.com/km1994/nlp_paper_study
 > 
 > 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
+
+## 目录
+
+- 你曾经是否也遇到和我一样的问题？
+  - 作为一名 scholar，你是否和我一样，在刚入门 NLP 时，对于陌生领域有种无从下手，心存畏惧？
+  - 作为一名 scholar，你是否还在发愁如何找好的论文？
+  - 作为一名 scholar，你是否还在为 自己 的 英文阅读 能力跟不上 很烦恼？
+  - 作为一名 scholar，你是否还在为 看到 一篇好paper，但是复现不出 code 而心累？
+  - 作为一名 scholar，你是否还在为 有Good idea，Outstanding Experimental results，Beautiful Chinese manuscript，结果 Bad English manuscript, Poor Journal 而奔溃？
+  - 作为一名 scholar，你是否在为搞科研没人交流而自闭？
+- 当你看到这一篇文档，你将不在为这些问题而烦恼，因为我们为你准备了一整套免费的从 论文查找->论文翻译->论文理解->相关代码搜索->写英文稿->科研学术交流 的路径。
+  - [论文不会找怎么办？](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#论文不会找怎么办)
+    - [顶会资讯](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#顶会资讯)
+    - [论文搜索和分析工具](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#论文搜索和分析工具)
+  - [外文读不懂怎么办？](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#外文读不懂怎么办)
+    - [论文翻译神器 ———— 通天塔](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#论文翻译神器--通天塔)
+    - [论文翻译小助手 ———— 彩云小译](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#论文翻译小助手--彩云小译)
+  - [外文没 code 怎么办？](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#外文没-code-怎么办)
+    - [papers with code](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#papers-with-code) 
+    - [OpenGitHub 新项目快报](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#opengithub-新项目快报) 
+  - [外文写起来麻烦怎么办](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#外文写起来麻烦怎么办) 
+    - [Overleaf](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#overleaf) 
+    - [Authorea](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#authorea) 
+    - [Code ocean](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#code-ocean) 
+  - [搞科研没人交流怎么办？](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#搞科研没人交流怎么办) 
+    - [Shortscience](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#shortscience) 
+    - [OpenReview](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#openreview) 
+    - [Scirate](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#scirate) 
 
 ## 论文不会找怎么办？
 
@@ -107,7 +135,8 @@
 
 ##### 效果图
 
-![](img/18.png)
+![](https://imgkr2.cn-bj.ufileos.com/4e1ba94f-42cb-48f8-bafb-d9f13fc4c5ee.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=vBM3st9loAP6E4B9%252FHOf58laCRg%253D&Expires=1597155469)
+
 
 #### Semantic scholar
 
@@ -119,7 +148,8 @@
 
 ##### 效果图
 
-![](img/19.png)
+
+![](https://imgkr2.cn-bj.ufileos.com/888b761c-8bae-4474-8580-6b0800425fb9.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=cVzWIpK3l8gi1XS%252BoXOJJTWzWzA%253D&Expires=1597155487)
 
 #### 计算机视觉方面的论文
 
@@ -133,10 +163,7 @@
 
 ##### 效果图
 
-![](img/4.png)
-
-
-
+![](https://imgkr2.cn-bj.ufileos.com/f0dcecaf-9900-482b-a9f9-d4b01c98c4c6.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=DLr4tMInMW4qyUCCRU85ips9jd8%253D&Expires=1597155494)
 
 #### Deep Learning Monitor
 
@@ -148,9 +175,7 @@
 
 ##### 效果图
 
-![](img/17.png)
-
-
+![](https://imgkr2.cn-bj.ufileos.com/dab1b8e3-4567-4195-a517-461ae82db312.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=CqY7L7XE932IsYKHIP%252BzxNDJo1I%253D&Expires=1597155520)
 
 ## 外文读不懂怎么办？
 
@@ -167,6 +192,7 @@
 #### 效果图
 
 
+![](https://imgkr2.cn-bj.ufileos.com/1a90c094-4618-4b0a-9ed7-a1a175d9eee5.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=ZCZOoB%252FFKdpqPzQ1FCShaUemWf0%253D&Expires=1597155538)
 
 
 ### Arxiv Vanity
@@ -183,7 +209,7 @@
 
 #### 效果图
 
-![](img/1.png)
+![](https://imgkr2.cn-bj.ufileos.com/e4646aa8-1434-4f3e-8cc8-a807061e0f64.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=no1UhvVaEX4WUWw33Cu9gHQMiXc%253D&Expires=1597155553)
 
 ### 论文翻译神器 ———— 通天塔
 
@@ -198,7 +224,7 @@
 
 #### 效果图
 
-![](img/3.png)
+![](https://imgkr2.cn-bj.ufileos.com/be36d6f4-4a21-4ce5-9d9b-e7b2025f2c2c.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=zfVEXrifjXOdVAPtvPLrafQgbh4%253D&Expires=1597155570)
 
 ### 论文翻译小助手 ———— 彩云小译
 
@@ -221,19 +247,19 @@
 
 step 1: 官网界面
 
-![](img/5.png)
+![](https://imgkr2.cn-bj.ufileos.com/c5138efa-17ca-459a-b6ca-8fff0bf75e4a.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=xjk2%252BapQ3DCodplB0quVAzc%252BbDU%253D&Expires=1597155586)
 
 step 2: 上传 pdf
 
-![](img/6.png)
+![](https://imgkr2.cn-bj.ufileos.com/f99c710d-2ab9-4d2c-a6b0-f27af7a24f0c.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=didFdt9HJ8LSzrHza5wWcqsbRGs%253D&Expires=1597155597)
 
 step 3: 选择翻译模式
 
-![](img/7.png)
+![](https://imgkr2.cn-bj.ufileos.com/adf0e6be-d77d-4772-b9ae-aab42a8d1739.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=H%252Fym%252BgwAv7P08Y1I8tdhkr%252BEsTY%253D&Expires=1597155604)
 
 step 4: 翻译ing!!!
 
-![](img/8.png)
+![](https://imgkr2.cn-bj.ufileos.com/821a08bf-18bb-4e07-8635-d89da5bd6980.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=SCyJ029x%252B1kTx2w%252FZ5VMx4uFEgM%253D&Expires=1597155610)
 
 step 5: 翻译效果
 
@@ -241,7 +267,7 @@ step 5: 翻译效果
 见证奇迹的时刻！！！
 见证奇迹的时刻！！！
 
-![](img/9.png)
+![](https://imgkr2.cn-bj.ufileos.com/f1eaf893-1310-4814-8c67-fd25d609042f.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=FSfvmuZSlFmuhbPLTutWIJtaOw8%253D&Expires=1597155619)
 
 意不意外？激不激动？兴不兴奋？？？
 
@@ -249,16 +275,15 @@ step 5: 翻译效果
 
 step 1：下载插件，并安装插件
 
-![](img/10.png)
+![](https://imgkr2.cn-bj.ufileos.com/9fa55a71-5270-436f-9ade-247bc43d5ff1.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=iIyXJhbe%252F%252FoWdskp86geWkO0wEs%253D&Expires=1597155632)
 
 step 2：使用插件
 
-![](img/11.png)
+![](https://imgkr2.cn-bj.ufileos.com/294fe7e2-c0ca-4f9f-8de8-eaea7da47fb4.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=GoJf%252FyK3kPpMXrPY2Ha1%252FAwNLkQ%253D&Expires=1597155639)
 
 step 3：翻译效果
 
-![](img/12.png)
-
+![](https://imgkr2.cn-bj.ufileos.com/f9832170-6286-4b2d-be7c-46c0cabe432c.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=OzkW%252Bm%252BqvP0TPZndDUadC5HNzD8%253D&Expires=1597155650)
 
 ## 外文没 code 怎么办？
 
@@ -274,9 +299,9 @@ step 3：翻译效果
 
 #### 效果图
 
-![](img/13.png)
+![](https://imgkr2.cn-bj.ufileos.com/4141cff3-0889-45ed-9b15-b734de70318b.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=HqjR6gSvTg3mUsbs17ZwXky89uU%253D&Expires=1597155658)
 
-![](img/14.png)
+![](https://imgkr2.cn-bj.ufileos.com/68126b0e-8c5d-4645-949c-385e802ed7b3.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=oLCdzPixIRRPuhUaD3t%252Fq0jDaqE%253D&Expires=1597155665)
 
 ### OpenGitHub 新项目快报
 
@@ -290,7 +315,7 @@ step 3：翻译效果
 
 #### 效果图
 
-![](img/15.png)
+![](https://imgkr2.cn-bj.ufileos.com/3ac96dde-f1ec-4851-9968-5ad415273b07.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=w%252FKHYTjwhbQmnwOPnVYv%252FzLGjuo%253D&Expires=1597155678)
 
 ### New Standard In AI
 
@@ -304,7 +329,7 @@ step 3：翻译效果
 
 #### 效果图
 
-![](img/16.png)
+![](https://imgkr2.cn-bj.ufileos.com/96b1ffe5-a814-4a11-9d69-e016d2060226.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=EPtqb42JDts6qhOBzGzYt5%252BosAA%253D&Expires=1597155808)
 
 ### Github pwc
 
@@ -318,8 +343,7 @@ Papers with code. Sorted by stars. Updated weekly.
 
 #### 效果图
 
-![](img/20.png)
-
+![](https://imgkr2.cn-bj.ufileos.com/bec024bf-4748-40e9-91bb-b1e79b83e6ee.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=xPKBEi%252FCC4XCz%252FEDLx21aChhl6g%253D&Expires=1597155819)
 
 ## 外文写起来麻烦怎么办？
 
@@ -335,7 +359,8 @@ Papers with code. Sorted by stars. Updated weekly.
 
 #### 效果图
 
-![](img/21.png)
+![](https://imgkr2.cn-bj.ufileos.com/4097e34e-b2f6-4712-813b-9d2fd9862350.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=Hjx4ve0UEH3eXpJMjGAH4z%252BRdQA%253D&Expires=1597155855)
+
 
 ### Authorea
 
@@ -349,7 +374,7 @@ Papers with code. Sorted by stars. Updated weekly.
 
 #### 效果图
 
-![](img/22.png)
+![](https://imgkr2.cn-bj.ufileos.com/835dc0a9-4d70-4d9f-97ea-83f93e147123.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=FczYO47WiLpzpJVqQdo3Qw0KeNk%253D&Expires=1597155864)
 
 ### Code ocean
 
@@ -363,7 +388,7 @@ Papers with code. Sorted by stars. Updated weekly.
 
 #### 效果图
 
-![](img/23.png)
+![](https://imgkr2.cn-bj.ufileos.com/d4737838-6a9a-43f1-8a8d-f4cbd68965f4.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=CWOBN4itBBsmIFzXnp8H6oqjdrw%253D&Expires=1597155872)
 
 ## 搞科研没人交流怎么办？
 
@@ -379,7 +404,7 @@ Papers with code. Sorted by stars. Updated weekly.
 
 #### 效果图
 
-![](img/24.png)
+![](https://imgkr2.cn-bj.ufileos.com/2fe6d87f-5a3e-47e8-820a-23459a113eb4.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=1axkCK5KaW9S5Xhp66jhfAmeGYQ%253D&Expires=1597155878)
 
 ### OpenReview
 
@@ -394,7 +419,7 @@ Papers with code. Sorted by stars. Updated weekly.
 
 #### 效果图
 
-![](img/25.png)
+![](https://imgkr2.cn-bj.ufileos.com/893b779a-ee49-49e5-b59f-ec3f156fa2a1.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=AFBec%252B7MZRxMPiVHmgkWZ4f5fhs%253D&Expires=1597155889)
 
 ### Scirate
 
@@ -408,7 +433,7 @@ Papers with code. Sorted by stars. Updated weekly.
 
 #### 效果图
 
-![](img/26.png)
+![](https://imgkr2.cn-bj.ufileos.com/ea583305-9bed-48dd-9b98-55dd321bba40.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=buLCsCtbj8oZCK79tqIm5%252B9oDZY%253D&Expires=1597155896)
 
 ## 参考网站
 
