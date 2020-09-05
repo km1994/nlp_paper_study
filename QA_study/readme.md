@@ -4,7 +4,7 @@
 > 
 > 地址：https://zhuanlan.zhihu.com/p/45210996
 > 
-> 转载：莲说
+> 转载：杨夕
 > 
 > 地址：https://github.com/km1994/relation_extraction_study/tree/master/QA_study
 > 

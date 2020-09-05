@@ -8,15 +8,15 @@
 
 ## 目录
 
-- [论文工具篇](论文学习idea/)
+- [论文工具篇](#论文工具篇)
 - 会议收集篇
-- [ML 小白入门篇](https://github.com/km1994/ML_beginer)
-- [NLP 学习篇](https://github.com/km1994/nlp_paper_study#nlp-学习篇)
-  - [理论学习篇](https://github.com/km1994/nlp_paper_study#%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AF%87)
-    - [经典论文研读篇](https://github.com/km1994/nlp_paper_study#%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E7%A0%94%E8%AF%BB%E7%AF%87)
-    - [transformer 学习篇](https://github.com/km1994/nlp_paper_study#transformer-学习篇)
-    - [预训练模型篇](https://github.com/km1994/nlp_paper_study#预训练模型篇)
-    - [NLP 经典任务篇]([https://github.com/km1994/nlp_paper_study#NLP-经典任务篇](https://github.com/km1994/nlp_paper_study#nlp-%E7%BB%8F%E5%85%B8%E4%BB%BB%E5%8A%A1%E7%AF%87))
+- [ML 小白入门篇](#ml-小白入门篇)
+- [NLP 学习篇](#nlp-学习篇)
+  - [理论学习篇](#nlp-经典任务篇)
+    - [经典论文研读篇](#经典论文研读篇)
+    - [transformer 学习篇](#transformer-学习篇)
+    - [预训练模型篇](#预训练模型篇)
+    - [NLP 经典任务篇](#nlp-经典任务篇))
       - [细粒度情感分析论文研读](ABSC_study/)
       - [主动学习论文研读](active_learn_study/)：
       - [对抗训练论文研读](adversarial_training_study/)：
@@ -30,10 +30,6 @@
       - [文本匹配论文学习](text_match_study/) 
       - [文本分类论文学习](classifier_study/)
       - [机器翻译论文学习](MachineTranslation/)
-  - [Elastrsearch 学习](es_study/)
-  - [推荐系统 学习篇](CTR_study)
-  - [竞赛篇](game_study)
-  
   - [视频学习篇](https://github.com/km1994/nlp_paper_study#%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E7%AF%87)
     - [CS224n 视频学习篇](https://github.com/km1994/Datawhale_NLP_CS224n)
   - [实战篇](https://github.com/km1994/nlp_paper_study#实战篇)
@@ -48,15 +44,18 @@
     - [文本匹配 实战篇]()
     - [预训练模型 实战篇]()
     - [模型蒸馏 实战篇]()
-- [GCN_study学习篇](https://github.com/km1994/nlp_paper_study#gcn_study学习篇)
-- [Java 实战篇](https://github.com/km1994/nlp_paper_study#java-实战篇)
-- [百度百科 ES 全文检索平台构建 实战篇](https://github.com/km1994/nlp_paper_study#百度百科-es-全文检索平台构建-实战篇)
-- [面试篇](https://github.com/km1994/nlp_paper_study#面试篇)
+- [Elastrsearch 学习](#elastrsearch-学习篇)
+- [推荐系统 学习篇](#推荐系统-学习篇)
+- [竞赛篇](#竞赛篇)
+- [GCN_study学习篇](#gcn_study学习篇)
+- [Java 实战篇](#java-实战篇)
+- [百度百科 ES 全文检索平台构建 实战篇](#百度百科-es-全文检索平台构建-实战篇)
+- [面试篇](#面试篇)
   - [Leetcode 篇](https://github.com/km1994/leetcode/blob/master/README.md)
   - [DeepLearning-500-questions](https://github.com/km1994/DeepLearning-500-questions)
-- [大数据 实战篇](https://github.com/km1994/nlp_paper_study#大数据-实战篇)
-- [资源篇](https://github.com/km1994/funNLP)
-- [CV 入门 实战篇](https://github.com/km1994/cv_entrance)
+- [大数据 实战篇](#大数据-实战篇)
+- [资源篇](#资源篇)
+- [CV 入门 实战篇](#cv-入门-实战篇)
 
 ## 介绍
 
@@ -121,6 +120,7 @@
   - [FastBERT](bert_study/FastBERT/)
   - [distilbert](bert_study/distilbert/)
   - [Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT](bert_study/ACL2020_UnsupervisedBert/)
+  - [GRAPH-BERT: Only Attention is Needed for Learning Graph Representations]([bert_study/ACL2020_UnsupervisedBert/](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
 
 ##### NLP 经典任务篇
 
@@ -174,9 +174,11 @@
   - [Lattice CNNs for Matching Based Chinese Question Answering](QA_study/LCNQA/)
   - [LSTM-based Deep Learning Models for Non-factoid Answer Selection](QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
   - [Denoising Distantly Supervised Open-Domain Question Answering](QA_study/T4_DenoisingDistantlySupervisedODQA/)
+  - [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
 
 - [文本摘要论文学习](summarization_study/) 
   - [Fine-tune BERT for Extractive Summarization](summarization_study/EMNLP2019_bertsum/)
+  - [Pointer-Generator Networks 指针网络读书笔记](summarization_study/ACL2017_Pointer_Generator_Networks/)
 
 - [文本匹配论文学习](text_match_study/) 
   - [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
@@ -189,23 +191,6 @@
 
 - [文本分类论文学习](classifier_study/)
 - [Neural Machine Translation of Rare Words with Subword Units 论文学习](MachineTranslation/NeuralMachineTranslationOfRareWordsWithSubwordUnits/)
-
-
-#### Elastrsearch 学习篇
-
-- [Elastrsearch 学习](es_study/)
-  - [ElasticSearch架构解析与最佳实践.md](es_study/ElasticSearch架构解析与最佳实践.md)
-
-#### 推荐系统 学习篇
-
-- [CTR 论文学习](CTR_study)
-  - [DeepFM 论文学习](CTR_study/DeepFM_study)
-  - [DeepWalk 论文学习](CTR_study/DeepWalk)
-  - [ESMM 论文学习](CTR_study/ESMM_study)
-  
-#### 竞赛篇
-
-- [竞赛篇](game_study)
 
 #### 视频学习篇
 
@@ -301,6 +286,24 @@
 
 - [模型蒸馏 实战篇]()
   - [基于BERT的蒸馏实验](https://github.com/km1994/bert_distill)
+
+### Elastrsearch 学习篇
+
+- [Elastrsearch 学习](es_study/)
+  - [ElasticSearch架构解析与最佳实践.md](es_study/ElasticSearch架构解析与最佳实践.md)
+
+### 推荐系统 学习篇
+
+- [推荐系统 论文学习](RecommendedSystem_study)
+  - [DeepFM 论文学习](RecommendedSystem_study/DeepFM_study)
+  - [DeepWalk 论文学习](RecommendedSystem_study/DeepWalk)
+  - [ESMM 论文学习](RecommendedSystem_study/ESMM_study)
+  - [【关于 FiBiNET】那些你不知道的事](RecommendedSystem_study/FiBiNet_study)
+  - [【关于 DeepCF】那些你不知道的事](RecommendedSystem_study/DeepCF_study)
+  
+### 竞赛篇
+
+- [竞赛篇](game_study)
 
 ### [GCN_study学习篇](https://github.com/km1994/GCN_study)
 
