@@ -8,54 +8,48 @@
 
 ## 目录
 
-- [论文工具篇](#论文工具篇)
-- 会议收集篇
-- [ML 小白入门篇](#ml-小白入门篇)
-- [NLP 学习篇](#nlp-学习篇)
-  - [理论学习篇](#nlp-经典任务篇)
-    - [经典论文研读篇](#经典论文研读篇)
-    - [transformer 学习篇](#transformer-学习篇)
-    - [预训练模型篇](#预训练模型篇)
-    - [NLP 经典任务篇](#nlp-经典任务篇))
-      - [细粒度情感分析论文研读](ABSC_study/)
-      - [主动学习论文研读](active_learn_study/)：
-      - [对抗训练论文研读](adversarial_training_study/)：
-      - [实体关系联合抽取论文研读](ERE_study/)：
-      - [GCN 在 NLP 上的应用 论文研读](GCN2NLP/)：
-      - [命名实体识别论文研读](NER_study/)：
-      - [关系抽取论文研读](NRE_paper_study/)
-      - [文本预处理](pre_study/)
-      - [问答系统论文学习](QA_study/) 
-      - [文本摘要论文学习](summarization_study/) 
-      - [文本匹配论文学习](text_match_study/) 
-      - [文本分类论文学习](classifier_study/)
-      - [机器翻译论文学习](MachineTranslation/)
-  - [视频学习篇](https://github.com/km1994/nlp_paper_study#%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E7%AF%87)
-    - [CS224n 视频学习篇](https://github.com/km1994/Datawhale_NLP_CS224n)
-  - [实战篇](https://github.com/km1994/nlp_paper_study#实战篇)
-    - [爬虫 实战篇](https://github.com/km1994/Conversation_Wp/tree/master/t11_scrapyWp)
-    - [特征提取 实战篇](https://github.com/km1994/text_feature_extraction)
-    - [词向量预训练 实战篇](https://github.com/km1994/TextClassifier/tree/master/word2vec_train)
-    - [中文情感分析 实战篇](https://github.com/km1994/sentiment_analysis)
-    - [中文文本分类 实战篇](https://github.com/km1994/TextClassifier)
-    - [命名实体识别 “史诗级” 入门教程](https://github.com/km1994/NERer)
-    - [知识图谱 实战篇]()
-    - [问答系统 实战篇](https://github.com/km1994/Conversation_Wp/tree/master/baidu_qa_zh_process)
-    - [文本匹配 实战篇]()
-    - [预训练模型 实战篇]()
-    - [模型蒸馏 实战篇]()
-- [Elastrsearch 学习](#elastrsearch-学习篇)
-- [推荐系统 学习篇](#推荐系统-学习篇)
-- [竞赛篇](#竞赛篇)
-- [GCN_study学习篇](#gcn_study学习篇)
-- [Java 实战篇](#java-实战篇)
-- [百度百科 ES 全文检索平台构建 实战篇](#百度百科-es-全文检索平台构建-实战篇)
-- [面试篇](#面试篇)
-  - [Leetcode 篇](https://github.com/km1994/leetcode/blob/master/README.md)
-  - [DeepLearning-500-questions](https://github.com/km1994/DeepLearning-500-questions)
-- [大数据 实战篇](#大数据-实战篇)
-- [资源篇](#资源篇)
-- [CV 入门 实战篇](#cv-入门-实战篇)
+
+- [NLP 小小白研读论文记](#nlp-小小白研读论文记)
+  - [目录](#目录)
+  - [介绍](#介绍)
+    - [论文工具篇](#论文工具篇)
+    - [会议收集篇](#会议收集篇)
+    - [NLP 学习篇](#nlp-学习篇)
+      - [理论学习篇](#理论学习篇)
+        - [经典论文研读篇](#经典论文研读篇)
+        - [transformer 学习篇](#transformer-学习篇)
+        - [预训练模型篇](#预训练模型篇)
+        - [细粒度情感分析论文研读](#细粒度情感分析论文研读)
+        - [主动学习论文研读](#主动学习论文研读)
+        - [对抗训练论文研读](#对抗训练论文研读)
+        - [实体关系联合抽取论文研读：](#实体关系联合抽取论文研读)
+        - [GCN 在 NLP 上的应用 论文研读：](#gcn-在-nlp-上的应用-论文研读)
+        - [命名实体识别论文研读：](#命名实体识别论文研读)
+        - [关系抽取论文研读：](#关系抽取论文研读)
+        - [文本预处理](#文本预处理)
+        - [问答系统论文学习](#问答系统论文学习)
+        - [文本摘要论文学习](#文本摘要论文学习)
+        - [文本匹配论文学习](#文本匹配论文学习)
+        - [机器翻译论文学习](#机器翻译论文学习)
+        - [对话系统论文学习](#对话系统论文学习)
+      - [视频学习篇](#视频学习篇)
+      - [实战篇](#实战篇)
+    - [Elastrsearch 学习篇](#elastrsearch-学习篇)
+    - [推荐系统 学习篇](#推荐系统-学习篇)
+    - [竞赛篇](#竞赛篇)
+    - [GCN_study学习篇](#gcn_study学习篇)
+    - [ML 小白入门篇](#ml-小白入门篇)
+    - [Java 实战篇](#java-实战篇)
+    - [百度百科 ES 全文检索平台构建 实战篇](#百度百科-es-全文检索平台构建-实战篇)
+    - [面试篇](#面试篇)
+      - [Leetcode 篇](#leetcode-篇)
+      - [DeepLearning-500-questions](#deeplearning-500-questions)
+    - [大数据 实战篇](#大数据-实战篇)
+      - [Spark 实战篇](#spark-实战篇)
+    - [资源篇](#资源篇)
+    - [CV 入门 实战篇](#cv-入门-实战篇)
+
+
 
 ## 介绍
 
@@ -122,75 +116,88 @@
   - [Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT](bert_study/ACL2020_UnsupervisedBert/)
   - [GRAPH-BERT: Only Attention is Needed for Learning Graph Representations]([bert_study/ACL2020_UnsupervisedBert/](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
 
-##### NLP 经典任务篇
+##### [细粒度情感分析论文研读](ABSC_study/)
 
-- [细粒度情感分析论文研读](ABSC_study/)
-  - [LCF](ABSC_study/LCF/): A Local Context Focus Mechanism for Aspect-Based Sentiment Classiﬁcation
+- [LCF](ABSC_study/LCF/): A Local Context Focus Mechanism for Aspect-Based Sentiment Classiﬁcation
   
-- [主动学习论文研读](active_learn_study/)：
-  - [Proactive Learning for Named Entity Recognition（命名实体识别的主动学习）](active_learn_study/ProactiveLearningforNamedEntityRecognition/)
+##### [主动学习论文研读](active_learn_study/)
 
-- [对抗训练论文研读](adversarial_training_study/)：
-  - [FreeLB: Enhanced Adversarial Training for Language Understanding 加强语言理解的对抗性训练](adversarial_training_study/FREELB/)
+- [Proactive Learning for Named Entity Recognition（命名实体识别的主动学习）](active_learn_study/ProactiveLearningforNamedEntityRecognition/)
 
-- [实体关系联合抽取论文研读](ERE_study/)：
-  - [Incremental Joint Extraction of Entity Mentions and Relations](ERE_study/T2014_joint_extraction/)
-  - [Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy](ERE_study/JointER/)
-  - [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](ERE_study/ACL2019_GraphRel/)
-  - [A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction](ERE_study/T20ACL_HBT_su/)
+##### [对抗训练论文研读](adversarial_training_study/)
 
-- [GCN 在 NLP 上的应用 论文研读](GCN2NLP/)：
-  - [GCN 在 NLP 上的应用 论文研读](GCN2NLP/readme.md)
+- [FreeLB: Enhanced Adversarial Training for Language Understanding 加强语言理解的对抗性训练](adversarial_training_study/FREELB/)
 
-- [命名实体识别论文研读](NER_study/)：
-  - [LatticeLSTM](NER_study/ACL2018_LatticeLSTM/)
-  - [named entity recognition using positive-unlabeled learning](NER_study/JointER/)
-  - [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](NER_study/ACL2019_NERusingPositive-unlabeledLearning/)
-  - [TENER: Adapting Transformer Encoder for Name Entity Recognition](NER_study/ACL2019_TENER/)
-  - [CrossWeigh从不完善的注释中训练命名实体标注器](NER_study/EMNLP2019/CrossWeigh从不完善的注释中训练命名实体标注器/)
-  - [利用词汇知识通过协同图网络进行中文命名实体识别](NER_study/EMNLP2019/利用词汇知识通过协同图网络进行中文命名实体识别/)
-  - [一点注释对引导低资源命名实体识别器有很多好处](NER_study/EMNLP2019/一点注释对引导低资源命名实体识别器有很多好处/)
-  - [CGN: Leverage Lexical Knowledge for Chinese Named Entity Recognition via Collaborative Graph Network（EMNLP2019）](NER_study/EMNLP2019_CGN/)
-  - [Fine-Grained Entity Typing in Hyperbolic Space（在双曲空间中打字的细粒度实体）](NER_study/Fine-GrainedEntityTypinginHyperbolicSpace/)
-  - [LR-CNN:CNN-Based Chinese NER with Lexicon Rethinking(IJCAI2019)](NER_study/IJCAI2019_LR_CNN/)
+##### [实体关系联合抽取论文研读](ERE_study/)：
+- [Incremental Joint Extraction of Entity Mentions and Relations](ERE_study/T2014_joint_extraction/)
+- [Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy](ERE_study/JointER/)
+- [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](ERE_study/ACL2019_GraphRel/)
+- [A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction](ERE_study/T20ACL_HBT_su/)
 
-- [关系抽取论文研读](NRE_paper_study/)：
-  - [End-to-End Relation Extraction using LSTMs on Sequences and Tree Structures【2016】](NER_study/T2016_LSTM_Tree/)
-  - [ERNIE](NRE_paper_study/ERNIE/)
-  - [GraphRel](NRE_paper_study/GraphRel/)
-  - [R_BERT](NRE_paper_study/R_BERT)
-  - [Task 1：全监督学习](NRE_paper_study/T1_FullySupervisedLearning/)
-    - [Relation Classification via Convolutional Deep Neural Network](NRE_paper_study/T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/)
-    - [Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification](NRE_paper_study/T1_FullySupervisedLearning/T2_Attention-Based_BiLSTM_for_RC/)
-    - [Relation Classification via Attention Model](NRE_paper_study/T1_FullySupervisedLearning/T3_RC_via_attention_model_new/)
-  - [Task 2：远程监督学习](NRE_paper_study/T2_DistantSupervisedLearning/)
-    - [Relation Classification via Convolutional Deep Neural Network](NRE_paper_study/T2_DistantSupervisedLearning/T1_Piecewise_Convolutional_Neural_Networks/)
-    - [NRE_with_Selective_Attention_over_Instances](NRE_paper_study/T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/)
+##### [GCN 在 NLP 上的应用 论文研读](GCN2NLP/)：
+- [GCN 在 NLP 上的应用 论文研读](GCN2NLP/readme.md)
+
+##### [命名实体识别论文研读](NER_study/)：
+- [LatticeLSTM](NER_study/ACL2018_LatticeLSTM/)
+- [named entity recognition using positive-unlabeled learning](NER_study/JointER/)
+- [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](NER_study/ACL2019_NERusingPositive-unlabeledLearning/)
+- [TENER: Adapting Transformer Encoder for Name Entity Recognition](NER_study/ACL2019_TENER/)
+- [CrossWeigh从不完善的注释中训练命名实体标注器](NER_study/EMNLP2019/CrossWeigh从不完善的注释中训练命名实体标注器/)
+- [利用词汇知识通过协同图网络进行中文命名实体识别](NER_study/EMNLP2019/利用词汇知识通过协同图网络进行中文命名实体识别/)
+- [一点注释对引导低资源命名实体识别器有很多好处](NER_study/EMNLP2019/一点注释对引导低资源命名实体识别器有很多好处/)
+- [CGN: Leverage Lexical Knowledge for Chinese Named Entity Recognition via Collaborative Graph Network（EMNLP2019）](NER_study/EMNLP2019_CGN/)
+- [Fine-Grained Entity Typing in Hyperbolic Space（在双曲空间中打字的细粒度实体）](NER_study/Fine-GrainedEntityTypinginHyperbolicSpace/)
+- [LR-CNN:CNN-Based Chinese NER with Lexicon Rethinking(IJCAI2019)](NER_study/IJCAI2019_LR_CNN/)
+
+##### [关系抽取论文研读](NRE_paper_study/)：
+- [End-to-End Relation Extraction using LSTMs on Sequences and Tree Structures【2016】](NER_study/T2016_LSTM_Tree/)
+- [ERNIE](NRE_paper_study/ERNIE/)
+- [GraphRel](NRE_paper_study/GraphRel/)
+- [R_BERT](NRE_paper_study/R_BERT)
+- [Task 1：全监督学习](NRE_paper_study/T1_FullySupervisedLearning/)
+  - [Relation Classification via Convolutional Deep Neural Network](NRE_paper_study/T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/)
+  - [Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification](NRE_paper_study/T1_FullySupervisedLearning/T2_Attention-Based_BiLSTM_for_RC/)
+  - [Relation Classification via Attention Model](NRE_paper_study/T1_FullySupervisedLearning/T3_RC_via_attention_model_new/)
+- [Task 2：远程监督学习](NRE_paper_study/T2_DistantSupervisedLearning/)
+  - [Relation Classification via Convolutional Deep Neural Network](NRE_paper_study/T2_DistantSupervisedLearning/T1_Piecewise_Convolutional_Neural_Networks/)
+  - [NRE_with_Selective_Attention_over_Instances](NRE_paper_study/T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/)
   
-- [文本预处理](pre_study/)
-  - [过采样]([pre_study/](https://github.com/km1994/nlp_paper_study/tree/master/pre_study/samplingStudy))
+##### [文本预处理](pre_study/)
+- [过采样]([pre_study/](https://github.com/km1994/nlp_paper_study/tree/master/pre_study/samplingStudy))
 
-- [问答系统论文学习](QA_study/) 
-  - [Lattice CNNs for Matching Based Chinese Question Answering](QA_study/LCNQA/)
-  - [LSTM-based Deep Learning Models for Non-factoid Answer Selection](QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
-  - [Denoising Distantly Supervised Open-Domain Question Answering](QA_study/T4_DenoisingDistantlySupervisedODQA/)
-  - [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
+##### [问答系统论文学习](QA_study/) 
+- [Lattice CNNs for Matching Based Chinese Question Answering](QA_study/LCNQA/)
+- [LSTM-based Deep Learning Models for Non-factoid Answer Selection](QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
+- [Denoising Distantly Supervised Open-Domain Question Answering](QA_study/T4_DenoisingDistantlySupervisedODQA/)
+- [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
 
-- [文本摘要论文学习](summarization_study/) 
-  - [Fine-tune BERT for Extractive Summarization](summarization_study/EMNLP2019_bertsum/)
-  - [Pointer-Generator Networks 指针网络读书笔记](summarization_study/ACL2017_Pointer_Generator_Networks/)
+##### [文本摘要论文学习](summarization_study/) 
+- [Fine-tune BERT for Extractive Summarization](summarization_study/EMNLP2019_bertsum/)
+- [Pointer-Generator Networks 指针网络读书笔记](summarization_study/ACL2017_Pointer_Generator_Networks/)
 
-- [文本匹配论文学习](text_match_study/) 
-  - [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
-  - [Simple and Effective Text Matching with Richer Alignment Features](text_match_study/Multi-RE2_study/)
-  - [Deep Structured Semantic Model](text_match_study/cikm2013_DSSM/)
-  - [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](text_match_study/TACL2016_ABCNN/)
-  - [Enhanced LSTM for Natural Language Inference](text_match_study/TACL2017_ESIM/)
-  - [Bilateral Multi-perspective Matching](text_match_study/IJCAI2017_BiMPM/)
-  - [Densely Interactive Inference Network（DIIN）](text_match_study/T2017_DIIN/)
+##### [文本匹配论文学习](text_match_study/) 
+- [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
+- [Simple and Effective Text Matching with Richer Alignment Features](text_match_study/Multi-RE2_study/)
+- [Deep Structured Semantic Model](text_match_study/cikm2013_DSSM/)
+- [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](text_match_study/TACL2016_ABCNN/)
+- [Enhanced LSTM for Natural Language Inference](text_match_study/TACL2017_ESIM/)
+- [Bilateral Multi-perspective Matching](text_match_study/IJCAI2017_BiMPM/)
+- [Densely Interactive Inference Network（DIIN）](text_match_study/T2017_DIIN/)
 
-- [文本分类论文学习](classifier_study/)
+##### [机器翻译论文学习](MachineTranslation/)
+
 - [Neural Machine Translation of Rare Words with Subword Units 论文学习](MachineTranslation/NeuralMachineTranslationOfRareWordsWithSubwordUnits/)
+
+##### [对话系统论文学习](DialogueSystem_study/)
+
+1. [【关于 Domain/Intent Classification 】那些你不知道的事](IntentClassification/)
+2. [【关于 槽位填充 (Slot Filling)】那些你不知道的事](SlotFilling/)
+3. [【关于 上下文LU】那些你不知道的事](contextLU/)
+4. [【关于 自然语言生成NLG 】那些你不知道的事](NLG/)
+5. [【关于 DSTC 】那些你不知道的事](DSTC/)
+6. [【关于 E2E 】那些你不知道的事](E2E/)
+   1. [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](E2E/TC_Bot/)
+
 
 #### 视频学习篇
 
