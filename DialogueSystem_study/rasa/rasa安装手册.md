@@ -13,19 +13,33 @@
   - [目录](#目录)
   - [安装 Rasa](#安装-rasa)
     - [Rasa 推荐 安装方式](#rasa-推荐-安装方式)
-  - [创建新项目](#创建新项目)
-  - [NLU 训练数据介绍](#nlu-训练数据介绍)
-  - [模型配置 介绍](#模型配置-介绍)
-  - [写下你的第一个故事](#写下你的第一个故事)
-  - [定义域](#定义域)
-  - [模型训练](#模型训练)
-  - [测试](#测试)
+    - [sklearn  和 MITIE 库 安装](#sklearn-和-mitie-库-安装)
+  - [项目初尝试](#项目初尝试)
+    - [创建新项目](#创建新项目)
+    - [NLU 训练数据介绍](#nlu-训练数据介绍)
+    - [模型配置 介绍](#模型配置-介绍)
+    - [写下你的第一个故事](#写下你的第一个故事)
+    - [定义域](#定义域)
+    - [模型训练](#模型训练)
+    - [测试](#测试)
+  - [Rasa 命令行 备忘录](#rasa-命令行-备忘录)
+  - [Rasa 架构](#rasa-架构)
   - [参考资料](#参考资料)
 
 
 ## 安装 Rasa 
 
 > 温馨提示：由于 安装 Rasa 过程中，会安装各种 乱七八糟的 依赖库（eg：tensorflow 2.0，...），导致 安装失败，所以建议 用 conda ，新建 一个 conda 环境，然后在 该环境上面开发。
+
+- 创建环境
+```
+  $ conda create -n rasa python=3.6
+```
+- 激活环境
+```
+  $conda activate rasa
+```
+
 
 ### Rasa 推荐 安装方式
 
@@ -39,8 +53,59 @@
     pip install Rasa
 ```
 
+### sklearn  和 MITIE 库 安装
 
-## 创建新项目
+```shell
+  pip install -U scikit-learn sklearn-crfsuite
+  pip install git+https://github.com/mit-nlp/MITIE.git
+```
+
+> 注：MITIE 库比较大，所以这种 安装方式容易出现问题，所以我用另一种安装方式
+
+```shell
+  $ git clone https://github.com/mit-nlp/MITIE.git
+  $ cd MITIE/
+  $ python setup.py install
+```
+
+安装结果
+
+```shell
+  Compiling src/text_feature_extraction.cpp
+  Compiling ../dlib/dlib/threads/multithreaded_object_extension.cpp
+  Compiling ../dlib/dlib/threads/threaded_object_extension.cpp
+  Compiling ../dlib/dlib/threads/threads_kernel_1.cpp
+  Compiling ../dlib/dlib/threads/threads_kernel_2.cpp
+  Compiling ../dlib/dlib/threads/threads_kernel_shared.cpp
+  Compiling ../dlib/dlib/threads/thread_pool_extension.cpp
+  Compiling ../dlib/dlib/misc_api/misc_api_kernel_1.cpp
+  Compiling ../dlib/dlib/misc_api/misc_api_kernel_2.cpp
+  Linking libmitie.so
+  Making libmitie.a
+  Build Complete
+  make[1]: Leaving directory `/web/workspace/yangkm/python_wp/nlu/DSWp/MITIE/mitielib'
+  running build_py
+  creating build
+  creating build/lib
+  creating build/lib/mitie
+  copying mitielib/__init__.py -> build/lib/mitie
+  copying mitielib/mitie.py -> build/lib/mitie
+  copying mitielib/libmitie.so -> build/lib/mitie
+  running install_lib
+  copying build/lib/mitie/__init__.py -> /home/amy/.conda/envs/yangkm/lib/python3.6/site-packages/mitie
+  copying build/lib/mitie/mitie.py -> /home/amy/.conda/envs/yangkm/lib/python3.6/site-packages/mitie
+  copying build/lib/mitie/libmitie.so -> /home/amy/.conda/envs/yangkm/lib/python3.6/site-packages/mitie
+  byte-compiling /home/amy/.conda/envs/yangkm/lib/python3.6/site-packages/mitie/__init__.py to __init__.cpython-36.pyc
+  byte-compiling /home/amy/.conda/envs/yangkm/lib/python3.6/site-packages/mitie/mitie.py to mitie.cpython-36.pyc
+  running install_egg_info
+  Writing /home/amy/.conda/envs/yangkm/lib/python3.6/site-packages/mitie-0.7.0-py3.6.egg-info
+```
+> 注：会存在 一些 warning 警告，对结果 影响不大
+
+
+## 项目初尝试
+
+### 创建新项目
 
 1. 第一步是创建一个新的Rasa项目。要做到这一点，运行下面的代码:
   
@@ -154,7 +219,7 @@ If you want to speak to the assistant, run 'rasa shell' at any time inside the p
 
 > 注：最重要的文件用“*”标记。你将在本教程中了解所有这些文件。
 
-## NLU 训练数据介绍
+### NLU 训练数据介绍
 
 想让 NLU 理解用户消息，需要将 该消息 转化为 结构化 数据，数据格式如下所示：
 
@@ -223,7 +288,7 @@ If you want to speak to the assistant, run 'rasa shell' at any time inside the p
 > “##” 开始的行定义意图的名称 
 > “-” 表示 意图所对应的 关键词
 
-## 模型配置 介绍
+### 模型配置 介绍
 
 ```shell
 $ cat config.yml 
@@ -257,7 +322,7 @@ policies:
 
 > 注：language 和 pipeline 键指定应该如何构建 NLU 模型。policies 键定义 Core 模型将使用的策略。
 
-## 写下你的第一个故事
+### 写下你的第一个故事
 
 在这个阶段，你将教会你的助手如何回复你的信息。这称为对话管理(dialogue management)，由你的Core模型来处理。
 
@@ -311,7 +376,7 @@ $ cat stories.md
   cat data/stories.md
 ```
 
-## 定义域
+### 定义域
 
 域定义了助手所处的环境:它应该期望得到什么用户输入、它应该能够预测什么操作、如何响应以及存储什么信息。我们助手的域名保存在一个名为domain.yml的文件中:
 
@@ -369,7 +434,7 @@ session_config:
 - Rasa Core 工作机制：
   - 在对话的每个步骤中选择正确的操作来执行。在本例中，我们的操作只是向用户发送一条消息。这些简单的话语操作是从域中以utter_开头的操作。助手将根据templates部分中的模板返回一条消息。
 
-## 模型训练
+### 模型训练
 
 每当我们添加新的NLU或Core数据，或更新域或配置时，我们都需要根据示例故事和NLU数据重新训练一个神经网络。为此，运行下面的命令。该命令将调用Rasa Core和NLU训练函数，并将训练后的模型存储到models/目录中。该命令只会在数据或配置发生更改时自动对不同的模型部件进行重新训练。
 
@@ -380,14 +445,13 @@ session_config:
 
 rasa train命令将同时查找NLU和Core数据，并训练一个组合模型。
 
-## 测试
+### 测试
 
 恭喜你! 🚀 你刚刚建立了一个完全由机器学习驱动的助手。 下一步就是尝试一下!如果你正在本地机器上学习本教程，请运行以下命令与助手对话：
 
 ```shell
-  $ rasa train
-  Nothing changed. You can use the old model stored at '/web/workspace/yangkm/python_wp/nlu/DSWp/models/20200917-164632.tar.gz'.
-  (yangkm) [amy@bjht-gpu-006 DSWp]$ rasa shell
+  
+  $ rasa shell
   2020-09-17 19:44:19 INFO     root  - Connecting to channel 'cmdline' which was specified by the '--connector' argument. Any other channels will be ignored. To connect to all given channels, omit the '--connector' argument.
   2020-09-17 19:44:19 INFO     root  - Starting Rasa server on http://localhost:5005
   2020-09-17 19:44:26 INFO     root  - Rasa server is up and running.
@@ -420,12 +484,72 @@ rasa train命令将同时查找NLU和Core数据，并训练一个组合模型。
   I am a bot, powered by Rasa.
 ```
 
+## Rasa 命令行 备忘录
+
+<table>
+  <thead>
+      <td>命令</td><td>作用说明</td>
+  </thead>
+  <tr>
+      <td>rasa init</td><td>使用示例训练数据，操作和配置文件创建新项目</td>
+  </tr>
+  <tr>
+      <td>rasa train</td><td>使用你的NLU数据和故事训练模型，在./model中保存训练的模型</td>
+  </tr>
+  <tr>
+      <td>rasa interactive</td><td>启动交互式学习会话，通过聊天创建新的训练数据</td>
+  </tr>
+  <tr>
+      <td>rasa shell</td><td>加载已训练的模型，并让你在命令行上与助手交谈</td>
+  </tr>
+  <tr>
+      <td>rasa run</td><td>使用已训练的的模型启动Rasa服务。有关详细信息，请参阅运行服务文档</td>
+  </tr>
+  <tr>
+      <td>rasa run actions</td><td>使用Rasa SDK启动操作服务</td>
+  </tr>
+  <tr>
+      <td>rasa visualize</td><td>可视化故事</td>
+  </tr>
+  <tr>
+      <td>rasa test</td><td>使用你的测试NLU数据和故事测试已训练的Rasa模型</td>
+  </tr>
+
+  <tr>
+      <td>rasa data split nlu</td><td>根据指定的百分比执行NLU数据的拆分</td>
+  </tr>
+  <tr>
+      <td>rasa data convert nlu</td><td>在不同格式之间转换NLU训练数据</td>
+  </tr>
+  <tr>
+      <td>rasa x</td><td>在本地启动Rasa X</td>
+  </tr>
+  <tr>
+      <td>rasa -h</td><td>显示所有可用命令</td>
+  </tr>
+</table>
+
+具体介绍，可以查看 [Rasa 命令行界面](http://rasachatbot.com/3_Command_Line_Interface/)
+
+## Rasa 架构 
+
+![](img/20200918105542.png)
+
+- Rasa构建的助手如何响应消息的基本步骤：
+  - 1. 收到消息并将其传递给解释器(Interpreter)，解释器将其转换为包含原始文本，意图和找到的任何实体的字典。这部分由NLU处理;
+  - 2. 跟踪器(Tracker)是跟踪对话状态的对象。它接收新消息进入的信息;
+  - 3. 策略(Policy)接收跟踪器的当前状态。 该策略选择接下来采取的操作(action)。 
+  - 4. 选择的操作由跟踪器记录。 
+  - 5. 响应被发送给用户。
+
+
 ## 参考资料
 
 1. [Rasa 安装](http://rasachatbot.com/2_Rasa_Tutorial/#rasa)
-2. [Rasa 学习](https://blog.csdn.net/ljp1919/category_9656007.html)
-3. [rasa_chatbot_cn](https://github.com/GaoQ1/rasa_chatbot_cn)
-4. [用Rasa NLU构建自己的中文NLU系统](http://www.crownpku.com/2017/07/27/用Rasa_NLU构建自己的中文NLU系统.html)
-5. [Rasa_NLU_Chi](https://github.com/crownpku/Rasa_NLU_Chi)
-6. [_rasa_chatbot](https://github.com/zqhZY/_rasa_chatbot)
-7. [rasa 源码分析](https://www.zhihu.com/people/martis777/posts)
+2. [Rasa 聊天机器人中文官方文档|磐创AI](http://rasachatbot.com/)
+3. [Rasa 学习](https://blog.csdn.net/ljp1919/category_9656007.html)
+4. [rasa_chatbot_cn](https://github.com/GaoQ1/rasa_chatbot_cn)
+5. [用Rasa NLU构建自己的中文NLU系统](http://www.crownpku.com/2017/07/27/用Rasa_NLU构建自己的中文NLU系统.html)
+6. [Rasa_NLU_Chi](https://github.com/crownpku/Rasa_NLU_Chi)
+7. [_rasa_chatbot](https://github.com/zqhZY/_rasa_chatbot)
+8. [rasa 源码分析](https://www.zhihu.com/people/martis777/posts)

@@ -1,4 +1,4 @@
-# NLP 小小白研读论文记
+# 【关于 NLP】 那些你不知道的事
 
 > 作者：杨夕
 > 
@@ -8,8 +8,7 @@
 
 ## 目录
 
-
-- [NLP 小小白研读论文记](#nlp-小小白研读论文记)
+- [【关于 NLP】 那些你不知道的事](#关于-nlp-那些你不知道的事)
   - [目录](#目录)
   - [介绍](#介绍)
     - [论文工具篇](#论文工具篇)
@@ -32,6 +31,7 @@
         - [文本匹配论文学习](#文本匹配论文学习)
         - [机器翻译论文学习](#机器翻译论文学习)
         - [对话系统论文学习](#对话系统论文学习)
+        - [rasa 学习](#rasa-学习)
       - [视频学习篇](#视频学习篇)
       - [实战篇](#实战篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
@@ -48,8 +48,6 @@
       - [Spark 实战篇](#spark-实战篇)
     - [资源篇](#资源篇)
     - [CV 入门 实战篇](#cv-入门-实战篇)
-
-
 
 ## 介绍
 
@@ -198,6 +196,12 @@
 6. [【关于 E2E 】那些你不知道的事](E2E/)
    1. [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](E2E/TC_Bot/)
 
+##### [rasa 学习](DialogueSystem_study/rasa/)
+
+1. [【关于 rasa 安装 】那些你不知道的事](DialogueSystem_study/rasa/rasa安装手册.md)
+2. [【关于 rasa 基本架构 】那些你不知道的事](DialogueSystem_study/rasa/基本框架.md)
+3. [【关于 rasa中文对话系统】那些你不知道的事](DialogueSystem_study/rasa/rasa中文对话系统.md)
+
 
 #### 视频学习篇
 
@@ -294,6 +298,7 @@
 - [模型蒸馏 实战篇]()
   - [基于BERT的蒸馏实验](https://github.com/km1994/bert_distill)
 
+
 ### Elastrsearch 学习篇
 
 - [Elastrsearch 学习](es_study/)
@@ -341,6 +346,7 @@
 
 ### [ML 小白入门篇](https://github.com/km1994/ML_beginer)
 
+- [【关于 Logistic Regression 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ML_study/LogisticRegression_study/)
 - [概率图模型串烧 （HMM->MEMM->CRF）](https://github.com/km1994/ML_beginer/tree/master/CRF_study)
 
 - [KNN 算法 学习篇](https://github.com/km1994/MLStudy#%E4%B8%80knnstudy)
