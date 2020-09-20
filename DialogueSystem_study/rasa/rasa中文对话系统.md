@@ -24,6 +24,11 @@
     - [训练对话](#训练对话)
     - [在线模式下的对话训练](#在线模式下的对话训练)
     - [测试 对话 功能](#测试-对话-功能)
+  - [项目核心内容分析](#项目核心内容分析)
+    - [ivr_chatbot.yml 配置文件 分析](#ivr_chatbotyml-配置文件-分析)
+    - [./data/mobile_nlu_data.json 意图识别和实体识别 训练数据 分析](#datamobile_nlu_datajson-意图识别和实体识别-训练数据-分析)
+    - [mobile_story.md 对话设置 文件 分析](#mobile_storymd-对话设置-文件-分析)
+    - [mobile_domain.yml 定义域 文件 分析](#mobile_domainyml-定义域-文件-分析)
   - [参考资料](#参考资料)
 
 
@@ -561,6 +566,218 @@ The bot wants to [utter_ask_morehelp]. Is this correct?
     if diff:
   Bye， 下次再见
 ```
+
+
+## 项目核心内容分析
+
+### ivr_chatbot.yml 配置文件 分析
+
+```
+  language: "zh"                                      # 设置 为 中文模式
+  project: "ivr_nlu"
+  fixed_model_name: "demo"
+  path: "models"
+  pipeline:
+  - name: "nlp_mitie"
+    model: "data/total_word_feature_extractor.dat"
+  - name: "tokenizer_jieba"
+    default_dict: "./default_dict.big"
+    user_dicts: "./jieba_userdict"
+#   user_dicts: "./jieba_userdict/jieba_userdict.txt"
+  - name: "ner_mitie"
+  - name: "ner_synonyms"
+  - name: "intent_entity_featurizer_regex"
+  - name: "intent_featurizer_mitie"
+  - name: "intent_classifier_sklearn"
+```
+
+- 使用 中文模式，需要采用以下 两个 pipelines:
+  - 使用 MITIE+Jieba: [“nlp_mitie”, “tokenizer_jieba”, “ner_mitie”, “ner_synonyms”, “intent_classifier_mitie”]
+    - 特点：这种方式训练比较慢，效果也不是很好，最后出现的intent也没有分数排序
+  - MITIE+Jieba+sklearn (sample_configs/config_jieba_mitie_sklearn.json): [“nlp_mitie”, “tokenizer_jieba”, “ner_mitie”, “ner_synonyms”, “intent_featurizer_mitie”, “intent_classifier_sklearn”]
+    - 流程介绍：
+      - ”nlp_mitie”初始化MITIE；
+      - ”tokenizer_jieba”用jieba来做分词；
+      - ”ner_mitie”和”ner_synonyms”做实体识别；
+      - ”intent_featurizer_mitie”为意图识别做特征提取；
+      - ”intent_classifier_sklearn”使用sklearn做意图识别的分类；
+
+- 使用 用户自定义词典
+  - default_dict ： 默认字典
+  - user_dicts： 用户自定义词典
+
+### ./data/mobile_nlu_data.json 意图识别和实体识别 训练数据 分析
+
+- 通用 句式 common_examples：只要满足 句式，就匹配结果
+  - 格式转化方法 tools/trainsfer_raw_to_rasa.py 
+    - 原始格式：./data/mobile_raw_data.txt
+    - 转换后格式：./data/mobile_nlu_data.json
+- 正则表达式 regex_features：利用 正则表达式 匹配 句式
+- 同义词匹配 entity_synonyms：同义词 匹配
+
+```shell
+  {
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "帮我查一下我上个月的流量有多少",
+        "intent": "request_search",
+        "entities": [
+          {
+            "start": 10,
+            "end": 12,
+            "value": "流量",
+            "entity": "item"
+          },...
+        ]
+      },...
+    ],
+    "regex_features": [
+      {
+        "name": "inform_package",
+        "pattern": "套餐[0-9一二三四五六七八九十百俩两]+"
+      },
+      {
+        "name": "inform_time",
+        "pattern": "([0-9一二三四五六七八九十百俩两]+)月份?的?"
+      }
+    ],
+    "entity_synonyms": [{
+        "value": "消费",
+        "synonyms": ["话费", "钱"]
+      }]
+  }
+}
+
+```
+
+### mobile_story.md 对话设置 文件 分析
+
+- 内容（内容为 unicode 编码，可以对照 unicode2zh.md 文件查看 翻译，或用 [Unicode编码转换](https://tool.chinaz.com/tools/unicode.aspx)翻译工具）
+- 介绍：教会你的助手如何回复你的信息。这称为对话管理(dialogue management)，由你的Core模型来处理。Core模型以训练“故事”的形式从真实的会话数据中学习。故事是用户和助手之间的真实对话。带有意图和实体的行反映了用户的输入和操作名称，操作名称展示了助手应该如何响应。 
+
+```
+  ## Generated Story 5914322956106259965
+  * greet
+      - utter_greet
+  * request_search{"item": "\u7684\u60c5\u51b5"}
+      - slot{"item": "\u6d88\u8d39"}
+      - slot{"item": "\u7684\u60c5\u51b5"}
+      - action_search_consume
+  * request_search{"item": "\u6d88\u8d39"}
+      - slot{"item": "\u6d88\u8d39"}
+      - action_search_consume
+  * inform_time{"time": "\u4e0a\u4e2a\u6708"}
+      - slot{"time": "\u4e0a\u4e2a\u6708"}
+      - action_search_consume
+      - utter_ask_morehelp
+  * deny
+      - utter_goodbye
+      - export
+  ...
+```
+> 以 - 开头的行是助手所采取的操作，所有的操作都是发送回用户的消息，比如utter_greet;
+> 以 * 开头的行是 用户意图
+
+### mobile_domain.yml 定义域 文件 分析
+
+ - 内容：定义域
+ - 介绍：域定义了助手所处的环境:它应该期望得到什么用户输入、它应该能够预测什么操作、如何响应以及存储什么信息；
+ - 
+
+```
+  slots:
+    item:
+      type: text
+    time:
+      type: text
+    phone_number:
+      type: text
+    price:
+      type: text
+
+  intents:
+    - greet
+    - confirm
+    - goodbye
+    - thanks
+    - inform_item
+    - inform_package
+    - inform_time
+    - request_management
+    - request_search
+    - deny
+    - inform_current_phone
+    - inform_other_phone
+
+  entities:
+    - item
+    - time
+    - phone_number
+    - price
+
+  templates:
+    utter_greet:
+      - "您好!，我是机器人小热，很高兴为您服务。"
+      - "你好!，我是小热，可以帮您办理流量套餐，话费查询等业务。"
+      - "hi!，人家是小热，有什么可以帮您吗。"
+    utter_goodbye:
+      - "再见，为您服务很开心"
+      - "Bye， 下次再见"
+    utter_default:
+      - "您说什么"
+      - "您能再说一遍吗，我没听清"
+    utter_thanks:
+      - "不用谢"
+      - "我应该做的"
+      - "您开心我就开心"
+    utter_ask_morehelp:
+      - "还有什么能帮您吗"
+      - "您还想干什么"
+    utter_ask_time:
+      - "你想查哪个时间段的"
+      - "你想查几月份的"
+    utter_ask_package:
+      - "我们现在支持办理流量套餐：套餐一：二十元包月三十兆；套餐二：四十元包月八十兆，请问您需要哪个？"
+      - "我们有如下套餐供您选择：套餐一：二十元包月三十兆；套餐二：四十元包月八十兆，请问您需要哪个？"
+    utter_ack_management:
+      - "已经为您办理好了{item}"
+
+  actions:
+    - utter_greet
+    - utter_goodbye
+    - utter_default
+    - utter_thanks
+    - utter_ask_morehelp
+    - utter_ask_time
+    - utter_ask_package
+    - utter_ack_management
+    - bot.ActionSearchConsume
+
+```
+
+<table>
+  <thead>
+      <td></td><td>解释说明</td>
+  </thead>
+  <tr>
+      <td>intents</td><td>你希望用户说的话</td>
+  </tr>
+  <tr>
+      <td>actions</td><td>你的助手能做的和能说的</td>
+  </tr>
+  <tr>
+      <td>templates</td><td>你的助手可以说的东西的模板字符串</td>
+  </tr>
+  <tr>
+      <td>entities</td><td>实体类型</td>
+  </tr>
+  <tr>
+      <td>slots</td><td>槽位类型</td>
+  </tr>
+</table>
+
+
 
 
 ## 参考资料
