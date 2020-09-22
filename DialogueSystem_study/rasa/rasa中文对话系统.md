@@ -14,6 +14,7 @@
   - [目录](#目录)
   - [安装 Rasa 内容](#安装-rasa-内容)
     - [安装 中文版本 的 Rasa-nlu](#安装-中文版本-的-rasa-nlu)
+      - [安装过程中遇到的问题](#安装过程中遇到的问题)
     - [sklearn  和 MITIE 库 安装](#sklearn-和-mitie-库-安装)
     - [安装 rasa_core](#安装-rasa_core)
   - [项目初尝试](#项目初尝试)
@@ -44,6 +45,29 @@
   $ pip install -r requirements.txt
   $ python setup.py install
 ```
+
+#### 安装过程中遇到的问题
+
+- 问题一：
+```
+  ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.
+
+  We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.
+```
+然後使用者都要自己去解相依性問題 … pip 從 2020/10 月後會改用 2020-resolver 這個 resolver，pip 會自己去解決相依性問題，在官方還沒預設採用 2020-resolver 之前要用 --use-feature=2020-resolver 手動指定 resolver
+
+假設升級 aws-cdk.aws-sns-subscriptions 則有一連串也需要被更新的套件也會被拉上來
+
+1. 解决方法一
+```
+  python -m pip install --upgrade pip
+  pip install --use-feature=2020-resolver --upgrade aws-cdk.aws-sns-subscriptions
+```
+然后重新 安装
+
+2. 解决方法二
+
+解决方法: 在pip命令中加入–use-feature=2020-resolver参数就可以了, 比如pip install xxx --use-feature=2020-resolver
 
 ### sklearn  和 MITIE 库 安装
 
@@ -361,8 +385,10 @@ projects
 
 ### 在线模式下的对话训练
 
+利用 强化学习 的 方法，生成训练集，可以视为 交互式人工标注工具
+
 ```shell
-  $ python bot.py run
+  $ python bot.py online_train
 ```
 
 - output:
@@ -653,11 +679,12 @@ The bot wants to [utter_ask_morehelp]. Is this correct?
 
 ### mobile_story.md 对话设置 文件 分析
 
-- 内容（内容为 unicode 编码，可以对照 unicode2zh.md 文件查看 翻译，或用 [Unicode编码转换](https://tool.chinaz.com/tools/unicode.aspx)翻译工具）
-- 介绍：教会你的助手如何回复你的信息。这称为对话管理(dialogue management)，由你的Core模型来处理。Core模型以训练“故事”的形式从真实的会话数据中学习。故事是用户和助手之间的真实对话。带有意图和实体的行反映了用户的输入和操作名称，操作名称展示了助手应该如何响应。 
+- 内容类型：训练数据，对话流程作为训练数据训练policy 决策模块（内容为 unicode 编码，可以对照 unicode2zh.md 文件查看 翻译，或用 [Unicode编码转换](https://tool.chinaz.com/tools/unicode.aspx)翻译工具）
+- 介绍：教会你的助手如何回复你的信息。这称为对话管理(dialogue management)，由你的Core模型来处理。Core模型以训练“故事”的形式从真实的会话数据中学习。故事是用户和助手之间的真实对话。带有意图和实体的行为反映了用户的输入和操作名称，操作名称展示了助手应该如何响应。 
 
 ```
   ## Generated Story 5914322956106259965
+  > check_asked_question
   * greet
       - utter_greet
   * request_search{"item": "\u7684\u60c5\u51b5"}
@@ -674,19 +701,70 @@ The bot wants to [utter_ask_morehelp]. Is this correct?
   * deny
       - utter_goodbye
       - export
+  * affirm OR thankyou
+      – action_handle_affirmation
   ...
 ```
 > 以 - 开头的行是助手所采取的操作，所有的操作都是发送回用户的消息，比如utter_greet;
 > 以 * 开头的行是 用户意图
 
+- 三部分：
+  - 用户输入（User Messages）
+    - 介绍：使用 **“*”开头的语句表示用户的输入消息**，我们无需使用包含某个具体内容的输入，而是**使用NLU管道输出的intent和entities来表示可能的输入**。需要注意的是，如果用户的输入可能包含entities，建议将其包括在内，将有助于policies预测下一步action。
+    - 举例：
+      - * greet 表示用户输入没有entity情况；
+      - * inform_time{"time": "\u4e0a\u4e2a\u6708"} 表示用户输入包含entity情况，响应这类intent为普通action；
+      - * request_search{"item": "\u6d88\u8d39"} 表示用户输入Message对应的intent为form action情况；
+  - 动作（Actions）
+    - 介绍：使用 “-” 开头的语句表示要执行动作(Action)；
+    - 类别：
+      - utterance actions：在domain.yaml中定义以utter_为前缀，比如名为greet的意图，它的回复应为utter_greet；
+      - custom actions：自定义动作，具体逻辑由我们自己实现，虽然在定义action名称的时候没有限制，但是还是建议以action_为前缀，比如名为inform的意图fetch_profile的意图，它的response可为action_fetch_profile；
+  - 事件（Events）
+    - 介绍： 使用 “-” 开头，主要包含槽值设置(SlotSet)和激活/注销表单(Form)，它是是Story的一部分，并且必须显示的写出来。
+    - 分类：
+      - Slot Events：当我们在自定义Action中设置了某个槽值，那幺我们就需要在Story中Action执行之后显着的将这个SlotSet事件标注出来，格式为- slot{“slot_name”: “value”}。
+      - Form Events：在Story中主要存在三种形式的表单事件(Form Events)，它们可表述为：
+        - Form Action事件 ：单动作事件，是自定义Action的一种，用于一个表单操作；
+        - Form activation事件：激活表单事件，当form action事件执行后，会立马执行该事件；
+        - Form deactivation事件：注销表单事件，作用与form activation相反；
+  - > check_asked_question：表示first story，这样在其他story中，如果有相同的first story部分，可以直接用> check_asked_question代替；
+  - OR Statements：主要用于实现某一个action可同时响应多个意图的情况
+
+> 注：参考 [Rasa中文聊天机器人开发指南(3)：Core篇](https://blog.csdn.net/AndrExpert/article/details/105434136)
+
 ### mobile_domain.yml 定义域 文件 分析
 
- - 内容：定义域
- - 介绍：域定义了助手所处的环境:它应该期望得到什么用户输入、它应该能够预测什么操作、如何响应以及存储什么信息；
- - 
+- 内容：定义域，描述了对话机器人应知道的所有信息，类似于“人的大脑”，存储了意图intents、实体entities、插槽slots以及动作actions等信息，其中，intents、entities在NLU训练样本中定义，slots对应于entities类型，只是表现形式不同。
+- 介绍：域定义了助手所处的环境:
+  - 有哪些 slot;
+  - 它应该期望得到什么用户输入;
+  - 它应该能够预测什么操作;
+  - 系统可能采用哪些 action;
+  - 存储什么信息；
+- 类别介绍：
+  - intents：描述 Bot 拥有 哪些意图识别 的能力；
+  - sesstion_config：描述一次会谈的超时时间和超时后进行下一次会谈的行为
+    - session_expiration_time: 60 -> 每次会话的超时时间为60s，如果用户开始一段会话后，在60s内没有输入任何信息，那幺这次会话将被结束，然后Bot又会开启一次新的会话，并将上一次会话的Slot值拷贝过来;
+    - carry_over_slots_to_new_session: true -> 是否将 上一次会话Slot的值 copy 到新会谈；
+  - slots：定义 Bot 拥有哪些 槽值能力；
+  - entities：定义 Bot 拥有识别哪些 实体的能力，类似于输入文本中的关键字，需要在NLU样本中进行标注，然后Bot进行实体识别，并将其填充到Slot槽中；
+  - actions：定义 Bot 有哪些可执行的行为。
+    - 介绍：当Rasa NLU识别到用户输入Message的意图后，Rasa Core对话管理模块就会对其作出回应，而完成这个回应的模块就是action。
+    - 类别：
+      - default actions：是Rasa Core默认的一组actions，我们无需定义它们，直接可以story和domain中使用。
+        - action_listen：监听action，Rasa Core在会话过程中通常会自动调用该action；
+        - action_restart：重置状态，比初始化Slots(插槽)的值等；
+        - action_default_fallback：当Rasa Core得到的置信度低于设置的阈值时，默认执行该action；
+      - utter actions：是以utter_为开头，仅仅用于向用户发送一条消息作为反馈的一类actions。定义一个UtterAction很简单，只需要在domain.yml文件中的actions:字段定义以utter_为开头的action即可，而具体回复内容将被定义在templates:部分
+      - custom actions：即自定义action，允许开发者执行任何操作并反馈给用户，比如简单的返回一串字符串，或者控制家电、检查银行账户余额等等。它与DefaultAction不同，自定义action需要我们在domain.yml文件中的actions部分先进行定义，然后在指定的webserver中实现它，其中，这个webserver的url地址在endpoint.yml文件中指定，并且这个webserver可以通过任何语言实现，当然这里首先推荐python来做，毕竟Rasa Core为我们封装好了一个rasa-core-sdk专门用来处理自定义action。关于action web的搭建和action的具体实现。
+  - forms：定义 Bot 有哪些 form action；
+  - responses：定义当触发 某个意图后， Bot 能够使用其中的文本自动回复；
 
+> 注：参考 [Rasa中文聊天机器人开发指南(3)：Core篇](https://blog.csdn.net/AndrExpert/article/details/105434136)
 ```
-  slots:
+  # 槽位，对应于entities类型
+  slots:                      
     item:
       type: text
     time:
@@ -696,6 +774,7 @@ The bot wants to [utter_ask_morehelp]. Is this correct?
     price:
       type: text
 
+  # 用户意图
   intents:
     - greet
     - confirm
@@ -716,6 +795,7 @@ The bot wants to [utter_ask_morehelp]. Is this correct?
     - phone_number
     - price
 
+  # NLG：基于模板，每个模板 对应 多条回复，每次回复 可从中 中随机挑选 一条 返回
   templates:
     utter_greet:
       - "您好!，我是机器人小热，很高兴为您服务。"
@@ -741,8 +821,9 @@ The bot wants to [utter_ask_morehelp]. Is this correct?
       - "我们现在支持办理流量套餐：套餐一：二十元包月三十兆；套餐二：四十元包月八十兆，请问您需要哪个？"
       - "我们有如下套餐供您选择：套餐一：二十元包月三十兆；套餐二：四十元包月八十兆，请问您需要哪个？"
     utter_ack_management:
-      - "已经为您办理好了{item}"
+      - "已经为您办理好了{item}"   #  {item} 模板填充——实际中应该去查库得到
 
+  # 机器反应，每个 action 对应 一个模板
   actions:
     - utter_greet
     - utter_goodbye
@@ -752,40 +833,28 @@ The bot wants to [utter_ask_morehelp]. Is this correct?
     - utter_ask_time
     - utter_ask_package
     - utter_ack_management
-    - bot.ActionSearchConsume
+    - bot.ActionSearchConsume    # 可能还有查库的需求——> 自定义 action
+  forms:
+    – weather_form
+  responses:
+    utter_answer_greet:
+      – text: “您好！请问我可以帮到您吗？”
+      – text: “您好！很高兴为您服务。请说出您要查询的功能？”
+    utter_default:
+      – text: “没听懂，请换种说法吧~”
+
 
 ```
-
-<table>
-  <thead>
-      <td></td><td>解释说明</td>
-  </thead>
-  <tr>
-      <td>intents</td><td>你希望用户说的话</td>
-  </tr>
-  <tr>
-      <td>actions</td><td>你的助手能做的和能说的</td>
-  </tr>
-  <tr>
-      <td>templates</td><td>你的助手可以说的东西的模板字符串</td>
-  </tr>
-  <tr>
-      <td>entities</td><td>实体类型</td>
-  </tr>
-  <tr>
-      <td>slots</td><td>槽位类型</td>
-  </tr>
-</table>
-
-
-
 
 ## 参考资料
 
 1. [_rasa_chatbot](https://github.com/zqhZY/_rasa_chatbot)
-2. [Rasa 安装](http://rasachatbot.com/2_Rasa_Tutorial/#rasa)
-3. [Rasa 学习](https://blog.csdn.net/ljp1919/category_9656007.html)
-4. [rasa_chatbot_cn](https://github.com/GaoQ1/rasa_chatbot_cn)
-5.  [用Rasa NLU构建自己的中文NLU系统](http://www.crownpku.com/2017/07/27/用Rasa_NLU构建自己的中文NLU系统.html)
-6.  [Rasa_NLU_Chi](https://github.com/crownpku/Rasa_NLU_Chi)
-7.  [rasa 源码分析](https://www.zhihu.com/people/martis777/posts)
+2. [Rasa中文聊天机器人开发指南(1)：入门篇](https://jiangdg.blog.csdn.net/article/details/104328946)
+3. [Rasa中文聊天机器人开发指南(2)：NLU篇](https://jiangdg.blog.csdn.net/article/details/104530994)
+4. [Rasa中文聊天机器人开发指南(3)：Core篇](https://blog.csdn.net/AndrExpert/article/details/105434136)
+5. [Rasa 安装](http://rasachatbot.com/2_Rasa_Tutorial/#rasa)
+6. [Rasa 学习](https://blog.csdn.net/ljp1919/category_9656007.html)
+7. [rasa_chatbot_cn](https://github.com/GaoQ1/rasa_chatbot_cn)
+8.  [用Rasa NLU构建自己的中文NLU系统](http://www.crownpku.com/2017/07/27/用Rasa_NLU构建自己的中文NLU系统.html)
+9.  [Rasa_NLU_Chi](https://github.com/crownpku/Rasa_NLU_Chi)
+10. [rasa 源码分析](https://www.zhihu.com/people/martis777/posts)

@@ -81,6 +81,7 @@
 
 ### 会议收集篇
 - [ACL2020](ACL/ACL2020.md)
+- [SIGIR2020](SIGIR_stduy/readme.md/#sigir-2020)
 
 ### NLP 学习篇
 
@@ -168,6 +169,7 @@
 - [LSTM-based Deep Learning Models for Non-factoid Answer Selection](QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
 - [Denoising Distantly Supervised Open-Domain Question Answering](QA_study/T4_DenoisingDistantlySupervisedODQA/)
 - [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
+- [DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING](QA_study/SIGIR2020_DCBert/)
 
 ##### [文本摘要论文学习](summarization_study/) 
 - [Fine-tune BERT for Extractive Summarization](summarization_study/EMNLP2019_bertsum/)
@@ -199,8 +201,11 @@
 ##### [rasa 学习](DialogueSystem_study/rasa/)
 
 1. [【关于 rasa 安装 】那些你不知道的事](DialogueSystem_study/rasa/rasa安装手册.md)
-2. [【关于 rasa 基本架构 】那些你不知道的事](DialogueSystem_study/rasa/基本框架.md)
+2. [【关于 rasa 基本架构 】那些你不知道的事](DialogueSystem_study/rasa/rasa基本框架_视频讲解.md)
 3. [【关于 rasa中文对话系统】那些你不知道的事](DialogueSystem_study/rasa/rasa中文对话系统.md)
+4. [【关于 rasa中文对话系统构建】那些你不知道的事](DialogueSystem_study/rasa/rasa中文对话系统构建.md)
+5. [【关于 rasa->NLU 】那些你不知道的事](DialogueSystem_study/rasa/rasa系列/rasa_nlu.md)
+6. [【关于 rasa -> Core -> FormAction 】那些你不知道的事](DialogueSystem_study/rasa/rasa_core_FormAction/rasa_nlu.md)
 
 
 #### 视频学习篇
