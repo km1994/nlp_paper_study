@@ -1,0 +1,21 @@
+language: "zh"
+
+pipeline:
+- name: "MitieNLP"
+  model: "data/total_word_feature_extractor_zh.dat"
+- name: "JiebaTokenizer"
+- name: "MitieEntityExtractor"
+- name: "EntitySynonymMapper"
+- name: "RegexFeaturizer"
+- name: "MitieFeaturizer"
+- name: "SklearnIntentClassifier"
+
+policies:
+  - name: KerasPolicy
+    epochs: 500
+    max_history: 5
+  - name: FallbackPolicy
+    fallback_action_name: 'action_default_fallback'
+  - name: MemoizationPolicy
+    max_history: 5
+  - name: FormPolicy

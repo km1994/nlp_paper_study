@@ -714,17 +714,33 @@ pipeline:
 
 policies:
   - name: KerasPolicy
-epochs: 500
-max_history: 5
+    epochs: 500
+    max_history: 5
   - name: FallbackPolicy
-fallback_action_name: 'action_default_fallback'
+    fallback_action_name: 'action_default_fallback'
   - name: MemoizationPolicy
-max_history: 5
+    max_history: 5
   - name: FormPolicy
 ```
 
 #### 3.4.2 模型训练
 
+- 验证
+
+```s
+$ python -m rasa data validate
+/home/amy/.conda/envs/rasa/lib/python3.6/site-packages/rasa/core/domain.py:151: FutureWarning: No tracker session configuration was found in the loaded domain. Domains without a session config will automatically receive a session expiration time of 60 minutes in Rasa version 2.0 if not configured otherwise.
+  session_config = cls._get_session_config(data.get(SESSION_CONFIG_KEY, {}))
+2020-09-25 09:15:00 INFO     rasa.validator  - Validating intents...
+2020-09-25 09:15:00 INFO     rasa.validator  - Validating uniqueness of intents and stories...
+2020-09-25 09:15:00 INFO     rasa.validator  - Validating utterances...
+2020-09-25 09:15:00 INFO     rasa.validator  - Story structure validation...
+Processed Story Blocks: 100%|█████████████████████████████████████| 17/17 [00:00<00:00, 4121.57it/s, # trackers=1]
+2020-09-25 09:15:00 INFO     rasa.core.training.story_conflict  - Considering the preceding 6 turns for conflict analysis.
+2020-09-25 09:15:00 INFO     rasa.validator  - No story structure conflicts found.
+```
+
+- 运行
 当所有样本和配置文件准备好后，接下来就是训练模型了，打开Pycharm命令终端执行下面的命令，该命令会同时训练NLU和Core模型，具体如下：
 
 ```
@@ -1109,7 +1125,7 @@ $ curl -X POST localhost:5005/webhooks/rest/webhook -d '{"message":"询深圳周
 ```
 # 启动action服务
 # 注：该服务的--port默认为5055，如果使用默认则可以省略
-$ python -m rasa run actions --port 5055 --actions actions --DEBUG 
+$ python -m rasa run actions --port 5055 --actions actions --debug
 2020-09-21 21:39:28 INFO rasa_sdk.endpoint  - Starting action endpoint server...
 2020-09-21 21:39:28 INFO rasa_sdk.executor  - Registered function for 'action_default_fallback'.
 2020-09-21 21:39:28 INFO rasa_sdk.executor  - Registered function for 'weather_form'.

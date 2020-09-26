@@ -206,6 +206,8 @@
 4. [【关于 rasa中文对话系统构建】那些你不知道的事](DialogueSystem_study/rasa/rasa中文对话系统构建.md)
 5. [【关于 rasa->NLU 】那些你不知道的事](DialogueSystem_study/rasa/rasa系列/rasa_nlu.md)
 6. [【关于 rasa -> Core -> FormAction 】那些你不知道的事](DialogueSystem_study/rasa/rasa_core_FormAction/rasa_nlu.md)
+7. [【关于 rasa -> Core -> Stories 】那些你不知道的事](DialogueSystem_study/rasa/rasa系列/rasa_core_Stories.md)
+8. [【关于 rasa -> Core -> Action 】那些你不知道的事](DialogueSystem_study/rasa/rasa_core_FormAction/rasa_core_Action.md)
 
 
 #### 视频学习篇
