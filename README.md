@@ -105,15 +105,18 @@
 
 ##### 预训练模型篇
 
-- [bert_study](bert_study/)：Bert论文研读
+- [Bert_study](bert_study/)：Bert论文研读
   - [【关于Bert】 那些的你不知道的事](bert_study/T1_bert/)
-  - [XLNet Generalized Autoregressive Pretraining for Language Understanding](bert_study/T2_XLNet/)
-  - [RoBERTa: A Robustly Optimized BERT Pretraining Approach](bert_study/T4_RoBERTa/)
-  - [ A lite BERT for self-supervised learning of language representations](bert_study/T5_ALBERT/)
-  - [FastBERT](bert_study/FastBERT/)
-  - [distilbert](bert_study/distilbert/)
-  - [Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT](bert_study/ACL2020_UnsupervisedBert/)
-  - [GRAPH-BERT: Only Attention is Needed for Learning Graph Representations]([bert_study/ACL2020_UnsupervisedBert/](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
+  - [【关于 XLNet 】 那些你不知道的事](bert_study/T2_XLNet/)
+  - [【关于 RoBERTa】 那些你不知道的事](bert_study/T4_RoBERTa/)
+  - [【关于 Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT】 那些你不知道的事](bert_study/ACL2020_UnsupervisedBert/)
+  - [【关于 GRAPH-BERT】 那些你不知道的事]([bert_study/ACL2020_UnsupervisedBert/](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
+- [【关于 Bert 模型压缩】 那些你不知道的事](bert_study/Bert_zip)
+  - [【关于 Bert 压缩】 那些你不知道的事](bert_study/Bert_zip)
+  - [【关于 AlBert 】 那些你不知道的事](bert_study/T5_ALBERT/)
+  - [【关于 FastBERT】 那些你不知道的事](bert_study/FastBERT/)
+  - [【关于 distilbert】 那些你不知道的事](bert_study/distilbert/)
+  - [【关于 TinyBert】 那些你不知道的事](bert_study/TinyBERT/)
 
 ##### [细粒度情感分析论文研读](ABSC_study/)
 
