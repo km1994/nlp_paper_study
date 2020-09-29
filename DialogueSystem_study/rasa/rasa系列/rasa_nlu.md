@@ -68,14 +68,17 @@
 
 ## 二、动机
 
+
 在人机对话中，首先需要 让 机器 理解 用户所说的 内容，才能 帮助 机器 知道用户意图，并作出 适当 的 反馈。那么 这个时候 需要怎么做呢？
 
 > 答案：自然语言理解（NLU）
+
 
 ## 三、什么是 自然语言理解？
 
 - 英文：（NLU，natural language understanding）
 - 介绍：指机器能够理解执行人类所期望的某些语言功能，换句话说就是人与机器交流的桥梁；
+
 
 ## 四、自然语言理解 的 工作 是什么？
 
@@ -198,6 +201,11 @@
   "entity_synonyms": [{
       "value": "消费",
       "synonyms": ["话费", "钱"]
+    }]
+  },
+  "lookup_tables": [{
+      "value": "constellation",
+      "ookup": "data/lookup_tables/constellation.txt"
     }]
   }
 }
