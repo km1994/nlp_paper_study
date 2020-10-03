@@ -118,6 +118,50 @@
 ```
 > 注：会存在 一些 warning 警告，对结果 影响不大
 
+#### 安装过程中遇到的问题
+
+- 问题一：win10下安装MITIE
+
+> 依赖包：MITIE安装需要有Visual Studio环境、cmake、boost。注意，这三种缺一不可。
+
+1. 安装Visual Studio
+
+做过C#开发的童鞋，肯定很熟悉Visual Studio，即VS。windows 的集成开发环境。安装该环境的同时，它会附带安装很全的windows的类库。后面boost库运行的时候，需要使用其中的类库。
+
+具体安装过程很简单，完全傻瓜式安装即可，下一步下一步搞定。这里提供一个下载地址：
+
+http://download.microsoft.com/download/0/7/5/0755898A-ED1B-4E11-BC04-6B9B7D82B1E4/VS2013_RTM_ULT_CHS.iso
+
+2. 安装cmake
+
+官网下载：https://cmake.org/download/
+
+解压后把bin目录路径，配置到path环境变量中。
+例如：D:\develop-environment\cmake-3.12.3-win64-x64\bin
+执行文件为：
+
+```
+	cmake.exe
+	cmake-gui.ext
+	cmcldeps.exe
+	cpack.exe
+```
+
+3. 安装boost
+
+官网下载：https://www.boost.org/
+
+因为官网下载需要翻墙，百度网盘提供一个： https://pan.baidu.com/s/1LOgKv_S-JdvUNZ2UQBNCjA 提取码: eeuw
+
+我本机boost的解压目录为：
+D:\develop-environment\boost\boost_1_67_0
+
+```
+	cd D:\develop-environment\boost\boost_1_67_0\tools\build
+	bootstrap.bat
+	.\b2 --prefix=D:\develop-environment\boost\bin install
+```
+
 
 ### 安装 rasa_core
 
