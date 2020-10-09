@@ -156,15 +156,15 @@
     - 采用的计算方法：
       - 向量点积：
         
-      $$Sim(query,key_i) = query · Key_i$$
+      ![](img/20201009163936.png)
         
       - Cosine 相似度计算：
         
-      $$\text { Similarity (Query, }\left.\boldsymbol{K e} \boldsymbol{y}_{\boldsymbol{i}}\right)=\frac{\text { Query. } \boldsymbol{K e y}_{\boldsymbol{i}}}{\| Q \text {uery}\|\cdot\| \boldsymbol{K} \boldsymbol{e} \boldsymbol{y}_{\boldsymbol{i}} \|}$$
+      ![](img/20201009164019.png)
 
       - MLP 网络：
         
-      $$Sim(query,key_i) = MLP(query,key_i)$$
+      ![](img/20201009164053.png)
         
   - step 2: softmax 归一化
     - 原因：
@@ -288,7 +288,7 @@
 - Transformer 如何进行并行化？
   - 核心：self-attention
   - 为什么 RNN 不能并行化：
-    - 原因：RNN 在 计算 $x_i$ 的时候，需要考虑到 $x_1 ~ x_{i-1} $ 的 信息，使得 RNN 只能 从 $x_1$ 计算到 $x_i$;
+    - 原因：RNN 在 计算 $x_i$ 的时候，需要考虑到 $x_1 ~ x_{i-1}$ 的 信息，使得 RNN 只能 从 $x_1$ 计算到 $x_i$;
   - 思路：
     - 在 self-attention 能够 并行的 计算 句子中不同 的 query，因为每个 query 之间并不存在 先后依赖关系，也使得 transformer 能够并行化；
 
