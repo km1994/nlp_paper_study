@@ -8,11 +8,9 @@
 **/.ipynb_checkpoints/
 **/summarys/
 model/
-data/
 **/model/
 **/models/
 **/outputs/
-**/data/
 **/saved_models/
 version/
 **/version/
