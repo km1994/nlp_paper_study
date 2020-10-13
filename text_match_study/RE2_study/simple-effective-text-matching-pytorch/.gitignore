@@ -1,8 +1,0 @@
-/data/*
-!/data/*.py
-/models/
-/resources/
-
-/.idea
-__pycache__/
-.DS_Store
