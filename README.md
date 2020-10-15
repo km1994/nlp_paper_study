@@ -109,6 +109,7 @@
   - [【关于Bert】 那些的你不知道的事](bert_study/T1_bert/)
   - [【关于 XLNet 】 那些你不知道的事](bert_study/T2_XLNet/)
   - [【关于 RoBERTa】 那些你不知道的事](bert_study/T4_RoBERTa/)
+  - [【关于 ELECTRA 】 那些的你不知道的事](bert_study/ELECTRA/)
   - [【关于 Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT】 那些你不知道的事](bert_study/ACL2020_UnsupervisedBert/)
   - [【关于 GRAPH-BERT】 那些你不知道的事]([bert_study/ACL2020_UnsupervisedBert/](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
 - [【关于 Bert 模型压缩】 那些你不知道的事](bert_study/Bert_zip)

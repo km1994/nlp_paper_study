@@ -100,7 +100,7 @@
 
 > 注：MITIE 库比较大，所以这种 安装方式容易出现问题，所以我用另一种安装方式
 
-```shell
+```s
   $ git clone https://github.com/mit-nlp/MITIE.git
   $ cd MITIE/
   $ python setup.py install
@@ -108,7 +108,7 @@
 
 安装结果
 
-```shell
+```s
   Compiling src/text_feature_extraction.cpp
   Compiling ../dlib/dlib/threads/multithreaded_object_extension.cpp
   Compiling ../dlib/dlib/threads/threaded_object_extension.cpp
@@ -143,7 +143,7 @@
 
 ### 1.4 安装 rasa_core
 
-```python
+```s
 pip install rasa_core==0.9.0
 ```
 
