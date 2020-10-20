@@ -30,6 +30,7 @@
         - [文本摘要论文学习](#文本摘要论文学习)
         - [文本匹配论文学习](#文本匹配论文学习)
         - [机器翻译论文学习](#机器翻译论文学习)
+        - [文本生成论文学习](#文本生成论文学习)
         - [对话系统论文学习](#对话系统论文学习)
         - [rasa 学习](#rasa-学习)
       - [视频学习篇](#视频学习篇)
@@ -90,128 +91,133 @@
 ##### 经典论文研读篇
 
 - 那些你所不知道的事
-  - [【关于Transformer】 那些的你不知道的事](transformer_study/Transformer/)
-  - [【关于Bert】 那些的你不知道的事](bert_study/T1_bert/)
+  - [【关于Transformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer/)
+  - [【关于Bert】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T1_bert/)
 
 ##### transformer 学习篇
 
-- [transformer_study](transformer_study/)  transformer 论文学习
-  - [【关于Transformer】 那些的你不知道的事](transformer_study/Transformer/)
-  - [Transformer-XL](transformer_study/T3_Transformer_XL/)
-  - [Single Headed Attention RNN: Stop Thinking With Your Head 单头注意力 RNN: 停止用你的头脑思考](transformer_study/SHA_RNN_study/)
-  - [ Universal Transformers](transformer_study/T4_Universal_Transformers/)
-  - [Style_Transformer](Style_Transformer/LCNQA/)
-  - [ACL2020_Linformer](transformer_study/ACL2020_Linformer)
+- [transformer_study](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/)  transformer 论文学习
+  - [【关于Transformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer/)
+  - [Transformer-XL](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/T3_Transformer_XL/)
+  - [Single Headed Attention RNN: Stop Thinking With Your Head 单头注意力 RNN: 停止用你的头脑思考](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/SHA_RNN_study/)
+  - [ Universal Transformers](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/T4_Universal_Transformers/)
+  - [Style_Transformer](https://github.com/km1994/nlp_paper_study/tree/master/Style_Transformer/LCNQA/)
+  - [ACL2020_Linformer](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/ACL2020_Linformer)
 
 ##### 预训练模型篇
 
-- [Bert_study](bert_study/)：Bert论文研读
-  - [【关于Bert】 那些的你不知道的事](bert_study/T1_bert/)
-  - [【关于 XLNet 】 那些你不知道的事](bert_study/T2_XLNet/)
-  - [【关于 RoBERTa】 那些你不知道的事](bert_study/T4_RoBERTa/)
-  - [【关于 ELECTRA 】 那些的你不知道的事](bert_study/ELECTRA/)
-  - [【关于 Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT】 那些你不知道的事](bert_study/ACL2020_UnsupervisedBert/)
-  - [【关于 GRAPH-BERT】 那些你不知道的事]([bert_study/ACL2020_UnsupervisedBert/](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
-- [【关于 Bert 模型压缩】 那些你不知道的事](bert_study/Bert_zip)
-  - [【关于 Bert 压缩】 那些你不知道的事](bert_study/Bert_zip)
-  - [【关于 AlBert 】 那些你不知道的事](bert_study/T5_ALBERT/)
-  - [【关于 FastBERT】 那些你不知道的事](bert_study/FastBERT/)
-  - [【关于 distilbert】 那些你不知道的事](bert_study/distilbert/)
-  - [【关于 TinyBert】 那些你不知道的事](bert_study/TinyBERT/)
+- [Bert_study](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/)：Bert论文研读
+  - [【关于Bert】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T1_bert/)
+  - [【关于 XLNet 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T2_XLNet/)
+  - [【关于 RoBERTa】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T4_RoBERTa/)
+  - [【关于 ELECTRA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/ELECTRA/)
+  - [【关于 Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/ACL2020_UnsupervisedBert/)
+  - [【关于 GRAPH-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
+- [【关于 Bert 模型压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
+  - [【关于 Bert 压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
+  - [【关于 AlBert 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T5_ALBERT/)
+  - [【关于 FastBERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/FastBERT/)
+  - [【关于 distilbert】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/distilbert/)
+  - [【关于 TinyBert】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/TinyBERT/)
 
-##### [细粒度情感分析论文研读](ABSC_study/)
+##### [细粒度情感分析论文研读](https://github.com/km1994/nlp_paper_study/tree/master/ABSC_study/)
 
-- [LCF](ABSC_study/LCF/): A Local Context Focus Mechanism for Aspect-Based Sentiment Classiﬁcation
+- [LCF](https://github.com/km1994/nlp_paper_study/tree/master/ABSC_study/LCF/): A Local Context Focus Mechanism for Aspect-Based Sentiment Classiﬁcation
   
-##### [主动学习论文研读](active_learn_study/)
+##### [主动学习论文研读](https://github.com/km1994/nlp_paper_study/tree/master/active_learn_study/)
 
-- [Proactive Learning for Named Entity Recognition（命名实体识别的主动学习）](active_learn_study/ProactiveLearningforNamedEntityRecognition/)
+- [Proactive Learning for Named Entity Recognition（命名实体识别的主动学习）](https://github.com/km1994/nlp_paper_study/tree/master/active_learn_study/ProactiveLearningforNamedEntityRecognition/)
 
-##### [对抗训练论文研读](adversarial_training_study/)
+##### [对抗训练论文研读](https://github.com/km1994/nlp_paper_study/tree/master/adversarial_training_study/)
 
-- [FreeLB: Enhanced Adversarial Training for Language Understanding 加强语言理解的对抗性训练](adversarial_training_study/FREELB/)
+- [FreeLB: Enhanced Adversarial Training for Language Understanding 加强语言理解的对抗性训练](https://github.com/km1994/nlp_paper_study/tree/master/adversarial_training_study/FREELB/)
 
-##### [实体关系联合抽取论文研读](ERE_study/)：
-- [Incremental Joint Extraction of Entity Mentions and Relations](ERE_study/T2014_joint_extraction/)
-- [Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy](ERE_study/JointER/)
-- [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](ERE_study/ACL2019_GraphRel/)
-- [A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction](ERE_study/T20ACL_HBT_su/)
+##### [实体关系联合抽取论文研读](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/)：
+- [Incremental Joint Extraction of Entity Mentions and Relations](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/T2014_joint_extraction/)
+- [Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/JointER/)
+- [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/ACL2019_GraphRel/)
+- [A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/T20ACL_HBT_su/)
 
-##### [GCN 在 NLP 上的应用 论文研读](GCN2NLP/)：
-- [GCN 在 NLP 上的应用 论文研读](GCN2NLP/readme.md)
+##### [GCN 在 NLP 上的应用 论文研读](https://github.com/km1994/nlp_paper_study/tree/master/GCN2NLP/)：
+- [GCN 在 NLP 上的应用 论文研读](https://github.com/km1994/nlp_paper_study/tree/master/GCN2NLP/readme.md)
 
-##### [命名实体识别论文研读](NER_study/)：
-- [LatticeLSTM](NER_study/ACL2018_LatticeLSTM/)
-- [named entity recognition using positive-unlabeled learning](NER_study/JointER/)
-- [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](NER_study/ACL2019_NERusingPositive-unlabeledLearning/)
-- [TENER: Adapting Transformer Encoder for Name Entity Recognition](NER_study/ACL2019_TENER/)
-- [CrossWeigh从不完善的注释中训练命名实体标注器](NER_study/EMNLP2019/CrossWeigh从不完善的注释中训练命名实体标注器/)
-- [利用词汇知识通过协同图网络进行中文命名实体识别](NER_study/EMNLP2019/利用词汇知识通过协同图网络进行中文命名实体识别/)
-- [一点注释对引导低资源命名实体识别器有很多好处](NER_study/EMNLP2019/一点注释对引导低资源命名实体识别器有很多好处/)
-- [CGN: Leverage Lexical Knowledge for Chinese Named Entity Recognition via Collaborative Graph Network（EMNLP2019）](NER_study/EMNLP2019_CGN/)
-- [Fine-Grained Entity Typing in Hyperbolic Space（在双曲空间中打字的细粒度实体）](NER_study/Fine-GrainedEntityTypinginHyperbolicSpace/)
-- [LR-CNN:CNN-Based Chinese NER with Lexicon Rethinking(IJCAI2019)](NER_study/IJCAI2019_LR_CNN/)
+##### [命名实体识别论文研读](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/)：
+- [LatticeLSTM](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/ACL2018_LatticeLSTM/)
+- [named entity recognition using positive-unlabeled learning](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/JointER/)
+- [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/ACL2019_NERusingPositive-unlabeledLearning/)
+- [TENER: Adapting Transformer Encoder for Name Entity Recognition](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/ACL2019_TENER/)
+- [CrossWeigh从不完善的注释中训练命名实体标注器](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/EMNLP2019/CrossWeigh从不完善的注释中训练命名实体标注器/)
+- [利用词汇知识通过协同图网络进行中文命名实体识别](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/EMNLP2019/利用词汇知识通过协同图网络进行中文命名实体识别/)
+- [一点注释对引导低资源命名实体识别器有很多好处](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/EMNLP2019/一点注释对引导低资源命名实体识别器有很多好处/)
+- [CGN: Leverage Lexical Knowledge for Chinese Named Entity Recognition via Collaborative Graph Network（EMNLP2019）](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/EMNLP2019_CGN/)
+- [Fine-Grained Entity Typing in Hyperbolic Space（在双曲空间中打字的细粒度实体）](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/Fine-GrainedEntityTypinginHyperbolicSpace/)
+- [LR-CNN:CNN-Based Chinese NER with Lexicon Rethinking(IJCAI2019)](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/IJCAI2019_LR_CNN/)
 
-##### [关系抽取论文研读](NRE_paper_study/)：
-- [End-to-End Relation Extraction using LSTMs on Sequences and Tree Structures【2016】](NER_study/T2016_LSTM_Tree/)
-- [ERNIE](NRE_paper_study/ERNIE/)
-- [GraphRel](NRE_paper_study/GraphRel/)
-- [R_BERT](NRE_paper_study/R_BERT)
-- [Task 1：全监督学习](NRE_paper_study/T1_FullySupervisedLearning/)
-  - [Relation Classification via Convolutional Deep Neural Network](NRE_paper_study/T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/)
-  - [Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification](NRE_paper_study/T1_FullySupervisedLearning/T2_Attention-Based_BiLSTM_for_RC/)
-  - [Relation Classification via Attention Model](NRE_paper_study/T1_FullySupervisedLearning/T3_RC_via_attention_model_new/)
-- [Task 2：远程监督学习](NRE_paper_study/T2_DistantSupervisedLearning/)
-  - [Relation Classification via Convolutional Deep Neural Network](NRE_paper_study/T2_DistantSupervisedLearning/T1_Piecewise_Convolutional_Neural_Networks/)
-  - [NRE_with_Selective_Attention_over_Instances](NRE_paper_study/T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/)
+##### [关系抽取论文研读](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/)：
+- [End-to-End Relation Extraction using LSTMs on Sequences and Tree Structures【2016】](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/T2016_LSTM_Tree/)
+- [ERNIE](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/ERNIE/)
+- [GraphRel](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/GraphRel/)
+- [R_BERT](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/R_BERT)
+- [Task 1：全监督学习](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/T1_FullySupervisedLearning/)
+  - [Relation Classification via Convolutional Deep Neural Network](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/T1_FullySupervisedLearning/T1_Relation_Classification_via_CDNN/)
+  - [Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/T1_FullySupervisedLearning/T2_Attention-Based_BiLSTM_for_RC/)
+  - [Relation Classification via Attention Model](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/T1_FullySupervisedLearning/T3_RC_via_attention_model_new/)
+- [Task 2：远程监督学习](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/T2_DistantSupervisedLearning/)
+  - [Relation Classification via Convolutional Deep Neural Network](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/T2_DistantSupervisedLearning/T1_Piecewise_Convolutional_Neural_Networks/)
+  - [NRE_with_Selective_Attention_over_Instances](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/)
   
-##### [文本预处理](pre_study/)
-- [过采样]([pre_study/](https://github.com/km1994/nlp_paper_study/tree/master/pre_study/samplingStudy))
+##### [文本预处理](https://github.com/km1994/nlp_paper_study/tree/master/pre_study/)
+- [过采样](https://github.com/km1994/nlp_paper_study/tree/master/pre_study/samplingStudy)
 
-##### [问答系统论文学习](QA_study/) 
-- [Lattice CNNs for Matching Based Chinese Question Answering](QA_study/LCNQA/)
-- [LSTM-based Deep Learning Models for Non-factoid Answer Selection](QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
-- [Denoising Distantly Supervised Open-Domain Question Answering](QA_study/T4_DenoisingDistantlySupervisedODQA/)
-- [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
-- [DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING](QA_study/SIGIR2020_DCBert/)
+##### [问答系统论文学习](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/) 
+- [Lattice CNNs for Matching Based Chinese Question Answering](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/LCNQA/)
+- [LSTM-based Deep Learning Models for Non-factoid Answer Selection](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
+- [Denoising Distantly Supervised Open-Domain Question Answering](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/T4_DenoisingDistantlySupervisedODQA/)
+- [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
+- [DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
 
-##### [文本摘要论文学习](summarization_study/) 
-- [Fine-tune BERT for Extractive Summarization](summarization_study/EMNLP2019_bertsum/)
-- [Pointer-Generator Networks 指针网络读书笔记](summarization_study/ACL2017_Pointer_Generator_Networks/)
+##### [文本摘要论文学习](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/) 
+- [Fine-tune BERT for Extractive Summarization](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/EMNLP2019_bertsum/)
+- [Pointer-Generator Networks 指针网络读书笔记](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/ACL2017_Pointer_Generator_Networks/)
 
-##### [文本匹配论文学习](text_match_study/) 
-- [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
-- [Simple and Effective Text Matching with Richer Alignment Features](text_match_study/Multi-RE2_study/)
-- [Deep Structured Semantic Model](text_match_study/cikm2013_DSSM/)
-- [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](text_match_study/TACL2016_ABCNN/)
-- [Enhanced LSTM for Natural Language Inference](text_match_study/TACL2017_ESIM/)
-- [Bilateral Multi-perspective Matching](text_match_study/IJCAI2017_BiMPM/)
-- [Densely Interactive Inference Network（DIIN）](text_match_study/T2017_DIIN/)
+##### [文本匹配论文学习](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/) 
+- [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
+- [Simple and Effective Text Matching with Richer Alignment Features](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/Multi-RE2_study/)
+- [Deep Structured Semantic Model](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/cikm2013_DSSM/)
+- [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/TACL2016_ABCNN/)
+- [Enhanced LSTM for Natural Language Inference](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/TACL2017_ESIM/)
+- [Bilateral Multi-perspective Matching](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/IJCAI2017_BiMPM/)
+- [Densely Interactive Inference Network（DIIN）](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/T2017_DIIN/)
 
-##### [机器翻译论文学习](MachineTranslation/)
+##### [机器翻译论文学习](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/)
 
-- [Neural Machine Translation of Rare Words with Subword Units 论文学习](MachineTranslation/NeuralMachineTranslationOfRareWordsWithSubwordUnits/)
+- [Neural Machine Translation of Rare Words with Subword Units 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/NeuralMachineTranslationOfRareWordsWithSubwordUnits/)
 
-##### [对话系统论文学习](DialogueSystem_study/)
+##### [文本生成论文学习](https://github.com/km1994/nlp_paper_study/tree/master/TextGeneration/)
 
-1. [【关于 Domain/Intent Classification 】那些你不知道的事](IntentClassification/)
-2. [【关于 槽位填充 (Slot Filling)】那些你不知道的事](SlotFilling/)
-3. [【关于 上下文LU】那些你不知道的事](contextLU/)
-4. [【关于 自然语言生成NLG 】那些你不知道的事](NLG/)
-5. [【关于 DSTC 】那些你不知道的事](DSTC/)
-6. [【关于 E2E 】那些你不知道的事](E2E/)
-   1. [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](E2E/TC_Bot/)
+- [【关于 SLCVAE 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/TextGeneration/SLCVAE/)
 
-##### [rasa 学习](DialogueSystem_study/rasa/)
 
-1. [【关于 rasa 安装 】那些你不知道的事](DialogueSystem_study/rasa/rasa安装手册.md)
-2. [【关于 rasa 基本架构 】那些你不知道的事](DialogueSystem_study/rasa/rasa基本框架_视频讲解.md)
-3. [【关于 rasa中文对话系统】那些你不知道的事](DialogueSystem_study/rasa/rasa中文对话系统.md)
-4. [【关于 rasa中文对话系统构建】那些你不知道的事](DialogueSystem_study/rasa/rasa中文对话系统构建.md)
-5. [【关于 rasa->NLU 】那些你不知道的事](DialogueSystem_study/rasa/rasa系列/rasa_nlu.md)
-6. [【关于 rasa -> Core -> FormAction 】那些你不知道的事](DialogueSystem_study/rasa/rasa_core_FormAction/rasa_nlu.md)
-7. [【关于 rasa -> Core -> Stories 】那些你不知道的事](DialogueSystem_study/rasa/rasa系列/rasa_core_Stories.md)
-8. [【关于 rasa -> Core -> Action 】那些你不知道的事](DialogueSystem_study/rasa/rasa_core_FormAction/rasa_core_Action.md)
+##### [对话系统论文学习](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/)
+
+1. [【关于 Domain/Intent Classification 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/IntentClassification/)
+2. [【关于 槽位填充 (Slot Filling)】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/SlotFilling/)
+3. [【关于 上下文LU】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/contextLU/)
+4. [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/)
+5. [【关于 DSTC 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DSTC/)
+6. [【关于 E2E 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/)
+   1. [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/TC_Bot/)
+
+##### [rasa 学习](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/)
+
+1. [【关于 rasa 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa安装手册.md)
+2. [【关于 rasa 基本架构 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa基本框架_视频讲解.md)
+3. [【关于 rasa中文对话系统】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa中文对话系统.md)
+4. [【关于 rasa中文对话系统构建】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa中文对话系统构建.md)
+5. [【关于 rasa->NLU 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa系列/rasa_nlu.md)
+6. [【关于 rasa -> Core -> FormAction 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa_core_FormAction/rasa_nlu.md)
+7. [【关于 rasa -> Core -> Stories 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa系列/rasa_core_Stories.md)
+8. [【关于 rasa -> Core -> Action 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa_core_FormAction/rasa_core_Action.md)
 
 
 #### 视频学习篇
@@ -317,12 +323,13 @@
 
 ### 推荐系统 学习篇
 
-- [推荐系统 论文学习](RecommendedSystem_study)
-  - [DeepFM 论文学习](RecommendedSystem_study/DeepFM_study)
-  - [DeepWalk 论文学习](RecommendedSystem_study/DeepWalk)
-  - [ESMM 论文学习](RecommendedSystem_study/ESMM_study)
-  - [【关于 FiBiNET】那些你不知道的事](RecommendedSystem_study/FiBiNet_study)
-  - [【关于 DeepCF】那些你不知道的事](RecommendedSystem_study/DeepCF_study)
+- [推荐系统 基础](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/base_study)
+- [推荐系统 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study)
+  - [DeepFM 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/DeepFM_study)
+  - [DeepWalk 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/DeepWalk)
+  - [ESMM 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/ESMM_study)
+  - [【关于 FiBiNET】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/FiBiNet_study)
+  - [【关于 DeepCF】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/DeepCF_study)
   
 ### 竞赛篇
 
