@@ -30,6 +30,34 @@
 
 ## 前言知识
 
+### KL 散度 vanish 问题
+
+#### 出现原因
+
+- 出现原因：当VAE和强如RNN / PixelCNN这样的auto regressive models在一起训练时，会出现糟糕的“KL-vanishing problem”，或者说是“posterior collapse”。
+
+#### KL 散度 vanish 是什么
+
+- 在VAE里面，KL vanishing problem主要是指当KL(q(z|x) || p(z))消失时，并且当隐变量z和x独立时，此时的ELBO=log(p(x))：
+
+![](img/微信截图_20201021083102.png)
+
+但是如果z和x完全独立，这就意味着VAE的生成过程中，decoder完全不依赖z去生成x，从而退化成一个一般的language model。这并不是我们想要的结果。
+
+通过对KL vanishing problem的分析，假设当KL(q(z|x) || p(z))=0时，存在着两种情况，一个是z与x独立， 另一个是z和x不独立。我们想得到的解是当KL(q(z|x) || p(z))=0时，z和x不独立。现在我们引入博弈论的思想，对于VAE的优化目标来说，一共有2×2四种情况：即z 与 x 是否独立，和q(z | x) 与 p(z) 是否相等。
+
+![](img/微信截图_20201021083315.png)
+
+我们想要的，应该是第三种情况，即z 与 x 不独立，且q(z | x) 与 p(z) 是相等的。
+
+![](img/微信截图_20201021083435.png)
+
+
+##### KL-vanishing 问题解决方法
+
+- 第一，对于KL，我们需要为latent variable寻找更为flexible的prior和posterior，不仅仅是因为优化mean- field Gaussian distribution的KL显得过于容易，而且真实情况下的posterior也不可能只是个Gaussian distribution。
+- 第二，对于reconstruction项，我们需要一个不那么强大的decoder，让decoder也去依赖z，不要一个人把事情做了。
+
 ### seq2seq：
 
 - 思路：
@@ -79,9 +107,22 @@ It makes use of a latent variable z sampled from a prior distribution to generat
 
 ## 论文方法
 
-在本文中，我们指出，在优化CVAE的目标过程中，编码器逐渐被拉至先验分布，并失去了目标的判别能力，而解码器甚至在没有编码器帮助的情况下也倾向于拟合数据。因此，KL消失根源于CVAE的目标。当前的方法，要么削弱解码器要么加强编码器以预先隐式地对目标进行补偿，只能缓解该问题，并且难以确定解码器/编码器应具有多弱/强。
+### 避免 KL vanishing problem 方法
 
-与这些努力正交的是，我们为编码器提出了一个明确的优化目标，以朝着更好的表达能力发展以适应当前的解码器。通过该新颖的目的，来自编码器的潜变量分布具有与解码器相对应的适当灵活性的潜力，这自然地协调了编码器和解码器的表示能力，并增强了解码器对潜变量的利用。具体而言，称为“标签网络”的附加模块用于估计当前解码器的“最佳编码器”。测量CVAE潜变量与标记网络预测变量之差的Thena损失被添加到CVAE的原始目标函数中。由于这种损失将编码器拉向标签网络所逼近的“最佳编码器”，同时原始CVAE将编码器拉至先前的编码器，因此将达到平衡，可以避免KL消失。另外，标记网络为每个目标引入一个连续的标记，这基本上反映了潜在空间的结构约束。因此，它保证了潜在空间中的每个z对应于唯一的目标，从而提高了目标空间中各代的覆盖率。我们也可以训练“标签网络”和CVAE结构，并将此模型称为“自标签条件变量自动编码器”（SLCVAE）。
+- 避免 KL vanishing problem：引入新的损失函数
+
+![](img/微信截图_20201022074710.png)
+
+### 基本思想
+
+通过使隐变量z包含x的信息，从而避免模型收敛到(z与x独立，q(z|x) == p(z))这个解。具体来说，他们构建了一个label network，用来输出 $z_{label}$ ，他是decoder输出x的一个逆向的估计（即，通过 $z_{label}$ ，对于当前的decoder理应输出相对应的x）。
+
+![](img/微信截图_20201022074943.png)
+
+
+
+
+
 
 
 ## 论文贡献
@@ -90,6 +131,15 @@ It makes use of a latent variable z sampled from a prior distribution to generat
 - 其次，我们提出了一种新的显式优化目标将译码器与潜在变量连接起来的自标记机制。在这个目标下，编码器同时被拉向由当前解码器和先验分布定义的“最佳编码器”，从而使编码器分布接近先验，同时保持表现力的平衡。因此，KL消失问题是有意义的。
 - 此外，大量的实验表明，我们的SLCVAE方法具有更好的多目标建模能力，并且在不损失准确性的情况下提高了文本生成的多样性。第三，构建了一个大规模的数据集degoods，该数据集包含了高质量的一对多文本数据，加快了对文本生成的研究
 
+![](img/微信截图_20201022075211.png)
+
+## 实验
+
+### 生成效果对比
+
+![](img/微信截图_20201022075354.png)
+
+
 
 
 
@@ -97,3 +147,4 @@ It makes use of a latent variable z sampled from a prior distribution to generat
 
 1. [通过自标记条件变分自动编码器，提高文本生成的多样性](https://zhuanlan.zhihu.com/p/60609670)
 2. [文本生成9：VAE中KL vanishing 问题的一般解](https://zhuanlan.zhihu.com/p/98797312)
+3. [KL 散度 vanish](https://zhuanlan.zhihu.com/p/64071467)
