@@ -1,4 +1,4 @@
-# 【关于 SLCVAE 安装 】那些你不知道的事
+# 【关于 SLCVAE 】那些你不知道的事
 
 > 作者：杨夕
 > 
@@ -14,7 +14,25 @@
 
 ## 目录
 
-
+- [【关于 SLCVAE 】那些你不知道的事](#关于-slcvae-那些你不知道的事)
+  - [目录](#目录)
+  - [摘要](#摘要)
+  - [前言知识](#前言知识)
+    - [KL 散度 vanish 问题](#kl-散度-vanish-问题)
+      - [出现原因](#出现原因)
+      - [KL 散度 vanish 是什么](#kl-散度-vanish-是什么)
+        - [KL-vanishing 问题解决方法](#kl-vanishing-问题解决方法)
+    - [seq2seq：](#seq2seq)
+    - [VAE and CVAE](#vae-and-cvae)
+      - [Variational Auto Encoder](#variational-auto-encoder)
+      - [CVAE](#cvae)
+  - [论文方法](#论文方法)
+    - [避免 KL vanishing problem 方法](#避免-kl-vanishing-problem-方法)
+    - [基本思想](#基本思想)
+  - [论文贡献](#论文贡献)
+  - [实验](#实验)
+    - [生成效果对比](#生成效果对比)
+  - [参考](#参考)
 
 ## 摘要
 
