@@ -14,6 +14,7 @@
     - [论文工具篇](#论文工具篇)
     - [会议收集篇](#会议收集篇)
     - [NLP 学习篇](#nlp-学习篇)
+        - [经典会议论文研读篇](#经典会议论文研读篇)
       - [理论学习篇](#理论学习篇)
         - [经典论文研读篇](#经典论文研读篇)
         - [transformer 学习篇](#transformer-学习篇)
@@ -82,9 +83,15 @@
 
 ### 会议收集篇
 - [ACL2020](ACL/ACL2020.md)
+  - [【关于 CHECKLIST】 那些你不知道的事](ACL/ACL2020_bertpaper_CHECKLIST/readme.md) 【学习理由：ACL2020 best paper，针对 train-val-test 分割方法 评估 模型性能容易出现 不全面、偏向性、可解性差问题，提出了一种模型无关和任务无关的测试方法checklist，它使用三种不同的测试类型来测试模型的独立性。checklist揭示了大型软件公司开发的商业系统中的关键缺陷，表明它是对当前实践的补充好吧。测试使用 checklist 创建的模型可以应用于任何模型，这样就可以很容易地将其纳入当前的基准测试或评估中管道。】
 - [SIGIR2020](SIGIR_stduy/readme.md/#sigir-2020)
 
 ### NLP 学习篇
+
+##### 经典会议论文研读篇
+
+- [ACL2020](ACL/ACL2020.md)
+  - [【关于 CHECKLIST】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ACL2020_bertpaper_CHECKLIST/)
 
 #### 理论学习篇
 
@@ -93,6 +100,7 @@
 - 那些你所不知道的事
   - [【关于Transformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer/)
   - [【关于Bert】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T1_bert/)
+
 
 ##### transformer 学习篇
 
@@ -113,6 +121,7 @@
   - [【关于 ELECTRA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/ELECTRA/)
   - [【关于 Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/ACL2020_UnsupervisedBert/)
   - [【关于 GRAPH-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
+  - [【关于自训练 + 预训练 = 更好的自然语言理解模型 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/SelfTrainingImprovesPreTraining))
 - [【关于 Bert 模型压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
   - [【关于 Bert 压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
   - [【关于 AlBert 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T5_ALBERT/)
@@ -133,6 +142,7 @@
 - [FreeLB: Enhanced Adversarial Training for Language Understanding 加强语言理解的对抗性训练](https://github.com/km1994/nlp_paper_study/tree/master/adversarial_training_study/FREELB/)
 
 ##### [实体关系联合抽取论文研读](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/)：
+- [【关于 实体关系联合抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/实体关系联合抽取总结.md)
 - [Incremental Joint Extraction of Entity Mentions and Relations](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/T2014_joint_extraction/)
 - [Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/JointER/)
 - [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/ACL2019_GraphRel/)

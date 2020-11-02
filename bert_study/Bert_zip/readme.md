@@ -9,6 +9,20 @@
 
 ## 目录
 
+- [【关于 Bert 压缩】 那些你不知道的事](#关于-bert-压缩-那些你不知道的事)
+  - [目录](#目录)
+  - [动机](#动机)
+  - [对比表](#对比表)
+  - [模型压缩方法介绍](#模型压缩方法介绍)
+  - [论文介绍](#论文介绍)
+    - [ALBERT: A Lite Bert for self-supervisedLearning of Language Representations【低秩因式分解 + 跨层参数共享】](#albert-a-lite-bert-for-self-supervisedlearning-of-language-representations低秩因式分解--跨层参数共享)
+    - [Q-BERT: Hessian Based Ultra Low Precision Quantization of BERT 【量化】](#q-bert-hessian-based-ultra-low-precision-quantization-of-bert-量化)
+    - [Extreme Language Model Compression withOptimal Subwords and Shared Projections 【蒸馏】](#extreme-language-model-compression-withoptimal-subwords-and-shared-projections-蒸馏)
+    - [DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter 【蒸馏】](#distilbert-a-distilled-version-of-bert-smaller-faster-cheaper-and-lighter-蒸馏)
+    - [FastBERT: a Self-distilling BERT with Adaptive Inference Time 【蒸馏】](#fastbert-a-self-distilling-bert-with-adaptive-inference-time-蒸馏)
+    - [TinyBERT: Distilling BERT for Natural Language Understanding 【蒸馏】](#tinybert-distilling-bert-for-natural-language-understanding-蒸馏)
+  - [个人总结](#个人总结)
+  - [参考](#参考)
 
 ## 动机
 
@@ -57,8 +71,8 @@
         <td>Extreme Language Model Compression withOptimal Subwords and Shared Projections</td>
         <td></td>
         <td></td>
-        <td></td>
         <td>1</td>
+        <td></td>
         <td></td>
         <td>1</td>
         <td></td>
@@ -67,8 +81,8 @@
         <td>DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter</td>
         <td></td>
         <td></td>
-        <td></td>
         <td>1</td>
+        <td></td>
         <td></td>
         <td></td>
         <td>1</td>
@@ -77,8 +91,8 @@
         <td>FastBERT: a Self-distilling BERT with Adaptive Inference Time</td>
         <td></td>
         <td></td>
-        <td></td>
         <td>1</td>
+        <td></td>
         <td></td>
         <td></td>
         <td>1</td>
@@ -87,8 +101,8 @@
         <td>TinyBERT: Distilling BERT for Natural Language Understanding</td>
         <td></td>
         <td></td>
-        <td></td>
         <td>1</td>
+        <td></td>
         <td></td>
         <td></td>
         <td>1</td>

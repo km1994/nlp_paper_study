@@ -240,17 +240,17 @@
 
 ## 文章目录
 
-1. [【关于 Domain/Intent Classification 】那些你不知道的事](IntentClassification/)
-2. [【关于 槽位填充 (Slot Filling)】那些你不知道的事](SlotFilling/)
-3. [【关于 上下文LU】那些你不知道的事](contextLU/)
-4. [【关于 自然语言生成NLG 】那些你不知道的事](NLG/)
-5. [【关于 DSTC 】那些你不知道的事](DSTC/)
-6. [【关于 E2E 】那些你不知道的事](E2E/)
-   1. [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](E2E/TC_Bot/)
-7. [【关于 rasa 】那些你不知道的事](DialogueSystem_study/rasa/)
-   1. [【关于 rasa 安装 】那些你不知道的事](DialogueSystem_study/rasa/rasa安装手册.md)
-   2.  [【关于 rasa 基本架构 】那些你不知道的事](DialogueSystem_study/rasa/基本框架.md)
-   3.  [【关于 rasa中文对话系统】那些你不知道的事](DialogueSystem_study/rasa/rasa中文对话系统.md)
+1. [【关于 Domain/Intent Classification 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/IntentClassification/)
+2. [【关于 槽位填充 (Slot Filling)】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/SlotFilling/)
+3. [【关于 上下文LU】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/contextLU/)
+4. [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/)
+5. [【关于 DSTC 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DSTC/)
+6. [【关于 E2E 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/)
+   1. [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/TC_Bot/)
+7. [【关于 rasa 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DialogueSystem_study/rasa/)
+   1. [【关于 rasa 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DialogueSystem_study/rasa/rasa安装手册.md)
+   2.  [【关于 rasa 基本架构 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DialogueSystem_study/rasa/基本框架.md)
+   3.  [【关于 rasa中文对话系统】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DialogueSystem_study/rasa/rasa中文对话系统.md)
 
 
 ## 优质文章学习
