@@ -124,18 +124,131 @@
 
 - [Bert_study](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/)：Bert论文研读
   - [【关于Bert】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T1_bert/)
+    - 阅读理由：NLP 的 创世之作
+    - 动机：word2vec 的多义词问题 && GPT 单向 Transformer && Elmo 双向LSTM 
+    - 介绍：Transformer的双向编码器
+    - 思路：
+      - 预训练：Task 1：Masked LM && Task 2：Next Sentence Prediction
+      - 微调：直接利用 特定任务数据 微调
+    - 优点：NLP 所有任务上都刷了一遍 SOTA
+    - 缺点：
+      - 1. [MASK]预训练和微调之间的不匹配
+      - 2. Max Len 为 512
   - [【关于 XLNet 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T2_XLNet/)
+    - 阅读理由：Bert 问题上的改进
+    - 动机：
+      - 1. Bert 预训练和微调之间的不匹配
+      - 2. Bert 的 Max Len 为 512
+    - 介绍：广义自回归预训练方法
+    - 思路：
+      - 预训练：
+        - （1） Permutation Language Modeling【解决Bert 预训练和微调之间的不匹配】
+        - （2）Two-Stream Self-Attention for Target-Aware Representations【解决PLM出现的目标预测歧义】 
+        - （3）XLNet将最先进的自回归模型Transformer-XL的思想整合到预训练中【解决 Bert 的 Max Len 为 512】
+      - 微调：直接利用 特定任务数据 微调
+    - 优点：
+    - 缺点：
   - [【关于 RoBERTa】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T4_RoBERTa/)
+    - 阅读理由：Bert 问题上的改进
+    - 动机：
+      - 1. 确定方法的哪些方面贡献最大可能是具有挑战性的
+      - 2. 训练在计算上是昂贵的的，限制了可能完成的调整量
+    - 介绍：A Robustly Optimized BERT Pretraining Approach 
+    - 思路：
+      - 预训练：
+        - 1. 去掉下一句预测(NSP)任务
+        - 2. 动态掩码
+        - 3. 文本编码
+      - 微调：直接利用 特定任务数据 微调
+    - 优点：
+    - 缺点：
   - [【关于 ELECTRA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/ELECTRA/)
+    - 阅读理由：Bert 问题上的改进 【不推荐阅读，存在注水！】
+    - 动机：
+      - 1. 只有15%的输入上是会有loss
+    - 介绍：判别器 & 生成器 【但是最后发现非 判别器 & 生成器】
+    - 思路：
+      - 预训练：
+        - 利用一个基于MLM的Generator来替换example中的某些个token，然后丢给Discriminator来判别
+      - 微调：直接利用 特定任务数据 微调
+    - 优点：
+    - 缺点： 
   - [【关于 Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/ACL2020_UnsupervisedBert/)
   - [【关于 GRAPH-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/T2020_GRAPH_BERT))
   - [【关于自训练 + 预训练 = 更好的自然语言理解模型 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/SelfTrainingImprovesPreTraining))
 - [【关于 Bert 模型压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
-  - [【关于 Bert 压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
+  - [【关于 Bert 模型压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
+    - 阅读理由：Bert 在工程上问题上的改进 
+    - 动机：
+      - 内存占用；
+      - 功耗过高；
+      - 带来很高的延迟；
+      - 限制了 Bert 系列模型在移动和物联网等嵌入式设备上的部署；
+    - 介绍：BERT 瘦身来提升速度
+    - 模型压缩思路：
+      - 低秩因式分解：在输入层和输出层使用嵌入大小远小于原生Bert的嵌入大小，再使用简单的映射矩阵使得输入层的输出或者最后一层隐藏层的输出可以通过映射矩阵输入到第一层的隐藏层或者输出层；
+      - 跨层参数共享：隐藏层中的每一层都使用相同的参数，用多种方式共享参数，例如只共享每层的前馈网络参数或者只共享每层的注意力子层参数。默认情况是共享每层的所有参数；
+      - 剪枝：剪掉多余的连接、多余的注意力头、甚至LayerDrop[1]直接砍掉一半Transformer层
+      - 量化：把FP32改成FP16或者INT8；
+      - 蒸馏：用一个学生模型来学习大模型的知识，不仅要学logits，还要学attention score；
+    - 优点：BERT 瘦身来提升速度
+    - 缺点： 
+      - 精度的下降
+      - 低秩因式分解 and 跨层参数共享 计算量并没有下降；
+      - 剪枝会直接降低模型的拟合能力；
+      - 量化虽然有提升但也有瓶颈；
+      - 蒸馏的不确定性最大，很难预知你的BERT教出来怎样的学生；
   - [【关于 AlBert 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T5_ALBERT/)
+    - 模型压缩方法：低秩因式分解 + 跨层参数共享
+    - 模型压缩方法介绍：
+      - 低秩因式分解：
+        - 动机：Bert的参数量大部分集中于模型的隐藏层架构上，在嵌入层中只有30,000词块，其所占据的参数量只占据整个模型参数量的小部分；
+        - 方法：将输入层和输出层的权重矩阵分解为两个更小的参数矩阵；
+        - 思路：在输入层和输出层使用嵌入大小远小于原生Bert的嵌入大小，再使用简单的映射矩阵使得输入层的输出或者最后一层隐藏层的输出可以通过映射矩阵输入到第一层的隐藏层或者输出层；
+        - 优点：在不显著增加词嵌入大小的情况下能够更容易增加隐藏层大小；
+      - 参数共享【跨层参数共享】：
+        - 动机：隐藏层 参数 大小 一致；
+        - 方法：隐藏层中的每一层都使用相同的参数，用多种方式共享参数，例如只共享每层的前馈网络参数或者只共享每层的注意力子层参数。默认情况是共享每层的所有参数；
+        - 优点：防止参数随着网络深度的增加而增大；
+    - 其他改进策略：
+      - **句子顺序预测损失(SOP)**代替**Bert中的下一句预测损失(NSP)**：
+        - 动机：通过实验证明，Bert中的下一句预测损失(NSP) 作用不大；
+        - 介绍：用预测两个句子是否连续出现在原文中替换为两个连续的句子是正序或是逆序，用于进一步提高下游任务的表现
+    - 优点：参数量上有所降低；
+    - 缺点：其加速指标仅展示了训练过程，由于ALBERT的隐藏层架构**采用跨层参数共享策略并未减少训练过程的计算量**，加速效果更多来源于低维的嵌入层；
   - [【关于 FastBERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/FastBERT/)
+    - 模型压缩方法：知识蒸馏
+    - 模型压缩方法介绍：
+      - 样本自适应机制（Sample-wise adaptive mechanism）
+        - 思路：
+          - 在每层Transformer后都去预测样本标签，如果某样本预测结果的置信度很高，就不用继续计算了，就是自适应调整每个样本的计算量，容易的样本通过一两层就可以预测出来，较难的样本则需要走完全程。
+        - 操作：
+          - 给每层后面接一个分类器，毕竟分类器比Transformer需要的成本小多了
+      - 自蒸馏（Self-distillation）
+        - 思路：
+          - 在预训练和精调阶段都只更新主干参数；
+          - 精调完后freeze主干参数，用分支分类器（图中的student）蒸馏主干分类器（图中的teacher）的概率分布
+        - 优点：
+          - 非蒸馏的结果没有蒸馏要好
+          - 不再依赖于标注数据。蒸馏的效果可以通过源源不断的无标签数据来提升
   - [【关于 distilbert】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/distilbert/)
   - [【关于 TinyBert】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/TinyBERT/)
+    - 模型压缩方法：知识蒸馏
+    - tinybert的创新点：学习了teacher Bert中更多的层数的特征表示；
+    - 模型压缩方法介绍：
+      - 基于transformer的知识蒸馏模型压缩
+        - 学习了teacher Bert中更多的层数的特征表示；
+        - 特征表示：
+          - 词向量层的输出；
+          - Transformer layer的输出以及注意力矩阵；
+          - 预测层输出(仅在微调阶段使用)；
+      - bert知识蒸馏的过程
+        - 左图：整体概括了知识蒸馏的过程
+          - 左边：Teacher BERT；
+          - 右边：Student TinyBERT
+          - 目标：将Teacher BERT学习到的知识迁移到TinyBERT中
+        - 右图：描述了知识迁移的细节；
+          - 在训练过程中选用Teacher BERT中每一层transformer layer的attention矩阵和输出作为监督信息
 
 ##### [细粒度情感分析论文研读](https://github.com/km1994/nlp_paper_study/tree/master/ABSC_study/)
 
