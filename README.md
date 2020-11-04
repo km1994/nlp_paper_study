@@ -83,7 +83,6 @@
 
 ### 会议收集篇
 - [ACL2020](ACL/ACL2020.md)
-  - [【关于 CHECKLIST】 那些你不知道的事](ACL/ACL2020_bertpaper_CHECKLIST/readme.md) 【学习理由：ACL2020 best paper，针对 train-val-test 分割方法 评估 模型性能容易出现 不全面、偏向性、可解性差问题，提出了一种模型无关和任务无关的测试方法checklist，它使用三种不同的测试类型来测试模型的独立性。checklist揭示了大型软件公司开发的商业系统中的关键缺陷，表明它是对当前实践的补充好吧。测试使用 checklist 创建的模型可以应用于任何模型，这样就可以很容易地将其纳入当前的基准测试或评估中管道。】
 - [SIGIR2020](SIGIR_stduy/readme.md/#sigir-2020)
 
 ### NLP 学习篇
@@ -92,6 +91,10 @@
 
 - [ACL2020](ACL/ACL2020.md)
   - [【关于 CHECKLIST】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ACL2020_bertpaper_CHECKLIST/)
+    - 阅读理由：ACL2020 best paper ，利用 软件工程 的 思想 思考 深度学习
+    - 动机：针对 train-val-test 分割方法 评估 模型性能容易出现 不全面、偏向性、可解性差问题；
+    - 方法：提出了一种模型无关和任务无关的测试方法checklist，它使用三种不同的测试类型来测试模型的独立性。
+    - 效果：checklist揭示了大型软件公司开发的商业系统中的关键缺陷，表明它是对当前实践的补充好吧。测试使用 checklist 创建的模型可以应用于任何模型，这样就可以很容易地将其纳入当前的基准测试或评估中管道。
 
 #### 理论学习篇
 
@@ -111,6 +114,11 @@
   - [ Universal Transformers](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/T4_Universal_Transformers/)
   - [Style_Transformer](https://github.com/km1994/nlp_paper_study/tree/master/Style_Transformer/LCNQA/)
   - [ACL2020_Linformer](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/ACL2020_Linformer)
+  - [【关于 Performer 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Performer) **【推荐阅读】**
+    - 阅读理由：Transformer 作者 Krzysztof Choromanski 针对 Transformer 问题的重新思考与改进
+    - 动机：Transformer 有着巨大的内存和算力需求，因为它构造了一个注意力矩阵，需求与输入呈平方关系;
+    - 思路：使用一个高效的（线性）广义注意力框架（generalized attention framework），允许基于不同相似性度量（核）的一类广泛的注意力机制。
+    - 优点：该方法在保持线性空间和时间复杂度的同时准确率也很有保证，也可以应用到独立的 softmax 运算。此外，该方法还可以和可逆层等其他技术进行互操作。
 
 ##### 预训练模型篇
 
