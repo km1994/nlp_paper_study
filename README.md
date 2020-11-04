@@ -132,40 +132,40 @@
       - 微调：直接利用 特定任务数据 微调
     - 优点：NLP 所有任务上都刷了一遍 SOTA
     - 缺点：
-      - 1. [MASK]预训练和微调之间的不匹配
-      - 2. Max Len 为 512
+      - [MASK]预训练和微调之间的不匹配
+      - Max Len 为 512
   - [【关于 XLNet 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T2_XLNet/)
     - 阅读理由：Bert 问题上的改进
     - 动机：
-      - 1. Bert 预训练和微调之间的不匹配
-      - 2. Bert 的 Max Len 为 512
+      - Bert 预训练和微调之间的不匹配
+      - Bert 的 Max Len 为 512
     - 介绍：广义自回归预训练方法
     - 思路：
       - 预训练：
-        - （1） Permutation Language Modeling【解决Bert 预训练和微调之间的不匹配】
-        - （2）Two-Stream Self-Attention for Target-Aware Representations【解决PLM出现的目标预测歧义】 
-        - （3）XLNet将最先进的自回归模型Transformer-XL的思想整合到预训练中【解决 Bert 的 Max Len 为 512】
+        - Permutation Language Modeling【解决Bert 预训练和微调之间的不匹配】
+        - Two-Stream Self-Attention for Target-Aware Representations【解决PLM出现的目标预测歧义】 
+        - XLNet将最先进的自回归模型Transformer-XL的思想整合到预训练中【解决 Bert 的 Max Len 为 512】
       - 微调：直接利用 特定任务数据 微调
     - 优点：
     - 缺点：
   - [【关于 RoBERTa】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T4_RoBERTa/)
     - 阅读理由：Bert 问题上的改进
     - 动机：
-      - 1. 确定方法的哪些方面贡献最大可能是具有挑战性的
-      - 2. 训练在计算上是昂贵的的，限制了可能完成的调整量
+      - 确定方法的哪些方面贡献最大可能是具有挑战性的
+      - 训练在计算上是昂贵的的，限制了可能完成的调整量
     - 介绍：A Robustly Optimized BERT Pretraining Approach 
     - 思路：
       - 预训练：
-        - 1. 去掉下一句预测(NSP)任务
-        - 2. 动态掩码
-        - 3. 文本编码
+        - 去掉下一句预测(NSP)任务
+        - 动态掩码
+        - 文本编码
       - 微调：直接利用 特定任务数据 微调
     - 优点：
     - 缺点：
   - [【关于 ELECTRA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/ELECTRA/)
     - 阅读理由：Bert 问题上的改进 【不推荐阅读，存在注水！】
     - 动机：
-      - 1. 只有15%的输入上是会有loss
+      - 只有15%的输入上是会有loss
     - 介绍：判别器 & 生成器 【但是最后发现非 判别器 & 生成器】
     - 思路：
       - 预训练：
