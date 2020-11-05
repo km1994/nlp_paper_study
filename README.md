@@ -148,7 +148,7 @@
       - 微调：直接利用 特定任务数据 微调
     - 优点：
     - 缺点：
-  - [【关于 RoBERTa】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T4_RoBERTa/)
+  - [【关于 RoBERTa】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T4_RoBERTa/) 
     - 阅读理由：Bert 问题上的改进
     - 动机：
       - 确定方法的哪些方面贡献最大可能是具有挑战性的
