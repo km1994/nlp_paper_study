@@ -312,6 +312,9 @@
 - [Pointer-Generator Networks 指针网络读书笔记](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/ACL2017_Pointer_Generator_Networks/)
 
 ##### [文本匹配论文学习](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/) 
+- [【关于 语义相似度匹配任务中的 BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/bert_similairity/)
+  - 阅读理由：BERT 在 语义相似度匹配任务 中的应用，可以由很多种方式，然而，你真的了解这些方式的区别和优缺点么？
+  - 动机：BERT 在 语义相似度匹配任务 中的应用，可以常用 Sentence Pair Classification Task：使用 [CLS]、cosine similairity、sentence/word embedding、siamese network 方法，那么哪种是最佳的方式呢？你是否考虑过呢?
 - [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
 - [Simple and Effective Text Matching with Richer Alignment Features](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/Multi-RE2_study/)
 - [Deep Structured Semantic Model](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/cikm2013_DSSM/)
@@ -319,6 +322,13 @@
 - [Enhanced LSTM for Natural Language Inference](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/TACL2017_ESIM/)
 - [Bilateral Multi-perspective Matching](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/IJCAI2017_BiMPM/)
 - [Densely Interactive Inference Network（DIIN）](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/T2017_DIIN/)
+- [【关于 DC-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
+  - 论文名称：DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING
+  - 阅读理由：Bert 在 QA 上面的应用
+  - 动机：Bert 无法处理传入问题的高吞吐量，每个问题都有大量检索到的文档；
+  - 论文方法：具有双重BERT模型的解耦上下文编码框架：
+    - 一个在线BERT，仅对问题进行一次编码；
+    - 一个正式的BERT，对所有文档进行预编码并缓存其编码；
 
 ##### [机器翻译论文学习](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/)
 
