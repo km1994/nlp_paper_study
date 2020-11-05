@@ -315,13 +315,64 @@
 - [【关于 语义相似度匹配任务中的 BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/bert_similairity/)
   - 阅读理由：BERT 在 语义相似度匹配任务 中的应用，可以由很多种方式，然而，你真的了解这些方式的区别和优缺点么？
   - 动机：BERT 在 语义相似度匹配任务 中的应用，可以常用 Sentence Pair Classification Task：使用 [CLS]、cosine similairity、sentence/word embedding、siamese network 方法，那么哪种是最佳的方式呢？你是否考虑过呢?
-- [Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
-- [Simple and Effective Text Matching with Richer Alignment Features](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/Multi-RE2_study/)
-- [Deep Structured Semantic Model](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/cikm2013_DSSM/)
-- [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/TACL2016_ABCNN/)
-- [Enhanced LSTM for Natural Language Inference](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/TACL2017_ESIM/)
-- [Bilateral Multi-perspective Matching](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/IJCAI2017_BiMPM/)
-- [Densely Interactive Inference Network（DIIN）](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/T2017_DIIN/)
+- [【关于 MPCNN】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
+  - 论文：Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks
+- [【关于 RE2】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/Multi-RE2_study/)
+  - 论文：Simple and Effective Text Matching with Richer Alignment Features
+  - 动机： 可以使用多个序列间比对层构建更强大的模型。 代替基于单个对准过程的比较结果进行预测，具有多个对准层的堆叠模型将保持其中间状态并逐渐完善其预测。**但是，由于底层特征的传播效率低下和梯度消失，这些更深的体系结构更难训练。** 
+  - 介绍：一种快速强大的神经体系结构，具有用于通用文本匹配的多个对齐过程。 我们对以前文献中介绍的文本匹配方法中许多慢速组件的必要性提出了质疑，包括复杂的多向对齐机制，对齐结果的大量提炼，外部句法特征或当模型深入时用于连接堆叠块的密集连接。 这些设计选择会极大地减慢模型的速度，并且可以用重量更轻且效果相同的模型代替。 同时，我们重点介绍了有效文本匹配模型的三个关键组成部分。 这些组件（名称为RE2代表）是以前的对齐特征（残差矢量），原始点向特征（嵌入矢量）和上下文特征（编码矢量）。 其余组件可能尽可能简单，以保持模型快速，同时仍能产生出色的性能。
+- [【关于 DSSM】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/cikm2013_DSSM/)
+  - 论文：Deep Structured Semantic Model
+  - 论文会议：CIKM2013
+  - 问题：语义相似度问题
+    - 字面匹配体现
+      - 召回：在召回时，传统的文本相似性如 BM25，无法有效发现语义类 Query-Doc 结果对，如"从北京到上海的机票"与"携程网"的相似性、"快递软件"与"菜鸟裹裹"的相似性
+      - 排序：在排序时，一些细微的语言变化往往带来巨大的语义变化，如"小宝宝生病怎么办"和"狗宝宝生病怎么办"、"深度学习"和"学习深度"；
+    - 使用 LSA 类模型进行语义匹配，但是效果不好
+  - 思路：
+    - 利用 表示层 将 Query 和 Title 表达为低维语义向量；
+    - 通过 cosine 距离来计算两个语义向量的距离，最终训练出语义相似度模型。
+  - 优点
+    - 减少切词的依赖：解决了LSA、LDA、Autoencoder等方法存在的一个最大的问题，因为在英文单词中，词的数量可能是没有限制，但是字母 n-gram 的数量通常是有限的
+    - 基于词的特征表示比较难处理新词，字母的 n-gram可以有效表示，鲁棒性较强；
+    - 传统的输入层是用 Embedding 的方式（如 Word2Vec 的词向量）或者主题模型的方式（如 LDA 的主题向量）来直接做词的映射，再把各个词的向量累加或者拼接起来，由于 Word2Vec 和 LDA 都是无监督的训练，这样会给整个模型引入误差，DSSM 采用统一的有监督训练，不需要在中间过程做无监督模型的映射，因此精准度会比较高；
+    - 省去了人工的特征工程；
+  - 缺点
+    - word hashing可能造成冲突
+    - DSSM采用了词袋模型，损失了上下文信息
+    - 在排序中，搜索引擎的排序由多种因素决定，由于用户点击时doc的排名越靠前，点击的概率就越大，如果仅仅用点击来判断是否为正负样本，噪声比较大，难以收敛
+- [【关于 ABCNN 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/TACL2016_ABCNN/)
+  - 论文：ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs
+  - 会议：TACL 2016
+  - 论文方法：采用了CNN的结构来提取特征，并用attention机制进行进一步的特征处理，作者一共提出了三种attention的建模方法
+- [【关于 ESIM 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/TACL2017_ESIM/)
+  - 论文：Enhanced LSTM for Natural Language Inference
+  - 会议：TACL2017
+  - 自然语言推理（NLI: natural language inference）问题：
+    - 即判断能否从一个前提p中推导出假设h
+    - 简单来说，就是判断给定两个句子的三种关系：蕴含、矛盾或无关
+  - 论文方法：
+    - 模型结构图分为左右两边：
+    - 左侧就是 ESIM，
+    - 右侧是基于句法树的 tree-LSTM，两者合在一起交 HIM (Hybrid Inference Model)。
+    - 整个模型从下往上看，分为三部分：
+      - input encoding；
+      - local inference modeling；
+      - inference composition；
+      - Prediction
+- [【关于 BiMPM 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/IJCAI2017_BiMPM/)
+  - 论文：Bilateral multi-perspective matching for natural language sentences
+  - 会议：IJCAI2017
+  - 方法：
+    - Word Representation Layer:其中词表示层使用预训练的Glove或Word2Vec词向量表示, 论文中还将每个单词中的字符喂给一个LSTM得到字符级别的字嵌入表示, 文中使用两者构造了一个dd维的词向量表示, 于是两个句子可以分别表示为 P:[p1,⋯,pm],Q:[q1,⋯,qn].
+    - Context Representation Layer: 上下文表示层, 使用相同的双向LSTM来对两个句子进行编码. 分别得到两个句子每个时间步的输出.
+    - Matching layer: 对两个句子PP和QQ从两个方向进行匹配, 其中⊗⊗表示某个句子的某个时间步的输出对另一个句子所有时间步的输出进行匹配的结果. 最终匹配的结果还是代表两个句子的匹配向量序列.
+    - Aggregation Layer: 使用另一个双向LSTM模型, 将两个匹配向量序列两个方向的最后一个时间步的表示(共4个)进行拼接, 得到两个句子的聚合表示.
+- Prediction Layer: 对拼接后的表示, 使用全连接层, 再进行softmax得到最终每个标签的概率.
+- [【关于 DIIN 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/T2017_DIIN/)
+  - 论文：Densely Interactive Inference Network
+  - 会议：TACL2017
+  - 模型主要包括五层：嵌入层（Embedding Layer）、编码层（Encoding Layer）、交互层（Interaction Layer ）、特征提取层（Feature Extraction Layer）和输出层（Output Layer）
 - [【关于 DC-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
   - 论文名称：DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING
   - 阅读理由：Bert 在 QA 上面的应用

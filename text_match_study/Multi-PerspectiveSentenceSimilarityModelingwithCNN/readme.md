@@ -1,4 +1,25 @@
-# Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks
+# 【关于 MPCNN】 那些你不知道的事
+
+> 作者：杨夕
+> 
+> 项目地址：https://github.com/km1994/nlp_paper_study
+> 
+> 论文：Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks
+> 地址：https://www.aclweb.org/anthology/D15-1181/
+> 
+> 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
+
+## 目录
+
+- [【关于 MPCNN】 那些你不知道的事](#关于-mpcnn-那些你不知道的事)
+  - [目录](#目录)
+  - [解决方案](#解决方案)
+  - [句子模型(sentence model)](#句子模型sentence-model)
+    - [论文中使用了两种卷积核:](#论文中使用了两种卷积核)
+      - [整体卷积核(holistic)](#整体卷积核holistic)
+      - [单维卷积核(per-dimension)](#单维卷积核per-dimension)
+      - [池化层](#池化层)
+  - [相似度计算模型](#相似度计算模型)
 
 ## 解决方案
 

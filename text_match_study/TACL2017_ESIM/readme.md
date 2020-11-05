@@ -1,4 +1,4 @@
-# Enhanced LSTM for Natural Language Inference
+# 【关于 ESIM 】那些你不知道的事 
 
 > 作者：杨夕
 > 
@@ -6,7 +6,23 @@
 > 
 > 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
 > 
+> 论文：Enhanced LSTM for Natural Language Inference
+> 
+> 会议：TACL2017
+> 
 > 论文地址：https://arxiv.org/pdf/1609.06038.pdf
+
+## 目录
+
+- [【关于 ESIM 】那些你不知道的事](#关于-esim-那些你不知道的事)
+  - [目录](#目录)
+  - [前言](#前言)
+  - [模型介绍](#模型介绍)
+    - [Input Encoding](#input-encoding)
+    - [Local Inference Modeling](#local-inference-modeling)
+    - [Inference Composition](#inference-composition)
+    - [Prediction](#prediction)
+  - [参考](#参考)
 
 ## 前言
 

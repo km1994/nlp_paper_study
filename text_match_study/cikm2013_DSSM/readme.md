@@ -1,12 +1,35 @@
-# Deep Structured Semantic Model
+# 【关于 DSSM】 那些你不知道的事
 
 > 作者：杨夕
 > 
 > 项目地址：https://github.com/km1994/nlp_paper_study
 > 
+> 论文：Deep Structured Semantic Model
+> 
+> 论文会议：CIKM2013
+> 
+> 论文地址：https://posenhuang.github.io/papers/cikm2013_DSSM_fullversion.pdf
+> 
 > 代码学习：https://github.com/km1994/TextMatching/tree/master/dssm
 > 
 > 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
+
+## 目录
+
+- [【关于 DSSM】 那些你不知道的事](#关于-dssm-那些你不知道的事)
+  - [目录](#目录)
+  - [动机](#动机)
+  - [DSSM （Deep Structured Semantic Models） 深度语义匹配模型介绍](#dssm-deep-structured-semantic-models-深度语义匹配模型介绍)
+    - [思路](#思路)
+    - [优点](#优点)
+  - [模型结构介绍](#模型结构介绍)
+    - [输入层](#输入层)
+      - [(1) 英文](#1-英文)
+      - [（2）中文](#2中文)
+    - [特征提取层](#特征提取层)
+    - [匹配层](#匹配层)
+  - [评价](#评价)
+  - [参考](#参考)
 
 ## 动机
 
