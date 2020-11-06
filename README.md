@@ -32,6 +32,7 @@
         - [文本匹配论文学习](#文本匹配论文学习)
         - [机器翻译论文学习](#机器翻译论文学习)
         - [文本生成论文学习](#文本生成论文学习)
+        - [实体消歧](#实体消歧)
         - [对话系统论文学习](#对话系统论文学习)
         - [rasa 学习](#rasa-学习)
       - [视频学习篇](#视频学习篇)
@@ -389,6 +390,10 @@
 
 - [【关于 SLCVAE 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/TextGeneration/SLCVAE/)
 
+##### [实体消歧](https://github.com/km1994/nlp_paper_study/tree/master/EntityDisambiguation/)
+
+- [【关于 DeepType】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/EntityDisambiguation/DeepType/)
+  - 阅读理由：这篇论文属于 实体消歧 领域 比较经典的论文，而且调研了很多相关竞赛，很多 Top 大佬 都会用到它，所以想学习一下！【目前还没看完！！！】
 
 ##### [对话系统论文学习](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/)
 
