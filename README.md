@@ -269,6 +269,9 @@
 - [Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/JointER/)
 - [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/ACL2019_GraphRel/)
 - [A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/T20ACL_HBT_su/)
+- [【关于 A Frustratingly Easy Approach for Joint Entity and Relation Extraction】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/AFrustratinglyEasyApproachForJEandRE/)
+  - 论文：A Frustratingly Easy Approach for Joint Entity and Relation Extraction
+  - 阅读理由：反直觉！陈丹琦用pipeline方式刷新关系抽取SOTA 【待读，因为没有找到代码】
 
 ##### [GCN 在 NLP 上的应用 论文研读](https://github.com/km1994/nlp_paper_study/tree/master/GCN2NLP/)：
 - [GCN 在 NLP 上的应用 论文研读](https://github.com/km1994/nlp_paper_study/tree/master/GCN2NLP/readme.md)
