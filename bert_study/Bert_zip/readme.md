@@ -84,8 +84,8 @@
         <td>1</td>
         <td></td>
         <td></td>
-        <td></td>
         <td>1</td>
+        <td></td>
     </tr>
     <tr>
         <td>FastBERT: a Self-distilling BERT with Adaptive Inference Time</td>
@@ -104,7 +104,7 @@
         <td>1</td>
         <td></td>
         <td></td>
-        <td></td>
+        <td>1</td>
         <td>1</td>
     </tr>
 </table>
