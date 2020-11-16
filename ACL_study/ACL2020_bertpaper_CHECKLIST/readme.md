@@ -342,6 +342,7 @@ TemplateEditor(bert_suggests=['amazing', 'excellent', 'interesting', 'awful', 'a
 ['西游记的故事很有趣。', '西游记的故事很精彩。', '西游记的故事很真实。']
 ```
 
+
 #### Lexicons (somewhat multilingual)
 
 ```s
