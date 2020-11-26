@@ -35,8 +35,10 @@
         - [实体消歧](#实体消歧)
         - [对话系统论文学习](#对话系统论文学习)
         - [rasa 学习](#rasa-学习)
-      - [视频学习篇](#视频学习篇)
       - [实战篇](#实战篇)
+        - [重点推荐篇](#重点推荐篇)
+        - [推荐篇](#推荐篇)
+      - [视频学习篇](#视频学习篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
     - [推荐系统 学习篇](#推荐系统-学习篇)
     - [竞赛篇](#竞赛篇)
@@ -419,32 +421,14 @@
 7. [【关于 rasa -> Core -> Stories 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa系列/rasa_core_Stories.md)
 8. [【关于 rasa -> Core -> Action 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa_core_FormAction/rasa_core_Action.md)
 
-
-#### 视频学习篇
-
-- [CS224n 视频学习篇](https://github.com/km1994/Datawhale_NLP_CS224n)
-  -  [Lecture 1: Introduction and Word Vectors](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture1)
-  -  [Lecture 2: Word Vectors and Word Senses](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture2)
-  -  [Lecture 3: Word Window Classification, Neural Networks, and Matrix Calculus](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture3)
-  -  [Lecture 4: Backpropagation](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture4)
-  -  [Lecture 5: Dependency Parsing](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture5)
-  -  [Lecture 6: Language Models and RNNs](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture6)
-  -  [Lecture 7: Vanishing Gradients, Fancy RNNs](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture7)
-  -  [Lecture 8: Translation, Seq2Seq, Attention](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture8)
-  -  [Lecture 9: Practical Tips for Projects](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture9)
-  -  [Lecture 10: Question Answering](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture10)
-  -  [Lecture 11: Convolutional Networks for NLP](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture11)
-  -  [Lecture 12: Subword Models](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture12)
-  -  [Lecture 13: Contextual Word Embeddings](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture13)
-  -  [Lecture 14: Transformers and Self-Attention](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture14)
-  -  [Lecture 15: Natural Language Generation](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture15)
-  -  [Lecture 16: Coreference Resolution](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture16)
-  -  [Lecture 17: Multitask Learning](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture17)
-  -  [Lecture 18: Constituency Parsing, TreeRNNs](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture18)
-  -  [Lecture 19: Bias in AI](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture19)
-  -  [Lecture 20: Future of NLP + Deep Learning](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture20)
-
 #### 实战篇
+
+##### 重点推荐篇
+
+- [Transfromer 源码实战](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer)
+  - [【关于 Transformer 代码实战（文本摘要任务篇）】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/transformer_study/Transformer/code.md) 【[知乎篇](https://zhuanlan.zhihu.com/p/312044432) 】
+
+##### 推荐篇
 
 - [爬虫 实战篇](https://github.com/km1994/Conversation_Wp/tree/master/t11_scrapyWp)
   - [Scrapy 爬虫 实战篇](https://github.com/km1994/Conversation_Wp/tree/master/t11_scrapyWp):主要介绍使用 scrapy 构建网络爬虫，并爬去百度搜索引擎数据
@@ -514,6 +498,30 @@
 
 - [模型蒸馏 实战篇]()
   - [基于BERT的蒸馏实验](https://github.com/km1994/bert_distill)
+
+#### 视频学习篇
+
+- [CS224n 视频学习篇](https://github.com/km1994/Datawhale_NLP_CS224n)
+  -  [Lecture 1: Introduction and Word Vectors](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture1)
+  -  [Lecture 2: Word Vectors and Word Senses](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture2)
+  -  [Lecture 3: Word Window Classification, Neural Networks, and Matrix Calculus](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture3)
+  -  [Lecture 4: Backpropagation](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture4)
+  -  [Lecture 5: Dependency Parsing](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture5)
+  -  [Lecture 6: Language Models and RNNs](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture6)
+  -  [Lecture 7: Vanishing Gradients, Fancy RNNs](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture7)
+  -  [Lecture 8: Translation, Seq2Seq, Attention](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture8)
+  -  [Lecture 9: Practical Tips for Projects](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture9)
+  -  [Lecture 10: Question Answering](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture10)
+  -  [Lecture 11: Convolutional Networks for NLP](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture11)
+  -  [Lecture 12: Subword Models](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture12)
+  -  [Lecture 13: Contextual Word Embeddings](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture13)
+  -  [Lecture 14: Transformers and Self-Attention](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture14)
+  -  [Lecture 15: Natural Language Generation](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture15)
+  -  [Lecture 16: Coreference Resolution](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture16)
+  -  [Lecture 17: Multitask Learning](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture17)
+  -  [Lecture 18: Constituency Parsing, TreeRNNs](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture18)
+  -  [Lecture 19: Bias in AI](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture19)
+  -  [Lecture 20: Future of NLP + Deep Learning](https://github.com/km1994/Datawhale_NLP_CS224n/tree/master/Lecture/Lecture20)
 
 
 ### Elastrsearch 学习篇

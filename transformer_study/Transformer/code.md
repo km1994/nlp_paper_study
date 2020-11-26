@@ -436,7 +436,7 @@ summary 数据 作为 decoder 序列数据，我们需要做一些小处理【�
 ![](img/20200624084515.png)
 ![](img/微信截图_20200625082324.png)
 #### 6.1.6 步骤
-> 建议阅读 [](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer#self-attention-长怎么样)
+> 建议阅读 [Transformer#self-attention-长怎么样](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer#self-attention-长怎么样)
 #### 6.1.7 代码实现
 ```s
     def scaled_dot_product_attention(q, k, v, mask):
