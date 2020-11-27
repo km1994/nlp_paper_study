@@ -1,4 +1,4 @@
-# 【关于 短文本匹配的大杀器 之 ESIM 】那些你不知道的事 
+# 【关于 文本匹配模型 ESIM 】那些你不知道的事 
 
 > 作者：杨夕
 > 
@@ -14,7 +14,7 @@
 
 ## 目录
 
-- [【关于 短文本匹配的大杀器 之 ESIM 】那些你不知道的事](#关于-短文本匹配的大杀器-之-esim-那些你不知道的事)
+- [【关于 文本匹配模型 ESIM 】那些你不知道的事](#关于-文本匹配模型-esim-那些你不知道的事)
   - [目录](#目录)
   - [前言](#前言)
   - [模型介绍](#模型介绍)
@@ -53,37 +53,18 @@
 
 ### Input Encoding
 
-- 目的：根据当前的语境下重新编码，得到新的 embeding 向量；
-- 思路：
-  - step1 : 输入一般可以采用预训练好的词向量或者添加embedding层，这里介绍采用的是embedding层;
-  - step2 ：采用一个双向的LSTM 对 word embedding 进行重新 encoding，以捕获一句话中的 word 和 它 上下文的关系，也可以理解为在做特征提取，
-  - step3 ：把其隐藏状态的值保留下来；
+- step1 : 输入一般可以采用预训练好的词向量或者添加embedding层，这里介绍采用的是embedding层;
+- step2 ：采用一个双向的LSTM，起作用主要在于对输入值做encoding，也可以理解为在做特征提取，
+- step3 ：把其隐藏状态的值保留下来，
 
 ![](img/20200819085245.png)
 
 > 其中i与j分别表示的是不同的时刻，a与b表示的是上文提到的p与h。
 
-- 代码
-```s
-def forward(self):
-  # step 1 : input encoding  : embeding + BiLSTM
-  p_embedding = tf.nn.embedding_lookup(self.embedding, self.p)
-  h_embedding = tf.nn.embedding_lookup(self.embedding, self.h)
-  with tf.variable_scope("lstm_p", reuse=tf.AUTO_REUSE):
-      (p_f, p_b), _ = self.bilstm(p_embedding, self.config['embedding_hidden_size'])
-  with tf.variable_scope("lstm_p", reuse=tf.AUTO_REUSE):
-      (h_f, h_b), _ = self.bilstm(h_embedding, self.config['embedding_hidden_size'])
-  p = tf.concat([p_f, p_b], axis=2)
-  h = tf.concat([h_f, h_b], axis=2)
-  p = self.dropout(p)
-  h = self.dropout(h)
-  ...
-```
-
 ### Local Inference Modeling
 
 - 目标：将上一轮 所提取到的 特征值 做 差异值 计算；
-- 所用方法： soft_align_attention
+- 所用方法： Attention
 - 步骤
   - s1： 计算 Attention weight（如 图 1）
   - s2： 根据attention weight计算出a与b的权重加权后的值（如 图 2）
@@ -102,77 +83,17 @@ def forward(self):
 ![](img/20200819090200.png)
 > 图 3
 
-- 代码
-```s
-def forward(self):
-  ...
-  # step 2 : local inference modeling
-  ## 2.1 首先计算两个句子 word 之间的相似度，得到2维的相似度矩阵，这里会用到 torch.matmul 
-  e = tf.matmul(p, tf.transpose(h, perm=[0, 2, 1]))
-  ## 2.2 然后才进行两句话的 local inference。用之前得到的相似度矩阵，结合 a，b 两句话，互相生成彼此相似性加权后的句子，维度保持不变。
-  a_attention = tf.nn.softmax(e)
-  b_attention = tf.transpose(tf.nn.softmax(tf.transpose(e, perm=[0, 2, 1])), perm=[0, 2, 1])
-  a = tf.matmul(a_attention, h)
-  b = tf.matmul(b_attention, p)
-  ## 2.3 在 local inference 之后，进行 Enhancement of local inference information。这里的 enhancement 就是计算 a 和 align 之后的 a 的差和点积， 体现了一种差异性吧，更利用后面的学习。
-  m_a = tf.concat((a, p, a - p, tf.multiply(a, p)), axis=2)
-  m_b = tf.concat((b, h, b - h, tf.multiply(b, h)), axis=2)
-  ...
-```
-
 ### Inference Composition
 
-- 目标：捕获推理信息
-- 思路：
-  - s1 利用 BiLSTM 捕获局部推理信息 $m_a$ 和 $m_b$ 及其上下文，以便进行推理组合；
-  - s2 同时使用 MaxPooling 和 AvgPooling 对 BiLSTM 得到的值进行池化操作；
+在这一层中，把之前的值再一次送到了BiLSTM中，这里的BiLSTM的作用和之前的并不一样，这里主要是用于捕获局部推理信息 $m_a$ 和 $m_b$ 及其上下文，以便进行推理组合。
+
+最后把BiLSTM得到的值进行池化操作，分别是最大池化与平均池化，并把池化之后的值再一次的拼接起来。
 
 ![](img/20200819090442.png)
 
-- 代码
-```s
-def forward(self):
-  ...
-  # step 3 : inference composition
-  ## 3.1 用 BiLSTM 提取上下文信息
-  with tf.variable_scope("lstm_a", reuse=tf.AUTO_REUSE):
-      (a_f, a_b), _ = self.bilstm(m_a, self.config['context_hidden_size'])
-  with tf.variable_scope("lstm_b", reuse=tf.AUTO_REUSE):
-      (b_f, b_b), _ = self.bilstm(m_b, self.config['context_hidden_size'])
-  a = tf.concat((a_f, a_b), axis=2)
-  b = tf.concat((b_f, b_b), axis=2)
-  a = self.dropout(a)
-  b = self.dropout(b)
-  ## 3.2 使用 MaxPooling 和 AvgPooling 进行池化操作
-  a_avg = tf.reduce_mean(a, axis=2)
-  b_avg = tf.reduce_mean(b, axis=2)
-  a_max = tf.reduce_max(a, axis=2)
-  b_max = tf.reduce_max(b, axis=2)
-  v = tf.concat((a_avg, a_max, b_avg, b_max), axis=1)
-  ...
-```
-
 ### Prediction
 
-- 目标：预测
-- 思路：
-  - s1：把 V 送入到全连接层，激活函数采用的是tanh；
-  - s2：将得到的结果送到softmax层。
-
-- 代码
-```s
-def forward(self):
-  ...
-  # step 4 : 预测
-  ## 4.1 拼接 一个 全连接层
-  v = tf.layers.dense(v, self.config['hidden'], activation='tanh')
-  v = self.dropout(v)
-  logits = tf.layers.dense(v, self.config['class_size'], activation='tanh')
-  ## 4.2 拼接 一个 softmax 层
-  self.prob = tf.nn.softmax(logits, name="logits")
-  self.prediction = tf.argmax(logits, axis=1, name="predictions")
-  self.train(logits)
-```
+最后把 V 送入到全连接层，激活函数采用的是tanhtanh，得到的结果送到softmax层。
 
 ## 参考
 

@@ -1,4 +1,22 @@
-# RoBERTa: A Robustly Optimized BERT Pretraining Approach
+# 【关于 RoBERTa 】那些的你不知道的事
+
+> 作者：杨夕
+> 
+> 个人github：https://github.com/km1994/nlp_paper_study
+> 
+> 【注：手机阅读可能图片打不开！！！】
+
+## 目录
+
+- [【关于 RoBERTa 】那些的你不知道的事](#关于-roberta-那些的你不知道的事)
+  - [目录](#目录)
+  - [摘要](#摘要)
+  - [动机](#动机)
+  - [所做工作概述](#所做工作概述)
+  - [贡献](#贡献)
+  - [实现方式](#实现方式)
+  - [结论](#结论)
+  - [参考文献](#参考文献)
 
 ## 摘要
 

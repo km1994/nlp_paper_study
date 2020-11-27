@@ -2,12 +2,24 @@
 
 > 作者：杨夕 </br>
 > 个人github：https://github.com/km1994/nlp_paper_study </br>
-> 原文地址：https://github.com/km1994/nlp_paper_study/bert_study/</br>
+> 原文地址：https://github.com/km1994/nlp_paper_study/tree/master/bert_study/SelfTrainingImprovesPreTraining</br>
 > 【注：手机阅读可能图片打不开！！！】
 
 ## 目录
 
-
+- [【关于自训练 + 预训练 = 更好的自然语言理解模型 】 那些的你不知道的事](#关于自训练--预训练--更好的自然语言理解模型--那些的你不知道的事)
+  - [目录](#目录)
+  - [摘要](#摘要)
+  - [前期知识](#前期知识)
+    - [预训练](#预训练)
+    - [自训练](#自训练)
+    - [区别](#区别)
+  - [问题提出](#问题提出)
+  - [论文方法](#论文方法)
+  - [论文贡献](#论文贡献)
+  - [论文思路](#论文思路)
+    - [自训练处理流程](#自训练处理流程)
+  - [参考](#参考)
 
 
 ## 摘要

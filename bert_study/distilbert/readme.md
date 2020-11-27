@@ -1,9 +1,10 @@
-# DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter
+# 【关于 DistilBERT】 那些的你不知道的事
 
 > 作者：杨夕
+> 
 > github：https://github.com/km1994/nlp_paper_study
+> 论文：DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter
 > paper：http://arxiv.org/abs/1910.01108
-
 
 # 摘要
 

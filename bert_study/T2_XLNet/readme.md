@@ -1,4 +1,25 @@
-# XLNet Generalized Autoregressive Pretraining for Language Understanding
+# 【关于 XLNet】 那些的你不知道的事
+
+> 作者：杨夕
+> 
+> 个人github：https://github.com/km1994/nlp_paper_study
+> 
+> 【注：手机阅读可能图片打不开！！！】
+
+## 目录
+
+- [【关于 XLNet】 那些的你不知道的事](#关于-xlnet-那些的你不知道的事)
+  - [目录](#目录)
+  - [摘要](#摘要)
+  - [动机](#动机)
+  - [论文思路](#论文思路)
+  - [Model](#model)
+    - [Permutation Language Modeling](#permutation-language-modeling)
+    - [Two-Stream Self-Attention for Target-Aware Representations](#two-stream-self-attention-for-target-aware-representations)
+    - [Transformer-XL](#transformer-xl)
+    - [Pretraining and Implementation](#pretraining-and-implementation)
+  - [Conclusion](#conclusion)
+  - [Reference](#reference)
 
 ## 摘要
 

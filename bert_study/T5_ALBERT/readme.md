@@ -1,4 +1,12 @@
-# A lite BERT for self-supervised learning of language representations
+# 【关于 Albert】 那些的你不知道的事
+
+> 作者：杨夕
+> 
+> 个人github：https://github.com/km1994/nlp_paper_study
+> 
+> 论文：A lite BERT for self-supervised learning of language representations
+> 
+> 【注：手机阅读可能图片打不开！！！】
 
 ## 摘要
 

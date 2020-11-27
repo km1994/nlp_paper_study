@@ -1,8 +1,19 @@
-# FastBERT: a Self-distilling BERT with Adaptive Inference Time
+# 【关于 FastBERT 那些的你不知道的事
 
 > 作者：杨夕
 > 论文地址：https://arxiv.org/abs/2004.02178
 > github：https://github.com/autoliuweijie/FastBERT
+
+## 目录
+
+- [【关于 FastBERT 那些的你不知道的事](#关于-fastbert-那些的你不知道的事)
+  - [目录](#目录)
+  - [背景](#背景)
+  - [动机](#动机)
+  - [模型介绍](#模型介绍)
+  - [模型训练与推理](#模型训练与推理)
+  - [总结](#总结)
+  - [参考](#参考)
 
 ## 背景
 
