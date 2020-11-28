@@ -1,4 +1,4 @@
-# 【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事
+# 【关于 Bert 源码解析II 之 预训练篇 】 那些的你不知道的事
 
 > 作者：杨夕
 > 
@@ -12,7 +12,7 @@
 
 ## 目录
 
-- [【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事](#关于-bert-源码解析-之-预训练篇--那些的你不知道的事)
+- [【关于 Bert 源码解析II 之 预训练篇 】 那些的你不知道的事](#关于-bert-源码解析ii-之-预训练篇--那些的你不知道的事)
   - [目录](#目录)
   - [一、动机](#一动机)
   - [二、本文框架](#二本文框架)
@@ -33,12 +33,15 @@
       - [5.6.1 作用](#561-作用)
       - [5.6.2 代码讲解](#562-代码讲解)
       - [5.6.3 流程](#563-流程)
-  - [5.7 随机MASK（create_masked_lm_predictions）](#57-随机maskcreate_masked_lm_predictions)
-    - [介绍](#介绍)
-  - [5.8 保存instance（write_instance_to_example_files）](#58-保存instancewrite_instance_to_example_files)
-  - [六、测试](#六测试)
+    - [5.7 随机MASK（create_masked_lm_predictions）](#57-随机maskcreate_masked_lm_predictions)
+      - [介绍](#介绍)
+      - [代码解析](#代码解析)
+    - [5.8 保存instance（write_instance_to_example_files）](#58-保存instancewrite_instance_to_example_files)
+  - [六、预训练](#六预训练)
+    - [6.1 Masked LM 训练 (get_masked_lm_output)](#61-masked-lm-训练-get_masked_lm_output)
+    - [6.2 获取 next sentence prediction（下一句预测） 部分的 loss 以及 log probs (get_next_sentence_output)](#62-获取-next-sentence-prediction下一句预测-部分的-loss-以及-log-probs-get_next_sentence_output)
+  - [七、测试](#七测试)
   - [参考文档](#参考文档)
-
 
 ## 一、动机
 
@@ -49,11 +52,12 @@
 
 本文 将 [【Bert】](https://github.com/google-research/bert/blob/master/) 的 源码分成以下模块：
 
-1. [【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事]()
-2. [【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事]()
-3. [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事]()
+1. [【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode1_modeling.md)
+2. 【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事
+3. [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode3_fineTune.md)
 4. [【关于 Bert 源码解析 之 输入数据篇 】 那些的你不知道的事]()
 5. [【关于 Bert 源码解析 之 任务篇 】 那些的你不知道的事]()
+
 
 分模块 进行解读。
 
@@ -635,9 +639,9 @@ def create_instances_from_document(
 
 4. 在create_masked_lm_predictions函数里，一个序列在指定MASK数量之后，有80%被真正MASK，10%还是保留原来token，10%被随机替换成其他token。
 
-## 5.7 随机MASK（create_masked_lm_predictions）
+### 5.7 随机MASK（create_masked_lm_predictions）
 
-### 介绍
+#### 介绍
 
 - 创新点：对Tokens进行随机mask
 - 原因：为了防止模型在双向循环训练的过程中“预见自身”；
@@ -653,7 +657,7 @@ def create_instances_from_document(
 > 3. 以10%的概率保持原状：</br>
 > the man went to a store, he bought a gallon milk.</br>
 
-- 代码解析
+#### 代码解析
 
 ```s
 def create_masked_lm_predictions(tokens, masked_lm_prob,
@@ -735,7 +739,7 @@ def create_masked_lm_predictions(tokens, masked_lm_prob,
 ```
 
 
-## 5.8 保存instance（write_instance_to_example_files）
+### 5.8 保存instance（write_instance_to_example_files）
 
 - 代码讲解
 ```s
@@ -818,7 +822,93 @@ def write_instance_to_example_files(instances, tokenizer, max_seq_length,
   tf.logging.info("Wrote %d total instances", total_written)
 ```
 
-## 六、测试
+## 六、预训练
+
+### 6.1 Masked LM 训练 (get_masked_lm_output)
+
+- 作用:针对的是语言模型对MASK起来的标签的预测，即上下文语境预测当前词，并计算 MLM 的 训练 loss
+
+```s
+def get_masked_lm_output(
+  bert_config,            # bert 配置
+  input_tensor,           # BertModel的最后一层sequence_output输出（[batch_size, seq_length, hidden_size]）
+  output_weights,         # embedding_table，用来反embedding，这样就映射到token的学习了
+  positions,
+  label_ids, 
+  label_weights):
+  """ 获取 MLM 的 loss 和 log probs
+  Get loss and log probs for the masked LM.
+  """
+  # step 1:在一个小批量的特定位置收集向量。
+  input_tensor = gather_indexes(input_tensor, positions)
+
+  with tf.variable_scope("cls/predictions"):
+    # step 2:在输出之前添加一个非线性变换，只在预训练阶段起作用
+    with tf.variable_scope("transform"):
+      input_tensor = tf.layers.dense(
+          input_tensor,
+          units=bert_config.hidden_size,
+          activation=modeling.get_activation(bert_config.hidden_act),
+          kernel_initializer=modeling.create_initializer(
+              bert_config.initializer_range))
+      input_tensor = modeling.layer_norm(input_tensor)
+
+    # step 3:output_weights是和传入的word embedding一样的
+    # 但是在输出中有一个对应每个 token 的权重
+    output_bias = tf.get_variable(
+        "output_bias",
+        shape=[bert_config.vocab_size],
+        initializer=tf.zeros_initializer())
+    logits = tf.matmul(input_tensor, output_weights, transpose_b=True)
+    logits = tf.nn.bias_add(logits, output_bias)
+    log_probs = tf.nn.log_softmax(logits, axis=-1)
+
+    # step 4:label_ids表示mask掉的Token的id
+    label_ids = tf.reshape(label_ids, [-1])
+    label_weights = tf.reshape(label_weights, [-1])
+    # step 5:关于 label 的一些格式处理，处理完之后把 label 转化成 one hot 类型的输出。
+    one_hot_labels = tf.one_hot(
+        label_ids, depth=bert_config.vocab_size, dtype=tf.float32)
+
+    # step 6：`positions` tensor可以补零（如果序列太短而无法获得最大预测数）。 对于每个真实的预测，`label_weights` tensor 的值为1.0，对于填充预测，其值为0.0。
+    # 但是由于实际MASK的可能不到20，比如只MASK18，那么label_ids有2个0(padding)
+    # 而label_weights=[1, 1, ...., 0, 0]，说明后面两个label_id是padding的，计算loss要去掉。
+    per_example_loss = -tf.reduce_sum(log_probs * one_hot_labels, axis=[-1])
+    numerator = tf.reduce_sum(label_weights * per_example_loss)
+    denominator = tf.reduce_sum(label_weights) + 1e-5
+    loss = numerator / denominator
+  return (loss, per_example_loss, log_probs)
+```
+### 6.2 获取 next sentence prediction（下一句预测） 部分的 loss 以及 log probs (get_next_sentence_output)
+
+- 作用:用于计算 NSP 的训练loss
+
+```s
+def get_next_sentence_output(bert_config, input_tensor, labels):
+  """获取 NSP 的 loss 和 log probs"""
+
+  # 二分类任务
+  #  0 is "next sentence" and 1 is "random sentence". 
+  # 这个分类器的参数在实际Fine-tuning阶段会丢弃掉
+  with tf.variable_scope("cls/seq_relationship"):
+    output_weights = tf.get_variable(
+        "output_weights",
+        shape=[2, bert_config.hidden_size],
+        initializer=modeling.create_initializer(bert_config.initializer_range))
+    output_bias = tf.get_variable(
+        "output_bias", shape=[2], initializer=tf.zeros_initializer())
+
+    logits = tf.matmul(input_tensor, output_weights, transpose_b=True)
+    logits = tf.nn.bias_add(logits, output_bias)
+    log_probs = tf.nn.log_softmax(logits, axis=-1)
+    labels = tf.reshape(labels, [-1])
+    one_hot_labels = tf.one_hot(labels, depth=2, dtype=tf.float32)
+    per_example_loss = -tf.reduce_sum(one_hot_labels * log_probs, axis=-1)
+    loss = tf.reduce_mean(per_example_loss)
+    return (loss, per_example_loss, log_probs)
+```
+
+## 七、测试
 
 ```s
 python create_pretraining_data.py \
@@ -832,7 +922,6 @@ python create_pretraining_data.py \
   --random_seed=12345 \
   --dupe_factor=5
 ```
-
 
 ## 参考文档
 

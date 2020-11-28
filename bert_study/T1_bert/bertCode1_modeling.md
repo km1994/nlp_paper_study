@@ -1,4 +1,4 @@
-# 【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事
+# 【关于 Bert 源码解析I 之 主体篇 】 那些的你不知道的事
 
 > 作者：杨夕
 > 
@@ -12,7 +12,7 @@
 
 ## 目录
 
-- [【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事](#关于-bert-源码解析-之-主体篇--那些的你不知道的事)
+- [【关于 Bert 源码解析I 之 主体篇 】 那些的你不知道的事](#关于-bert-源码解析i-之-主体篇--那些的你不知道的事)
   - [目录](#目录)
   - [一、动机](#一动机)
   - [二、本文框架](#二本文框架)
@@ -59,9 +59,9 @@
 
 本文 将 [【Bert】](https://github.com/google-research/bert/blob/master/) 的 源码分成以下模块：
 
-1. [【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事]()
-2. [【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事]()
-3. [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事]()
+1. 【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事
+2. [【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode2_pretraining.md)
+3. [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode3_fineTune.md)
 4. [【关于 Bert 源码解析 之 输入数据篇 】 那些的你不知道的事]()
 5. [【关于 Bert 源码解析 之 任务篇 】 那些的你不知道的事]()
 
