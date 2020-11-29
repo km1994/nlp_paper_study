@@ -31,6 +31,7 @@
     - [8.1 create_model 创建 分类模型](#81-create_model-创建-分类模型)
     - [8.2 model_fn_builder](#82-model_fn_builder)
   - [九、主入口](#九主入口)
+  - [十、总结](#十总结)
   - [参考文档](#参考文档)
 
 ## 一、动机
@@ -43,9 +44,9 @@
 
 1. [【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode1_modeling.md)
 2. [【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode2_pretraining.md)
-3. 【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事
-4. [【关于 Bert 源码解析 之 输入数据篇 】 那些的你不知道的事]()
-5. [【关于 Bert 源码解析 之 任务篇 】 那些的你不知道的事]()
+3. [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode3_fineTune.md)【本章】
+4. [【关于 Bert 源码解析IV 之 句向量生成篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode4_word2embedding.md) 
+5. [【关于 Bert 源码解析V 之 文本相似度篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode5_similarity.md)
 
 分模块 进行解读。
 
@@ -620,7 +621,6 @@ def model_fn_builder(bert_config, num_labels, init_checkpoint, learning_rate,
 
 ## 九、主入口
 
-
 ```s
 def main(_):
   tf.logging.set_verbosity(tf.logging.INFO)
@@ -814,6 +814,18 @@ def main(_):
         num_written_lines += 1
     assert num_written_lines == num_actual_predict_examples
 ```
+
+## 十、总结
+
+本章 主要介绍了 利用 Bert fineturn，代码比较简单。
+
+1. [【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode1_modeling.md)
+2. [【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode2_pretraining.md)
+3. [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode3_fineTune.md)【本章】
+4. [【关于 Bert 源码解析IV 之 句向量生成篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode4_word2embedding.md) 
+5. [【关于 Bert 源码解析V 之 文本相似度篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode5_similarity.md)
+
+分模块 进行解读。
 
 ## 参考文档
 

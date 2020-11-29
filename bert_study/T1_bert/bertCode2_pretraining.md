@@ -41,6 +41,7 @@
     - [6.1 Masked LM 训练 (get_masked_lm_output)](#61-masked-lm-训练-get_masked_lm_output)
     - [6.2 获取 next sentence prediction（下一句预测） 部分的 loss 以及 log probs (get_next_sentence_output)](#62-获取-next-sentence-prediction下一句预测-部分的-loss-以及-log-probs-get_next_sentence_output)
   - [七、测试](#七测试)
+  - [八、总结](#八总结)
   - [参考文档](#参考文档)
 
 ## 一、动机
@@ -53,10 +54,10 @@
 本文 将 [【Bert】](https://github.com/google-research/bert/blob/master/) 的 源码分成以下模块：
 
 1. [【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode1_modeling.md)
-2. 【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事
+2. [【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode2_pretraining.md)【本章】
 3. [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode3_fineTune.md)
-4. [【关于 Bert 源码解析 之 输入数据篇 】 那些的你不知道的事]()
-5. [【关于 Bert 源码解析 之 任务篇 】 那些的你不知道的事]()
+4. [【关于 Bert 源码解析IV 之 句向量生成篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode4_word2embedding.md) 
+5. [【关于 Bert 源码解析V 之 文本相似度篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode5_similarity.md)
 
 
 分模块 进行解读。
@@ -922,7 +923,17 @@ python create_pretraining_data.py \
   --random_seed=12345 \
   --dupe_factor=5
 ```
+## 八、总结
 
+本章 主要介绍了 利用 Bert fineturn，代码比较简单。
+
+1. [【关于 Bert 源码解析 之 主体篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode1_modeling.md)
+2. [【关于 Bert 源码解析 之 预训练篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode2_pretraining.md)【本章】
+3. [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode3_fineTune.md)
+4. [【关于 Bert 源码解析IV 之 句向量生成篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode4_word2embedding.md) 
+5. [【关于 Bert 源码解析V 之 文本相似度篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode5_similarity.md)
+
+分模块 进行解读。
 ## 参考文档
 
 1. [Bert系列（三）——源码解读之Pre-train](https://www.jianshu.com/p/22e462f01d8c)
