@@ -223,13 +223,14 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
     - 解决方法：
       - 在做出预测之前同时考虑左上下文和右上下文
 
-### 【BERT】Bert 输入表征长啥样？
+### 【BERT】Bert 输入输出表征长啥样？
 
 - input 组成：
-  - Token embedding: 
-  - Segment embedding:
-  - Position embedding:
-
+  - Token embedding 字向量: BERT模型通过查询字向量表将文本中的每个字转换为一维向量，作为模型输入；
+  - Segment embedding 文本向量: 该向量的取值在模型训练过程中自动学习，用于刻画文本的全局语义信息，并与单字/词的语义信息相融合；
+  - Position embedding 位置向量：由于出现在文本不同位置的字/词所携带的语义信息存在差异（比如：“我爱你”和“你爱我”），因此，BERT模型对不同位置的字/词分别附加一个不同的向量以作区分
+- output 组成：输入各字对应的融合全文语义信息后的向量表示
+  - 
 ![](img/20200701082543.png)
 
 - 特点：
@@ -241,6 +242,7 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
     - s1：用特殊词块([SEP])将它们分开；
     - s2：给第一句的每一个标记添加一个学习到的句子 A 的嵌入，给第二句的每个标记添加一个学习到的句子 B 的嵌入；
   - 对于单句输入，我们只使用句子A嵌入
+
 
 ### 【BERT】Bert 预训练任务？
 
@@ -294,6 +296,35 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
   - 微调期间添加的唯一新参数是分类层向量$W∈R^{KxH}$，其中K是分类器标签的数量。
   - 该标签概率$P∈R^K$用标准softmax函数，P=softmax(CWT)计算。BERT和W的所有参数都经过联动地微调，以最大化正确标签的对数概率
 
+### 【BERT】BERT的两个预训练任务对应的损失函数是什么(用公式形式展示)？
+
+- Bert 损失函数组成：
+  - 第一部分是来自 Mask-LM 的单词级别分类任务；
+  - 另一部分是句子级别的分类任务；
+- 优点：通过这两个任务的联合学习，可以使得 BERT 学习到的表征既有 token 级别信息，同时也包含了句子级别的语义信息。
+- 损失函数
+
+![](img/20201130205012.png)
+
+> 注：
+>  θ：BERT 中 Encoder 部分的参数；
+>  θ1：是 Mask-LM 任务中在 Encoder 上所接的输出层中的参数；
+>  θ2：是句子预测任务中在 Encoder 接上的分类器参数；
+
+- 在第一部分的损失函数中，如果被 mask 的词集合为 M，因为它是一个词典大小 |V| 上的多分类问题，那么具体说来有：
+
+![](img/20201130205229.png)
+
+- 在第一部分的损失函数中，在句子预测任务中，也是一个分类问题的损失函数：
+
+![](img/20201130205325.png)
+
+- 两个任务联合学习的损失函数是：
+
+![](img/20201130205357.png)
+
+
+
 ### 【对比】多义词问题及解决方法？
 
 - 问题：什么是多义词？
@@ -316,4 +347,5 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
 ## 参考
 
 1. [CS224n](http://web.stanford.edu/class/cs224n/index.html)
+2. [关于BERT的若干问题整理记录](https://zhuanlan.zhihu.com/p/95594311)
 
