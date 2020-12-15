@@ -111,7 +111,7 @@
     3. 用Ft对提取的数据作标注；
     4. 用伪标注语料训练学生模型Fs。
 - 方法六：实体词典+BERT相结合
-  - 利用实体词典+BERT相结合，进行半监督自训练【注：参考 资料11】 
+  - 利用实体词典+BERT相结合，进行半监督自训练**【注：参考 资料11】 **
 
 ## trick 7：嵌套命名实体识别怎么处理 【注：参考 资料3】
 
@@ -162,8 +162,8 @@
 ![](img/20201208202535.png)
 
 - 嵌套实体的2篇SOTA之作： 
-  - ACL20的《Named Entity Recognition as Dependency Parsing》采取Biaffine机制构造Span矩阵；
-  - EMNLP20的HIT[4]则通过Biaffine机制专门捕获边界信息，并采取传统的序列标注任务强化嵌套结构的内部信息交互，同时采取focal loss来解决0-1标签不平衡问题。
+  - ACL20的《Named Entity Recognition as Dependency Parsing》采取Biaffine机制构造Span矩阵 **【注：具体可以参考 资料12】**；
+  - EMNLP20的HIT **【注：具体可以参考 资料13】**则通过Biaffine机制专门捕获边界信息，并采取传统的序列标注任务强化嵌套结构的内部信息交互，同时采取focal loss来解决0-1标签不平衡问题。
 
 #### 7.3.4 方法四：片段排列
 
@@ -176,7 +176,7 @@
 - 动机：虽然**基于字符的NER系统通常好于基于词汇（经过分词）的方法**，但**基于字符的NER没有利用词汇信息**，而**词汇边界对于实体边界通常起着至关重要的作用**。
 - 目标：**如何在基于字符的NER系统中引入词汇信息**
 - 思路：
-  - 方法一：设计一个动态框架，能够兼容词汇输入 【注：具体可以参考 资料6-10】
+  - 方法一：设计一个动态框架，能够兼容词汇输入 **【注：具体可以参考 资料6-10】**
   - 方法二：采用多种分词工具和多种句法短语⼯具进行融合来提取候选实体，并结合词典进行NER
 
 ## trick 9：NER实体span过长怎么办？
@@ -191,7 +191,7 @@
 - 动机：NER 标注数据存在噪声问题，导致模型训练效果差
 - 方法：
   - 方法一：对训练集进行交叉验证，然后人工去清洗这些“脏数据”
-  - 方法二：将noisy label learning应用于NER任务，惩罚那些噪音大的样本loss权重 【注：具体可以参考 资料12】
+  - 方法二：将noisy label learning应用于NER任务，惩罚那些噪音大的样本loss权重 **【注：具体可以参考 资料12】**
 
 ## trick 11： NER 标注数据不均衡问题？
 
@@ -217,6 +217,8 @@
 10. [FLAT: Chinese NER Using Flat-Lattice Transformer（ACL2020）](https://arxiv.org/pdf/2004.11795.pdf)
 11. [Better Modeling of Incomplete Annotations for Named Entity Recognition](http://www.statnlp.org/research/ie/zhanming19naacl-ner.pdf) 
 12. [CrossWeigh: Training Named Entity Tagger from Imperfect Annotations](https://arxiv.org/pdf/1909.01441.pdf)
+13. [HIT: Nested Named Entity Recognition via Head-Tail Pair and Token Interaction](https://www.aclweb.org/anthology/2020.emnlp-main.486.pdf)
+14. [Named Entity Recognition as Dependency Parsing](https://www.aclweb.org/anthology/2020.acl-main.577/)
 
 
 
