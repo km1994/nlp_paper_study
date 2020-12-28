@@ -35,6 +35,7 @@
         - [实体消歧](#实体消歧)
         - [对话系统论文学习](#对话系统论文学习)
         - [rasa 学习](#rasa-学习)
+        - [知识图谱 学习](#知识图谱-学习)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
         - [推荐篇](#推荐篇)
@@ -44,13 +45,6 @@
     - [竞赛篇](#竞赛篇)
     - [GCN_study学习篇](#gcn_study学习篇)
     - [ML 小白入门篇](#ml-小白入门篇)
-    - [Java 实战篇](#java-实战篇)
-    - [百度百科 ES 全文检索平台构建 实战篇](#百度百科-es-全文检索平台构建-实战篇)
-    - [面试篇](#面试篇)
-      - [Leetcode 篇](#leetcode-篇)
-      - [DeepLearning-500-questions](#deeplearning-500-questions)
-    - [大数据 实战篇](#大数据-实战篇)
-      - [Spark 实战篇](#spark-实战篇)
     - [资源篇](#资源篇)
     - [CV 入门 实战篇](#cv-入门-实战篇)
 
@@ -439,6 +433,13 @@
 7. [【关于 rasa -> Core -> Stories 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa系列/rasa_core_Stories.md)
 8. [【关于 rasa -> Core -> Action 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa_core_FormAction/rasa_core_Action.md)
 
+##### [知识图谱 学习](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/)
+
+- 【[实体链指篇](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/)】
+  - 【[【关于  Low-resource Cross-lingual Entity Linking】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/LowResourceCrossLingualEntityLinking/)】
+
+
+
 #### 实战篇
 
 ##### 重点推荐篇
@@ -652,108 +653,6 @@
   - [池化运算的定义](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100000973&idx=4&sn=cebf71790dd7e0e497fa36fa199c368d&chksm=1bbfe1f72cc868e1017d26a996f1eb7602fad1efced62713def3012b8df1b85b6ba46c0ebae8&scene=20&xtrack=1#rd)
   - [CNN 算法 numpy 实现](https://github.com/km1994/MLStudy/blob/master/CNN-Numpy_suss/view.py)
 
-### [Java 实战篇](https://github.com/km1994/3y)
-
-### [百度百科 ES 全文检索平台构建 实战篇](https://github.com/km1994/baidu_es)
-
-- 项目目标
-  - 实现一个 基于 百度百科 的 ES 全文检索平台
-- 项目流程
-  - step 1: 编写 网络爬虫 爬取 百度百科 数据；
-  - step 2: 爬取数据之后，需要进行预处理操作，清洗掉 文本中噪声数据；
-  - step 3: 将输入 导入 ES ；
-  - step 4: 利用 python 编写 后台，并 对 ES 进行查询，返回接口数据；
-  - step 5: ES 数据前端展示；
-  - step 6: 百度百科 知识图谱构建
-  - step 7：百度百科 知识图谱检索与展示
-- 数据介绍：
-  - 本项目通过编写爬虫爬取 百度百科 数据，总共爬取 名称、链接、简介、中文名、外文名、国籍、出生地、出生日期、职业、类型、中文名称、代表作品、民族、主要成就、别名、毕业院校、导演、制片地区、主演、编剧、上映时间 等400多个 指标，共爬取数据 98000 条。
-- 数据预处理模块
-
-爬取的数据根据名称可以分为 人物、地点、书籍、作品、综艺节目等。
-
-|    类别    | 指标量  | 数量   | 筛选方式  |
-| :--------: | :----: | :----: |  :----:  |
-|    人物    |   109  |  27319  | 国籍、职业、出生日期、出生地有一个不为空 |
-|    地点    |   124  |   9361  | 地理位置、所属地区有一个不为空 |
-|    书籍    |   45   |   3336  | 作者 不为空 |
-|    作品    |   45   |   8850  | 主演为空，中文名称不为空 |
-|  综艺节目  |   108  |   5600  | 主演、导演都不为空 |
-
-### [面试篇]()
-
-#### [Leetcode 篇](https://github.com/km1994/leetcode/blob/master/README.md)
-
-- [简单题](https://github.com/km1994/leetcode/blob/master/topic1_easy/)
-- [数组](https://github.com/km1994/leetcode/blob/master/topic2_arr/)
-- [链表](https://github.com/km1994/leetcode/blob/master/topic3_List/)
-- [动态规划](https://github.com/km1994/leetcode/blob/master/topic4_dynamic_planning_study/)
-- [字符串](https://github.com/km1994/leetcode/blob/master/topic5_string/)
-- [栈](https://github.com/km1994/leetcode/blob/master/topic6_stack/)
-- [排序](https://github.com/km1994/leetcode/blob/master/topic7_sorted/)
-- [二分查找](https://github.com/km1994/leetcode/blob/master/topic8_binary_search/)
-- [哈希表](https://github.com/km1994/leetcode/blob/master/topic9_hash_table/)
-- [队列](https://github.com/km1994/leetcode/blob/master/topic10_queue/)
-- [堆](https://github.com/km1994/leetcode/blob/master/topic11_heap/)
-- [回溯法](https://github.com/km1994/leetcode/blob/master/topic12_backtrack/)
-- [树](https://github.com/km1994/leetcode/blob/master/topic13_tree/)
-- [归并排序](https://github.com/km1994/leetcode/blob/master/topic15_merge/)
-- [快慢指针](https://github.com/km1994/leetcode/blob/master/topic16_speed_pointer/)
-- [贪心算法](https://github.com/km1994/leetcode/blob/master/topic17_greedy/)
-- [递归](https://github.com/km1994/leetcode/blob/master/topic18_recursive/)
-- [分治](https://github.com/km1994/leetcode/blob/master/topic19_divide_and_conquer/)
-- [分支限界法](https://github.com/km1994/leetcode/blob/master/topic20_branch_and_bound_method/)
-- [位运算](https://github.com/km1994/leetcode/blob/master/topic21_Bit_operation/)
-- [滑动窗口](https://github.com/km1994/leetcode/blob/master/topic22_move_window/)
-- [数学题](https://github.com/km1994/leetcode/blob/master/topic23_math/)
-- [面试题](https://github.com/km1994/leetcode/blob/master/interview/)
-
-#### [DeepLearning-500-questions](https://github.com/km1994/DeepLearning-500-questions)
-
-### [大数据 实战篇]()
-#### [Spark 实战篇](https://github.com/km1994/sparkStudy)
-- 1、wordCount
-  - 内容：运行原理，RDD设计，DAG，安装与使用
-  - 第1章 Spark的设计与运行原理（大概了解）
-    - 1.1 Spark简介
-    - 1.2 Spark运行架构
-    - 1.3 RDD的设计与运行原理
-    - 1.4 Spark的部署模式
-  - 第2章 Spark的安装与使用（主要内容）
-    - 2.1 Spark的安装和使用 （如果想在window上安装，参考https://blog.csdn.net/SummerHmh/article/details/89518567，之后可以用pyspark或者jupyter上进行学习）（地址有问题，可以使用这个https://www-eu.apache.org/dist/spark/spark-2.4.3/）
-    - 2.2 第一个Spark应用程序：WordCount
-
-- 2、RDDStudy
-  - 内容：RDD编程，熟悉算子，读写文件
-  - 第3章 Spark编程基础
-    - 3.1 Spark入门：RDD编程
-    - 3.2 Spark入门：键值对RDD
-    - 3.3 Spark入门：共享变量（提升-分布式必备）
-    - 3.4 数据读写
-      - 3.4.1 Spark入门：文件数据读写
-
-- 3、sparkSQLStudy
-  - 内容：DataFrame,SparkSQL
-  - 第4章
-    - 4.1 Spark SQL简介
-    - 4.2 DataFrame与RDD的区别
-    - 4.3 DataFrame的创建
-    - 4.4 从RDD转换得到DataFrame
-
-- 4、Parquet_JDBC_IO_Study
-
-- 5、MLlibStudy
-  - 内容：MLlib流设计，特征工程
-  - 第6章 Spark MLlib
-    - 6.1 Spark MLlib简介
-    - 6.2 机器学习工作流
-      - 6.2.1 机器学习工作流(ML Pipelines) 
-      - 6.2.2 构建一个机器学习工作流
-    - 6.3 特征抽取、转化和选择
-      - 6.3.1 特征抽取：TF-IDF
-      - 6.3.4 特征变换：标签和索引的转化
-      - 6.3.5 特征选取：卡方选择器
-  
 ### [资源篇](https://github.com/km1994/funNLP)
 - [funNLP](https://github.com/km1994/funNLP)
 
