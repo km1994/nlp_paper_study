@@ -252,6 +252,17 @@
           - 目标：将Teacher BERT学习到的知识迁移到TinyBERT中
         - 右图：描述了知识迁移的细节；
           - 在训练过程中选用Teacher BERT中每一层transformer layer的attention矩阵和输出作为监督信息
+- [【关于 Perturbed Masking】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/ACL2020_UnsupervisedBert)
+  - 论文：Perturbed Masking: Parameter-free Probing for Analyzing and Interpreting BERT
+  - 论文链接：https://arxiv.org/pdf/2004.14786.pdf
+  - 代码链接：https://github.com/bojone/perturbed_masking
+  - 动机： 通过引入少量的附加参数，probe learns 在监督方式中使用特征表示（例如，上下文嵌入）来 解决特定的语言任务（例如，依赖解析）。这样的probe  tasks 的有效性被视为预训练模型编码语言知识的证据。但是，这种评估语言模型的方法会因 probe 本身所学知识量的不确定性而受到破坏。
+  - 方法介绍：
+    - Perturbed Masking 
+      - 介绍：parameter-free probing technique
+      - 目标：analyze and interpret pre-trained models，测量一个单词xj对预测另一个单词xi的影响，然后从该单词间信息中得出全局语言属性（例如，依赖树）。
+  - 思想：整体思想很直接，句法结构，其实本质上描述的是词和词之间的某种关系，如果我们能从BERT当中拿到词和词之间相互“作用”的信息，就能利用一些算法解析出句法结构。
+
 
 ##### [细粒度情感分析论文研读](https://github.com/km1994/nlp_paper_study/tree/master/ABSC_study/)
 
@@ -386,6 +397,13 @@
   - 论文方法：具有双重BERT模型的解耦上下文编码框架：
     - 一个在线BERT，仅对问题进行一次编码；
     - 一个正式的BERT，对所有文档进行预编码并缓存其编码；
+-  [【关于 tBERT 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
+   -  论文：tBERT: Topic Models and BERT Joining Forces for Semantic Similarity Detection
+   -  会议：ACL2020
+   -  论文地址：https://www.aclweb.org/anthology/2020.acl-main.630/
+   -  论文代码：https://github.com/wuningxi/tBERT
+   -  动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
+   -  方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
 
 ##### [机器翻译论文学习](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/)
 
