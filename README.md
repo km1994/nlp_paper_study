@@ -278,7 +278,24 @@
 - [A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/T20ACL_HBT_su/)
 - [【关于 A Frustratingly Easy Approach for Joint Entity and Relation Extraction】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ERE_study/AFrustratinglyEasyApproachForJEandRE/)
   - 论文：A Frustratingly Easy Approach for Joint Entity and Relation Extraction
-  - 阅读理由：反直觉！陈丹琦用pipeline方式刷新关系抽取SOTA 【待读，因为没有找到代码】
+  - 阅读理由：反直觉！陈丹琦用pipeline方式刷新关系抽取SOTA 
+  - 方法：建立两个 encoders，并独立训练:
+    - encoder 1：entity model
+      - 方法：建立在 span-level representations 上
+    - encoder 2：relation model：只依赖于实体模型作为输入特征
+      - 方法：builds on contextual representations specific to a given pair of span
+  - 优点：
+    - 很简单，但我们发现这种流水线方法非常简单有效；
+    - 使用同样的预先训练的编码器，我们的模型在三个标准基准（ACE04，ACE05，SciERC）上优于所有以前的联合模型；
+  - 问题讨论：
+    - Q1、关系抽取最care什么？
+      - 解答：引入实体类别信息会让你的关系模型有提升
+    - Q2、共享编码 VS 独立编码 哪家强？
+      -  解答：由于两个任务各自是不同的输入形式，并且需要不同的特征去进行实体和关系预测，也就是说：使用单独的编码器确实可以学习更好的特定任务特征。
+    - Q3：误差传播不可避免？还是不存在？
+      - 解答：并不认为误差传播问题不存在或无法解决，而需要探索更好的解决方案来解决此问题
+    - Q4：Effect of Cross-sentence Context
+      - 解答：使用跨句上下文可以明显改善实体和关系
 
 ##### [GCN 在 NLP 上的应用 论文研读](https://github.com/km1994/nlp_paper_study/tree/master/GCN2NLP/)：
 - [GCN 在 NLP 上的应用 论文研读](https://github.com/km1994/nlp_paper_study/tree/master/GCN2NLP/readme.md)
