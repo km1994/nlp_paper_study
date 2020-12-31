@@ -307,11 +307,7 @@ scce = tf.keras.losses.SparseCategoricalCrossentropy()
 
 
 
-
-
-
-
-
 ## 参考
 
 1. [【AI实战】快速掌握TensorFlow（四）：损失函数](https://my.oschina.net/u/876354/blog/1940819)
+2. [常见的损失函数(loss function)总结](https://zhuanlan.zhihu.com/p/58883095)
