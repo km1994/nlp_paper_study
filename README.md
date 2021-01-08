@@ -36,6 +36,7 @@
         - [对话系统论文学习](#对话系统论文学习)
         - [rasa 学习](#rasa-学习)
         - [知识图谱 学习](#知识图谱-学习)
+        - [半监督学习](#半监督学习)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
         - [推荐篇](#推荐篇)
@@ -454,6 +455,17 @@
 
 - 【[实体链指篇](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/)】
   - 【[【关于  Low-resource Cross-lingual Entity Linking】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/LowResourceCrossLingualEntityLinking/)】
+
+##### [半监督学习](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/)
+
+- 【[Unsupervised Data Augmentation (UDA)](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/UDA/)】
+  - 【[【关于 UDA】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/UDA/)】
+    - 阅读理由：UDA（Unsupervised Data Augmentation 无监督数据增强）是Google在2019年提出的半监督学习算法。该算法超越了所有现有的半监督学习方法，并实现了仅使用极少量标记样本即可达到使用大量标记样本训练集的精度。
+    - 动机： 深度学习的模型训练通常依赖大量的标签数据，在只有少量数据上通常表现不好;
+    - 思路：提出了一种基于无监督数据的数据增强方式UDA（Unsupervised Data Augmentation）。UDA方法生成无监督数据与原始无监督数据具备分布的一致性，而以前的方法通常只是应用高斯噪声和dropout噪声（无法保证一致性）。UDA方法利用了一种目前为止最优的方法生成更加“真实”的数据。
+    - 优点：使用这种数据增强方法，在极少量数据集上，六种语言任务和三种视觉任务都得到了明显的提升。
+
+
 
 
 
