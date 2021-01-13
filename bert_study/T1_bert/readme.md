@@ -337,11 +337,14 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
     - 第二阶段：在使用时， 该词向量 不会 根据上下文场景 而变化
   - 因此 word2vec 解决不了 多义词 问题
 - 问题：为什么 elmo、GPT、Bert能够解决多义词问题？（以 elmo 为例）
-  - elmo 的 解决方式：
+  - 解决方式：
+    - 因为 elmo、GPT、Bert 的词向量包含网络结构，简而言之就是，word2vec的词向量y=x，而bert的词向量是y=f(x)
+  - 思路：
     - 预训练时，使用语言模型学习一个单词的emb（**多义词无法解决**）；
     - 使用时，单词间具有特定上下文，可根据上下文单词语义调整单词的emb表示（**可解决多义词问题**）
       - 理解：因为预训练过程中，**emlo 中 的 lstm 能够学习到 每个词 对应的 上下文信息**，并保存在网络中，在 fine-turning 时，**下游任务 能够对 该 网络进行 fine-turning，使其 学习到新特征**； 
     - 因此 elmo能够解决 多义词 问题（GPT、Bert 采用 的 是 transformer）
+
 
 
 ## 参考
