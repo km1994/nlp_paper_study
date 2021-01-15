@@ -1,8 +1,15 @@
 # 【关于自训练 + 预训练 = 更好的自然语言理解模型 】 那些的你不知道的事
 
-> 作者：杨夕 </br>
-> 个人github：https://github.com/km1994/nlp_paper_study </br>
-> 原文地址：https://github.com/km1994/nlp_paper_study/tree/master/bert_study/SelfTrainingImprovesPreTraining</br>
+> 作者：杨夕 
+> 
+> 个人github：https://github.com/km1994/nlp_paper_study 
+> 
+> 论文标题：Self-training Improves Pre-training for Natural Language Understanding
+> 
+> 论文地址：https://arxiv.org/abs/2010.02194
+> 
+> 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
+> 
 > 【注：手机阅读可能图片打不开！！！】
 
 ## 目录

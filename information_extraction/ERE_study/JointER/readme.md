@@ -1,4 +1,13 @@
-# Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy
+# 【关于 Joint NER】那些你不知道的事
+
+> 作者：杨夕
+> 
+> 项目地址：https://github.com/km1994/nlp_paper_study
+> 
+> 论文名称：Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy
+> 
+> 【注：手机阅读可能图片打不开！！！】
+> 
 
 ## 摘要
 

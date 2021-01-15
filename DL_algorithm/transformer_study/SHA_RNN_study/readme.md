@@ -1,4 +1,13 @@
-# Single Headed Attention RNN: Stop Thinking With Your Head 单头注意力 RNN: 停止用你的头脑思考
+# 【关于 SHA_RNN】 那些的你不知道的事
+
+> 作者：杨夕
+> 
+> 面向任务：Language Understanding
+> 
+> 论文名称：Single Headed Attention RNN: Stop Thinking With Your Head 单头注意力 RNN: 停止用你的头脑思考
+> 
+> 【注：手机阅读可能图片打不开！！！】 
+
 
 ## Abstract
 

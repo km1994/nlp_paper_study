@@ -1,4 +1,10 @@
-# GCN 在 NLP 中的应用
+# 【关于 GCN in NLP 】那些你不知道的事
+
+> 作者：杨夕
+> 
+> 项目地址：https://github.com/km1994/nlp_paper_study
+>
+> 【注：手机阅读可能图片打不开！！！】
 
 ## NLP 中 常见的构图方法
 

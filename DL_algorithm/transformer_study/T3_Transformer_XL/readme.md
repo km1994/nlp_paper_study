@@ -1,8 +1,16 @@
-# Transformer-XL
+# 【关于 Transformer-XL】 那些的你不知道的事
 
-面向任务：Language Understanding
-论文地址：[https://arxiv.org/abs/1901.02860](https://arxiv.org/abs/1901.02860)
-论文代码：[https://github.com/kimiyoung/transformer-xl](https://github.com/kimiyoung/transformer-xl)
+> 作者：杨夕
+> 
+> 项目地址：https://github.com/km1994/nlp_paper_study
+> 
+> 面向任务：Language Understanding
+> 
+> 论文地址：[https://arxiv.org/abs/1901.02860](https://arxiv.org/abs/1901.02860)
+> 
+> 论文代码：[https://github.com/kimiyoung/transformer-xl](https://github.com/kimiyoung/transformer-xl)
+> 
+> 【注：手机阅读可能图片打不开！！！】
 
 ## 摘要
 

@@ -1,4 +1,13 @@
-# A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction
+# 【关于 HBT】 那些的你不知道的事
+
+> 作者：杨夕
+> 
+> 项目地址：https://github.com/km1994/nlp_paper_study
+> 
+> 论文名称：A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction
+> 
+> 【注：手机阅读可能图片打不开！！！】
+> 
 
 ## 摘要
 
