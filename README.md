@@ -301,17 +301,133 @@
 ##### [GCN 在 NLP 上的应用 论文研读](https://github.com/km1994/nlp_paper_study/tree/master/GCN2NLP/)：
 - [GCN 在 NLP 上的应用 论文研读](https://github.com/km1994/nlp_paper_study/tree/master/GCN2NLP/readme.md)
 
-##### [命名实体识别论文研读](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/)：
-- [LatticeLSTM](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/ACL2018_LatticeLSTM/)
-- [named entity recognition using positive-unlabeled learning](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/JointER/)
-- [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/ACL2019_NERusingPositive-unlabeledLearning/)
-- [TENER: Adapting Transformer Encoder for Name Entity Recognition](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/ACL2019_TENER/)
-- [CrossWeigh从不完善的注释中训练命名实体标注器](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/EMNLP2019/CrossWeigh从不完善的注释中训练命名实体标注器/)
-- [利用词汇知识通过协同图网络进行中文命名实体识别](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/EMNLP2019/利用词汇知识通过协同图网络进行中文命名实体识别/)
-- [一点注释对引导低资源命名实体识别器有很多好处](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/EMNLP2019/一点注释对引导低资源命名实体识别器有很多好处/)
-- [CGN: Leverage Lexical Knowledge for Chinese Named Entity Recognition via Collaborative Graph Network（EMNLP2019）](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/EMNLP2019_CGN/)
-- [Fine-Grained Entity Typing in Hyperbolic Space（在双曲空间中打字的细粒度实体）](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/Fine-GrainedEntityTypinginHyperbolicSpace/)
-- [LR-CNN:CNN-Based Chinese NER with Lexicon Rethinking(IJCAI2019)](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/IJCAI2019_LR_CNN/)
+##### [命名实体识别论文研读](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/)：
+
+- [【关于 Biaffine Ner 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2020_NERasDependencyParsing/)
+  - 动机：NER 研究 关注于 扁平化NER，而忽略了 实体嵌套问题；
+  - 方法： 在本文中，我们使用基于图的依存关系解析中的思想，以通过 biaffine model 为模型提供全局的输入视图。 biaffine model 对句子中的开始标记和结束标记对进行评分，我们使用该标记来探索所有跨度，以便该模型能够准确地预测命名实体。
+  - 工作介绍：在这项工作中，我们将NER重新确定为开始和结束索引的任务，并为这些对定义的范围分配类别。我们的系统在多层BiLSTM之上使用biaffine模型，将分数分配给句子中所有可能的跨度。此后，我们不用构建依赖关系树，而是根据候选树的分数对它们进行排序，然后返回符合 Flat 或  Nested NER约束的排名最高的树 span；
+  - 实验结果：我们根据三个嵌套的NER基准（ACE 2004，ACE 2005，GENIA）和五个扁平的NER语料库（CONLL 2002（荷兰语，西班牙语），CONLL 2003（英语，德语）和ONTONOTES）对系统进行了评估。结果表明，我们的系统在所有三个嵌套的NER语料库和所有五个平坦的NER语料库上均取得了SoTA结果，与以前的SoTA相比，实际收益高达2.2％的绝对百分比。
+- [【关于 NER trick】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/NERtrick.md)
+- [TENER: Adapting Transformer Encoder for Name Entity Recognition](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2019/ACL2019_TENER/)
+  - 动机：
+    - 1. Transformer 能够解决长距离依赖问题；
+    - 2. Transformer 能够并行化；
+    - 3. 然而，Transformer 在 NER 任务上面效果不好。
+  - 方法：
+    -  第一是经验发现。 引入：相对位置编码
+    -  第二是经验发现。 香草变压器的注意力分布是缩放且平滑的。 但是对于NER，因为并非所有单词都需要参加，所以很少注意是合适的。 给定一个当前单词，只需几个上下文单词就足以判断其标签。 平稳的注意力可能包括一些嘈杂的信息。 因此，我们放弃了点生产注意力的比例因子，而使用了无比例且敏锐的注意力。
+
+- [DynamicArchitecture](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/DynamicArchitecture/)
+  - 介绍：Dynamic Architecture范式通常需要设计相应结构以融入词汇信息。
+  - 论文：
+    - [【关于 LatticeLSTM 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/DynamicArchitecture/1_ACL2018_LatticeLSTM/)
+      - 想法：在 char-based 的 LSTM 中引入词汇信息
+      - 做法：
+        - 根据大量语料生成词典；
+        - 若当前字符与前面的字符无法组成词典中词汇，则按 LSTM 的方法更新记忆状态；
+        - 若当前字符与前面的字符组成词典中词汇，从最新词汇中提取信息，联合更新记忆状态；
+      - 存在问题：
+        - 计算性能低下，导致其**不能充分利用GPU进行并行化**。究其原因主要是每个字符之间的增加word cell（看作节点）数目不一致；
+        - 信息损失：
+          - 1）每个字符只能获取以它为结尾的词汇信息，对于其之前的词汇信息也没有持续记忆。如对于「大」，并无法获得‘inside’的「长江大桥」信息。
+          - 2）由于RNN特性，采取BiLSTM时其前向和后向的词汇信息不能共享，导致 Lattice LSTM **无法有效处理词汇信息冲突问题**
+        - 可迁移性差：只适配于LSTM，不具备向其他网络迁移的特性。
+    - [【关于 LR-CNN 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/DynamicArchitecture/2_IJCAI2019_LR_CNN/)
+      - 动机
+        - 词信息引入问题；
+         - lattice LSTM 问题：
+           - 基于 RNN 结构方法不能充分利用 GPU 并行计算资源；
+             - 针对句子中字符计算；
+             - 针对匹配词典中潜在词
+           - 很难处理被合并到词典中的潜在单词之间的冲突：
+             - 一个字符可能对应词典中多个潜在词，误导模型
+       - 方法：
+        - Lexicon-Based CNNs：采取CNN对字符特征进行编码，感受野大小为2提取bi-gram特征，堆叠多层获得multi-gram信息；同时采取注意力机制融入词汇信息（word embed）；
+        - Refining Networks with Lexicon Rethinking：由于上述提到的词汇信息冲突问题，LR-CNN采取rethinking机制增加feedback layer来调整词汇信息的权值：具体地，将高层特征作为输入通过注意力模块调节每一层词汇特征分布，利用这种方式来利用高级语义来完善嵌入单词的权重并解决潜在单词之间的冲突。
+    - [【关于 CGN 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/DynamicArchitecture/3_EMNLP2019_CGN/)
+      - 动机
+        - 中文命名实体识别中，词边界 问题；
+        - 如何 引入 词边界信息：
+          - pipeline：CWS -> NER 
+            - 问题：误差传递
+          - CWS 和 NER 联合学习
+            - 问题：标注 CWS 数据
+          - 利用 词典 自动构建
+            - 优点：比 CWS 标注数据 更容易获得
+            - 问题：
+              - 第一个挑战是整合自我匹配的词汇词；
+                - 举例：“北京机场” (Beijing Airport) and “机场” (Airport) are the self-matched words of the character “机” (airplane)
+              - 第二个挑战是直接整合最接近的上下文词汇词；
+                - 举例：by directly using the semantic knowledge of the nearest contextual words “离开” (leave), an “I-PER” tag can be predicted instead of an “I-ORG” tag, since “希尔顿” (Hilton Hotels) cannot be taken as the subject of the verb “离开” 
+        - 论文思路：
+          - character-based Collaborative Graph：
+            - encoding layer：
+              - 句子信息：
+                - s1：将 char 表示为 embedding;
+                - s2：利用 biLSTM 捕获 上下文信息
+              - lexical words 信息：
+                - s1：将 lexical word 表示为 embedding;
+              - 合并 contextual representation 和 word embeddings
+            - a graph layer：
+              - Containing graph (C-graph):
+                - 思路：字与字之间无连接，词与其inside的字之间有连接；
+                - 目的：帮助 字符 捕获 self-matched lexical words 的边界和语义信息
+              - Transition graph (T-graph):
+                - 思路：相邻字符相连接，词与其前后字符连接；
+                - 目的：帮助 字符 捕获 相邻 上下文 lexical 词 的 语义信息
+              - Lattice graph (L-graph):
+                - 思路：通相邻字符相连接，词与其开始结束字符相连；
+                - 目的：融合 lexical knowledge
+              - GAT:
+                - 操作：针对三种图，使用Graph Attention Network(GAN)来进行编码。最终每个图的输出
+                  - > 其中 $G_k$ 为第k个图的GAN表示，因为是基于字符级的序列标注，所以解码时只关注字符，因此从矩阵中取出前n行作为最终的图编码层的输出。
+            - a fusion layer：
+              - 目的：融合 三种 graphs 中不同 的 lexical 知识 
+            - a decoding layer:
+              - 操作：利用 CRF 解码
+    - [【关于 LGN 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/DynamicArchitecture/4_EMNLP2019_LGN/)
+      - 动机：
+        - 在 char-base Chinese NER 中，同一个字符可能属于多个 lexicon word，存在 overlapping ambiguity 问题
+          - 举例(如下图)
+            - 字符[流] 可以 匹配词汇 [河流] 和 [流经] 两个词汇信息，但是 Lattice LSTM 只能利用 [河流]；
+        - Lattice LSTM这种RNN结构仅仅依靠前一步的信息输入，而不是利用全局信息
+          - 举例
+            - 字符 [度]只能看到前序信息，不能充分利用 [印度河] 信息，从而造成标注冲突问题
+        - Ma等人于2014年提出，想解决overlapping across strings的问题，需要引入「整个句子中的上下文」以及「来自高层的信息」；然而，现有的基于RNN的序列模型，不能让字符收到序列方向上 remain characters 的信息；
+      - 方法：
+        - Graph Construction and Aggregation
+        - Graph Construction 
+        - Local Aggregation
+        - Global Aggregation
+        - Recurrent-based Update Module
+    - [【关于 FLAT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/DynamicArchitecture/5_ACL2020_FLAT/)
+      - 动机
+        - 方法一：设计一个动态框架，能够兼容词汇输入；
+          - 代表模型： 
+            - Lattice LSTM：利用额外的单词单元编码可能的单词，并利用注意力机制融合每个位置的变量节点
+            - LR-CNN：采用不同窗口大小的卷积核来编码 潜在词
+          - 问题：
+            - RNN 和 CNN 难以解决长距离依赖问题，它对于 NER 是有用的，例如： coreference（共指）
+            - 无法充分利用 GPU 的并行计算能力
+        - 方法二：将 Lattice 转化到图中并使用 GNN 进行编码：
+          - 代表模型
+            - Lexicon-based GN(LGN)
+            - Collaborative GN(CGN)
+          - 问题
+            - 虽然顺序结构对于NER仍然很重要，并且 Graph 是一般的对应物，但它们之间的差距不可忽略;
+            - 需要使用 LSTM 作为底层编码器，带有顺序感性偏置，使模型变得复杂。
+      - 方法：将Lattice结构展平，将其从一个有向无环图展平为一个平面的Flat-Lattice Transformer结构，由多个span构成：每个字符的head和tail是相同的，每个词汇的head和tail是skipped的。
+- [【关于 ACL 2019 中的NER】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2019/)
+  - [named entity recognition using positive-unlabeled learning](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/ACL2019/JointER/)
+  - [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2019/ACL2019_NERusingPositive-unlabeledLearning/)
+  - [Fine-Grained Entity Typing in Hyperbolic Space（在双曲空间中打字的细粒度实体）](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2019/Fine-GrainedEntityTypinginHyperbolicSpace/)
+  - [TENER: Adapting Transformer Encoder for Name Entity Recognition](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2019/ACL2019_TENER/)
+- [【关于 EMNLP 2019 中的NER】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EMNLP2019/)
+  - [CrossWeigh从不完善的注释中训练命名实体标注器](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EMNLP2019/CrossWeigh从不完善的注释中训练命名实体标注器/)
+  - [利用词汇知识通过协同图网络进行中文命名实体识别](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EMNLP2019/利用词汇知识通过协同图网络进行中文命名实体识别/)
+  - [一点注释对引导低资源命名实体识别器有很多好处](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EMNLP2019/一点注释对引导低资源命名实体识别器有很多好处/)
+
 
 ##### [关系抽取论文研读](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/)：
 - [End-to-End Relation Extraction using LSTMs on Sequences and Tree Structures【2016】](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/T2016_LSTM_Tree/)

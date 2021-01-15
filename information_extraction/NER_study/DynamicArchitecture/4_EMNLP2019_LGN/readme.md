@@ -1,6 +1,8 @@
-# LGN: A Lexicon-Based Graph Neural Network for Chinese NER(EMNLP2019)
+# 【关于 LGN 】那些你不知道的事 
 
 > 作者：杨夕
+> 
+> 论文：LGN: A Lexicon-Based Graph Neural Network for Chinese NER(EMNLP2019)
 > 
 > 文章链接：https://gitee.com/km601/nlp_paper_study/tree/master/NER_study/DynamicArchitecture/EMNLP2019_LGN
 > 

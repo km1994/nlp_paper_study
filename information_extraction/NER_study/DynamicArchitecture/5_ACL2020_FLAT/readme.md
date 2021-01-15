@@ -1,6 +1,9 @@
-# FLAT: Chinese NER Using Flat-Lattice Transformer
+# 【关于 FLAT】 那些你不知道的事
+
 
 > 作者：杨夕
+> 
+> 论文：FLAT: Chinese NER Using Flat-Lattice Transformer
 > 
 > 论文链接：[https://arxiv.org/pdf/2004.11795.pdf](https://arxiv.org/pdf/2004.11795.pdf)
 > 
