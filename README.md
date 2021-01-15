@@ -105,14 +105,30 @@
 
 ##### transformer 学习篇
 
-- [transformer_study](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/)  transformer 论文学习
-  - [【关于Transformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer/)
-  - [Transformer-XL](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/T3_Transformer_XL/)
-  - [Single Headed Attention RNN: Stop Thinking With Your Head 单头注意力 RNN: 停止用你的头脑思考](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/SHA_RNN_study/)
-  - [ Universal Transformers](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/T4_Universal_Transformers/)
-  - [Style_Transformer](https://github.com/km1994/nlp_paper_study/tree/master/Style_Transformer/LCNQA/)
-  - [ACL2020_Linformer](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/ACL2020_Linformer)
-  - [【关于 Performer 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Performer) **【推荐阅读】**
+- [transformer_study](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_study/)  transformer 论文学习
+  - [【关于Transformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_study/Transformer/)
+    1. 为什么要有 Transformer?
+    2. Transformer 作用是什么？
+    3. Transformer 整体结构怎么样？
+    4. Transformer-encoder 结构怎么样？
+    5. Transformer-decoder 结构怎么样?
+    6. 传统 attention 是什么?
+    7. self-attention 长怎么样?
+    8. self-attention 如何解决长距离依赖问题？
+    9. self-attention 如何并行化？
+    10. multi-head attention 怎么解?
+    11. 为什么要 加入 position embedding ？
+    12. 为什么要 加入 残差模块？
+    13. Layer normalization。Normalization 是什么?
+    14. 什么是 Mask？
+    15. Transformer 存在问题？
+    16. Transformer 怎么 Coding?
+  - [Transformer-XL](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_study/T3_Transformer_XL/)
+  - [Single Headed Attention RNN: Stop Thinking With Your Head 单头注意力 RNN: 停止用你的头脑思考](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_study/SHA_RNN_study/)
+  - [ Universal Transformers](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_study/T4_Universal_Transformers/)
+  - [Style_Transformer](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_study/Style_Transformer/LCNQA/)
+  - [ACL2020_Linformer](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_study/ACL2020_Linformer)
+  - [【关于 Performer 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_study/Performer) **【推荐阅读】**
     - 阅读理由：Transformer 作者 Krzysztof Choromanski 针对 Transformer 问题的重新思考与改进
     - 动机：Transformer 有着巨大的内存和算力需求，因为它构造了一个注意力矩阵，需求与输入呈平方关系;
     - 思路：使用一个高效的（线性）广义注意力框架（generalized attention framework），允许基于不同相似性度量（核）的一类广泛的注意力机制。
@@ -446,11 +462,27 @@
 - [过采样](https://github.com/km1994/nlp_paper_study/tree/master/pre_study/samplingStudy)
 
 ##### [问答系统论文学习](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/) 
-- [Lattice CNNs for Matching Based Chinese Question Answering](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/LCNQA/)
-- [LSTM-based Deep Learning Models for Non-factoid Answer Selection](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
-- [Denoising Distantly Supervised Open-Domain Question Answering](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/T4_DenoisingDistantlySupervisedODQA/)
-- [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
-- [DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
+
+- [【关于 文本匹配和多轮检索】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/文本匹配和多轮检索.xmind)
+- [【关于 FAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/)
+  - [Lattice CNNs for Matching Based Chinese Question Answering](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/LCNQA/)
+  - [LSTM-based Deep Learning Models for Non-factoid Answer Selection](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
+  - [Denoising Distantly Supervised Open-Domain Question Answering](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/T4_DenoisingDistantlySupervisedODQA/)
+  - [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
+  - [DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
+- [【关于 KBFAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/KBFAQ/)
+- [【关于 MulFAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/mulFAQ/)
+  - [【关于 MSN】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/mulFAQ/MSN_mulQA/)
+    - 论文名称：Multi-hop Selector Network for Multi-turn Response Selection in Retrieval-based chatbots
+    - 论文地址：https://www.aclweb.org/anthology/D19-1011.pdf
+    - 论文项目：https://github.com/chunyuanY/Dialogue
+    - 动机：
+      - 1. 上下文拼接问题：将候选回复与上下文utterance在多粒度级别进行匹配，这种方式忽略了使用过多的上下文信息带来副作用。
+      - 2. 根据直接，一般来说距离回复越近的utterance，越能够反应最终轮对话的意图。所以，我们首先使用最后一个utterance作为key去选择word级别和sentence级别上相关的上下文回复。然而，我们发现**许多样本中最后一个utterance都是一些短句并且很多都是无效信息**（比如good, ok）
+    - 方法：提出一种多跳选择网络（multi-hop selector network, MSN）
+      - s1 ：采用 多跳选择器从 上下文集 中 选取最相关的上下文 utterances，并生成 k 个 不同的上下文；
+      - s2 : 融合 k 个 上下文 utterance ，并与候选回复做匹配；
+      - s3 : 匹配截取，采用 CNN 提取匹配特征，并 用 GRU 学习 utterance 间的临时关系；
 
 ##### [文本摘要论文学习](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/) 
 - [Fine-tune BERT for Extractive Summarization](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/EMNLP2019_bertsum/)
