@@ -1,6 +1,9 @@
-# Combining Knowledge with Deep Convolutional Neural Networks for Short Text Classification
+# 【关于 Knowledge in TextCNN】那些你不知道的事
+
 
 > 作者：杨夕
+> 
+> 论文： Combining Knowledge with Deep Convolutional Neural Networks for Short Text Classification
 > 
 > github：https://zhuanlan.zhihu.com/p/183852900
 

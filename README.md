@@ -43,6 +43,7 @@
         - [【关于 对话系统】 那些的你不知道的事](#关于-对话系统-那些的你不知道的事)
         - [【关于 Rasa 】 那些的你不知道的事](#关于-rasa--那些的你不知道的事)
         - [【关于 半监督学习】 那些的你不知道的事](#关于-半监督学习-那些的你不知道的事)
+        - [【关于 NLP分类任务】那些你不知道的事](#关于-nlp分类任务那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
         - [推荐篇](#推荐篇)
@@ -621,6 +622,7 @@
 
 ##### [【关于问答系统】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/) 
 
+- [【关于 FAQ Trick】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/FAQ_trick/)
 - [【关于 文本匹配和多轮检索】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/文本匹配和多轮检索.xmind)
 - [【关于 FAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/)
   - [【关于 LCNQA】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/LCNQA/)
@@ -808,12 +810,51 @@
 
 ##### [【关于 半监督学习】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/)
 
-- 【[Unsupervised Data Augmentation (UDA)](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/UDA/)】
-  - 【[【关于 UDA】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/UDA/)】
+- [Unsupervised Data Augmentation (UDA)](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/UDA/)
+  - [【关于 UDA】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/UDA/)
     - 阅读理由：UDA（Unsupervised Data Augmentation 无监督数据增强）是Google在2019年提出的半监督学习算法。该算法超越了所有现有的半监督学习方法，并实现了仅使用极少量标记样本即可达到使用大量标记样本训练集的精度。
     - 动机： 深度学习的模型训练通常依赖大量的标签数据，在只有少量数据上通常表现不好;
     - 思路：提出了一种基于无监督数据的数据增强方式UDA（Unsupervised Data Augmentation）。UDA方法生成无监督数据与原始无监督数据具备分布的一致性，而以前的方法通常只是应用高斯噪声和dropout噪声（无法保证一致性）。UDA方法利用了一种目前为止最优的方法生成更加“真实”的数据。
     - 优点：使用这种数据增强方法，在极少量数据集上，六种语言任务和三种视觉任务都得到了明显的提升。
+- [【关于 “脏数据”处理】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/Unsupervised/noisy_label_learning/)
+  -  一、动机
+     - 1.1 何为“脏数据”？
+     - 1.2 “脏数据” 会带来什么后果？
+   - 二、“脏数据” 处理篇
+     - 2.1 “脏数据” 怎么处理呢？
+     - 2.2 置信学习方法篇
+       - 2.2.1 什么是 置信学习方法？
+       - 2.2.2 置信学习方法 优点？
+       - 2.2.3 置信学习方法 怎么做？
+       - 2.2.4 置信学习方法 怎么用？有什么开源框架？
+       - 2.2.5 置信学习方法 的工作原理？
+
+##### [【关于 NLP分类任务】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/)
+
+- [【关于 NLP分类任务】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/)
+- [【关于 Knowledge in TextCNN】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/KG_classifier/)
+  - 论文： Combining Knowledge with Deep Convolutional Neural Networks for Short Text Classification
+  - github：https://zhuanlan.zhihu.com/p/183852900
+  - 介绍：文本分类是NLP应用程序中的一项基本任务。 现有的大多数工作都依靠显式或隐式文本表示来解决此问题。 
+  - 问题：虽然这些技术对句子很有效，但由于其简短和稀疏，因此无法轻松地应用于短文本。
+  - 方法：提出了一个基于卷积神经网络的框架，该框架结合了短文本的显式和隐式表示形式进行分类
+    - 首先使用大型分类学知识库将短文本概念化为一组相关概念。 
+    - 然后，通过在预训练的单词向量之上合并单词和相关概念来获得短文本的嵌入。 
+    - 我们进一步将字符级功能集成到模型中，以捕获细粒度的子词信息。 
+  - 实验结果：在五个常用数据集上的实验结果表明，我们提出的方法明显优于最新方法。
+- [【关于 LOTClass】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/LOTClass/)
+  - 论文名称：《Text Classification Using Label Names Only: A Language Model Self-Training Approach》
+  - 会议：EMNLP2020
+  - 论文地址：https://arxiv.org/pdf/2010.07245.pdf
+  - 论文源码地址：https://github.com/yumeng5/LOTClass
+  - 动机
+    - 监督学习：标注数据昂贵
+    - 半监督学习：虽然减少了对标注数据的依赖，但还是需要领域专家手动进行标注，特别是在类别数目很大的情况下
+    - 关键词积累：关键词在不同上下文中也会代表不同类别
+  - 方法：
+    - 提出了一种基于预训练神经 LM 的弱监督文本分类模型 LotClass，它不需要任何标记文档，只需要每个类的标签名称。
+    - 提出了一种寻找类别指示词的方法和一个基于上下文的单词类别预测任务，该任务训练LM使用一个词的上下文来预测一个词的隐含类别。经过训练的LM很好地推广了基于未标记语料库的自训练文档级分类
+  - 在四个分类数据集上，LOTClass明显优于各弱监督模型，并具有与强半监督和监督模型相当的性能。
 
 
 #### 实战篇
