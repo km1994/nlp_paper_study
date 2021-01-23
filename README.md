@@ -21,25 +21,24 @@
         - [【关于 预训练模型】 那些的你不知道的事](#关于-预训练模型-那些的你不知道的事)
         - [【关于 信息抽取】 那些的你不知道的事](#关于-信息抽取-那些的你不知道的事)
           - [【关于 实体关系联合抽取】 那些的你不知道的事](#关于-实体关系联合抽取-那些的你不知道的事)
-          - [【关于 命名实体识别】那些你不知道的事：](#关于-命名实体识别那些你不知道的事)
-          - [【关于 关系抽取】那些你不知道的事：](#关于-关系抽取那些你不知道的事)
+          - [【关于 命名实体识别】那些你不知道的事](#关于-命名实体识别那些你不知道的事)
+          - [【关于 关系抽取】那些你不知道的事](#关于-关系抽取那些你不知道的事)
           - [【关于 文档级别关系抽取】那些你不知道的事](#关于-文档级别关系抽取那些你不知道的事)
         - [【关于 知识图谱 】 那些的你不知道的事](#关于-知识图谱--那些的你不知道的事)
-          - [【实体链指篇】](#实体链指篇)
-          - [【【关于 实体消歧 】 那些的你不知道的事】](#关于-实体消歧--那些的你不知道的事)
-          - [【【关于KGQA 】 那些的你不知道的事】](#关于kgqa--那些的你不知道的事)
-          - [【【关于Neo4j  】 那些的你不知道的事】](#关于neo4j---那些的你不知道的事)
+          - [【关于 实体链指篇】 那些的你不知道的事](#关于-实体链指篇-那些的你不知道的事)
+          - [【关于 实体消歧 】 那些的你不知道的事](#关于-实体消歧--那些的你不知道的事)
+          - [【关于KGQA 】 那些的你不知道的事](#关于kgqa--那些的你不知道的事)
+          - [【关于Neo4j  】 那些的你不知道的事](#关于neo4j---那些的你不知道的事)
         - [【关于 细粒度情感分析】 那些的你不知道的事](#关于-细粒度情感分析-那些的你不知道的事)
         - [【关于 主动学习】 那些的你不知道的事](#关于-主动学习-那些的你不知道的事)
         - [【关于 对抗训练】 那些的你不知道的事](#关于-对抗训练-那些的你不知道的事)
-        - [【关于 GCN in NLP 】那些你不知道的事：](#关于-gcn-in-nlp-那些你不知道的事)
+        - [【关于 GCN in NLP 】那些你不知道的事](#关于-gcn-in-nlp-那些你不知道的事)
         - [【关于 文本预处理】 那些的你不知道的事](#关于-文本预处理-那些的你不知道的事)
         - [【关于问答系统】 那些的你不知道的事](#关于问答系统-那些的你不知道的事)
         - [【关于 文本摘要】 那些的你不知道的事](#关于-文本摘要-那些的你不知道的事)
         - [【关于 文本匹配】 那些的你不知道的事](#关于-文本匹配-那些的你不知道的事)
         - [【关于 机器翻译】 那些的你不知道的事](#关于-机器翻译-那些的你不知道的事)
         - [【关于 文本生成】 那些的你不知道的事](#关于-文本生成-那些的你不知道的事)
-        - [【关于 实体消歧】 那些的你不知道的事](#关于-实体消歧-那些的你不知道的事)
         - [【关于 对话系统】 那些的你不知道的事](#关于-对话系统-那些的你不知道的事)
         - [【关于 Rasa 】 那些的你不知道的事](#关于-rasa--那些的你不知道的事)
         - [【关于 半监督学习】 那些的你不知道的事](#关于-半监督学习-那些的你不知道的事)
@@ -401,7 +400,7 @@
     - 首先，我们确定句子中所有可能的 subjects； 
     - 然后针对每个subjects，我们应用特定于关系的标记器来同时识别所有可能的 relations 和相应的 objects。
 
-###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/)：
+###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/)
 
 - [【关于 LEX-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ICLR2021_LEX_BERT/)【强烈推荐】
   - 推荐理由：在 query 中 引入 标签信息的方法，秒杀 Flat NER，登上 2021 年 Chinese NER SOTA。
@@ -538,7 +537,7 @@
   - [一点注释对引导低资源命名实体识别器有很多好处](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EMNLP2019/一点注释对引导低资源命名实体识别器有很多好处/)
 
 
-###### [【关于 关系抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/)：
+###### [【关于 关系抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/)
 - [End-to-End Relation Extraction using LSTMs on Sequences and Tree Structures【2016】](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/T2016_LSTM_Tree/)
 - [【关于 ERNIE】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/ERNIE/)
 - [【关于 GraphRel】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/GraphRel/)
@@ -554,9 +553,29 @@
 ###### [【关于 文档级别关系抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/Doc-level_Relation_Extraction/)
 - [【关于 Double Graph Based Reasoning for Document-level Relation Extraction】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/Doc-level_Relation_Extraction/DoubleGraphBasedReasoningforDocumentlevelRelationExtraction/)
 
-##### [【关于 知识图谱 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/)
+##### [【关于 知识图谱 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/)
 
-###### 【[实体链指篇](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/)】
+- [【关于 知识图谱 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/)
+  - 一、知识图谱简介
+    - 1.1 引言
+    - 1.2 什么是知识图谱呢？
+      - 1.2.1 什么是图（Graph）呢？
+      - 1.2.2 什么是 Schema 呢？
+    - 1.3 知识图谱的类别有哪些？
+    - 1.4 知识图谱的价值在哪呢？
+  - 二、怎么构建知识图谱呢？
+    - 2.1 知识图谱的数据来源于哪里？
+    - 2.2 信息抽取的难点在哪里？
+    - 2.3 构建知识图谱所涉及的技术？
+    - 2.4、知识图谱的具体构建技术是什么？
+      - 2.4.1 实体命名识别（Named Entity Recognition）
+      - 2.4.2 关系抽取（Relation Extraction）
+      - 2.4.3 实体统一（Entity Resolution）
+      - 2.4.4 指代消解（Disambiguation）
+  - 三、知识图谱怎么存储？
+  - 四、知识图谱可以做什么？
+
+###### [【关于 实体链指篇】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/)
 - [【关于  Low-resource Cross-lingual Entity Linking】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/LowResourceCrossLingualEntityLinking/)
   - 论文名称：Design Challenges in Low-resource Cross-lingual Entity Linking
   - 论文地址：https://arxiv.org/pdf/2005.00692.pdf
@@ -566,14 +585,14 @@
   - 论文地址：https://openreview.net/pdf?id=5k8F6UU39V
   - 来源：EMNLP 2020
 
-###### 【[【关于 实体消歧 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/EntityDisambiguation/)】
+###### [【关于 实体消歧 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/EntityDisambiguation/)
 
 - [【关于 DeepType 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/EntityDisambiguation/DeepType/)
   - 论文：DeepType: Multilingual Entity Linking by Neural Type System Evolution
   - 论文地址：https://arxiv.org/abs/1802.01021
   - github：https://github.com/openai/deeptype
 
-###### 【[【关于KGQA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/KGQA/)】
+###### [【关于KGQA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/KGQA/)
 
 - [【关于KGQA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/KGQA/)
   - 一、基于词典和规则的方法
@@ -584,8 +603,26 @@
   - 链接：https://www.aclweb.org/anthology/2020.acl-main.91/
   - 代码：https://github.com/lanyunshi/Multi-hopComplexKBQA
 
-###### 【[【关于Neo4j  】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/neo4j/)】
-  - 一、数据导入
+###### [【关于Neo4j  】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/neo4j/)
+
+- [【关于Neo4j  】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/neo4j/)
+  - 一、Neo4J 介绍与安装
+    - 1.1 引言
+    - 1.2 Neo4J 怎么下载？
+    - 1.3 Neo4J 怎么安装？
+    - 1.4 Neo4J Web 界面 介绍
+    - 1.5 Cypher查询语言是什么？
+  - 二、Neo4J 增删查改篇
+    - 2.1 引言
+    - 2.2 Neo4j 怎么创建节点？
+    - 2.3 Neo4j 怎么创建关系？
+    - 2.4 Neo4j 怎么创建 出生地关系？
+    - 2.5 Neo4j 怎么查询？
+    - 2.6 Neo4j 怎么删除和修改？
+  - 三、如何利用 Python 操作 Neo4j 图数据库？
+    - 3.1 neo4j模块：执行CQL ( cypher ) 语句是什么？
+    - 3.2 py2neo模块是什么？
+  - 四、数据导入 Neo4j 图数据库篇
 
 ##### [【关于 细粒度情感分析】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ABSC_study/)
 
@@ -608,7 +645,7 @@
   - 动机：对抗训练使保留标签的输入扰动的最大风险最小，对于提高语言模型的泛化能力是有效的。 
   - 方法：提出了一种新的对抗性训练算法—— freeb，它通过在字嵌入中添加对抗性的干扰，最小化输入样本周围不同区域内的对抗性风险，从而提高嵌入空间的鲁棒性和不变性。
 
-##### [【关于 GCN in NLP 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/GNN/GCN2NLP/)：
+##### [【关于 GCN in NLP 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/GNN/GCN2NLP/)
 - [【关于 GCN in NLP 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/GNN/GCN2NLP/readme.md)
   - 构图方法：
     - 句法依赖树；
@@ -782,10 +819,6 @@
 
 - [【关于 SLCVAE 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/TextGeneration/SLCVAE/)
 
-##### [【关于 实体消歧】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/EntityDisambiguation/)
-
-- [【关于 DeepType】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/EntityDisambiguation/DeepType/)
-  - 阅读理由：这篇论文属于 实体消歧 领域 比较经典的论文，而且调研了很多相关竞赛，很多 Top 大佬 都会用到它，所以想学习一下！【目前还没看完！！！】
 
 ##### [【关于 对话系统】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/)
 

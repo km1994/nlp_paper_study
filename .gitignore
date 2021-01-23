@@ -47,5 +47,5 @@ task/.idea/*
 *.tsv
 *.neg
 *.pos
-
+**/mywork/*
 
