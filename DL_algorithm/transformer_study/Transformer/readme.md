@@ -35,7 +35,7 @@
 
 ## 问题解答
 
-### 为什么要有 Transformer?
+### 一、为什么要有 Transformer?
 
 为什么要有 Transformer? 首先需要知道在 Transformer 之前都有哪些技术，这些技术所存在的问题：
 
@@ -46,11 +46,11 @@
   - 结果：源端每个词与目标端每个词间的依赖关系 【源端->目标端】
   - 问题：忽略了 远端或目标端 词与词间 的依赖关系
 
-### Transformer 作用是什么？
+### 二、Transformer 作用是什么？
 
 基于Transformer的架构主要用于建模语言理解任务，它避免了在神经网络中使用递归，而是完全依赖于self-attention机制来绘制输入和输出之间的全局依赖关系。
 
-### Transformer 整体结构怎么样？
+### 三、Transformer 整体结构怎么样？
 
 1. 整体结构
 
@@ -82,7 +82,7 @@
 
 ![此次是图片，手机可能打不开](img/20200623093217.png)
 
-### Transformer-encoder 结构怎么样？
+### 四、Transformer-encoder 结构怎么样？
 
 ![此次是图片，手机可能打不开](img/20200624080740.png)
 
@@ -114,7 +114,7 @@
   - 经过 **前馈网络**：
     - 目的：增加非线性的表达能力，毕竟之前的结构基本都是简单的矩阵乘法。若前馈网络的隐向量是512维，则结构最后输出100*512；
 
-### Transformer-decoder 结构怎么样?
+### 五、Transformer-decoder 结构怎么样?
 
 ![此次是图片，手机可能打不开](img/20200624083258.png)
 
@@ -128,7 +128,7 @@
     - 操作：这些分数转换为概率（所有正数，都加起来为1.0）。选择具有最高概率的单元，并且将与其相关联的单词作为该时间步的输出
 
 
-### 传统 attention 是什么?
+### 六、传统 attention 是什么?
 
 ![此次是图片，手机可能打不开](img/微信截图_20200625085139.png)
 - 注意力机制是什么呢？
@@ -187,7 +187,7 @@
 - 存在问题
   - 忽略了 源端或目标端 词与词间 的依赖关系【以上面栗子为例，就是把注意力集中于美女身上，而没看自己周围环境，结果可能就扑街了！】
 
-### self-attention 长怎么样?
+### 七、self-attention 长怎么样?
 
 - 动机
   -  CNN 所存在的长距离依赖问题；
@@ -230,7 +230,7 @@
   - 捕获源端和目标端词与词间的依赖关系
   - 捕获源端或目标端自身词与词间的依赖关系
 
-### self-attention 如何解决长距离依赖问题？
+### 八、self-attention 如何解决长距离依赖问题？
 
 - 引言：
   - 在上一个问题中，我们提到 CNN 和 RNN 在处理长序列时，都存在 长距离依赖问题，那么你是否会有这样 几个问题：
@@ -283,7 +283,7 @@
   - 具体介绍：
     - 对于 当前query，你需要 与 句子中 所有 key 进行点乘后再 Softmax ，以获得 句子中 所有 key 对于 当前query 的 score(可以理解为 贡献度)，然后与 所有词 的 value 向量进行加权融合之后，就能使 当前 $y_t$ 学习到句子中 其他词$x_{t-k}$的信息；
 
-### self-attention 如何并行化？
+### 九、self-attention 如何并行化？
 
 - 引言：
   - 在上一个问题中，我们主要讨论了 CNN 和 RNN 在处理长序列时，都存在 长距离依赖问题，以及 Transformer 是 如何解决 长距离依赖问题，但是对于 RNN ,还存在另外一个问题：
@@ -296,7 +296,7 @@
   - 思路：
     - 在 self-attention 能够 并行的 计算 句子中不同 的 query，因为每个 query 之间并不存在 先后依赖关系，也使得 transformer 能够并行化；
 
-### multi-head attention 怎么解?
+### 十、multi-head attention 怎么解?
 
 - 思路：
   - 相当于 $h$ 个 不同的 self-attention 的集成
@@ -330,7 +330,7 @@
 
 ![此次是图片，手机可能打不开](img/v2-595ce4ebf9b3fccb479f7d234190af35_b.gif)
 
-### 为什么要 加入 position embedding ？
+### 十一、为什么要 加入 position embedding ？
 
 - 问题：
   - 介绍：缺乏 一种 表示 输入序列中 单词顺序 的方法
@@ -364,11 +364,11 @@
 > 
 > 在奇数位置：使用 余弦编码 $cos()$;
 
-### 为什么要 加入 残差模块？
+### 十二、为什么要 加入 残差模块？
 
 - 动机：因为 transformer 堆叠了 很多层，容易 梯度消失或者梯度爆炸
 
-### Layer normalization。Normalization 是什么?
+### 十三、Layer normalization。Normalization 是什么?
 
 - 动机：因为 transformer 堆叠了 很多层，容易 梯度消失或者梯度爆炸；
 - 原因：
@@ -388,7 +388,7 @@
 
 ![此次是图片，手机可能打不开](img/QQ截图20200625110706.png)
 
-### 什么是 Mask？
+### 十四、什么是 Mask？
 
 - 介绍：掩盖某些值的信息，让模型信息不到该信息；
 - 类别：padding mask and sequence mask
@@ -415,7 +415,7 @@
 > 
 > 在 encoder 的 scaled dot-product attention 中，里面的 attn_mask = padding mask
 
-### Transformer 存在问题？
+### 十五、Transformer 存在问题？
 
 - 引言
   - 居然 Transformer 怎么厉害，那么 是否也存在不足呢?
@@ -472,7 +472,7 @@
   - 解决方法：
     - [Linformer](https://arxiv.org/abs/2006.04768)
 
-### Transformer 怎么 Coding?
+### 十六、Transformer 怎么 Coding?
 
 - 最后的最后，送上 whalePaper 成员 逸神 的 【[Transformer 理论源码细节详解](https://zhuanlan.zhihu.com/p/106867810)】;
 
