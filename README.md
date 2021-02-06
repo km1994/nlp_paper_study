@@ -402,6 +402,19 @@
 
 ###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/)
 
+- [【关于 NER数据存在漏标问题】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/UnlabeledEntityProblem/)
+  - 一、摘要
+  - 二、为什么 数据会存在漏标？
+  - 三、什么是 带噪学习
+  - 四、NER 数据漏标问题所带来后果？
+  - 五、NER 性能下降 **原因**是什么？
+  - 六、论文所提出的方法是什么？
+  - 七、数据漏标，会导致NER指标下降有多严重？
+  - 八、对「未标注实体问题」的解决方案有哪些？
+  - 九、如何降噪：改变标注框架+负采样？
+    - 9.1 第一步：改变标注框架
+    - 9.2 第二步：负采样
+  - 十、负样本采样，效果如何？
 - [【关于 LEX-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ICLR2021_LEX_BERT/)【强烈推荐】
   - 推荐理由：在 query 中 引入 标签信息的方法，秒杀 Flat NER，登上 2021 年 Chinese NER SOTA。
   - 论文名称：《Lex-BERT: Enhancing BERT based NER with lexicons》
@@ -409,11 +422,12 @@
   - 方法：
     - LEX-BERT V1：Lex BERT的第一个版本通过在单词的左右两侧插入特殊标记来识别句子中单词的 span。特殊标记不仅可以标记单词的起始位置和结束位置，还可以为句子提供实体类型信息
     - LEX-BERT V2：对于在句子中加宽的单词，我们没有在句子中单词的周围插入起始和结束标记，而是在句子的末尾附加一个标记[x]。请注意，我们将标记的位置嵌入与单词的起始标记绑定
-- [【关于 Biaffine Ner 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2020_NERasDependencyParsing/)
-  - 动机：NER 研究 关注于 扁平化NER，而忽略了 实体嵌套问题；
-  - 方法： 在本文中，我们使用基于图的依存关系解析中的思想，以通过 biaffine model 为模型提供全局的输入视图。 biaffine model 对句子中的开始标记和结束标记对进行评分，我们使用该标记来探索所有跨度，以便该模型能够准确地预测命名实体。
-  - 工作介绍：在这项工作中，我们将NER重新确定为开始和结束索引的任务，并为这些对定义的范围分配类别。我们的系统在多层BiLSTM之上使用biaffine模型，将分数分配给句子中所有可能的跨度。此后，我们不用构建依赖关系树，而是根据候选树的分数对它们进行排序，然后返回符合 Flat 或  Nested NER约束的排名最高的树 span；
-  - 实验结果：我们根据三个嵌套的NER基准（ACE 2004，ACE 2005，GENIA）和五个扁平的NER语料库（CONLL 2002（荷兰语，西班牙语），CONLL 2003（英语，德语）和ONTONOTES）对系统进行了评估。结果表明，我们的系统在所有三个嵌套的NER语料库和所有五个平坦的NER语料库上均取得了SoTA结果，与以前的SoTA相比，实际收益高达2.2％的绝对百分比。
+- [【关于 嵌套命名实体识别（Nested NER）】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/NestedNER/)
+  - [【关于 Biaffine Ner 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2020_NERasDependencyParsing/)
+    - 动机：NER 研究 关注于 扁平化NER，而忽略了 实体嵌套问题；
+    - 方法： 在本文中，我们使用基于图的依存关系解析中的思想，以通过 biaffine model 为模型提供全局的输入视图。 biaffine model 对句子中的开始标记和结束标记对进行评分，我们使用该标记来探索所有跨度，以便该模型能够准确地预测命名实体。
+    - 工作介绍：在这项工作中，我们将NER重新确定为开始和结束索引的任务，并为这些对定义的范围分配类别。我们的系统在多层BiLSTM之上使用biaffine模型，将分数分配给句子中所有可能的跨度。此后，我们不用构建依赖关系树，而是根据候选树的分数对它们进行排序，然后返回符合 Flat 或  Nested NER约束的排名最高的树 span；
+    - 实验结果：我们根据三个嵌套的NER基准（ACE 2004，ACE 2005，GENIA）和五个扁平的NER语料库（CONLL 2002（荷兰语，西班牙语），CONLL 2003（英语，德语）和ONTONOTES）对系统进行了评估。结果表明，我们的系统在所有三个嵌套的NER语料库和所有五个平坦的NER语料库上均取得了SoTA结果，与以前的SoTA相比，实际收益高达2.2％的绝对百分比。
 - [【关于 NER trick】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/NERtrick.md)
 - [【关于TENER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2019/ACL2019_TENER/)
   - 论文名称：TENER: Adapting Transformer Encoder for Name Entity Recognition
@@ -605,7 +619,7 @@
 
 ###### [【关于Neo4j  】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/neo4j/)
 
-- [【关于Neo4j  】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/neo4j/)
+- [【关于Neo4j】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/neo4j/)
   - 一、Neo4J 介绍与安装
     - 1.1 引言
     - 1.2 Neo4J 怎么下载？
@@ -623,6 +637,8 @@
     - 3.1 neo4j模块：执行CQL ( cypher ) 语句是什么？
     - 3.2 py2neo模块是什么？
   - 四、数据导入 Neo4j 图数据库篇
+
+- [【关于 Neo4j 索引】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/neo4j/index.md)
 
 ##### [【关于 细粒度情感分析】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ABSC_study/)
 
@@ -819,7 +835,6 @@
 
 - [【关于 SLCVAE 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/TextGeneration/SLCVAE/)
 
-
 ##### [【关于 对话系统】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/)
 
 1. [【关于 Domain/Intent Classification 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/IntentClassification/)
@@ -864,7 +879,42 @@
 
 ##### [【关于 NLP分类任务】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/)
 
-- [【关于 NLP分类任务】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/)
+- [【关于 NLP分类任务】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/) 
+  - 转载于：JayLou娄杰大佬的 [如何解决NLP分类任务的11个关键问题：类别不平衡&低耗时计算&小样本&鲁棒性&测试检验&长文本分类](https://zhuanlan.zhihu.com/p/183852900)
+- [【关于 文本分类 trick】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/classifier_trick/)
+  - 一、数据预处理篇
+    - 1.1 vocab 构建问题
+    - 1.2 模型输入问题
+    - 1.3 噪声数据处理问题
+    - 1.4 中文任务分词问题
+    - 1.5 停用词处理问题
+  - 二、模型篇
+    - 2.1 模型选择问题
+    - 2.2 词袋模型 or 词向量————词向量选择问题
+    - 2.3 字 or 词向量———— 粒度选择问题
+  - 三、参数篇
+    - 3.1 正则化问题
+    - 3.2 学习率问题
+  - 四、任务篇
+    - 4.1 二分类问题
+    - 4.2 多标签分类问题
+    - 4.3 长文本问题
+    - 4.4 鲁棒性问题
+  - 五、标签体系构建
+    - 5.1 标签体系构建问题
+    - 5.2 标签体系合理性评估问题
+  - 六、策略构建篇
+    - 6.1 算法策略构建问题
+    - 6.2 特征挖掘策略问题
+    - 6.3 数据不均衡问题
+      - 6.3.1 重采样（re-sampling）
+      - 6.3.2 重加权（re-weighting）
+      - 6.3.3 数据增强
+    - 6.4 预训练模型融合角度问题
+    - 6.5 灾难性遗忘问题
+    - 6.6 小模型大智慧
+      - 6.6.1 模型蒸馏
+      - 6.6.2 数据蒸馏
 - [【关于 Knowledge in TextCNN】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/KG_classifier/)
   - 论文： Combining Knowledge with Deep Convolutional Neural Networks for Short Text Classification
   - github：https://zhuanlan.zhihu.com/p/183852900

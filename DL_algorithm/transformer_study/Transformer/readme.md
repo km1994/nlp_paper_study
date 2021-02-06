@@ -408,7 +408,17 @@
     - 动机：不可预测性；
     - 目标：sequence mask 是为了使得 decoder 不能看见未来的信息。也就是对于一个序列，在 time_step 为 t 的时刻，我们的解码输出应该只能依赖于 t 时刻之前的输出，而不能依赖 t 之后的输出。因此我们需要想一个办法，把 t 之后的信息给隐藏起来。
     - 做法：
-      - 产生一个上三角矩阵，上三角的值全为0。把这个矩阵作用在每一个序列上，就可以达到我们的目的
+      - 产生一个下三角矩阵，上三角的值全为0，下三角全是 1。把这个矩阵作用在每一个序列上，就可以达到我们的目的
+
+![](img/微信截图_20210128073806.png)
+> sequence mask 公式
+
+![](img/微信截图_20210128074033.png)
+> 注意力矩阵， 每个元素 $a_{ij}$ 代表  第 i 个词和第 j 个词的内积相似度
+
+![](img/微信截图_20210128074300.png)
+> 下三角矩阵，上三角的值全为0，下三角全是 1
+
 > 注：
 > 
 > 在 decoder 的 scaled dot-product attention 中，里面的 attn_mask = padding mask + sequence mask
@@ -490,4 +500,5 @@
 8. [Transformer-XL: Unleashing the Potential of Attention Models](https://ai.googleblog.com/2019/01/transformer-xl-unleashing-potential-of.html)
 9. [The Importance of Being Recurrent for Modeling Hierarchical Structure](https://arxiv.org/abs/1803.03585)
 10. [Linformer](https://arxiv.org/abs/2006.04768)
+11. [Transformer原理详解](https://zhuanlan.zhihu.com/p/127774251)
 

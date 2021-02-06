@@ -10,24 +10,14 @@
 > 
 > 【注：手机阅读可能图片打不开！！！】
 
-## 目录
-
-- [【关于 Bert 源码解析 之 总览大局篇】 那些的你不知道的事](#关于-bert-源码解析-之-总览大局篇-那些的你不知道的事)
-  - [目录](#目录)
-  - [参考](#参考)
+##   内容
 
 
-
-
-## 参考
-
-1. [Bert系列（一）——demo运行](https://www.jianshu.com/p/3d0bb34c488a)
-2. [Bert系列（二）——源码解读之模型主体](https://www.jianshu.com/p/d7ce41b58801)
-3. [Bert系列（三）——源码解读之Pre-train](https://www.jianshu.com/p/22e462f01d8c)
-4. [Bert系列（四）——源码解读之Fine-tune](https://www.jianshu.com/p/116bfdb9119a)
-5. [Bert系列（五）——中文分词实践 F1 97.8%(附代码)](https://www.jianshu.com/p/be0a951445f4)
-6. [BERT源码分析PART I](https://zhuanlan.zhihu.com/p/69106080)
-
+- [【关于 Bert 源码解析I 之 主体篇 】 那些的你不知道的事](bertCode1_modeling.md)
+- [【关于 Bert 源码解析I 之 主体篇 】 那些的你不知道的事](bertCode2_pretraining.md)
+- [【关于 Bert 源码解析I 之 主体篇 】 那些的你不知道的事](bertCode3_fineTune.md)
+- [【关于 Bert 源码解析I 之 主体篇 】 那些的你不知道的事](bertCode4_word2embedding.md)
+- [【关于 Bert 源码解析I 之 主体篇 】 那些的你不知道的事](bertCode5_similarity.md)
 
 
 

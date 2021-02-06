@@ -44,6 +44,10 @@
     - 离散、稀疏问题：因为 one-Hot 中，句子向量，如果词出现则为1，没出现则为0，但是由于维度远大于句子长度，所以句子中的1远小于0的个数；
     - 维度鸿沟问题：词语的编码往往是随机的，导致不能很好地刻画词与词之间的相似性。
 
+
+
+
+
 ### 【演变史】wordvec 是什么及所存在问题?
 
 - 双剑客
@@ -62,7 +66,10 @@
 - 存在问题：
   - 多义词问题
     - 因为 word2vec 为静态方式，即训练好后，每个词表达固定；
-  
+
+
+
+
 ### 【演变史】fastText 是什么及所存在问题? 
 
 - 动机
@@ -181,6 +188,9 @@
           - 构造步骤：
             - ![](img/20200629085906.png)
 
+
+
+
 ### 【演变史】elmo 是什么及所存在问题? 
 
 - 动机
@@ -201,11 +211,15 @@
   - 1. 在做序列编码任务时，使用 LSTM；
   - 2. ELMo 采用双向拼接的融合特征，比Bert一体化融合特征方式弱；
 
+
+
 ### 【BERT】Bert 是什么?
 
 BERT（Bidirectional Encoder Representations from Transformers）是一种Transformer的双向编码器，旨在通过在左右上下文中共有的条件计算来预先训练来自无标号文本的深度双向表示。因此，经过预先训练的BERT模型只需一个额外的输出层就可以进行微调，从而为各种自然语言处理任务生成最新模型。
 
 这个也是我们常说的 【预训练】+【微调】
+
+
 
 ### 【BERT】Bert 三个关键点？
 
@@ -222,6 +236,9 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
       - 如果仅取左上下文或右上下文来预测单词“bank”的性质，那么在两个给定示例中，至少有一个会出错；
     - 解决方法：
       - 在做出预测之前同时考虑左上下文和右上下文
+
+
+
 
 ### 【BERT】Bert 输入输出表征长啥样？
 
@@ -244,11 +261,16 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
   - 对于单句输入，我们只使用句子A嵌入
 
 
+
+
 ### 【BERT】Bert 预训练任务？
 
 - 预训练 包含 两个 Task:
   - Task 1：Masked LM
   - Task 2：Next Sentence Prediction
+
+
+
 
 ### 【BERT】Bert 预训练任务 Masked LM 怎么做？
 
@@ -275,6 +297,9 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
   - 收敛速度慢问题：
     - 原因：每 batch 中只预测了15％的词块，导致 收敛速度慢
   
+
+
+
 ### 【BERT】Bert 预训练任务 Next Sentence Prediction 怎么做？
 
 - 动机：很多重要的下游任务，例如问答(QA)和自然语言推理(NLI)，都是基于对两个文本句子间关系的理解，而这种关系并非通过语言建模直接获得
@@ -288,6 +313,9 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
     - > 输入=[CLS]男人[面具]到商店[SEP]企鹅[面具]是飞行##少鸟[SEP]
     - > Label= NotNext
 
+
+
+
 ### 【BERT】如何 fine-turning？
 
 - 动机：获得输入序列的固定维度池化表征
@@ -295,6 +323,9 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
   - 对该输入第一个词块采取最终隐藏状态(例如，该变换器输出)，通过对应于特殊[CLS]词嵌入来构造。我们将该向量表示为$C∈R^H$。
   - 微调期间添加的唯一新参数是分类层向量$W∈R^{KxH}$，其中K是分类器标签的数量。
   - 该标签概率$P∈R^K$用标准softmax函数，P=softmax(CWT)计算。BERT和W的所有参数都经过联动地微调，以最大化正确标签的对数概率
+
+
+
 
 ### 【BERT】BERT的两个预训练任务对应的损失函数是什么(用公式形式展示)？
 
@@ -322,6 +353,8 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
 - 两个任务联合学习的损失函数是：
 
 ![](img/20201130205357.png)
+
+
 
 
 
