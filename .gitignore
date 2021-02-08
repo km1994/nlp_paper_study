@@ -15,6 +15,7 @@ model/
 version/
 **/version/
 **/gitinfo/
+**/mywork/
 
 T1_Relation_Classification_via_CDNN/saved_models/*
 
