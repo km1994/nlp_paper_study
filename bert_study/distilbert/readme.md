@@ -3,7 +3,9 @@
 > 作者：杨夕
 > 
 > github：https://github.com/km1994/nlp_paper_study
+> 
 > 论文：DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter
+> 
 > paper：http://arxiv.org/abs/1910.01108
 
 # 摘要
@@ -24,7 +26,6 @@
 ## 模型蒸馏思路
 
 ### 思路介绍
-
 
 知识蒸馏 [Bucila 等，2006； Hinton 等，2015] 是一种压缩技术，训练一个紧凑型模型（学生），以再现较大模型（教师）或模型集合的行为。
 

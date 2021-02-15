@@ -249,6 +249,16 @@
       - 剪枝会直接降低模型的拟合能力；
       - 量化虽然有提升但也有瓶颈；
       - 蒸馏的不确定性最大，很难预知你的BERT教出来怎样的学生；
+  - [【关于 Distilling Task-Specific Knowledge from BERT into Simple Neural Networks】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/BERTintoSimpleNeuralNetworks/)
+    - 动机：
+      - 随着 BERT 的横空出世，意味着 上一代用于语言理解的较浅的神经网络（RNN、CNN等） 的 过时？
+      - BERT模型是真的大，计算起来太慢了？
+      - 是否可以将BERT（一种最先进的语言表示模型）中的知识提取到一个单层BiLSTM 或 TextCNN 中？
+    - 思路：
+        1. 确定 Teacher 模型（Bert） 和 Student 模型（TextCNN、TextRNN）;
+        2. 蒸馏的两个过程：
+           1. 第一，在目标函数附加logits回归部分；
+           2. 第二，构建迁移数据集，从而增加了训练集，可以更有效地进行知识迁移。
   - [【关于 AlBert 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T5_ALBERT/)
     - 模型压缩方法：低秩因式分解 + 跨层参数共享
     - 模型压缩方法介绍：
