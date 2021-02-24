@@ -1,5 +1,15 @@
 # 【关于 文本分类 trick】那些你不知道的事
 
+> 作者：杨夕
+> 
+> 论文：Distilling Task-Specific Knowledge from BERT into Simple Neural Networks
+> 
+> 论文地址：https://arxiv.org/abs/1903.12136
+> 
+> 项目地址：https://github.com/km1994/nlp_paper_study
+>
+> 【注：手机阅读可能图片打不开！！！】
+
 - [【关于 文本分类 trick】那些你不知道的事](#关于-文本分类-trick那些你不知道的事)
   - [一、数据预处理问题](#一数据预处理问题)
     - [1.1 vocab 构建问题](#11-vocab-构建问题)

@@ -342,7 +342,7 @@ BERT（Bidirectional Encoder Representations from Transformers）是一种Transf
 >  θ1：是 Mask-LM 任务中在 Encoder 上所接的输出层中的参数；
 >  θ2：是句子预测任务中在 Encoder 接上的分类器参数；
 
-- 在第一部分的损失函数中，如果被 mask 的词集合为 M，因为它是一个词典大小 |V| 上的多分类问题，那么具体说来有：
+- 在第一部分的损失函数中，如果被 mask 的词集合为 M，因为它是一个词典大小 |V| 上的多分类问题，所用的损失函数叫做负对数似然函数（且是最小化，等价于最大化对数似然函数），那么具体说来有：
 
 ![](img/20201130205229.png)
 
