@@ -91,7 +91,7 @@
 ##### 经典会议论文研读篇
 
 - [ACL2020](ACL/ACL2020.md)
-  - [【关于 CHECKLIST】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/ACL2020_bertpaper_CHECKLIST/)
+  - [【关于 CHECKLIST】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/other_study/meeting/ACL_study/ACL2020_bertpaper_CHECKLIST/)
     - 阅读理由：ACL2020 best paper ，利用 软件工程 的 思想 思考 深度学习
     - 动机：针对 train-val-test 分割方法 评估 模型性能容易出现 不全面、偏向性、可解性差问题；
     - 方法：提出了一种模型无关和任务无关的测试方法checklist，它使用三种不同的测试类型来测试模型的独立性。
