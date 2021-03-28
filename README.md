@@ -45,15 +45,19 @@
         - [【关于 机器翻译】 那些的你不知道的事](#关于-机器翻译-那些的你不知道的事)
         - [【关于 文本生成】 那些的你不知道的事](#关于-文本生成-那些的你不知道的事)
         - [【关于 对话系统】 那些的你不知道的事](#关于-对话系统-那些的你不知道的事)
+          - [【关于 自然语言生成NLG 】那些你不知道的事](#关于-自然语言生成nlg-那些你不知道的事)
+          - [【关于 E2E 】那些你不知道的事](#关于-e2e-那些你不知道的事)
         - [【关于 Rasa 】 那些的你不知道的事](#关于-rasa--那些的你不知道的事)
         - [【关于 半监督学习】 那些的你不知道的事](#关于-半监督学习-那些的你不知道的事)
         - [【关于 NLP分类任务】那些你不知道的事](#关于-nlp分类任务那些你不知道的事)
+        - [【关于 中文分词】那些你不知道的事](#关于-中文分词那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
     - [推荐系统 学习篇](#推荐系统-学习篇)
     - [竞赛篇](#竞赛篇)
     - [GCN_study学习篇](#gcn_study学习篇)
+  - [参考资料](#参考资料)
 
 ## 介绍
 
@@ -858,19 +862,73 @@
 
 - [Neural Machine Translation of Rare Words with Subword Units 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/NeuralMachineTranslationOfRareWordsWithSubwordUnits/)
 
-##### [【关于 文本生成】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/TextGeneration/)
+##### [【关于 文本生成】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/)
 
-- [【关于 SLCVAE 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/TextGeneration/SLCVAE/)
+- [【关于 SLCVAE 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/SLCVAE/)
+- [【关于 ScriptWriter 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/ScriptWriter/)
+  - 论文：ScriptWriter: Narrative-Guided Script Generation
+  - 发表会议：ACL2020
+  - 论文地址：https://arxiv.org/abs/2005.10331
+  - github：https://github.com/DaoD/ScriptWriter
+  - 论文动机：如果人为提供一些参考信息（例如情节），能否进一步提高文本生成的质量？例如，在故事生成这一问题中，现有模型要从头考虑如何生成一整个故事，难度比较大，那如果人为提供一个故事线，是否可以提升模型的性能呢？
+  - 论文方法：
+    - 根据给定的情节和已有的台词上文生成后续台词。在这一模型中，我们设计了一个情节追踪模块，这一模块可以使模型根据已有的上文内容判断情节的表达情况，并在后续生成中更加关注未表达的情节。实验结果表明，情节的确可以帮助模型提高台词的生成质量，且相比于其他模型，ScriptWriter能够更有效地利用情节信息。
+  - 论文思路：
+  1. 多层注意力机制：将情节、上文、候选回复表示为向量。
+  2. 情节更新机制：使情节的表示包含更多未表达部分的情节信息。
+  3. 抽取了三类匹配特征：
+     1. （1）上文-回复匹配，其能够反映回复是否与上文连贯；
+     2. （2）情节-回复匹配，其能够反映回复是否与情节相符；
+     3. （3）上文-情节匹配，其能够隐式反映哪些情节已经被上文表达。
+  4. 最后，这些匹配特征经过CNN的进一步抽取和聚集，再经过MLP得到最终的匹配得分。
 
 ##### [【关于 对话系统】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/)
 
-1. [【关于 Domain/Intent Classification 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/IntentClassification/)
-2. [【关于 槽位填充 (Slot Filling)】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/SlotFilling/)
-3. [【关于 上下文LU】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/contextLU/)
-4. [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/)
-5. [【关于 DSTC 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DSTC/)
-6. [【关于 E2E 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/)
-   1. [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/TC_Bot/)
+- [【关于 Domain/Intent Classification 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/IntentClassification/)
+- [【关于 槽位填充 (Slot Filling)】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/SlotFilling/)
+- [【关于 上下文LU】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/contextLU/)
+- [【关于 DSTC 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DSTC/)
+
+###### [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/)
+- [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/)
+- [【关于 IRN 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/IRN/)
+  - 论文：ScriptWriter: Narrative-Guided Script Generation
+  - 发表会议：ACL2020
+  - 论文地址：https://www.aclweb.org/anthology/2020.acl-main.10/
+  - github：#
+  - 论文动机：如何将输入中对话状态的slot-value对正确的在response生成
+  - 论文方法：
+    - 迭代网络：来不断修正生成过程不对的slot-value；
+    - 强化学习：不断更新，实验证明我们的网络生成的回复中中slot关键信息生成的正确性大大提高。
+  - 实验结果：对多个基准数据集进行了综合研究，结果表明所提出的方法显著降低了所有强基线的时隙错误率。人类的评估也证实了它的有效性。
+
+###### [【关于 E2E 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/)
+
+- [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/TC_Bot/)
+- [【关于 DF-Net 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/DynamicFusionNetwork/)
+  - 论文：Dynamic Fusion Network for Multi-Domain End-to-end Task-Oriented Dialog
+  - 发表会议：ACL2020
+  - 论文地址：https://arxiv.org/abs/2004.11019
+  - github：https://github.com/LooperXX/DF-Netmd
+  - 论文动机：
+    1. 依赖大量标准数据：端到端的模型依赖于大量的标注数据，这就导致了模型在一个新拓展的领域上很难利用。
+    2. 对于一个新的领域，总是很难收集足够多的数据。这就使得将知识从具有充足标注数据的源领域迁移到一个只有少量标注数据的新领域成为非常重要的问题。
+  - 前沿工作总结
+    - 第一类：简单地结合多领域的数据集进行训练，如图 (a)
+      - 优点：隐含地提取共享的特征
+      - 缺点：很难有效捕捉领域特有的知识
+    - 第二类是在各个领域单独地训练模型，如图 (b)
+      - 优点：能够很好地捕捉领域特有的知识；
+      - 缺点：却忽视了不同领域间共有的知识。
+    - 第三类：通过建模不同领域间知识的连接来解决已有方法的局限。已有的一个简单的baseline如图 (c)，将领域共享的和领域私有的特征合并在一个共享-私有 (shared-private) 架构中。
+      - 优点：区分了共享以及私有的知识
+      - 缺点：
+        - 一是面对一个几乎不具备数据的新领域时，私有模块无法有效提取对应的领域知识；
+        - 二是这个架构忽略了一些领域子集间细粒度的想关性（比如和天气领域相比，导航领域和规划领域更相关）。
+  - 思路：
+  1. shared-private 架构：学习共享的知识以及对应的领域特有特征；
+  2. 动态融合网络：动态地利用所有领域间的相关性提供给下一步细粒度知识迁移；
+  3. 对抗训练 (adversarial training) ：促使共享模块生成领域共享特征
 
 ##### [【关于 Rasa 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/)
 
@@ -966,6 +1024,42 @@
     - 提出了一种寻找类别指示词的方法和一个基于上下文的单词类别预测任务，该任务训练LM使用一个词的上下文来预测一个词的隐含类别。经过训练的LM很好地推广了基于未标记语料库的自训练文档级分类
   - 在四个分类数据集上，LOTClass明显优于各弱监督模型，并具有与强半监督和监督模型相当的性能。
 
+##### [【关于 中文分词】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/chinese_word_segmentation/)
+
+- [【关于 中文分词】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/chinese_word_segmentation/)
+  - 一、什么是 中文分词？
+  - 二、为什么用使用 中文分词，直接用句子或字不好么？
+  - 三、中文分词 有哪些难点？
+  - 四、常用方法有哪些？
+    - 4.1 基于词典的中文分词方法
+      - 4.1.1 正向最大匹配法
+      - 4.1.2 负向最大匹配法
+      - 4.1.3 双向最大匹配法
+    - 4.2 基于N-gram语言模型的分词方法
+    - 4.3 基于规则的中文分词方法
+- [【关于 DAAT 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/chinese_word_segmentation/DAAT/)
+  - 论文：Coupling Distant Annotation and Adversarial Training for Cross-Domain Chinese Word Segmentation
+  - 发表会议：ACL2020
+  - 论文地址：hhttps://arxiv.org/abs/2007.08186
+  - github：https://github.com/Alibaba-NLP/DAAT-CWS
+  - 动机：完全监督的神经方法在中文分词（CWS）的任务中取得了重大进展。将监督模型应用于域外数据时，其性能往往会急剧下降。
+    - 性能下降原因：
+      - 跨域的分布差距
+      - 词汇不足（OOV）问题
+  - 方法
+    - Distant annotation（DA）
+      - 目的：自动生成目标域内句子的分词结果
+      - 方法：是在不需要任何人工定义词典的情况下，自动对目标领域文本实现自动标注。
+      - 思路：
+        - 基本分词器：使用来自源域的标注数据训练，用于识别源域和目标域中常见的单词
+        - 特定领域的单词挖掘器：旨在探索目标特定于领域的单词
+      - 存在问题
+        - 存在影响最终性能的标注错误问题
+    - Adversarial Training（AT）
+      - 动机：为了降低噪声数据的影响，更好地利用源域数据，
+      - 方法：在源域数据集和通过Distant annotation构造的目标领域数据集上联合进行Adversarial training的方法。
+      - 优点：Adversarial training模块可以捕获特定领域更深入的特性，和不可知领域的特性。
+
 
 #### 实战篇
 
@@ -1033,4 +1127,7 @@
   - [DGL 入门](https://github.com/km1994/GCN_study/blob/master/DGL_study/DGL_introduction.md)
   - [DGL 入门 —— GCN 实现](https://github.com/km1994/GCN_study/blob/master/DGL_study/DGL_GCN_introduction.md)
 
+## 参考资料
 
+1. [【ACL2020放榜!】事件抽取、关系抽取、NER、Few-Shot 相关论文整理](https://www.pianshen.com/article/14251297031/)
+2. [第58届国际计算语言学协会会议（ACL 2020）有哪些值得关注的论文？](https://www.zhihu.com/question/385259014)
