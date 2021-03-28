@@ -575,7 +575,24 @@
   - [NRE_with_Selective_Attention_over_Instances](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/T2_DistantSupervisedLearning/T2_NRE_with_Selective_Attention_over_Instances/)
 
 ###### [【关于 文档级别关系抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/Doc-level_Relation_Extraction/)
+
 - [【关于 Double Graph Based Reasoning for Document-level Relation Extraction】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/Doc-level_Relation_Extraction/DoubleGraphBasedReasoningforDocumentlevelRelationExtraction/)
+- [【关于 ATLOP】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/Doc-level_Relation_Extraction/ATLOP/)
+  - 论文：Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling
+  - 发表会议：AAAI
+  - 论文地址：https://arxiv.org/abs/2010.11304
+  - github：https://github.com/wzhouad/ATLOP
+  - 论文动机：
+    - 对于文档级RE，一个文档包含多个实体对，需要同时对它们之间的关系进行分类 【语句级RE只包含一对实体对】
+    - 对于文档级RE，一个实体对可以在与不同关系关联的文档中多次出现【对于句子级RE，每个实体对只能出现一个关系】 -> 多标签问题
+    - 目前对于文档关系抽取主流的做法是采用基于graph的方法来做，但是很多基于BERT的工作也能够得到很好的结果，并且在基于graph的模型的实验部分，也都证明了BERT以及BERT-like预训练模型的巨大提升，以至于让人怀疑是否有必要引入GNN？作者发现如果只用BERT的话，那么对于不同的entity pair，entity的rep都是一样的，这是一个很大的问题，那是否能够不引入graph的方式来解决这个问题呢？
+  - 论文方法：
+    - localized context pooling
+      - 解决问题：解决了 using the same entity embedding for allentity pairs 问题
+      - 方法：使用与当前实体对相关的额外上下文来增强 entity embedding。不是从头开始训练一个new context attention layer ，而是直接将预先训练好的语言模型中的注意头转移到实体级的注意上
+    - adaptive thresholding
+      - 解决问题：问题 1 的 多实体对问题 和 问题 2 实体对存在多种关系问题
+      - 方法：替换为先前学习中用于多标签分类的全局阈值，该阈值为**可学习的依赖实体的阈值**。
 
 ##### [【关于 知识图谱 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/)
 
