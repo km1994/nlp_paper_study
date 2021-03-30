@@ -169,6 +169,14 @@
     - 缺点：
       - [MASK]预训练和微调之间的不匹配
       - Max Len 为 512
+    - [【关于SpanBert】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T1_bert/)
+      - 论文：SpanBERT: Improving Pre-training by Representing and Predicting Spans
+      - 论文地址：https://arxiv.org/abs/1907.10529
+      - github：https://github.com/facebookresearch/SpanBERT
+      - 动机：旨在更好地表示和预测文本的 span;
+      - 论文方法->扩展了BERT：
+        - （1）屏蔽连续的随机 span，而不是随机标记；
+        - （2）训练 span 边界表示来预测屏蔽 span 的整个内容，而不依赖其中的单个标记表示。
   - [【关于 XLNet 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T2_XLNet/)
     - 阅读理由：Bert 问题上的改进
     - 动机：
