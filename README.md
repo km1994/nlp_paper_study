@@ -1118,7 +1118,8 @@
   
 ### 竞赛篇
 
-- [竞赛篇](game_study)
+- [竞赛篇](nlp_game)
+  - [【关于 NLP比赛】 那些你不知道的事](nlp_game/)
 
 ### [GCN_study学习篇](https://github.com/km1994/GCN_study)
 
