@@ -54,7 +54,6 @@
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
-    - [推荐系统 学习篇](#推荐系统-学习篇)
     - [竞赛篇](#竞赛篇)
     - [GCN_study学习篇](#gcn_study学习篇)
   - [参考资料](#参考资料)
@@ -1099,22 +1098,6 @@
 
 - [Elastrsearch 学习](es_study/)
   - [ElasticSearch架构解析与最佳实践.md](es_study/ElasticSearch架构解析与最佳实践.md)
-
-### 推荐系统 学习篇
-
-- [推荐系统 基础](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/base_study)
-  - [【关于 推荐系统】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/base_study/base1_基础概念篇.md)
-  - [【关于 召回】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/base_study/base2_召回篇.md)
-  - [【关于 embedding召回】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/base_study/base3_embedding召回.md)
-  - [【关于 协同过滤】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/base_study/)
-  - [【关于 矩阵分解】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/base_study/base5_矩阵分解.md)
-  - [【关于 FM】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/base_study/base6_FM.md)
-- [推荐系统 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study)
-  - [DeepFM 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/DeepFM_study)
-  - [DeepWalk 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/DeepWalk)
-  - [ESMM 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/ESMM_study)
-  - [【关于 FiBiNET】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/FiBiNet_study)
-  - [【关于 DeepCF】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/RecommendedSystem_study/DeepCF_study)
   
 ### 竞赛篇
 
