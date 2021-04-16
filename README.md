@@ -56,7 +56,7 @@
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
     - [竞赛篇](#竞赛篇)
     - [学习资源](#学习资源)
-    - [(NLP 数据集)(nlp_corpus/)](#nlp-数据集nlp_corpus)
+    - [NLP 数据集](#nlp-数据集)
     - [GCN_study学习篇](#gcn_study学习篇)
   - [参考资料](#参考资料)
 
@@ -1150,7 +1150,7 @@
   - [基于知识图谱的金融资讯推荐](https://github.com/codeants2012/FinancialKnowledgeGraph)
   - [北京知识图谱学习小组](https://github.com/memect/kg-beijing)
 
-### (NLP 数据集)(nlp_corpus/)
+### [NLP 数据集](nlp_corpus/)
 
 - [【关于 NLP 语料】那些你不知道的事](nlp_corpus/)
   - 一、命名实体识别
