@@ -55,6 +55,8 @@
         - [重点推荐篇](#重点推荐篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
     - [竞赛篇](#竞赛篇)
+    - [学习资源](#学习资源)
+    - [(NLP 数据集)(nlp_corpus/)](#nlp-数据集nlp_corpus)
     - [GCN_study学习篇](#gcn_study学习篇)
   - [参考资料](#参考资料)
 
@@ -1104,31 +1106,64 @@
 - [竞赛篇](nlp_game)
   - [【关于 NLP比赛】 那些你不知道的事](nlp_game/)
     - 一、问答匹配任务
-      1. CCF2020问答匹配比赛
-        1.1 比赛背景
-        1.2 比赛方案收集
-      2. 智能客服问题相似度算法设计——第三届魔镜杯大赛
-      3. 2018CIKM AnalytiCup – 阿里小蜜机器人跨语言短文本匹配算法竞赛
-      其他
+      - 1. CCF2020问答匹配比赛
+        - 1.1 比赛背景
+        - 1.2 比赛方案收集
+      - 2. 智能客服问题相似度算法设计——第三届魔镜杯大赛
+      - 3. 2018CIKM AnalytiCup – 阿里小蜜机器人跨语言短文本匹配算法竞赛
+      - 其他
     - 二、对话
-      1. 2020 CCF BDCI《千言：多技能对话》
-        1.1 赛题简介
-        1.2 比赛方案收集
-      2. 2018JD Dialog Challenge 任务导向型对话系统挑战赛
+      - 1. 2020 CCF BDCI《千言：多技能对话》
+        - 1.1 赛题简介
+        - 1.2 比赛方案收集
+      - 2. 2018JD Dialog Challenge 任务导向型对话系统挑战赛
     - 三、文本分类
-      1. 2018 DC达观-文本智能处理挑战
-      2. 路透社新闻数据集“深度”探索性分析(词向量/情感分析)
-      3. 知乎看山杯
-      4. 2018 CCL 客服领域用户意图分类评测
-      5. 2018 kaggle quora insincere questions classification
+      - 1. 2018 DC达观-文本智能处理挑战
+      - 2. 路透社新闻数据集“深度”探索性分析(词向量/情感分析)
+      - 3. 知乎看山杯
+      - 4. 2018 CCL 客服领域用户意图分类评测
+      - 5. 2018 kaggle quora insincere questions classification
     - 四、 关键词提取
-      1. “神策杯”2018高校算法大师赛(关键词提取)
+      - 1. “神策杯”2018高校算法大师赛(关键词提取)
     - 五、内容识别
-      1. 第二届搜狐内容识别大赛
+      - 1. 第二届搜狐内容识别大赛
     - 六、观点主题
-      1. 汽车行业用户观点主题及情感识别
+      - 1. 汽车行业用户观点主题及情感识别
     - 七、实体链指
-      1. CCKS&百度 2019中文短文本的实体链指
+      - 1. CCKS&百度 2019中文短文本的实体链指
+    - 八、命名实体识别
+      - 8.1 天池中药说明书实体识别
+        - 8.1.1 任务描述
+        - 8.1.2 比赛方案
+    - 九、事件抽取
+      - 9.1 CCKS 2020：面向金融领域的小样本跨类迁移事件抽取
+        - 9.1.1 任务描述
+        - 9.1.2 比赛方案
+      - 9.2 CCKS2019_EventEntityExtraction
+        - 9.1.1 任务描述
+        - 9.1.2 比赛方案
+
+### [学习资源]()
+
+- [知识图谱]()
+  - [东南大学《知识图谱》研究生课程](https://github.com/npubird/KnowledgeGraphCourse)
+  - [基于知识图谱的金融资讯推荐](https://github.com/codeants2012/FinancialKnowledgeGraph)
+  - [北京知识图谱学习小组](https://github.com/memect/kg-beijing)
+
+### (NLP 数据集)(nlp_corpus/)
+
+- [【关于 NLP 语料】那些你不知道的事](nlp_corpus/)
+  - 一、命名实体识别
+    1. [boson数据集](nlp_corpus/ner_data/boson/)
+    2. [clue细粒度实体识别数据集](nlp_corpus/ner_data/cluener_public/)
+    3. [微软实体识别数据集](nlp_corpus/ner_data/MSRA/)
+    4. [人民网实体识别数据集（98年）](nlp_corpus/ner_data/people_daily/)
+    5. [中药说明书实体识别数据集（“万创杯”中医药天池大数据竞赛）](nlp_corpus/ner_data/tianchi_yiyao/)
+    6. [视频_音乐_图书数据集](nlp_corpus/ner_data/video_music_book_datasets/)
+    7. [微博数据集](nnlp_corpus/er_data/weibo/)
+    8. [简历 数据集](nlp_corpus/ner_data/ResumeNER/)
+    9. [2020_ccks_ner 中文医学文本命名实体识别](nlp_corpus/ner_data/2020_ccks_ner/)
+
 
 ### [GCN_study学习篇](https://github.com/km1994/GCN_study)
 
