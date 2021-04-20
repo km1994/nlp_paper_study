@@ -1149,7 +1149,10 @@
   - [东南大学《知识图谱》研究生课程](https://github.com/npubird/KnowledgeGraphCourse)
   - [基于知识图谱的金融资讯推荐](https://github.com/codeants2012/FinancialKnowledgeGraph)
   - [北京知识图谱学习小组](https://github.com/memect/kg-beijing)
-
+- [文本摘要]()
+  - [Summarization.](https://github.com/bifeng/nlp_paper_notes/blob/75cf64a7eb244814fccf241d5990e23526352ab3/Summarization.md)
+  - [GPT2-NewsTitle](https://github.com/liucongg/GPT2-NewsTitle)
+- [CLUEDatasetSearch](https://github.com/CLUEbenchmark/CLUEDatasetSearch)【中英文NLP数据集】
 ### [NLP 数据集](nlp_corpus/)
 
 - [【关于 NLP 语料】那些你不知道的事](nlp_corpus/)
@@ -1163,7 +1166,16 @@
     7. [微博数据集](nnlp_corpus/er_data/weibo/)
     8. [简历 数据集](nlp_corpus/ner_data/ResumeNER/)
     9. [2020_ccks_ner 中文医学文本命名实体识别](nlp_corpus/ner_data/2020_ccks_ner/)
-
+  - [二、抽取式文本摘要](nlp_corpus/chinese_abstractive_corpus)
+    1. [教育培训行业抽象式自动摘要中文语料库](nlp_corpus/chinese_abstractive_corpus/education/)【中文】
+    2. [哈工大-新浪微博短文本摘要](https://pan.baidu.com/share/init?surl=szq0Wa60AS5ISpM_SNPcbA)【密码：ayn6】【中文】
+    3. [教育培训行业抽象式自动摘要中文语料库](nlp_corpus/chinese_abstractive_corpus/education/)【中文】
+    4. [个人-新浪微博](https://pan.baidu.com/s/1NWe6K33GMTp4Wk7CwaGotA)【密码：4k12】【中文】
+    5. [港大多文本摘要](nlp_corpus/chinese_abstractive_corpus/港大多文本摘要/) 【英文】
+    6. [WikiHow: A Large Scale Text Summarization Dataset](https://github.com/mahnazkoupaee/WikiHow-Dataset) 【英文】
+    7. [The CNN / Daily Mail dataset (non-anonymized)](https://github.com/abisee/cnn-dailymail) 【英文】
+    8. [Scientific Document Summarization Corpus and Annotations from the WING NUS group](https://github.com/WING-NUS/scisumm-corpus) 【英文】【Data and code for the AAAI 2019 paper cisummNet: A Large Annotated Corpus and Content-Impact Models for Scientific Paper Summarization with Citation Networks】
+    9. [Multi-News](https://github.com/Alex-Fabbri/Multi-News) 【英文】【介绍：Data and code for the ACL 2019 paper Multi-News: a Large-Scale Multi-Document Summarization Dataset and Abstractive Hierarchical Model.】
 
 ### [GCN_study学习篇](https://github.com/km1994/GCN_study)
 

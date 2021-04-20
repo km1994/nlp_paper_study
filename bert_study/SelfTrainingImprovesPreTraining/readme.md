@@ -6,6 +6,8 @@
 > 
 > 论文标题：Self-training Improves Pre-training for Natural Language Understanding
 > 
+> 论文代码 SentAugment ：https://github.com/facebookresearch/SentAugment
+> 
 > 论文地址：https://arxiv.org/abs/2010.02194
 > 
 > 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
@@ -98,7 +100,7 @@ Unsupervised pre-training has led to much recent progress in natural language un
 
 其中的1,3,4步都是确定的，所以我们重点关注如何使用Ft从海量通用语料库D中抽取出领域相关的语料D'。
 
-![](img/微信截图_20210415132355.png)
+![](img/20201027211251.png)
 
 ### 6.2 SentAugment: data augmentation forsemi-supervised learning
 
@@ -111,7 +113,7 @@ Unsupervised pre-training has led to much recent progress in natural language un
 2. 利用 句子编码器 将 句子 编码为 句向量；
 3. 利用 句向量 检索与特定任务相关的句子库的子集，所用的 损失函数：
 
-![](img/微信截图_20210415191251.png)
+![](img/微信截图_20210417132422.png)
 
 > 注：其中 positive pairs(x,y) 是复述或平行句子（Wieting等人，2019a）和 $b_c$ are in-batch hard negatives (Wieting et al., 2016)
 
