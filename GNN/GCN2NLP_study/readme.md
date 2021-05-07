@@ -6,6 +6,25 @@
 >
 > 【注：手机阅读可能图片打不开！！！】
 
+- [【关于 GCN in NLP 】那些你不知道的事](#关于-gcn-in-nlp-那些你不知道的事)
+  - [NLP 中 常见的构图方法](#nlp-中-常见的构图方法)
+    - [论文介绍](#论文介绍)
+      - [Text Level Graph Neural Network for Text Classification (EMNLP2018)[1]](#text-level-graph-neural-network-for-text-classification-emnlp20181)
+        - [构图方法](#构图方法)
+      - [Graph Convolutional Networks for Text Classification (AAAI2019)[2]](#graph-convolutional-networks-for-text-classification-aaai20192)
+        - [构图方法](#构图方法-1)
+        - [公式](#公式)
+        - [构图方法](#构图方法-2)
+      - [A Lexicon-Based Graph Neural Network for Chinese NER(EMNLP2019) [3]](#a-lexicon-based-graph-neural-network-for-chinese-neremnlp2019-3)
+        - [构图方法](#构图方法-3)
+      - [Leverage Lexical Knowledge for Chinese NER via Collaborative Graph Network(EMNLP2019)[4]](#leverage-lexical-knowledge-for-chinese-ner-via-collaborative-graph-networkemnlp20194)
+        - [构图方法](#构图方法-4)
+      - [A Neural Multi-digraph Model for Chinese NER with Gazetteers(ACL2019)[5]](#a-neural-multi-digraph-model-for-chinese-ner-with-gazetteersacl20195)
+        - [构图方法](#构图方法-5)
+      - [Tensor Graph Convolutional Networks for Text Classification(AAAI2020)[6]](#tensor-graph-convolutional-networks-for-text-classificationaaai20206)
+        - [构图方法](#构图方法-6)
+  - [参考资料](#参考资料)
+
 ## NLP 中 常见的构图方法
 
 GCN 要用于 NLP 领域，首先需要将 文本转化为 Graph 结构，常见的 构图方法：

@@ -12,6 +12,95 @@
 > 
 > NLP 面经地址：https://github.com/km1994/NLP-Interview-Notes
 
+- [【关于 Efficient Transformers: A Survey】 那些你不知道的事](#关于-efficient-transformers-a-survey-那些你不知道的事)
+  - [一、摘要](#一摘要)
+  - [二、Transformer 介绍](#二transformer-介绍)
+  - [三、Efficient Transformers](#三efficient-transformers)
+    - [3.1 Fixed patterns（FP）](#31-fixed-patternsfp)
+      - [3.1.1 Fixed patterns（FP） 介绍](#311-fixed-patternsfp-介绍)
+      - [3.1.2 Fixed patterns（FP） 类别](#312-fixed-patternsfp-类别)
+    - [3.2 Combination of Patterns (CP)](#32-combination-of-patterns-cp)
+      - [3.2.1 Combination of Patterns (CP) 介绍](#321-combination-of-patterns-cp-介绍)
+      - [3.2.2 Combination of Patterns (CP)  类别](#322-combination-of-patterns-cp--类别)
+      - [3.2.3 Fixed patterns（FP） vs 多Combination of Patterns (CP)](#323-fixed-patternsfp-vs-多combination-of-patterns-cp)
+    - [3.3 Learnable Patterns (LP)](#33-learnable-patterns-lp)
+      - [3.3.1 Learnable Patterns (LP) 介绍](#331-learnable-patterns-lp-介绍)
+      - [3.3.2 Learnable Patterns (LP)  类别](#332-learnable-patterns-lp--类别)
+      - [3.3.3 Learnable Patterns (LP)  优点](#333-learnable-patterns-lp--优点)
+    - [3.4 Memory](#34-memory)
+      - [3.4.1 Memory 介绍](#341-memory-介绍)
+      - [3.4.2 Memory 类别](#342-memory-类别)
+    - [3.5 Low-Rank 方法](#35-low-rank-方法)
+      - [3.5.1 Low-Rank 方法 介绍](#351-low-rank-方法-介绍)
+      - [3.5.2 Low-Rank 方法 类别](#352-low-rank-方法-类别)
+    - [3.6 Kernels 方法](#36-kernels-方法)
+      - [3.6.1  Kernels 方法 介绍](#361--kernels-方法-介绍)
+      - [3.6.2  Kernels 方法 代表](#362--kernels-方法-代表)
+    - [3.7  Recurrence 方法](#37--recurrence-方法)
+      - [3.7.1  Recurrence 方法 介绍](#371--recurrence-方法-介绍)
+      - [3.7.2  Kernels 方法 代表](#372--kernels-方法-代表)
+  - [四、Transformer 变体 介绍](#四transformer-变体-介绍)
+    - [4.1 引言](#41-引言)
+    - [4.2 Memory Compressed Transformer [4]](#42-memory-compressed-transformer-4)
+      - [4.2.1 Local Attention Span](#421-local-attention-span)
+      - [4.2.2 Local Attention Span](#422-local-attention-span)
+      - [4.2.3 Computation and Memory Complexity](#423-computation-and-memory-complexity)
+    - [4.3 Image Transformer [5]](#43-image-transformer-5)
+      - [4.3.1 Localized Attention Span](#431-localized-attention-span)
+      - [4.3.2 Computational and Memory Complexity](#432-computational-and-memory-complexity)
+    - [4.4 Set Transformer [6]](#44-set-transformer-6)
+      - [4.4.1 应用场景](#441-应用场景)
+      - [4.4.2 Diagrams of our attention-based set operations](#442-diagrams-of-our-attention-based-set-operations)
+      - [4.4.3 Computational and Memory Complexity](#443-computational-and-memory-complexity)
+    - [4.5 Sparse Transformer](#45-sparse-transformer)
+      - [4.5.1 介绍](#451-介绍)
+      - [4.5.2 Attention](#452-attention)
+      - [4.5.3 Computational and Memory Complexity](#453-computational-and-memory-complexity)
+      - [4.5.4 局限性](#454-局限性)
+    - [4.6 Axial Transformer](#46-axial-transformer)
+      - [4.6.1 介绍](#461-介绍)
+      - [4.6.2 Computational and Memory Complexity](#462-computational-and-memory-complexity)
+    - [4.7 Longformer](#47-longformer)
+      - [4.7.1 介绍](#471-介绍)
+      - [4.7.2 Computational and Memory Complexity](#472-computational-and-memory-complexity)
+    - [4.8  Extended Transformer Construction (ETC)（2020）【9】](#48--extended-transformer-construction-etc20209)
+      - [4.8.1 介绍](#481-介绍)
+      - [4.8.2 Computational and Memory Complexity](#482-computational-and-memory-complexity)
+      - [4.8.3 局限性](#483-局限性)
+    - [4.9  BigBird（2020）](#49--bigbird2020)
+      - [4.9.1 介绍](#491-介绍)
+      - [4.9.2 Computational and Memory Complexity](#492-computational-and-memory-complexity)
+      - [4.9.3 局限性](#493-局限性)
+    - [4.10  Routing Transformer](#410--routing-transformer)
+      - [4.10.1 介绍](#4101-介绍)
+      - [4.10.2 Computational and Memory Complexity](#4102-computational-and-memory-complexity)
+    - [4.11  Reformer（2020）](#411--reformer2020)
+      - [4.11.1 介绍](#4111-介绍)
+      - [4.11.2 Computational and Memory Complexity](#4112-computational-and-memory-complexity)
+    - [4.12  Sinkhorn Transformers](#412--sinkhorn-transformers)
+      - [4.12.1 介绍](#4121-介绍)
+      - [4.12.2 Computational and Memory Complexity](#4122-computational-and-memory-complexity)
+    - [4.13  Linformer](#413--linformer)
+      - [4.13.1 介绍](#4131-介绍)
+      - [4.13.2 Computational and Memory Complexity](#4132-computational-and-memory-complexity)
+    - [4.14   Linear Transformer](#414---linear-transformer)
+      - [4.14.1 介绍](#4141-介绍)
+      - [4.14.2 Computational and Memory Complexity](#4142-computational-and-memory-complexity)
+    - [4.15  Performer（2020）](#415--performer2020)
+      - [4.15.1 介绍](#4151-介绍)
+      - [4.15.2 Computational and Memory Complexity](#4152-computational-and-memory-complexity)
+    - [4.16  Synthesizer models（2020）](#416--synthesizer-models2020)
+      - [4.16.1 介绍](#4161-介绍)
+      - [4.16.2 Computational and Memory Complexity](#4162-computational-and-memory-complexity)
+    - [4.17  Transformer-XL（2020）](#417--transformer-xl2020)
+      - [4.17.1 介绍](#4171-介绍)
+      - [4.17.2 Computational and Memory Complexity](#4172-computational-and-memory-complexity)
+    - [4.18  Compressive Transformers](#418--compressive-transformers)
+      - [4.18.1 介绍](#4181-介绍)
+      - [4.18.2 Computational and Memory Complexity](#4182-computational-and-memory-complexity)
+  - [五、总结](#五总结)
+  - [参考](#参考)
+
 ## 一、摘要
 
 Transformer model architectures have garnered immense interest lately due to their effectiveness across a range of domains like language, vision and reinforcement learning. In the field of natural language processing for example, Transformers have become an indispensable staple in the modern deep learning stack. Recently, a dizzying number of "X-former" models have been proposed - Reformer, Linformer, Performer, Longformer, to name a few - which improve upon the original Transformer architecture, many of which make improvements around computational and memory efficiency. With the aim of helping the avid researcher navigate this flurry, this paper characterizes a large and thoughtful selection of recent efficiency-flavored "X-former" models, providing an organized and comprehensive overview of existing work and models across multiple domains.
@@ -245,6 +334,178 @@ Low-Rank 方法 采用 N*N 矩阵 的 low-rank 结构 近似 self-attention matr
 
 不过这个模型对硬件有所要求，需要自定义GPU内核，且无法直接在TPU等其他硬件上使用。
 
+### 4.6 Axial Transformer
+
+#### 4.6.1 介绍
+
+Axial Transformer 主要沿输入张量的单轴施加多个注意力，每个注意力都沿特定轴混合信息，从而使沿其他轴的信息保持独立。
+
+![](img/微信截图_20210422080707.png)
+
+Axial Transformer 提供了 encoder-decoder 架构。对于 decoding ，为了能够实现 casual mask ，Axial Transformer 将 axial attentions 与 shift operations 相结合。例如，对于二维张量的模型，以栅格顺序生成像素，然后首先通过 unmasked   的行和 unmasked   的列 attention 对所有像素进行编码。然后，对于每一行，模型都会应用 unmasked 的行和 masked 的列，以集成先前采样的行。最后，模型将编码表示形式上移，以确保条件信息满足因果关系，并运行 masked 的行注意以对图像中的新行进行采样
+
+#### 4.6.2 Computational and Memory Complexity
+
+由于任何单轴的长度通常都比元素总数小得多，因此这个模型可以显著地节省计算和内存
+
+### 4.7 Longformer
+
+#### 4.7.1 介绍
+
+Sparse Transformer的变体，通过在注意力模式中留有空隙、增加感受野来实现更好的远程覆盖。
+
+在分类任务上，Longformer采用可以访问所有输入序列的全局token（例如CLS token）。
+
+#### 4.7.2 Computational and Memory Complexity
+
+O(n^2) -> O(nk)
+
+> 注：k 为窗口大小
+
+### 4.8  Extended Transformer Construction (ETC)（2020）【9】
+
+#### 4.8.1 介绍
+
+ETC 是Sparse Transformer的变体，引入了一种新的全局本地注意力机制，在引入全局token方面与Longformer相似。 这种新的关注机制有四个组成部分，即(1) global-to-global (g2g), global-to-local (g2l), local-to-global (l2g) and local-to-local (l2l);
+
+#### 4.8.2 Computational and Memory Complexity
+
+- 空间复杂度：
+
+![](img/微信截图_20210422081746.png)
+
+#### 4.8.3 局限性
+
+但由于无法计算因果掩码，ETC不能用于自动回归解码。
+
+### 4.9  BigBird（2020）
+
+#### 4.9.1 介绍
+
+与Longformer一样，同样使用全局内存，但不同的是，它有独特的“内部变压器构造（ITC）”，即全局内存已扩展为在sequence中包含token，而不是简单的参数化内存。
+
+The Big Bird model com-prises of several key components, namely (1) global tokens, (2) random attention (queriesattend to random keys) and (3) fixed patterns (local sliding windows)
+
+#### 4.9.2 Computational and Memory Complexity
+
+- 空间复杂度：O(n)
+
+#### 4.9.3 局限性
+
+与ETC一样，BigBird同样不能用于自动回归解码。
+
+### 4.10  Routing Transformer
+
+#### 4.10.1 介绍
+
+Routing Transformer 提出了一种基于聚类的注意力机制，以数据驱动的方式学习注意力稀疏。为了确保集群中的token数量相似，模型会初始化聚类，计算每个token相对于聚类质心的距离。
+
+利用 Q 和 K 计算  routing  matrix R
+
+![](img/微信截图_20210422083332.png)
+
+> 注：$W_R$ is a d×d orthonormal projection matrix
+
+#### 4.10.2 Computational and Memory Complexity
+
+- 空间复杂度：O(nlogn)
+
+### 4.11  Reformer（2020）
+
+#### 4.11.1 介绍
+
+一个基于局部敏感哈希（LSH）的注意力模型，引入了可逆的Transformer层，有助于进一步减少内存占用量。
+
+模型的关键思想，是附近的向量应获得相似的哈希值，而远距离的向量则不应获得相似的哈希值，因此被称为“局部敏感”。
+
+#### 4.11.2 Computational and Memory Complexity
+
+- 空间复杂度：O(nlogn)
+
+### 4.12  Sinkhorn Transformers
+
+#### 4.12.1 介绍
+
+Sinkhorn Transformers 属于 learned  patterns， 是分块模型，以分块的方式对输入键和值进行重新排序，并应用基于块的局部注意力机制来学习稀疏模式。
+
+![](img/微信截图_20210422083957.png)
+
+#### 4.12.2 Computational and Memory Complexity
+
+- 空间复杂度：O(b^2)
+
+### 4.13  Linformer
+
+#### 4.13.1 介绍
+
+Linformer 是基于低秩的自注意力机制的高效Transformer模型，主要在长度维度上进行低秩投影，在单次转换中按维度混合序列信息。
+
+#### 4.13.2 Computational and Memory Complexity
+
+- 空间复杂度：O(n)
+
+### 4.14   Linear Transformer
+
+#### 4.14.1 介绍
+
+ Linear Transformer 通过使用 kernel-based  formulation  of  self-attention 、和  the associative property of matrix products ，将自注意力的复杂性从二次降低为线性。
+
+目前，它已经被证明可以在基本保持预测性能的情况下，将推理速度提高多达三个数量级。
+
+#### 4.14.2 Computational and Memory Complexity
+
+- 时间复杂度：O(Ncd)
+- 空间复杂度：O(N * d^2)
+
+### 4.15  Performer（2020）
+
+#### 4.15.1 介绍
+
+Performer（2020） 利用正交随机特征（ORF），采用近似的方法避免存储和计算注意力矩阵。
+
+#### 4.15.2 Computational and Memory Complexity
+
+- 空间复杂度：O(Md + Nd + MN)
+
+### 4.16  Synthesizer models（2020）
+
+#### 4.16.1 介绍
+
+Synthesizer models（2020） 研究了调节在自注意力机制中的作用，它合成了一个自注意力模块，近似了这个注意权重。
+
+#### 4.16.2 Computational and Memory Complexity
+
+- 空间复杂度：
+
+### 4.17  Transformer-XL（2020）
+
+#### 4.17.1 介绍
+
+为了解决长距离依赖，Transformer-XL 提出了 segment-level recurrence mechanism， 即引入一个 memory 状态。
+
+在训练过程中，每个片段的表示为最后的隐层状态​，​表示片段的序号，​表示片段的长度，​表示隐层维度。
+
+在计算​片段的表示时，用memory缓存​片段​层的隐层状态​，用来更新​，这样就给下一个片段同了上文，长距离依赖也通过memory保存了下来。并且，最大可能的依赖长度线性增长，达到 $N*L$ 。
+
+![](img/2b.webp)
+
+#### 4.17.2 Computational and Memory Complexity
+
+- 空间复杂度：
+
+### 4.18  Compressive Transformers
+
+#### 4.18.1 介绍
+
+这个模型是Transformer-XL的扩展，但不同于Transformer-XL，后者在跨段移动时会丢弃过去的激活，而它的关键思想则是保持对过去段激活的细粒度记忆。
+
+#### 4.18.2 Computational and Memory Complexity
+
+- 空间复杂度：
+
+## 五、总结
+
+在本文中，我们调查了有关高效 Transformers 模型 的文献，特别是关于 Self-attention 模块的二次复杂度的文献。我们提供了这些新模型类别中使用的核心技术的分类法和高级抽象。我们基于技术对现有模型进行了表征，并提供了一些高效 Transformer 模型的全面介绍。最后，我们讨论了这些模型的评估环境以及这些模型的设计趋势。最后，我们简要讨论了其他可能会总体上提高Transformer模型效率的并行正交工作。
 
 
 ## 参考
@@ -257,3 +518,5 @@ Low-Rank 方法 采用 N*N 矩阵 的 low-rank 结构 近似 self-attention matr
 6. [Set transformer: A framework for attention-based permutation-invariant neural networks](https://arxiv.org/abs/1810.00825)
 7. [enerating  long  sequenceswith sparse transformers](https://arxiv.org/abs/1904.10509)
 8. [最新Transformer模型大盘点，NLP学习必备，Google AI研究员出品丨资源](https://jishuin.proginn.com/p/763bfbd2d58d)
+9. [Etc:   Encoding  long  and  structured  data  in  transformers](https://arxiv.org/abs/2004.08483)
+10. [Efficient  content-based sparse attention with routing transformers.](https://arxiv.org/abs/2003.05997?url=girls.copypasteads.com)

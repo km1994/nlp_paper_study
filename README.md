@@ -10,11 +10,7 @@
 
 ![](other_study/resource/pic/微信截图_20210301212242.png)
 
-
-## 目录
-
 - [【关于 NLP】 那些你不知道的事](#关于-nlp-那些你不知道的事)
-  - [目录](#目录)
   - [介绍](#介绍)
     - [【关于 论文工具】那些你不知道的事](#关于-论文工具那些你不知道的事)
     - [会议收集篇](#会议收集篇)
@@ -155,6 +151,53 @@
     - 动机：Transformer 有着巨大的内存和算力需求，因为它构造了一个注意力矩阵，需求与输入呈平方关系;
     - 思路：使用一个高效的（线性）广义注意力框架（generalized attention framework），允许基于不同相似性度量（核）的一类广泛的注意力机制。
     - 优点：该方法在保持线性空间和时间复杂度的同时准确率也很有保证，也可以应用到独立的 softmax 运算。此外，该方法还可以和可逆层等其他技术进行互操作。
+  - [【关于 Efficient Transformers: A Survey】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/transformer_survey/Performer)
+    - 一、摘要
+    - 二、Transformer 介绍
+    - 三、Efficient Transformers
+      - 3.1 Fixed patterns（FP）
+        - 3.1.1 Fixed patterns（FP） 介绍
+        - 3.1.2 Fixed patterns（FP） 类别
+      - 3.2 Combination of Patterns (CP)
+        - 3.2.1 Combination of Patterns (CP) 介绍
+        - 3.2.2 Combination of Patterns (CP)  类别
+        - 3.2.3 Fixed patterns（FP） vs 多Combination of Patterns (CP)
+      - 3.3 Learnable Patterns (LP)
+        - 3.3.1 Learnable Patterns (LP) 介绍
+        - 3.3.2 Learnable Patterns (LP)  类别
+        - 3.3.3 Learnable Patterns (LP)  优点
+      - 3.4 Memory
+        - 3.4.1 Memory 介绍
+        - 3.4.2 Memory 类别
+      - 3.5 Low-Rank 方法
+        - 3.5.1 Low-Rank 方法 介绍
+        - 3.5.2 Low-Rank 方法 类别
+      - 3.6 Kernels 方法
+        - 3.6.1  Kernels 方法 介绍
+        - 3.6.2  Kernels 方法 代表
+      - 3.7  Recurrence 方法
+        - 3.7.1  Recurrence 方法 介绍
+        - 3.7.2  Kernels 方法 代表
+    - 四、Transformer 变体 介绍
+      - 4.1 引言
+      - 4.2 Memory Compressed Transformer 
+      - 4.3 Image Transformer 
+      - 4.4 Set Transformer 
+      - 4.5 Sparse Transformer
+      - 4.6 Axial Transformer
+      - 4.7 Longformer
+      - 4.8  Extended Transformer Construction (ETC)（2020）
+      - 4.9  BigBird（2020）
+      - 4.10  Routing Transformer
+      - 4.11  Reformer（2020）
+      - 4.12  Sinkhorn Transformers
+      - 4.13  Linformer
+      - 4.14   Linear Transformer
+      - 4.15  Performer（2020）
+      - 4.16  Synthesizer models（2020）
+      - 4.17  Transformer-XL（2020）
+      - 4.18  Compressive Transformers
+    - 五、总结
 
 ##### 【关于 预训练模型】 那些的你不知道的事
 
@@ -451,6 +494,30 @@
     - 方法： 在本文中，我们使用基于图的依存关系解析中的思想，以通过 biaffine model 为模型提供全局的输入视图。 biaffine model 对句子中的开始标记和结束标记对进行评分，我们使用该标记来探索所有跨度，以便该模型能够准确地预测命名实体。
     - 工作介绍：在这项工作中，我们将NER重新确定为开始和结束索引的任务，并为这些对定义的范围分配类别。我们的系统在多层BiLSTM之上使用biaffine模型，将分数分配给句子中所有可能的跨度。此后，我们不用构建依赖关系树，而是根据候选树的分数对它们进行排序，然后返回符合 Flat 或  Nested NER约束的排名最高的树 span；
     - 实验结果：我们根据三个嵌套的NER基准（ACE 2004，ACE 2005，GENIA）和五个扁平的NER语料库（CONLL 2002（荷兰语，西班牙语），CONLL 2003（英语，德语）和ONTONOTES）对系统进行了评估。结果表明，我们的系统在所有三个嵌套的NER语料库和所有五个平坦的NER语料库上均取得了SoTA结果，与以前的SoTA相比，实际收益高达2.2％的绝对百分比。
+  - [【关于 Biaffine 代码解析】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2020_NERasDependencyParsing/code_pytorch.md)
+    - 摘要
+    - 一、数据处理模块
+      - 1.1 原始数据格式
+      - 1.2 数据预处理模块 data_pre()
+        - 1.2.1 数据预处理 主 函数
+        - 1.2.2  训练数据加载 load_data(file_path)
+        - 1.2.3 数据编码 encoder(sentence, argument)
+      - 1.3 数据转化为 MyDataset 对象
+      - 1.4 构建 数据 迭代器
+      - 1.5 最后数据构建格式
+    - 二、模型构建 模块
+      - 2.1 主题框架介绍
+      - 2.2 embedding layer
+      - 2.2 BiLSTM
+      - 2.3 FFNN
+      - 2.4 biaffine model
+      - 2.5 冲突解决
+      - 2.6 损失函数
+    - 三、学习率衰减 模块
+    - 四、loss 损失函数定义
+      - 4.1 span_loss 损失函数定义
+      - 4.2 focal_loss 损失函数定义
+    - 四、模型训练
 - [【关于 NER trick】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/NERtrick.md)
 - [【关于TENER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2019/ACL2019_TENER/)
   - 论文名称：TENER: Adapting Transformer Encoder for Name Entity Recognition

@@ -8,9 +8,9 @@
 > 
 > 代码：https://github.com/juntaoy/biaffine-ner
 > 
+> 代码【中文】：https://github.com/suolyer/PyTorch_BERT_Biaffine_NER
+> 
 > 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
-
-
 
 ## 摘要
 
@@ -86,3 +86,7 @@
 ## 结论
 
 在本文中，我们将NER重新构造为结构化的预测任务，并针对 NEST 和 Flat NER 采用了SoTA依赖项解析方法。我们的系统使用上下文嵌入作为多层 BiLSTM 的输入。我们使用 biaffine 模型为句子中所有跨度分配分数。进一步的约束用于预测NEST 和 Flat NER。我们根据八个命名实体语料库评估了我们的系统。结果表明，我们的系统在所有八个语料库上均实现了SoTA。我们证明，先进的结构化预测技术可极大地改善 NEST 和 Flat NER的效果。
+
+## 参考
+
+1. [Named Entity Recognition as Dependency Parsing](https://www.aclweb.org/anthology/2020.acl-main.577/)
