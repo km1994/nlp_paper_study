@@ -445,8 +445,11 @@
         - 考虑实体之间的交互作用和可能重叠的关系
         - 对每条边进行最终分类
         - 在第二阶段，基于第一阶段预测的关系，我们为每个关系构建完整的关系图，并在每个图上应用GCN来整合每个关系的信息，进一步考虑实体与关系之间的相互作用。
-- [【关于 HBT】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/T20ACL_HBT_su/)
+- [【关于 关系抽取 之 HBT】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/T20ACL_HBT_su/)
   - 论文名称：A Novel Hierarchical Binary Tagging Framework for Relational Triple Extraction
+  - 论文会议：ACL 2020
+  - keras4bert 版本：https://github.com/bojone/lic2020_baselines 【苏神 Lic2020 baseline】
+  - pytorch 版本：https://github.com/powerycy/Lic2020- 【逸神 pytorch 复现版本】
   - 动机：
     - pipeline approach
       - 思路
@@ -465,7 +468,7 @@
       - 问题：
         - 过多 negative examples：在所有提取的实体对中，很多都不形成有效关系，从而产生了太多的negative examples；
         - EPO(Entity Pair Overlap) 问题：当同一实体参与多个关系时，分类器可能会感到困惑。 没有足够的训练样例的情况下，分类器就很难准确指出实体参与的关系；
-  - 方式：实现了一个不受重叠三元组问题困扰的HBT标注框架(Hierarchical Binary Tagging Framework)来解决RTE任务；
+  - 方式：实现了一个不受重叠三元组问题困扰的HBT标注框架(Hierarchical Binary Tagging Framework)来解决RTE任务；论文并不是学习关系分类器f（s，o）→r，而是学习关系特定的标记器fr（s）→o；每个标记器都可以识别特定关系下给定 subject 的可能 object(s)。 或不返回任何 object，表示给定的主题和关系没有 triple。
   - 核心思想：把关系(Relation)建模为将头实体(Subject)映射到尾实体(Object)的函数，而不是将其视为实体对上的标签。
   - 思路：
     - 首先，我们确定句子中所有可能的 subjects； 
