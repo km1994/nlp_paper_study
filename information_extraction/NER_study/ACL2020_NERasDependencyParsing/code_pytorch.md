@@ -2,9 +2,11 @@
 
 > 作者：杨夕
 > 
+> 论文：Named Entity Recognition as Dependency Parsing
+> 
 > 项目地址：https://github.com/km1994/nlp_paper_study
 > 
-> 论文：https://www.aclweb.org/anthology/2020.acl-main.577/
+> 论文地址：https://www.aclweb.org/anthology/2020.acl-main.577/
 > 
 > 代码：https://github.com/juntaoy/biaffine-ner
 > 
