@@ -52,6 +52,7 @@
         - [【关于 半监督学习】 那些的你不知道的事](#关于-半监督学习-那些的你不知道的事)
         - [【关于 NLP分类任务】那些你不知道的事](#关于-nlp分类任务那些你不知道的事)
         - [【关于 中文分词】那些你不知道的事](#关于-中文分词那些你不知道的事)
+        - [【关于 关键词提取】 那些你不知道的事](#关于-关键词提取-那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
@@ -1166,6 +1167,40 @@
       - 方法：在源域数据集和通过Distant annotation构造的目标领域数据集上联合进行Adversarial training的方法。
       - 优点：Adversarial training模块可以捕获特定领域更深入的特性，和不可知领域的特性。
 
+##### [【关于 关键词提取】 那些你不知道的事](keyword_ex_study/)
+
+- [【关于 关键词提取】 那些你不知道的事](keyword_ex_study/)
+  - 一、TF-IDF关键词提取算法
+    - 1.1 理论基础
+    - 1.2 计算公式
+      - 1.2.1 词频 （Term Frequency，TF）
+      - 1.2.2 逆文本频率(Inverse Document Frequency，IDF)
+      - 1.2.3 TF-IDF
+    - 1.3 应用
+    - 1.4 实战篇
+      - 1.4.1 TF-IDF算法 手撸版
+      - 1.4.2 TF-IDF算法 Sklearn 版
+      - 1.4.3 TF-IDF算法 jieba 版
+  - 二、PageRank算法【1】
+    - 2.1 理论学习
+  - 三、TextRank算法【2】
+    - 3.1 理论学习
+    - 3.2 实战篇
+      - 3.2.1 基于Textrank4zh的TextRank算法版
+      - 3.2.2 基于jieba的TextRank算法实现
+      - 3.2.3 基于SnowNLP的TextRank算法实现
+- [【关于 KeyBERT 】 那些你不知道的事](keyword_ex_study/KeyBert/)
+  - 论文：Sharma, P., & Li, Y. (2019). Self-Supervised Contextual Keyword and Keyphrase Retrieval with Self-Labelling.
+  - 论文地址：https://www.preprints.org/manuscript/201908.0073/download/final_file
+  - 论文代码：https://github.com/MaartenGr/KeyBERT
+  - 一、摘要
+  - 二、动机
+  - 三、论文方法
+  - 四、实践
+    - 4.1 安装
+    - 4.2 KeyBERT 调用
+    - 4.3 语料预处理
+    - 4.4 利用 KeyBert 进行关键词提取
 
 #### 实战篇
 
