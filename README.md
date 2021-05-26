@@ -10,7 +10,7 @@
 
 ![](other_study/resource/pic/微信截图_20210301212242.png)
 
-> NLP && 推荐学习群
+> NLP && 推荐学习群【人数满了，加微信 blqkm601 】
 
 ![](other_study/resource/pic/20210523220743.png)
 
