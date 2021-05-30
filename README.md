@@ -889,6 +889,18 @@
       - 目的：告诉模型在当前步的预测过程中，原文中的哪些词更重要
 
 ##### [【关于 文本匹配】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/) 
+
+- [【关于 Sentence-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/SimCSE/) **【推荐阅读】**
+  - 论文：SimCSE: Simple Contrastive Learning of Sentence Embeddings
+  - 会议：
+  - 论文地址：https://arxiv.org/abs/2104.08821
+  - 论文代码：https://github.com/princeton-nlp/SimCSE
+  - 思路：
+    - 首先描述了一种无监督方法，它采用输入句子并在对比目标中预测自己，仅将标准 dropout 用作噪声。这种简单的方法效果出奇地好，与以前的受监督计数器部件相当。我们假设 dropout 充当最小数据增强的大小，删除它会导致表示崩溃。
+    - 然后，我们从最近从自然语言推理 (NLI) 数据集中学习句子嵌入的成功中汲取灵感，并将 NLI 数据集中的注释对合并到对比学习中，方法是使用“蕴含”对作为正例，将“矛盾”对作为硬负例。
+  - 实验结果：
+    - 作者评估了标准语义文本相似性（STS）任务上的 SimCSE，使用 BERT-base 的无监督和监督模型分别平均实现了 74.5％ 和 81.6％ 的 Spearman 相关性，与之前的最佳结果相比，分别提高了 7.9 和 4.6点。
+    - 作者还表明，对比学习理论上将嵌入分布得更均匀，并且在有监督信号可用时，它可以更好地对齐正样本。
 - [【关于 语义相似度匹配任务中的 BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/bert_similairity/)  **【推荐阅读】**
   - 阅读理由：BERT 在 语义相似度匹配任务 中的应用，可以由很多种方式，然而，你真的了解这些方式的区别和优缺点么？
   - 动机：BERT 在 语义相似度匹配任务 中的应用，可以常用 Sentence Pair Classification Task：使用 [CLS]、cosine similairity、sentence/word embedding、siamese network 方法，那么哪种是最佳的方式呢？你是否考虑过呢?
@@ -957,13 +969,24 @@
   - 论文方法：具有双重BERT模型的解耦上下文编码框架：
     - 一个在线BERT，仅对问题进行一次编码；
     - 一个正式的BERT，对所有文档进行预编码并缓存其编码；
--  [【关于 tBERT 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
-   -  论文：tBERT: Topic Models and BERT Joining Forces for Semantic Similarity Detection
-   -  会议：ACL2020
-   -  论文地址：https://www.aclweb.org/anthology/2020.acl-main.630/
-   -  论文代码：https://github.com/wuningxi/tBERT
-   -  动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
-   -  方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
+- [【关于 tBERT 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
+   - 论文：tBERT: Topic Models and BERT Joining Forces for Semantic Similarity Detection
+   - 会议：ACL2020
+   - 论文地址：https://www.aclweb.org/anthology/2020.acl-main.630/
+   - 论文代码：https://github.com/wuningxi/tBERT
+   - 动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
+   - 方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
+- [【关于 BERT-flow 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/BERTFlow/)
+   - 论文：On the Sentence Embeddings from Pre-trained Language Models
+   - 会议：EMNLP2020
+   - 论文地址：https://arxiv.org/pdf/2011.05864.pdf
+   - 论文代码：https://github.com/bohanli/BERT-flow
+   - 前沿：像BERT这样的经过预训练的上下文表示在自然语言处理中取得了巨大的成功；
+  - 动机：已经发现，未经微调的来自预训练语言模型的句子嵌入很难捕获句子的语义；
+  - 论文方法：在本文中，我们认为BERT嵌入中的语义信息没有得到充分利用。我们首先从理论上揭示了掩盖的语言模型预训练目标与语义相似性任务之间的理论联系，然后从经验上分析了BERT句子的嵌入。
+  - 实验结果：我们发现BERT总是诱发非光滑的各向异性语义空间，这会损害其语义相似性的表现。为解决此问题，我们建议通过将非正则化的流量标准化来将各向异性的语义嵌入分布转换为平滑的各向异性高斯分布。实验结果表明，我们提出的BERT流方法在各种语义文本相似性任务上比最先进的句子嵌入方法具有明显的性能提升。
+
+
 
 ##### [【关于 机器翻译】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/)
 
