@@ -20,7 +20,7 @@
     - [【关于 论文工具】那些你不知道的事](#关于-论文工具那些你不知道的事)
     - [会议收集篇](#会议收集篇)
     - [NLP 学习篇](#nlp-学习篇)
-        - [经典会议论文研读篇](#经典会议论文研读篇)
+      - [经典会议论文研读篇](#经典会议论文研读篇)
       - [理论学习篇](#理论学习篇)
         - [经典论文研读篇](#经典论文研读篇)
         - [【关于 transformer 】 那些的你不知道的事](#关于-transformer--那些的你不知道的事)
@@ -98,7 +98,7 @@
 
 ### NLP 学习篇
 
-##### 经典会议论文研读篇
+#### 经典会议论文研读篇
 
 - [ACL2020](ACL/ACL2020.md)
   - [【关于 CHECKLIST】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/other_study/meeting/ACL_study/ACL2020_bertpaper_CHECKLIST/)

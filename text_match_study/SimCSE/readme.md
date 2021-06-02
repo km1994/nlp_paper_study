@@ -76,7 +76,7 @@ This  paper  presents  SimCSE,  a  simple  contrastive  learning  framework  tha
 
 #### 2.3.1 优化目标
 
-对比学习有用的原因在于其优化了以下两个目标：
+为了让 对比学习 能够 work，需要对以下两个目标进行优化：
 
 - 目标一：正例之间表示保持较近距离；
 - 目标二：随机样例的表示应分散在超球面上；
