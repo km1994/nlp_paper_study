@@ -17,7 +17,7 @@
   - [二、对比学习](#二对比学习)
     - [2.1 什么是对比学习？](#21-什么是对比学习)
     - [2.2 对比学习 的 损失函数](#22-对比学习-的-损失函数)
-    - [2.3 对比学习为何work？](#23-对比学习为何work)
+    - [2.3 对比学习为何work？[4]](#23-对比学习为何work4)
       - [2.3.1 优化目标](#231-优化目标)
       - [2.3.2 衡量指标](#232-衡量指标)
       - [2.3.3 论文思路](#233-论文思路)
@@ -66,13 +66,18 @@ This  paper  presents  SimCSE,  a  simple  contrastive  learning  framework  tha
 
 > 注：给定图片 pic，对其进行 数据增广 得到 pic1 和 pic2，两张图片分别 得到 h1 和 h2，目标是 拉近 h1 和 h2 间的距离
 
+- 思想：**拉近相似的样本，推开不相似的样本**，并从样本集 中学习到一个 好的语义空间。
+
+
 ### 2.2 对比学习 的 损失函数
 
 ![](img/微信截图_20210530164152.png)
 
-在 2.1 中，拉近 h1 和 h2 间的距离 所用的方法 就是 通过降低 损失函数的值
+> 在 2.1 中，拉近 h1 和 h2 间的距离 所用的方法 就是 通过降低 损失函数的值
 
-### 2.3 对比学习为何work？
+> 分子是正例对的相似度，分母是正例对+所有负例对的相似度，最小化infoNCE loss，就是去最大化分子的同时最小化分母，也就是最大化正例对的相似度，最小化负例对的相似度
+
+### 2.3 对比学习为何work？[4]
 
 #### 2.3.1 优化目标
 
@@ -88,7 +93,7 @@ This  paper  presents  SimCSE,  a  simple  contrastive  learning  framework  tha
 - 计算函数
 
 ![](img/微信截图_20210530174232.png)
-> 注：该函数 主要用于计算 正例对间 的向量距离的期望<br/>
+> 注：该函数 主要用于计算 正例对(相似句子) ，映射到单位超球面后，之间的向量距离的期望<br/>
 > 越相似的样例之间的alignment程度越高。因为alignment使用距离来衡量，所以距离越小，表示alignment的程度越高。
 
 ![](img/微信截图_20210530174031.png)
@@ -282,3 +287,5 @@ array([[0.9999999 , 0.7445762 , 0.77073973, 0.76386297, 0.7195432 , 0.8021217 ],
 1. [丹琦女神新作：对比学习，简单到只需要Dropout两下](https://mp.weixin.qq.com/s/BpbI_S9lXofVFdu8qffIkg)
 2. [SimCSE: Simple Contrastive Learning of Sentence Embeddings](https://arxiv.org/abs/2104.08821)
 3. [princeton-nlp/SimCSE](https://github.com/princeton-nlp/SimCSE)
+4. [Alignment and Uniformity on the Hypersphere](https://arxiv.org/abs/2005.10242)
+5. [超细节的对比学习和SimCSE知识点](https://zhuanlan.zhihu.com/p/378340148)
