@@ -93,8 +93,55 @@
     - [Scirate](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#scirate) 
 
 ### 会议收集篇
-- [ACL2020](ACL/ACL2020.md)
-- [SIGIR2020](SIGIR_stduy/readme.md/#sigir-2020)
+
+- [ACL2020](other_study/meeting/ACL_study/ACL2020.md)
+- [SIGIR2020](other_study/meeting/SIGIR_stduy/readme.md/)
+- [【关于 AAAI 】那些你不知道的事](other_study/meeting/AAAI_stduy/readme.md#关于-aaai-那些你不知道的事)
+  - [一、AAAI 2020](#一aaai-2020)
+    - [1.1 情感分析](#11-情感分析)
+      - [【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】 [github](https://github.com/thuiar/Self-MM)](#learning-modality-specific-representations-with-self-supervised-multi-task-learning-for-multimodal-sentiment-analysis-self-mm-github)
+      - [【An Adaptive Hybrid Framework for Cross-Domain Aspect-Based Sentiment Analysis (AHF)】](#an-adaptive-hybrid-framework-for-cross-domain-aspect-based-sentiment-analysis-ahf)
+      - [【Bridging Towers of Multi-Task Learning with a Gating Mechanism for Aspect-Based Sentiment Analysis and Sequential Metaphor Identification ()】](#bridging-towers-of-multi-task-learning-with-a-gating-mechanism-for-aspect-based-sentiment-analysis-and-sequential-metaphor-identification-)
+      - [【Human-Level Interpretable Learning for Aspect-Based Sentiment Analysis ()】](#human-level-interpretable-learning-for-aspect-based-sentiment-analysis-)
+      - [【A Joint Training Dual-MRC Framework for Aspect Based Sentiment Analysis ()】](#a-joint-training-dual-mrc-framework-for-aspect-based-sentiment-analysis-)
+      - [【Quantum Cognitively Motivated Decision Fusion for Video Sentiment Analysis ()】](#quantum-cognitively-motivated-decision-fusion-for-video-sentiment-analysis-)
+      - [【Context-Guided BERT for Targeted Aspect-Based Sentiment Analysis ()】](#context-guided-bert-for-targeted-aspect-based-sentiment-analysis-)
+      - [【Segmentation of Tweets with URLs and its Applications to Sentiment Analysis ()】](#segmentation-of-tweets-with-urls-and-its-applications-to-sentiment-analysis-)
+      - [【Segmentation of Tweets with URLs and its Applications to Sentiment Analysis ()】](#segmentation-of-tweets-with-urls-and-its-applications-to-sentiment-analysis--1)
+    - [1.2 命名实体识别](#12-命名实体识别)
+      - [【Multi-Modal Graph Fusion for Named Entity Recognition with Targeted Visual Guidance (UMGF)】](#multi-modal-graph-fusion-for-named-entity-recognition-with-targeted-visual-guidance-umgf)
+      - [【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】 【[github](https://github.com/zliucr/CrossNER)】](#crossner-evaluating-cross-domain-named-entity-recognition--github)
+      - [【A Supervised Multi-Head Self-Attention Network for Nested Named Entity Recognition ()】](#a-supervised-multi-head-self-attention-network-for-nested-named-entity-recognition-)
+      - [【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】 【[github](https://github.com/FranxYao/Partially-Observed-TreeCRFs)】](#nested-named-entity-recognition-with-partially-observed-treecrfs-partially-observed-treecrfs-github)
+      - [【Continual Learning for Named Entity Recognition】 [***]](#continual-learning-for-named-entity-recognition-)
+      - [【Knowledge-Aware Named Entity Recognition with Alleviating Heterogeneity】](#knowledge-aware-named-entity-recognition-with-alleviating-heterogeneity)
+      - [【Denoising Distantly Supervised Named Entity Recognition via a Hypergeometric Probabilistic Model】](#denoising-distantly-supervised-named-entity-recognition-via-a-hypergeometric-probabilistic-model)
+      - [【MTAAL: Multi-Task Adversarial Active Learning for Medical Named Entity Recognition and Normalization（MTAAL）】](#mtaal-multi-task-adversarial-active-learning-for-medical-named-entity-recognition-and-normalizationmtaal)
+    - [1.3 关系抽取](#13-关系抽取)
+      - [【FL-MSRE: A Few-Shot Learning Based Approach to Multimodal Social Relation Extraction（L-MSRE）】](#fl-msre-a-few-shot-learning-based-approach-to-multimodal-social-relation-extractionl-msre)
+      - [【Multi-View Inference for Relation Extraction with Uncertain Knowledge】](#multi-view-inference-for-relation-extraction-with-uncertain-knowledge)
+      - [【GDPNet: Refining Latent Multi-View Graph for Relation Extraction（GDPNet）】](#gdpnet-refining-latent-multi-view-graph-for-relation-extractiongdpnet)
+      - [【Progressive Multi-Task Learning with Controlled information Flow for Joint Entity and Relation Extraction】](#progressive-multi-task-learning-with-controlled-information-flow-for-joint-entity-and-relation-extraction)
+      - [【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】 【[github](https://github.com/wutong8023/AAAI_CML)】](#curriculum-meta-learning-for-order-robust-continual-relation-extraction-github)
+      - [【Document-Level Relation Extraction with Reconstruction】](#document-level-relation-extraction-with-reconstruction)
+      - [【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】  【[github](https://github.com/wzhouad/ATLOP)】](#document-level-relation-extraction-with-adaptive-thresholding-and-localized-context-poolingatlop---github)
+      - [【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】  【[PaddlePaddle/Research](https://github.com/PaddlePaddle/Research/tree/master/KG/AAAI2021_SSAN)】 【[BenfengXu/SSAN](https://github.com/BenfengXu/SSAN)】](#entity-structure-within-and-throughout-modeling-mention-dependencies-for-document-level-relation-extractionssan--paddlepaddleresearch-benfengxussan)
+      - [【Empower Distantly Supervised Relation Extraction with Collaborative Adversarial Training(  MULTICAST)】](#empower-distantly-supervised-relation-extraction-with-collaborative-adversarial-training--multicast)
+      - [【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】  【[github](https://github.com/yuyanislearning/CTRL-PG)】](#clinical-temporal-relation-extraction-with-probabilistic-soft-logic-regularization-and-global-inferencectrl-pg--github)
+      - [【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】](#a-unified-multi-task-learning-framework-for-joint-extraction-of-entities-and-relations)
+    - [1.4 事件抽取](#14-事件抽取)
+      - [【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】](#a-unified-multi-task-learning-framework-for-joint-extraction-of-entities-and-relations-1)
+      - [【What the Role Is vs. What Plays the Role: Semi-Supervised Event Argument Extraction via Dual Question Answering（DualQA）】](#what-the-role-is-vs-what-plays-the-role-semi-supervised-event-argument-extraction-via-dual-question-answeringdualqa)
+      - [【Span-Based Event Coreference Resolution】](#span-based-event-coreference-resolution)
+    - [1.5 知识图谱](#15-知识图谱)
+      - [【Dual Quaternion Knowledge Graph Embeddings(DualE)】](#dual-quaternion-knowledge-graph-embeddingsduale)
+      - [【Type-Augmented Relation Prediction in Knowledge Graphs】](#type-augmented-relation-prediction-in-knowledge-graphs)
+      - [【ChronoR: Rotation Based Temporal Knowledge Graph Embedding】](#chronor-rotation-based-temporal-knowledge-graph-embedding)
+      - [【PASSLEAF: A Pool-Based Semi-Supervised Learning Framework for Uncertain Knowledge Graph Embedding】](#passleaf-a-pool-based-semi-supervised-learning-framework-for-uncertain-knowledge-graph-embedding)
+      - [【KG-BART: Knowledge Graph-Augmented Bart for Generative Commonsense Reasoning】](#kg-bart-knowledge-graph-augmented-bart-for-generative-commonsense-reasoning)
+      - [【Answering Complex Queries in Knowledge Graphs with Bidirectional Sequence Encoders】](#answering-complex-queries-in-knowledge-graphs-with-bidirectional-sequence-encoders)
+      - [【其他】](#其他)
+  - [参考](#参考)
 
 ### NLP 学习篇
 
@@ -114,7 +161,6 @@
 - 那些你所不知道的事
   - [【关于Transformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer/)
   - [【关于Bert】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T1_bert/)
-
 
 ##### 【关于 transformer 】 那些的你不知道的事
 
@@ -661,6 +707,7 @@
 
 
 ###### [【关于 关系抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/)
+
 - [End-to-End Relation Extraction using LSTMs on Sequences and Tree Structures【2016】](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/T2016_LSTM_Tree/)
 - [【关于 ERNIE】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/NRE_paper_study/ERNIE/)
 - [【关于 GraphRel】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/GraphRel/)
