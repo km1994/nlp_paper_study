@@ -53,6 +53,7 @@
         - [【关于 NLP分类任务】那些你不知道的事](#关于-nlp分类任务那些你不知道的事)
         - [【关于 中文分词】那些你不知道的事](#关于-中文分词那些你不知道的事)
         - [【关于 关键词提取】 那些你不知道的事](#关于-关键词提取-那些你不知道的事)
+        - [【关于 搜索引擎】 那些你不知道的事](#关于-搜索引擎-那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
@@ -96,10 +97,10 @@
 
 - [ACL2020](other_study/meeting/ACL_study/ACL2020.md)
 - [SIGIR2020](other_study/meeting/SIGIR_stduy/readme.md/)
-- [【关于 AAAI 】那些你不知道的事](other_study/meeting/AAAI_stduy/readme.md#关于-aaai-那些你不知道的事)
-  - [一、AAAI 2020](#一aaai-2020)
+- [【关于 AAAI 】那些你不知道的事](#关于-aaai-那些你不知道的事)
+  - [一、AAAI 2021](#一aaai-2021)
     - [1.1 情感分析](#11-情感分析)
-      - [【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】 [github](https://github.com/thuiar/Self-MM)](#learning-modality-specific-representations-with-self-supervised-multi-task-learning-for-multimodal-sentiment-analysis-self-mm-github)
+      - [【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】](#learning-modality-specific-representations-with-self-supervised-multi-task-learning-for-multimodal-sentiment-analysis-self-mm)
       - [【An Adaptive Hybrid Framework for Cross-Domain Aspect-Based Sentiment Analysis (AHF)】](#an-adaptive-hybrid-framework-for-cross-domain-aspect-based-sentiment-analysis-ahf)
       - [【Bridging Towers of Multi-Task Learning with a Gating Mechanism for Aspect-Based Sentiment Analysis and Sequential Metaphor Identification ()】](#bridging-towers-of-multi-task-learning-with-a-gating-mechanism-for-aspect-based-sentiment-analysis-and-sequential-metaphor-identification-)
       - [【Human-Level Interpretable Learning for Aspect-Based Sentiment Analysis ()】](#human-level-interpretable-learning-for-aspect-based-sentiment-analysis-)
@@ -110,10 +111,10 @@
       - [【Segmentation of Tweets with URLs and its Applications to Sentiment Analysis ()】](#segmentation-of-tweets-with-urls-and-its-applications-to-sentiment-analysis--1)
     - [1.2 命名实体识别](#12-命名实体识别)
       - [【Multi-Modal Graph Fusion for Named Entity Recognition with Targeted Visual Guidance (UMGF)】](#multi-modal-graph-fusion-for-named-entity-recognition-with-targeted-visual-guidance-umgf)
-      - [【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】 【[github](https://github.com/zliucr/CrossNER)】](#crossner-evaluating-cross-domain-named-entity-recognition--github)
+      - [【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】](#crossner-evaluating-cross-domain-named-entity-recognition-)
       - [【A Supervised Multi-Head Self-Attention Network for Nested Named Entity Recognition ()】](#a-supervised-multi-head-self-attention-network-for-nested-named-entity-recognition-)
-      - [【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】 【[github](https://github.com/FranxYao/Partially-Observed-TreeCRFs)】](#nested-named-entity-recognition-with-partially-observed-treecrfs-partially-observed-treecrfs-github)
-      - [【Continual Learning for Named Entity Recognition】 [***]](#continual-learning-for-named-entity-recognition-)
+      - [【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】](#nested-named-entity-recognition-with-partially-observed-treecrfs-partially-observed-treecrfs)
+      - [【Continual Learning for Named Entity Recognition】](#continual-learning-for-named-entity-recognition)
       - [【Knowledge-Aware Named Entity Recognition with Alleviating Heterogeneity】](#knowledge-aware-named-entity-recognition-with-alleviating-heterogeneity)
       - [【Denoising Distantly Supervised Named Entity Recognition via a Hypergeometric Probabilistic Model】](#denoising-distantly-supervised-named-entity-recognition-via-a-hypergeometric-probabilistic-model)
       - [【MTAAL: Multi-Task Adversarial Active Learning for Medical Named Entity Recognition and Normalization（MTAAL）】](#mtaal-multi-task-adversarial-active-learning-for-medical-named-entity-recognition-and-normalizationmtaal)
@@ -122,12 +123,12 @@
       - [【Multi-View Inference for Relation Extraction with Uncertain Knowledge】](#multi-view-inference-for-relation-extraction-with-uncertain-knowledge)
       - [【GDPNet: Refining Latent Multi-View Graph for Relation Extraction（GDPNet）】](#gdpnet-refining-latent-multi-view-graph-for-relation-extractiongdpnet)
       - [【Progressive Multi-Task Learning with Controlled information Flow for Joint Entity and Relation Extraction】](#progressive-multi-task-learning-with-controlled-information-flow-for-joint-entity-and-relation-extraction)
-      - [【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】 【[github](https://github.com/wutong8023/AAAI_CML)】](#curriculum-meta-learning-for-order-robust-continual-relation-extraction-github)
+      - [【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】](#curriculum-meta-learning-for-order-robust-continual-relation-extraction)
       - [【Document-Level Relation Extraction with Reconstruction】](#document-level-relation-extraction-with-reconstruction)
-      - [【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】  【[github](https://github.com/wzhouad/ATLOP)】](#document-level-relation-extraction-with-adaptive-thresholding-and-localized-context-poolingatlop---github)
-      - [【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】  【[PaddlePaddle/Research](https://github.com/PaddlePaddle/Research/tree/master/KG/AAAI2021_SSAN)】 【[BenfengXu/SSAN](https://github.com/BenfengXu/SSAN)】](#entity-structure-within-and-throughout-modeling-mention-dependencies-for-document-level-relation-extractionssan--paddlepaddleresearch-benfengxussan)
+      - [【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】](#document-level-relation-extraction-with-adaptive-thresholding-and-localized-context-poolingatlop-)
+      - [【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】](#entity-structure-within-and-throughout-modeling-mention-dependencies-for-document-level-relation-extractionssan)
       - [【Empower Distantly Supervised Relation Extraction with Collaborative Adversarial Training(  MULTICAST)】](#empower-distantly-supervised-relation-extraction-with-collaborative-adversarial-training--multicast)
-      - [【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】  【[github](https://github.com/yuyanislearning/CTRL-PG)】](#clinical-temporal-relation-extraction-with-probabilistic-soft-logic-regularization-and-global-inferencectrl-pg--github)
+      - [【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】](#clinical-temporal-relation-extraction-with-probabilistic-soft-logic-regularization-and-global-inferencectrl-pg)
       - [【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】](#a-unified-multi-task-learning-framework-for-joint-extraction-of-entities-and-relations)
     - [1.4 事件抽取](#14-事件抽取)
       - [【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】](#a-unified-multi-task-learning-framework-for-joint-extraction-of-entities-and-relations-1)
@@ -141,7 +142,6 @@
       - [【KG-BART: Knowledge Graph-Augmented Bart for Generative Commonsense Reasoning】](#kg-bart-knowledge-graph-augmented-bart-for-generative-commonsense-reasoning)
       - [【Answering Complex Queries in Knowledge Graphs with Bidirectional Sequence Encoders】](#answering-complex-queries-in-knowledge-graphs-with-bidirectional-sequence-encoders)
       - [【其他】](#其他)
-  - [参考](#参考)
 
 ### NLP 学习篇
 
@@ -532,6 +532,17 @@
       - Relation-Specific Object Taggers 层：由一系列relation-specific object taggers（之所以这里是多个taggers是因为有多个可能的relation）；
 
 ###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/)
+
+- [【关于 Continual Learning for NER】那些你不知道的事](#关于-continual-learning-for-ner那些你不知道的事)
+  - 会议：AAAI2021
+  - 论文：Continual Learning for Named Entity Recognition
+  - 论文下载地址：https://assets.amazon.science/65/61/ecffa8df45ad818c3f69fb1cf72b/continual-learning-for-named-entity-recognition.pdf
+  - 动机：业务扩展，需要新增 实体类型（eg:像 Sirior Alexa 这样的语音助手不断地为其功能引入新的意图，因此**新的实体类型经常被添加到他们的插槽填充模型**中）
+  - 方法：研究 将 知识蒸馏（KD） 应用于 NER 的 CL 问题，通过 将 “teacher”模型的预测合并到“student”模型的目标函数中，该模型正在接受训练以执行类似但略有修改的任务。 通过学习输出概率分布，而不仅仅是标签，使得学生表现得与教师相似。
+  - 论文贡献：
+    - (i) 我们展示了如何使 CL 技术适应 NLU 域，以逐步学习 NER 的新实体类型； 
+    - (ii) 我们在两个 EnglishNER 数据集上的结果表明，我们的 CL 方法使模型能够不断学习新的实体类型，而不会失去识别先前获得的类型的能力； 
+    - (iii) 我们表明我们的半监督策​​略实现了与全监督设置相当的结果。
 
 - [【关于 NER数据存在漏标问题】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/UnlabeledEntityProblem/)
   - 一、摘要
@@ -1271,6 +1282,56 @@
     - 4.2 KeyBERT 调用
     - 4.3 语料预处理
     - 4.4 利用 KeyBert 进行关键词提取
+
+##### [【关于 搜索引擎】 那些你不知道的事](search_engine/)
+
+- [【关于 搜索引擎】 那些你不知道的事](search_engine/)
+  - [搜索系统的架构设计](#搜索系统的架构设计)
+    - [搜索 QP（query理解）的架构设计](#搜索-qpquery理解的架构设计)
+  - [搜索j介绍](#搜索j介绍)
+    - [搜索排序 介绍](#搜索排序-介绍)
+    - [Embedding 搜索](#embedding-搜索)
+      - [动机](#动机)
+      - [Embedding 搜索优点](#embedding-搜索优点)
+      - [Embedding的学习形式](#embedding的学习形式)
+      - [Embedding 搜索 所关心的问题](#embedding-搜索-所关心的问题)
+      - [参考资料](#参考资料)
+    - [Query纠错](#query纠错)
+      - [Query纠错 之  原理](#query纠错-之--原理)
+      - [Query纠错 之 文本错误类型](#query纠错-之-文本错误类型)
+        - [动机](#动机-1)
+        - [常见的错误类型](#常见的错误类型)
+      - [Query纠错 之 纠错结果类型](#query纠错-之-纠错结果类型)
+        - [动机](#动机-2)
+        - [介绍](#介绍)
+        - [纠错结果类型](#纠错结果类型)
+  - [搜索引擎两大问题](#搜索引擎两大问题)
+    - [问题一：召回](#问题一召回)
+      - [什么是召回？](#什么是召回)
+      - [基于关键词的召回方法](#基于关键词的召回方法)
+        - [什么是 基于关键词的召回方法 ？](#什么是-基于关键词的召回方法-)
+      - [基于关键词的召回方法存在哪些问题？](#基于关键词的召回方法存在哪些问题)
+        - [Q1：索引粒度如何选择问题](#q1索引粒度如何选择问题)
+        - [Q2：保证 召回 有相关文档数问题](#q2保证-召回-有相关文档数问题)
+        - [Q3：召回 候选 query 多样性问题](#q3召回-候选-query-多样性问题)
+        - [Q4：召回 候选 query 无语义效果问题](#q4召回-候选-query-无语义效果问题)
+      - [基于语义的召回方法](#基于语义的召回方法)
+        - [什么是 基于语义的召回方法？](#什么是-基于语义的召回方法)
+        - [基于语义的召回方法 的思路](#基于语义的召回方法-的思路)
+        - [基于语义的召回方法 存在问题](#基于语义的召回方法-存在问题)
+      - [参考资料](#参考资料-1)
+    - [问题二：相关性](#问题二相关性)
+      - [什么是 相关性？](#什么是-相关性)
+      - [相关性 存在哪些问题？](#相关性-存在哪些问题)
+      - [相关性方法介绍](#相关性方法介绍)
+        - [计算场景角度](#计算场景角度)
+        - [计算方法角度](#计算方法角度)
+      - [参考资料](#参考资料-2)
+  - [搜索未来新趋势](#搜索未来新趋势)
+    - [1. 多模态搜索](#1-多模态搜索)
+    - [2. 更语义搜索](#2-更语义搜索)
+    - [3。 多轮搜索](#3-多轮搜索)
+
 
 #### 实战篇
 

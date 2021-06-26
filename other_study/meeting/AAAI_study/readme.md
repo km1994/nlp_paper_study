@@ -1,9 +1,9 @@
 # 【关于 AAAI 】那些你不知道的事
 
 - [【关于 AAAI 】那些你不知道的事](#关于-aaai-那些你不知道的事)
-  - [一、AAAI 2020](#一aaai-2020)
+  - [一、AAAI 2021](#一aaai-2021)
     - [1.1 情感分析](#11-情感分析)
-      - [【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】 [github](https://github.com/thuiar/Self-MM)](#learning-modality-specific-representations-with-self-supervised-multi-task-learning-for-multimodal-sentiment-analysis-self-mm-github)
+      - [【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】](#learning-modality-specific-representations-with-self-supervised-multi-task-learning-for-multimodal-sentiment-analysis-self-mm)
       - [【An Adaptive Hybrid Framework for Cross-Domain Aspect-Based Sentiment Analysis (AHF)】](#an-adaptive-hybrid-framework-for-cross-domain-aspect-based-sentiment-analysis-ahf)
       - [【Bridging Towers of Multi-Task Learning with a Gating Mechanism for Aspect-Based Sentiment Analysis and Sequential Metaphor Identification ()】](#bridging-towers-of-multi-task-learning-with-a-gating-mechanism-for-aspect-based-sentiment-analysis-and-sequential-metaphor-identification-)
       - [【Human-Level Interpretable Learning for Aspect-Based Sentiment Analysis ()】](#human-level-interpretable-learning-for-aspect-based-sentiment-analysis-)
@@ -14,10 +14,10 @@
       - [【Segmentation of Tweets with URLs and its Applications to Sentiment Analysis ()】](#segmentation-of-tweets-with-urls-and-its-applications-to-sentiment-analysis--1)
     - [1.2 命名实体识别](#12-命名实体识别)
       - [【Multi-Modal Graph Fusion for Named Entity Recognition with Targeted Visual Guidance (UMGF)】](#multi-modal-graph-fusion-for-named-entity-recognition-with-targeted-visual-guidance-umgf)
-      - [【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】 【[github](https://github.com/zliucr/CrossNER)】](#crossner-evaluating-cross-domain-named-entity-recognition--github)
+      - [【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】](#crossner-evaluating-cross-domain-named-entity-recognition-)
       - [【A Supervised Multi-Head Self-Attention Network for Nested Named Entity Recognition ()】](#a-supervised-multi-head-self-attention-network-for-nested-named-entity-recognition-)
-      - [【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】 【[github](https://github.com/FranxYao/Partially-Observed-TreeCRFs)】](#nested-named-entity-recognition-with-partially-observed-treecrfs-partially-observed-treecrfs-github)
-      - [【Continual Learning for Named Entity Recognition】 [***]](#continual-learning-for-named-entity-recognition-)
+      - [【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】](#nested-named-entity-recognition-with-partially-observed-treecrfs-partially-observed-treecrfs)
+      - [【Continual Learning for Named Entity Recognition】](#continual-learning-for-named-entity-recognition)
       - [【Knowledge-Aware Named Entity Recognition with Alleviating Heterogeneity】](#knowledge-aware-named-entity-recognition-with-alleviating-heterogeneity)
       - [【Denoising Distantly Supervised Named Entity Recognition via a Hypergeometric Probabilistic Model】](#denoising-distantly-supervised-named-entity-recognition-via-a-hypergeometric-probabilistic-model)
       - [【MTAAL: Multi-Task Adversarial Active Learning for Medical Named Entity Recognition and Normalization（MTAAL）】](#mtaal-multi-task-adversarial-active-learning-for-medical-named-entity-recognition-and-normalizationmtaal)
@@ -26,12 +26,12 @@
       - [【Multi-View Inference for Relation Extraction with Uncertain Knowledge】](#multi-view-inference-for-relation-extraction-with-uncertain-knowledge)
       - [【GDPNet: Refining Latent Multi-View Graph for Relation Extraction（GDPNet）】](#gdpnet-refining-latent-multi-view-graph-for-relation-extractiongdpnet)
       - [【Progressive Multi-Task Learning with Controlled information Flow for Joint Entity and Relation Extraction】](#progressive-multi-task-learning-with-controlled-information-flow-for-joint-entity-and-relation-extraction)
-      - [【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】 【[github](https://github.com/wutong8023/AAAI_CML)】](#curriculum-meta-learning-for-order-robust-continual-relation-extraction-github)
+      - [【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】](#curriculum-meta-learning-for-order-robust-continual-relation-extraction)
       - [【Document-Level Relation Extraction with Reconstruction】](#document-level-relation-extraction-with-reconstruction)
-      - [【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】  【[github](https://github.com/wzhouad/ATLOP)】](#document-level-relation-extraction-with-adaptive-thresholding-and-localized-context-poolingatlop---github)
-      - [【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】  【[PaddlePaddle/Research](https://github.com/PaddlePaddle/Research/tree/master/KG/AAAI2021_SSAN)】 【[BenfengXu/SSAN](https://github.com/BenfengXu/SSAN)】](#entity-structure-within-and-throughout-modeling-mention-dependencies-for-document-level-relation-extractionssan--paddlepaddleresearch-benfengxussan)
+      - [【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】](#document-level-relation-extraction-with-adaptive-thresholding-and-localized-context-poolingatlop-)
+      - [【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】](#entity-structure-within-and-throughout-modeling-mention-dependencies-for-document-level-relation-extractionssan)
       - [【Empower Distantly Supervised Relation Extraction with Collaborative Adversarial Training(  MULTICAST)】](#empower-distantly-supervised-relation-extraction-with-collaborative-adversarial-training--multicast)
-      - [【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】  【[github](https://github.com/yuyanislearning/CTRL-PG)】](#clinical-temporal-relation-extraction-with-probabilistic-soft-logic-regularization-and-global-inferencectrl-pg--github)
+      - [【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】](#clinical-temporal-relation-extraction-with-probabilistic-soft-logic-regularization-and-global-inferencectrl-pg)
       - [【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】](#a-unified-multi-task-learning-framework-for-joint-extraction-of-entities-and-relations)
     - [1.4 事件抽取](#14-事件抽取)
       - [【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】](#a-unified-multi-task-learning-framework-for-joint-extraction-of-entities-and-relations-1)
@@ -47,13 +47,14 @@
       - [【其他】](#其他)
   - [参考](#参考)
 
-## 一、AAAI 2020
+## 一、AAAI 2021
 
 ### 1.1 情感分析
 
-#### [【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】](https://arxiv.org/abs/2102.04830) [github](https://github.com/thuiar/Self-MM)
+#### [【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】](https://arxiv.org/abs/2102.04830) 
 
 - 作者：Wenmeng Yu, Hua Xu, Ziqi Yuan, Jiele Wu
+- [github](https://github.com/thuiar/Self-MM)
 - 机构：State Key Laboratory of Intelligent Technology and Systems, Department of Computer Science and Technology, Tsinghua University, Beijing, China
 - 介绍：表示学习是多模态学习中一项重要且具有挑战性的任务。**有效的模态表示应该包含两部分特征：一致性和差异性。**
 - 动机：由于统一的多模态注释，现有方法在捕获差异化信息方面受到限制。然而，额外的单模态注释是高时间和劳动力成本。
@@ -145,9 +146,10 @@
 
 ![](img/微信截图_20210616170629.png)
 
-#### [【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】](https://arxiv.org/abs/2012.04373) 【[github](https://github.com/zliucr/CrossNER)】
+#### [【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】](https://arxiv.org/abs/2012.04373) 
 
 - 作者：Zihan Liu, Yan Xu, Tiezheng Yu, Wenliang Dai, Ziwei Ji, Samuel Cahyawijaya, Andrea Madotto, Pascale Fung
+- 【[github](https://github.com/zliucr/CrossNER)】
 - 介绍：跨域命名实体识别 (NER) 模型能够解决目标域中 NER 样本的稀缺问题。
 - 动机：大多数现有的 NER 基准缺乏专门领域的实体类型或不关注某个领域，导致跨领域评估效率较低。
 - 论文方法：引入了跨域 NER 数据集 (CrossNER)，这是一个完全标记的 NER 数据集合，跨越五个不同的域，具有针对不同域的专门实体类别。此外，我们还提供了一个领域相关的语料库，因为使用它来继续预训练语言模型（领域自适应预训练）对于领域适应是有效的。然后，我们进行了全面的实验，以探索利用不同级别的领域语料库和预训练策略对跨领域任务进行领域自适应预训练的有效性。
@@ -167,9 +169,10 @@
 
 ![](img/微信截图_20210616173501.png)
 
-#### [【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】](hhttps://arxiv.org/abs/2012.08478) 【[github](https://github.com/FranxYao/Partially-Observed-TreeCRFs)】
+#### [【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】](hhttps://arxiv.org/abs/2012.08478) 
 
 - 作者：Yao Fu, Chuanqi Tan, Mosha Chen, Songfang Huang, Fei Huang
+- 【[github](https://github.com/FranxYao/Partially-Observed-TreeCRFs)】
 - 介绍：命名实体识别 (NER) 是自然语言处理中一项经过充分研究的任务。
 - 动机：广泛使用的序列标记框架很难检测具有嵌套结构的实体。
 - 论文方法：
@@ -180,7 +183,7 @@
 
 ![](img/微信截图_20210616174438.png)
 
-#### [【Continual Learning for Named Entity Recognition】](https://www.aaai.org/AAAI21Papers/AAAI-7791.MonaikulN.pdf) [***]
+#### [【Continual Learning for Named Entity Recognition】](https://www.aaai.org/AAAI21Papers/AAAI-7791.MonaikulN.pdf) 
 
 - 作者
 - 介绍：命名实体识别 (NER) 是各种 NLP 应用程序中的一项重要任务。
@@ -258,8 +261,9 @@
 
 - 实验结果：在多个基准数据集上的大量实验在联合实体和关系提取任务上产生了最先进的结果
 
-#### [【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】](https://arxiv.org/abs/2101.01926) 【[github](https://github.com/wutong8023/AAAI_CML)】
+#### [【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】](https://arxiv.org/abs/2101.01926) 
 
+- 【[github](https://github.com/wutong8023/AAAI_CML)】
 - 介绍：连续关系提取是一项重要的任务，它侧重于从非结构化文本中逐步提取新的事实。
 - 动机：鉴于关系的先后到达顺序，这项任务容易面临两个严重的挑战，即**灾难性遗忘和顺序敏感性**。
 - 论文方法：提出了一种新的课程元学习方法来解决连续关系提取中的上述两个挑战。
@@ -280,8 +284,9 @@
 
 ![](img/微信截图_20210617090453.png)
 
-#### [【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】](https://arxiv.org/abs/2010.11304)  【[github](https://github.com/wzhouad/ATLOP)】
+#### [【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】](https://arxiv.org/abs/2010.11304)  
 
+- 【[github](https://github.com/wzhouad/ATLOP)】
 - 动机：与其句子级对应物相比，文档级关系提取 (RE) 提出了新的挑战。**一个文档通常包含多个实体对，一个实体对在与多个可能关系相关联的文档中多次出现**。
 
 ![](img/微信截图_20210617095003.png)
@@ -296,8 +301,10 @@
 
 - 实验结果：在三个文档级 RE 基准数据集上进行了实验：DocRED，一个最近发布的大规模 RE 数据集，以及生物医学领域的两个数据集 CDR 和 GDA。我们的 ATLOP（自适应阈值和本地化上下文池）模型达到了 63.4 的 F1 分数，并且在 CDR 和 GDA 上也显着优于现有模型。
 
-#### [【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】](https://arxiv.org/abs/2102.10249)  【[PaddlePaddle/Research](https://github.com/PaddlePaddle/Research/tree/master/KG/AAAI2021_SSAN)】 【[BenfengXu/SSAN](https://github.com/BenfengXu/SSAN)】
+#### [【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】](https://arxiv.org/abs/2102.10249)  
 
+- 【[PaddlePaddle/Research](https://github.com/PaddlePaddle/Research/tree/master/KG/AAAI2021_SSAN)】 
+- 【[BenfengXu/SSAN](https://github.com/BenfengXu/SSAN)】
 - 介绍：实体作为关系抽取任务的基本要素，具有一定的结构。
 
 ![](img/微信截图_20210617095858.png)
@@ -320,8 +327,9 @@
 
 ![](img/微信截图_20210617101759.png)
 
-#### [【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】](https://www.aaai.org/AAAI21Papers/AAAI-9740.ZhouY.pdf)  【[github](https://github.com/yuyanislearning/CTRL-PG)】
+#### [【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】](https://www.aaai.org/AAAI21Papers/AAAI-9740.ZhouY.pdf)  
  
+- 【[github](https://github.com/yuyanislearning/CTRL-PG)】
 - 介绍：医学界一直需要精确提取临床事件之间的时间关系。特别是，时间信息可以促进各种下游应用，例如病例报告检索和医学问答。
 - 动机：现有方法要么需要昂贵的特征工程，要么无法对事件之间的全局关系依赖性进行建模。
 
