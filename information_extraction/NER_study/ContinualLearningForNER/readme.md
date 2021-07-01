@@ -132,7 +132,7 @@ Continual Learning（也称为终身学习（Chen et al. 2018））研究从数�
 1. If all layers predict theOtag, then output=O；
 2. If exactly one layer predicts aB-tag and the other layerspredictO, then output=B-；
 3. If multiple layers predictB-tags and the remaining layerspredictO, then output=B-with the highest probability；
-4. If a layer predicts anI-tag, output=I- only if it matches the preceding tag in the sequence, i.e., the tag of the previous token must be a B- or I- of the same entity type.Otherwise, the output of that layer is treated as O, and the heuristics are applied again to determine the final output（如果一个层预测一个I-tag，则output=I-only 如果它匹配序列中的前一个tag，即前一个token的tag必须是相同实体类型的B-或I-。否则，那个的输出层被视为O，并再次应用启发式以确定最终输出）
+4. If a layer predicts an I-tag, output=I- only if it matches the preceding tag in the sequence, i.e., the tag of the previous token must be a B- or I- of the same entity type.Otherwise, the output of that layer is treated as O, and the heuristics are applied again to determine the final output（如果一个层预测一个I-tag，则output=I-only 如果它匹配序列中的前一个tag，即前一个token的tag必须是相同实体类型的B-或I-。否则，那个的输出层被视为O，并再次应用启发式以确定最终输出）
 
 #### 6.2.2 ExtendNER Model
 
