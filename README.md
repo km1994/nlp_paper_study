@@ -97,7 +97,7 @@
 
 - [ACL2020](other_study/meeting/ACL_study/ACL2020.md)
 - [SIGIR2020](other_study/meeting/SIGIR_stduy/readme.md/)
-- [【关于 AAAI 】那些你不知道的事](#关于-aaai-那些你不知道的事)
+- [【关于 AAAI 】那些你不知道的事](other_study/meeting/AAAI_study/)
   - 一、AAAI 2021
     - 1.1 情感分析
       - 【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】
