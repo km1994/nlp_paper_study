@@ -18,7 +18,6 @@
 - [【关于 NLP】 那些你不知道的事](#关于-nlp-那些你不知道的事)
   - [介绍](#介绍)
     - [【关于 论文工具】那些你不知道的事](#关于-论文工具那些你不知道的事)
-    - [会议收集篇](#会议收集篇)
     - [NLP 学习篇](#nlp-学习篇)
       - [经典会议论文研读篇](#经典会议论文研读篇)
       - [理论学习篇](#理论学习篇)
@@ -56,6 +55,7 @@
         - [【关于 搜索引擎】 那些你不知道的事](#关于-搜索引擎-那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
+    - [会议收集篇](#会议收集篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
     - [竞赛篇](#竞赛篇)
     - [学习资源](#学习资源)
@@ -93,55 +93,6 @@
     - [OpenReview](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#openreview) 
     - [Scirate](https://github.com/km1994/nlp_paper_study/tree/master/论文学习idea#scirate) 
 
-### 会议收集篇
-
-- [ACL2020](other_study/meeting/ACL_study/ACL2020.md)
-- [SIGIR2020](other_study/meeting/SIGIR_stduy/readme.md/)
-- [【关于 AAAI 】那些你不知道的事](other_study/meeting/AAAI_study/)
-  - 一、AAAI 2021
-    - 1.1 情感分析
-      - 【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】
-      - 【An Adaptive Hybrid Framework for Cross-Domain Aspect-Based Sentiment Analysis (AHF)】
-      - 【Bridging Towers of Multi-Task Learning with a Gating Mechanism for Aspect-Based Sentiment Analysis and Sequential Metaphor Identification ()】
-      - 【Human-Level Interpretable Learning for Aspect-Based Sentiment Analysis ()】
-      - 【A Joint Training Dual-MRC Framework for Aspect Based Sentiment Analysis ()】
-      - 【Quantum Cognitively Motivated Decision Fusion for Video Sentiment Analysis ()】
-      - 【Context-Guided BERT for Targeted Aspect-Based Sentiment Analysis ()】
-      - 【Segmentation of Tweets with URLs and its Applications to Sentiment Analysis ()】
-      - 【Segmentation of Tweets with URLs and its Applications to Sentiment Analysis ()】
-    - 1.2 命名实体识别
-      - 【Multi-Modal Graph Fusion for Named Entity Recognition with Targeted Visual Guidance (UMGF)】
-      - 【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】
-      - 【A Supervised Multi-Head Self-Attention Network for Nested Named Entity Recognition ()】
-      - 【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】
-      - 【Continual Learning for Named Entity Recognition】
-      - 【Knowledge-Aware Named Entity Recognition with Alleviating Heterogeneity】
-      - 【Denoising Distantly Supervised Named Entity Recognition via a Hypergeometric Probabilistic Model】
-      - 【MTAAL: Multi-Task Adversarial Active Learning for Medical Named Entity Recognition and Normalization（MTAAL）】
-    - 1.3 关系抽取
-      - 【FL-MSRE: A Few-Shot Learning Based Approach to Multimodal Social Relation Extraction（L-MSRE）】
-      - 【Multi-View Inference for Relation Extraction with Uncertain Knowledge】
-      - 【GDPNet: Refining Latent Multi-View Graph for Relation Extraction（GDPNet）】
-      - 【Progressive Multi-Task Learning with Controlled information Flow for Joint Entity and Relation Extraction】
-      - 【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】
-      - 【Document-Level Relation Extraction with Reconstruction】
-      - 【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】
-      - 【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】
-      - 【Empower Distantly Supervised Relation Extraction with Collaborative Adversarial Training(  MULTICAST)】
-      - 【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】
-      - 【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】
-    - 1.4 事件抽取
-      - 【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】
-      - 【What the Role Is vs. What Plays the Role: Semi-Supervised Event Argument Extraction via Dual Question Answering（DualQA）】
-      - 【Span-Based Event Coreference Resolution】
-    - 1.5 知识图谱
-      - 【Dual Quaternion Knowledge Graph Embeddings(DualE)】
-      - 【Type-Augmented Relation Prediction in Knowledge Graphs】
-      - 【ChronoR: Rotation Based Temporal Knowledge Graph Embedding】
-      - 【PASSLEAF: A Pool-Based Semi-Supervised Learning Framework for Uncertain Knowledge Graph Embedding】
-      - 【KG-BART: Knowledge Graph-Augmented Bart for Generative Commonsense Reasoning】
-      - 【Answering Complex Queries in Knowledge Graphs with Bidirectional Sequence Encoders】
-      - 【其他】
 
 ### NLP 学习篇
 
@@ -1332,7 +1283,6 @@
     - [2. 更语义搜索](#2-更语义搜索)
     - [3。 多轮搜索](#3-多轮搜索)
 
-
 #### 实战篇
 
 ##### 重点推荐篇
@@ -1346,6 +1296,56 @@
   - [【关于 Bert 源码解析 之 微调篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode3_fineTune.md)
   - [【关于 Bert 源码解析IV 之 句向量生成篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode4_word2embedding.md) 
   - [【关于 Bert 源码解析V 之 文本相似度篇 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/blob/master/bert_study/T1_bert/bertCode5_similarity.md)
+
+### 会议收集篇
+
+- [ACL2020](other_study/meeting/ACL_study/ACL2020.md)
+- [SIGIR2020](other_study/meeting/SIGIR_stduy/readme.md/)
+- [【关于 AAAI 】那些你不知道的事](other_study/meeting/AAAI_study/)
+  - 一、AAAI 2021
+    - 1.1 情感分析
+      - 【Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis (Self-MM)】
+      - 【An Adaptive Hybrid Framework for Cross-Domain Aspect-Based Sentiment Analysis (AHF)】
+      - 【Bridging Towers of Multi-Task Learning with a Gating Mechanism for Aspect-Based Sentiment Analysis and Sequential Metaphor Identification ()】
+      - 【Human-Level Interpretable Learning for Aspect-Based Sentiment Analysis ()】
+      - 【A Joint Training Dual-MRC Framework for Aspect Based Sentiment Analysis ()】
+      - 【Quantum Cognitively Motivated Decision Fusion for Video Sentiment Analysis ()】
+      - 【Context-Guided BERT for Targeted Aspect-Based Sentiment Analysis ()】
+      - 【Segmentation of Tweets with URLs and its Applications to Sentiment Analysis ()】
+      - 【Segmentation of Tweets with URLs and its Applications to Sentiment Analysis ()】
+    - 1.2 命名实体识别
+      - 【Multi-Modal Graph Fusion for Named Entity Recognition with Targeted Visual Guidance (UMGF)】
+      - 【CrossNER: Evaluating Cross-Domain Named Entity Recognition ()】
+      - 【A Supervised Multi-Head Self-Attention Network for Nested Named Entity Recognition ()】
+      - 【Nested Named Entity Recognition with Partially-Observed TreeCRFs (Partially-Observed-TreeCRFs)】
+      - 【Continual Learning for Named Entity Recognition】
+      - 【Knowledge-Aware Named Entity Recognition with Alleviating Heterogeneity】
+      - 【Denoising Distantly Supervised Named Entity Recognition via a Hypergeometric Probabilistic Model】
+      - 【MTAAL: Multi-Task Adversarial Active Learning for Medical Named Entity Recognition and Normalization（MTAAL）】
+    - 1.3 关系抽取
+      - 【FL-MSRE: A Few-Shot Learning Based Approach to Multimodal Social Relation Extraction（L-MSRE）】
+      - 【Multi-View Inference for Relation Extraction with Uncertain Knowledge】
+      - 【GDPNet: Refining Latent Multi-View Graph for Relation Extraction（GDPNet）】
+      - 【Progressive Multi-Task Learning with Controlled information Flow for Joint Entity and Relation Extraction】
+      - 【Curriculum-Meta Learning for Order-Robust Continual Relation Extraction】
+      - 【Document-Level Relation Extraction with Reconstruction】
+      - 【Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling(ATLOP )】
+      - 【Entity Structure Within and Throughout: Modeling Mention Dependencies for Document Level Relation Extraction（SSAN）】
+      - 【Empower Distantly Supervised Relation Extraction with Collaborative Adversarial Training(  MULTICAST)】
+      - 【Clinical Temporal Relation Extraction with Probabilistic Soft Logic Regularization and Global Inference（CTRL-PG）】
+      - 【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】
+    - 1.4 事件抽取
+      - 【A Unified Multi-Task Learning Framework for Joint Extraction of Entities and Relations】
+      - 【What the Role Is vs. What Plays the Role: Semi-Supervised Event Argument Extraction via Dual Question Answering（DualQA）】
+      - 【Span-Based Event Coreference Resolution】
+    - 1.5 知识图谱
+      - 【Dual Quaternion Knowledge Graph Embeddings(DualE)】
+      - 【Type-Augmented Relation Prediction in Knowledge Graphs】
+      - 【ChronoR: Rotation Based Temporal Knowledge Graph Embedding】
+      - 【PASSLEAF: A Pool-Based Semi-Supervised Learning Framework for Uncertain Knowledge Graph Embedding】
+      - 【KG-BART: Knowledge Graph-Augmented Bart for Generative Commonsense Reasoning】
+      - 【Answering Complex Queries in Knowledge Graphs with Bidirectional Sequence Encoders】
+      - 【其他】
 
 ### Elastrsearch 学习篇
 
