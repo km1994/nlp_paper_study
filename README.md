@@ -29,6 +29,7 @@
           - [【关于 命名实体识别】那些你不知道的事](#关于-命名实体识别那些你不知道的事)
           - [【关于 关系抽取】那些你不知道的事](#关于-关系抽取那些你不知道的事)
           - [【关于 文档级别关系抽取】那些你不知道的事](#关于-文档级别关系抽取那些你不知道的事)
+          - [【关于 事件抽取】那些你不知道的事](#关于-事件抽取那些你不知道的事)
         - [【关于 知识图谱 】 那些的你不知道的事](#关于-知识图谱--那些的你不知道的事)
           - [【关于 实体链指篇】 那些的你不知道的事](#关于-实体链指篇-那些的你不知道的事)
           - [【关于 实体消歧 】 那些的你不知道的事](#关于-实体消歧--那些的你不知道的事)
@@ -53,6 +54,7 @@
         - [【关于 中文分词】那些你不知道的事](#关于-中文分词那些你不知道的事)
         - [【关于 关键词提取】 那些你不知道的事](#关于-关键词提取-那些你不知道的事)
         - [【关于 搜索引擎】 那些你不知道的事](#关于-搜索引擎-那些你不知道的事)
+        - [【关于 文本纠错】 那些你不知道的事](#关于-文本纠错-那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [会议收集篇](#会议收集篇)
@@ -702,6 +704,20 @@
       - 解决问题：问题 1 的 多实体对问题 和 问题 2 实体对存在多种关系问题
       - 方法：替换为先前学习中用于多标签分类的全局阈值，该阈值为**可学习的依赖实体的阈值**。
 
+###### [【关于 事件抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/event_extraction/)
+
+- [【关于 MLBiNet】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/event_extraction/MLBiNet/)
+  - 论文：MLBiNet: A Cross-Sentence Collective Event Detection Network
+  - 会议： ACL2021
+  - 论文下载地址：https://arxiv.org/pdf/2105.09458.pdf
+  - 论文代码：https://github.com/zjunlp/DocED
+  - 动机：跨句事件抽取旨在研究如何同时识别篇章内多个事件
+  - 论文方法：论文将其重新表述为 **Seq2Seq 任务**，并提出了一个多层双向网络 (Multi-Layer Bidirectional Network，MLBiNet) 来 **融合跨句语义和关联事件信息，从而增强内各事件提及的判别**
+  - 论文思路： 在解码事件标签向量序列时
+    - 首先，为建模句子内部事件关系，我们提出双向解码器用于同时捕捉前向和后向事件依赖；
+    - 然后，利用信息聚合器汇总句子语义和事件提及信息；
+    - 最后，通过迭代多个由双向解码器和信息聚合器构造的单元，并在每一层传递邻近句子的汇总信息，最终感知到整个文档的语义和事件提及信息。
+
 ##### [【关于 知识图谱 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/)
 
 - [【关于 知识图谱 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/)
@@ -1199,7 +1215,7 @@
       - 方法：在源域数据集和通过Distant annotation构造的目标领域数据集上联合进行Adversarial training的方法。
       - 优点：Adversarial training模块可以捕获特定领域更深入的特性，和不可知领域的特性。
 
-##### [【关于 关键词提取】 那些你不知道的事](keyword_ex_study/)
+##### [【关于 关键词提取】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/keyword_ex_study/)
 
 - [【关于 关键词提取】 那些你不知道的事](keyword_ex_study/)
   - 一、TF-IDF关键词提取算法
@@ -1234,7 +1250,7 @@
     - 4.3 语料预处理
     - 4.4 利用 KeyBert 进行关键词提取
 
-##### [【关于 搜索引擎】 那些你不知道的事](search_engine/)
+##### [【关于 搜索引擎】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/)
 
 - [【关于 搜索引擎】 那些你不知道的事](search_engine/)
   - [搜索系统的架构设计](#搜索系统的架构设计)
@@ -1282,6 +1298,25 @@
     - [1. 多模态搜索](#1-多模态搜索)
     - [2. 更语义搜索](#2-更语义搜索)
     - [3。 多轮搜索](#3-多轮搜索)
+
+##### [【关于 文本纠错】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_corrector/)
+
+- [【关于 GECToR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_corrector/GECToR/)
+  - 动机：
+    - 由于 NMT-based GEC系统 的 核心是 seq2seq 结构，所以在部署的时候会遇到以下问题：
+    1. 缓慢的推理速度；
+    2. 需要大量的训练数据；
+    3. 可解释性，从而使他们需要其他功能来解释更正，例如语法错误类型分类；
+  - 论文方法：提出了仅使用Transformer编码器的简单有效的GEC序列标注器。
+  - 论文思路：
+    - 系统在综合数据上进行了预训练；
+    - 然后分两个阶段进行了微调：
+      - 首先是错误的语料库；
+      - 其次是有错误和无错误的平行语料库的组合。
+    - 我们设计了自定义的字符级别转换，以将输入字符映射到纠正后的目标。
+  - 效果：
+    - 我们最好的单模型以及联合模型GEC标注器分别在CoNLL-2014测试集上F0.5达到65.3和66.5，在BEA-2019上F0.5达到72.4和73.6。模型的推理速度是基于Transformer的seq2seq GEC系统的10倍
+
 
 #### 实战篇
 
@@ -1400,10 +1435,15 @@
   - [东南大学《知识图谱》研究生课程](https://github.com/npubird/KnowledgeGraphCourse)
   - [基于知识图谱的金融资讯推荐](https://github.com/codeants2012/FinancialKnowledgeGraph)
   - [北京知识图谱学习小组](https://github.com/memect/kg-beijing)
+  - 美团技术团队文章
+    - [领域应用 | 常识性概念图谱建设以及在美团场景中的应用](https://mp.weixin.qq.com/s/FFkcu5K1oZnzX8Rg72WHqQ)
+    - [【实践】多业务建模在美团搜索排序中的实践](https://mp.weixin.qq.com/s/itAj4jvL1lR4CfbL2rkl_w)
+    - [美团外卖美食知识图谱的迭代及应用](https://mp.weixin.qq.com/s/JX9xUgxcniNLlmKDR7AAGA)
 - [文本摘要]()
   - [Summarization.](https://github.com/bifeng/nlp_paper_notes/blob/75cf64a7eb244814fccf241d5990e23526352ab3/Summarization.md)
   - [GPT2-NewsTitle](https://github.com/liucongg/GPT2-NewsTitle)
 - [CLUEDatasetSearch](https://github.com/CLUEbenchmark/CLUEDatasetSearch)【中英文NLP数据集】
+
 ### [NLP 数据集](nlp_corpus/)
 
 - [【关于 NLP 语料】那些你不知道的事](nlp_corpus/)
