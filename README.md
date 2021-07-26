@@ -864,6 +864,7 @@
       - s3 : 匹配截取，采用 CNN 提取匹配特征，并 用 GRU 学习 utterance 间的临时关系；
 
 ##### [【关于 文本摘要】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/) 
+
 - [【关于 Bertsum】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/EMNLP2019_bertsum/) **【推荐阅读】**
   - 论文名称：Fine-tune BERT for Extractive Summarization
   - 会议：EMNLP2019
@@ -915,7 +916,7 @@
 
 ##### [【关于 文本匹配】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/) 
 
-- [【关于 Sentence-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/SimCSE/) **【推荐阅读】**
+- [【关于 /SimCSE】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/SimCSE/) **【推荐阅读】**
   - 论文：SimCSE: Simple Contrastive Learning of Sentence Embeddings
   - 会议：
   - 论文地址：https://arxiv.org/abs/2104.08821
@@ -926,6 +927,28 @@
   - 实验结果：
     - 作者评估了标准语义文本相似性（STS）任务上的 SimCSE，使用 BERT-base 的无监督和监督模型分别平均实现了 74.5％ 和 81.6％ 的 Spearman 相关性，与之前的最佳结果相比，分别提高了 7.9 和 4.6点。
     - 作者还表明，对比学习理论上将嵌入分布得更均匀，并且在有监督信号可用时，它可以更好地对齐正样本。
+- [【关于 BERT-flow 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/BERTFlow/)
+  - 论文：On the Sentence Embeddings from Pre-trained Language Models
+  - 会议：EMNLP2020
+  - 论文地址：https://arxiv.org/pdf/2011.05864.pdf
+  - 论文代码：https://github.com/bohanli/BERT-flow
+  - 前沿：像BERT这样的经过预训练的上下文表示在自然语言处理中取得了巨大的成功；
+  - 动机：已经发现，未经微调的来自预训练语言模型的句子嵌入很难捕获句子的语义；
+  - 论文方法：在本文中，我们认为BERT嵌入中的语义信息没有得到充分利用。我们首先从理论上揭示了掩盖的语言模型预训练目标与语义相似性任务之间的理论联系，然后从经验上分析了BERT句子的嵌入。
+  - 实验结果：我们发现BERT总是诱发非光滑的各向异性语义空间，这会损害其语义相似性的表现。为解决此问题，我们建议通过将非正则化的流量标准化来将各向异性的语义嵌入分布转换为平滑的各向异性高斯分布。实验结果表明，我们提出的BERT流方法在各种语义文本相似性任务上比最先进的句子嵌入方法具有明显的性能提升。
+- [【关于 Sentence-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/sentence_bert/)
+  - 项目地址：https://github.com/km1994/nlp_paper_study
+  - 论文：Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks
+  - github:https://github.com/UKPLab/sentence-transformers
+  - 动机：
+    - 方法一：BERT使用交叉编码器：将两个句子传递到变压器网络，并预测目标值；
+      - 问题： 由于太多可能的组合，此设置不适用于各种对回归任务。 在n = 10000个句子的集合中找到相似度最高的对需要BERT n·（n-1）/ 2 = 49 995 000推理计算。 在现代V100 GPU上，这大约需要65个小时。 类似地，对于一个新问题，找到Quora的超过4,000万个现有问题中最相似的一个可以建模为与BERT的成对比较，但是，回答单个查询将需要50多个小时。
+    - 方法二：解决聚类和语义搜索的常用方法是将每个句子映射到向量空间，以使语义相似的句子接近。 研究人员已开始将单个句子输入BERT，并得出固定大小的句子嵌入。 最常用的方法是平均BERT输出层（称为BERT嵌入）或通过使用第一个令牌的输出（[CLS]令牌）；
+      - 问题：就像我们将要展示的那样，这种常规做法产生的句子嵌入效果很差，通常比平均GloVe嵌入效果更差。
+  - 论文方法：
+    - 我们开发了SBERT。 siamese network 体系结构使得可以导出输入句子的固定大小矢量。 使用余弦相似度或Manhatten / Euclidean距离之类的相似度度量，可以找到语义上相似的句子。 
+  - 存在问题解答：
+    - 小问题：[在语义相似度任务中，SBERT的计算速度为什么比纯bert进行句子编码要快？](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/sentence_bert/)
 - [【关于 语义相似度匹配任务中的 BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/bert_similairity/)  **【推荐阅读】**
   - 阅读理由：BERT 在 语义相似度匹配任务 中的应用，可以由很多种方式，然而，你真的了解这些方式的区别和优缺点么？
   - 动机：BERT 在 语义相似度匹配任务 中的应用，可以常用 Sentence Pair Classification Task：使用 [CLS]、cosine similairity、sentence/word embedding、siamese network 方法，那么哪种是最佳的方式呢？你是否考虑过呢?
@@ -1001,15 +1024,7 @@
    - 论文代码：https://github.com/wuningxi/tBERT
    - 动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
    - 方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
-- [【关于 BERT-flow 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_match_study/BERTFlow/)
-   - 论文：On the Sentence Embeddings from Pre-trained Language Models
-   - 会议：EMNLP2020
-   - 论文地址：https://arxiv.org/pdf/2011.05864.pdf
-   - 论文代码：https://github.com/bohanli/BERT-flow
-   - 前沿：像BERT这样的经过预训练的上下文表示在自然语言处理中取得了巨大的成功；
-  - 动机：已经发现，未经微调的来自预训练语言模型的句子嵌入很难捕获句子的语义；
-  - 论文方法：在本文中，我们认为BERT嵌入中的语义信息没有得到充分利用。我们首先从理论上揭示了掩盖的语言模型预训练目标与语义相似性任务之间的理论联系，然后从经验上分析了BERT句子的嵌入。
-  - 实验结果：我们发现BERT总是诱发非光滑的各向异性语义空间，这会损害其语义相似性的表现。为解决此问题，我们建议通过将非正则化的流量标准化来将各向异性的语义嵌入分布转换为平滑的各向异性高斯分布。实验结果表明，我们提出的BERT流方法在各种语义文本相似性任务上比最先进的句子嵌入方法具有明显的性能提升。
+
 
 
 
