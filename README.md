@@ -23,6 +23,7 @@
       - [理论学习篇](#理论学习篇)
         - [经典论文研读篇](#经典论文研读篇)
         - [【关于 transformer 】 那些的你不知道的事](#关于-transformer--那些的你不知道的事)
+        - [【关于 Dropout】 那些你不知道的事](#关于-dropout-那些你不知道的事)
         - [【关于 预训练模型】 那些的你不知道的事](#关于-预训练模型-那些的你不知道的事)
         - [【关于 信息抽取】 那些的你不知道的事](#关于-信息抽取-那些的你不知道的事)
           - [【关于 实体关系联合抽取】 那些的你不知道的事](#关于-实体关系联合抽取-那些的你不知道的事)
@@ -203,6 +204,17 @@
       - 4.17  Transformer-XL（2020）
       - 4.18  Compressive Transformers
     - 五、总结
+
+##### 【关于 Dropout】 那些你不知道的事
+
+- [【关于 R-Drop】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/Dropout/R-Drop/)  
+  - 论文：R-Drop: Regularized Dropout for Neural Networks
+  - 论文下载地址：https://arxiv.org/abs/2106.14448
+  - 论文代码：https://github.com/dropreg/R-Drop
+  - 论文动机：
+    - 由于深度神经网络非常容易过拟合，因此 Dropout 方法采用了随机丢弃每层的部分神经元，以此来避免在训练过程中的过拟合问题。**正是因为每次随机丢弃部分神经元，导致每次丢弃后产生的子模型都不一样，所以 Dropout 的操作一定程度上使得训练后的模型是一种多个子模型的组合约束。**基于 Dropout 的这种特殊方式对网络带来的随机性，研究员们提出了 R-Drop 来进一步对（子模型）网络的输出预测进行了正则约束。
+  - 论文方法：与传统作用于神经元（Dropout）或者模型参数（DropConnect）上的约束方法不同，R-Drop **作用于模型的输出层**，弥补了 Dropout 在训练和测试时的不一致性。简单来说就是在每个 mini-batch 中，**每个数据样本过两次带有 Dropout 的同一个模型，R-Drop 再使用 KL-divergence 约束两次的输出一致**。
+  - 作用：**R-Drop 约束了由于 Dropout 带来的两个随机子模型的输出一致性**。
 
 ##### 【关于 预训练模型】 那些的你不知道的事
 
@@ -1193,6 +1205,12 @@
     - 提出了一种基于预训练神经 LM 的弱监督文本分类模型 LotClass，它不需要任何标记文档，只需要每个类的标签名称。
     - 提出了一种寻找类别指示词的方法和一个基于上下文的单词类别预测任务，该任务训练LM使用一个词的上下文来预测一个词的隐含类别。经过训练的LM很好地推广了基于未标记语料库的自训练文档级分类
   - 在四个分类数据集上，LOTClass明显优于各弱监督模型，并具有与强半监督和监督模型相当的性能。
+
+- [【关于 PET 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/PET/)
+  - 论文名称：《exploiting cloze questions for few shot text classification and natural language inference 》
+  - 会议：EMNLP2020
+  - 论文地址：chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=https%3A%2F%2Faclanthology.org%2F2021.eacl-main.20.pdf#=&zoom=125
+  - 论文源码地址：https://github.com/timoschick/pet
 
 ##### [【关于 中文分词】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/chinese_word_segmentation/)
 
