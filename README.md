@@ -769,6 +769,30 @@
       - 2.4.4 指代消解（Disambiguation）
   - 三、知识图谱怎么存储？
   - 四、知识图谱可以做什么？
+- [爱奇艺知识图谱落地实践](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/爱奇艺知识图谱落地实践/)
+  - 原文地址：[领域应用 | 完备的娱乐行业知识图谱库如何建成？爱奇艺知识图谱落地实践](https://mp.weixin.qq.com/s?__biz=MzU2NjAxNDYwMg==&mid=2247493658&idx=1&sn=cc2d7f82aa5c5a138dc7f267aaa26c16&chksm=fcb04fffcbc7c6e9575f5dcc3d1619425e4dd7fc0737976991bff687af6b1dadcdd20f906d04&mpshare=1&scene=22&srcid=0809aEdiDZ0DSoxjfzSF8Kcf&sharer_sharetime=1628471753625&sharer_shareid=da84f0d2d31380d783922b9e26cacfe2#rd)
+  - 构建流程
+    - 知识表示和建模：自顶向下的建模方式
+    - 数据模式（schema）定义方式：
+      - 基于 RDF(Resource Description Framework) 三元组
+      - RDFS（RDF Schema） 的规则
+    - 知识获取
+      - 实体分类
+        - 动机：主要**针对百度百科的数据**，因为**百度百科的数据没有类别信息**
+        - 思路：
+          - 构建基于规则池的分类器，生成训练数据，训练DNN模型（self-attention）文本分类模型；
+          - DNN分类器与规则分类器互相扩充迭代（一到两轮），最终线上使用规则分类器。
+      - 实体抽取
+        - 目标：从数据中的识别和抽取实体的属性与关系信息
+      - 知识融合
+        - 流程：
+          - 首先我们所有来源的实体数据都会进入原始实体库（RawEntity库），并且对原始表中的数据建立索引。
+          - 当一个原始实体rawEntity入最终实体库之前，要在原始实体库中找是否有其它原始实体和rawEntity实际上是同一个实体。步骤：
+            - 首先在索引中根据名字、别名等字段查询出若干个可能是相同实体的候选列表，这个步骤的目的是减少接下来流程的计算量。
+            - 然后经过实体判别模型，根据模型得分识别出待合并对齐的原始实体；
+            - 最后经过属性融合模型，将各原始实体的属性字段进行融合，生成最终的实体。
+          - 这个流程中的合并判断模型实际上是通过机器学习训练生成的二分类器。
+      - 知识存储
 
 ###### [【关于 实体链指篇】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/)
 - [【关于  Low-resource Cross-lingual Entity Linking】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/LowResourceCrossLingualEntityLinking/)
