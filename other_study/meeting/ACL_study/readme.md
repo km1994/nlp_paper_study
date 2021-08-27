@@ -245,9 +245,20 @@
 
 ##### 2.2.1.4 实体标准化
 
-###### [An End-to-End Progressive Multi-Task Learning Framework for Medical Named Entity Recognition and Normalization]()
+###### [An End-to-End Progressive Multi-Task Learning Framework for Medical Named Entity Recognition and Normalization](https://aclanthology.org/2021.acl-long.485/)
 
-###### [A Neural Transition-based Joint Model for Disease Named Entity Recognition and Normalization](https://academic.oup.com/bioinformatics/article/33/15/2363/3089942?login=true)
+
+- 论文代码：https://github.com/zhoubaohang/E2EMERN
+- 动机：医学命名实体识别 (NER) 和归一化 (NEN) 是构建知识图谱和构建 QA 系统的基础。医疗 NER 和 NEN 的现有实现受到两个任务之间的错误传播的影响。来自 NER 的错误预测的提及将直接影响 NEN 的结果。因此，NER模块是整个系统的瓶颈。此外，这两个任务的可学习特征有利于提高模型性能。
+- 方法：为了避免现有模型的缺点并利用两个任务的广义表示，设计了一个 End-to-End Progressive Multi-Task Learning Framework ，以有效的方式联合建模医疗 NER 和 NEN。
+- 渐进式任务：可以通过增量任务设置减少错误传播以提高性能。利用上下文特征来丰富NER提取的实体mention的语义信息。将知识库中的标准实体引入到NER模块中，以正确提取相应的实体。
+- 实验结果：NEN 的性能从增强的实体提及功能中获利。将知识库中的标准实体引入到 NER 模块中，以正确提取相应的实体提及。两个公开可用的医学文献数据集的实证结果证明了我们的方法优于九种典型方法。
+
+![](img/微信截图_20210813090022.png)
+
+![](img/微信截图_20210813090150.png)
+
+###### [A Neural Transition-based Joint Model for Disease Named Entity Recognition and Normalization](https://aclanthology.org/2021.acl-long.219/)
 
 - 动机：疾病命名实体在生物医学研究的许多领域都发挥着核心作用，此类实体的自动识别和规范化在生物医学研究界受到越来越多的关注。
 - 现有方法通常使用具有两个独立阶段的管道模型：
@@ -259,7 +270,30 @@
   - （ii）DEN 对 DER 有用，但管道模型无法利用这一点。
 - 方法：我们提出了一种基于转换的模型来联合执行疾病命名实体识别和归一化，将输出构建过程转换为增量状态转换过程，全局学习转换动作序列，对应于联合结构输出。使用光束搜索和在线结构化学习，学习旨在指导搜索。与唯一现有的联合 DEN 和 DER 方法相比，我们的方法允许使用非局部特征，这显着提高了准确性。
 - 实验结果：我们在两个语料库上评估我们的模型：BioCreative V 化学疾病关系 (CDR) 语料库和 NCBI 疾病语料库。实验表明，与竞争管道基线相比，我们的联合框架实现了显着更高的性能。我们的方法优于其他最先进的方法。
+- 论文贡献：
+  - 我们提出了一种 novel neural transition-basedjoint model（NeuJoRN），用于名为实体识别和归一化的疾病，它不仅联合学习具有共享表示的模型，而且还通过在一个搜索空间中的状态转换联合搜索输出。 
+  - 我们引入了注意机制以利用每个候选概念的文本表面形式进行标准化性能。
+  - 我们在两个公共数据集上评估我们提出的模型，即NCBI 和BC5CDR 数据集。大量实验证明了所提出模型的有效性
 
+![](img/微信截图_20210813085415.png)
+
+##### 2.2.1.5 结合知识图谱
+
+###### [Fine-grained Information Extraction from Biomedical Literature based on Knowledge-enriched Abstract Meaning Representation](https://aclanthology.org/2021.acl-long.489/)
+
+- 动机：从科学文献中提取生物医学信息提出了两个独特而重要的挑战。
+  - 首先，与一般的自然语言文本相比，科学论文中的句子通常在知识元素之间具有更广泛的上下文。
+  - 此外，理解细粒度的科学实体和事件迫切需要特定领域的背景知识。
+- 论文方法：提出了一种新的生物医学信息提取 (IE) 模型来应对这两个挑战，并从英文研究论文中提取科学实体和事件。
+  - 执行抽象含义表示（AMR）来压缩广泛的上下文，以揭示每个复杂句子的清晰语义结构。
+  - 从外部知识库构建句子级知识图谱，并用它来丰富 AMR 图，以提高模型对复杂科学概念的理解。
+  - 使用边缘条件图注意力网络为生物医学 IE 任务编码知识丰富的 AMR 图。
+- 论文实验：在 GENIA 2011 数据集上的实验表明，AMR 和外部知识分别贡献了 1.8% 和 3.0% 的绝对 F 分数增益。为了评估我们的方法对涉及特定主题的细粒度知识元素的现实世界问题的影响，我们还创建了一个新的本体和注释语料库，用于 COVID-19 科学文献的实体和事件提取，这可以作为生物医学 IE 社区的新基准。
+
+![](img/微信截图_20210813090815.png)
+
+
+#### 2.2.2 关系抽取
 
 
 
@@ -267,6 +301,7 @@
 
 1. [ACL2021 信息抽取相关论文汇总](https://zhuanlan.zhihu.com/p/382960251)
 2. [ACL2021主会议论文汇总及分类](https://mp.weixin.qq.com/s/qsOZMnrkxyHDOihAxft7Rg)
+3. [从ACL 2021中看NLP在医疗领域应用的发展，附资源下载](https://zhuanlan.zhihu.com/p/399113115)
 
 
 ## 一、ACL2020
