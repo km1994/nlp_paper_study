@@ -15,7 +15,8 @@
   - [安装 Rasa 内容](#安装-rasa-内容)
     - [安装 中文版本 的 Rasa-nlu](#安装-中文版本-的-rasa-nlu)
       - [安装过程中遇到的问题](#安装过程中遇到的问题)
-    - [sklearn  和 MITIE 库 安装](#sklearn-和-mitie-库-安装)
+    - [sklearn  和 MITIE 库 安装](#sklearn--和-mitie-库-安装)
+      - [安装过程中遇到的问题](#安装过程中遇到的问题-1)
     - [安装 rasa_core](#安装-rasa_core)
   - [项目初尝试](#项目初尝试)
     - [获取项目](#获取项目)
@@ -147,7 +148,7 @@ http://download.microsoft.com/download/0/7/5/0755898A-ED1B-4E11-BC04-6B9B7D82B1E
 	cpack.exe
 ```
 
-3. 安装boost
+3. 安装 boost
 
 官网下载：https://www.boost.org/
 
@@ -162,6 +163,99 @@ D:\develop-environment\boost\boost_1_67_0
 	.\b2 --prefix=D:\develop-environment\boost\bin install
 ```
 
+- 问题二： Centos7 下安装MITIE
+
+> 出现问题
+```s
+pip install mitie
+Collecting mitie
+  Using cached https://files.pythonhosted.org/packages/80/e9/4481c5e6233b8b93acccaacf595bc8e11f40d6ac2e6f6e70b7a62693f9ea/mitie-0.7.36.tar.gz
+Building wheels for collected packages: mitie
+  Building wheel for mitie (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /root/anaconda3/envs/acsz/bin/python -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-zcc2vtwz/mitie/setup.py'"'"'; __file__='"'"'/tmp/pip-install-zcc2vtwz/mitie/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' bdist_wheel -d /tmp/pip-wheel-j9l0ta79 --python-tag cp37
+       cwd: /tmp/pip-install-zcc2vtwz/mitie/
+  Complete output (30 lines):
+  running bdist_wheel
+  running build
+  make -C mitielib
+  make[1]: Entering directory `/tmp/pip-install-zcc2vtwz/mitie/mitielib'
+  Compiling src/mitie.cpp
+  make[1]: g++: Command not found
+  make[1]: *** [src/mitie.o] Error 127
+  make[1]: Leaving directory `/tmp/pip-install-zcc2vtwz/mitie/mitielib'
+  make: *** [mitielib] Error 2
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/tmp/pip-install-zcc2vtwz/mitie/setup.py", line 67, in <module>
+      'Programming Language :: Python :: 3.5',
+    File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/core.py", line 148, in setup
+      dist.run_commands()
+    File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/dist.py", line 966, in run_commands
+      self.run_command(cmd)
+    File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/dist.py", line 985, in run_command
+      cmd_obj.run()
+    File "/root/anaconda3/envs/acsz/lib/python3.7/site-packages/wheel/bdist_wheel.py", line 192, in run
+      self.run_command('build')
+    File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/cmd.py", line 313, in run_command
+      self.distribution.run_command(command)
+    File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/dist.py", line 985, in run_command
+      cmd_obj.run()
+    File "/tmp/pip-install-zcc2vtwz/mitie/setup.py", line 36, in run
+      subprocess.check_call(['make', 'mitielib'])
+    File "/root/anaconda3/envs/acsz/lib/python3.7/subprocess.py", line 347, in check_call
+      raise CalledProcessError(retcode, cmd)
+  subprocess.CalledProcessError: Command '['make', 'mitielib']' returned non-zero exit status 2.
+  ----------------------------------------
+  ERROR: Failed building wheel for mitie
+  Running setup.py clean for mitie
+Failed to build mitie
+Installing collected packages: mitie
+  Running setup.py install for mitie ... error
+    ERROR: Command errored out with exit status 1:
+     command: /root/anaconda3/envs/acsz/bin/python -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-zcc2vtwz/mitie/setup.py'"'"'; __file__='"'"'/tmp/pip-install-zcc2vtwz/mitie/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-pjnzlmaq/install-record.txt --single-version-externally-managed --compile
+         cwd: /tmp/pip-install-zcc2vtwz/mitie/
+    Complete output (32 lines):
+    running install
+    running build
+    make -C mitielib
+    make[1]: Entering directory `/tmp/pip-install-zcc2vtwz/mitie/mitielib'
+    Compiling src/mitie.cpp
+    make[1]: g++: Command not found
+    make[1]: *** [src/mitie.o] Error 127
+    make[1]: Leaving directory `/tmp/pip-install-zcc2vtwz/mitie/mitielib'
+    make: *** [mitielib] Error 2
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/tmp/pip-install-zcc2vtwz/mitie/setup.py", line 67, in <module>
+        'Programming Language :: Python :: 3.5',
+      File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/core.py", line 148, in setup
+        dist.run_commands()
+      File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/dist.py", line 966, in run_commands
+        self.run_command(cmd)
+      File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/dist.py", line 985, in run_command
+        cmd_obj.run()
+      File "/root/anaconda3/envs/acsz/lib/python3.7/site-packages/setuptools/command/install.py", line 61, in run
+        return orig.install.run(self)
+      File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/command/install.py", line 545, in run
+        self.run_command('build')
+      File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/cmd.py", line 313, in run_command
+        self.distribution.run_command(command)
+      File "/root/anaconda3/envs/acsz/lib/python3.7/distutils/dist.py", line 985, in run_command
+        cmd_obj.run()
+      File "/tmp/pip-install-zcc2vtwz/mitie/setup.py", line 36, in run
+        subprocess.check_call(['make', 'mitielib'])
+      File "/root/anaconda3/envs/acsz/lib/python3.7/subprocess.py", line 347, in check_call
+        raise CalledProcessError(retcode, cmd)
+    subprocess.CalledProcessError: Command '['make', 'mitielib']' returned non-zero exit status 2.
+    ----------------------------------------
+ERROR: Command errored out with exit status 1: /root/anaconda3/envs/acsz/bin/python -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-zcc2vtwz/mitie/setup.py'"'"'; __file__='"'"'/tmp/pip-install-zcc2vtwz/mitie/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-pjnzlmaq/install-record.txt --single-version-externally-managed --compile Check the logs for full command output.
+```
+
+> 解决方法
+```s
+  yum groupinstall 'Development Tools'
+```
 
 ### 安装 rasa_core
 

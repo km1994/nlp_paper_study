@@ -16,7 +16,7 @@
     - [1.1 安装 中文版本 的 Rasa-nlu](#11-安装-中文版本-的-rasa-nlu)
     - [1.2 安装 rasa](#12-安装-rasa)
       - [安装过程中遇到的问题](#安装过程中遇到的问题)
-    - [1.3 sklearn  和 MITIE 库 安装](#13-sklearn-和-mitie-库-安装)
+    - [1.3 sklearn  和 MITIE 库 安装](#13-sklearn--和-mitie-库-安装)
     - [1.4 安装 rasa_core](#14-安装-rasa_core)
   - [二、新建项目](#二新建项目)
     - [2.1 安装rasa，自动生成rasa项目所需文件](#21-安装rasa自动生成rasa项目所需文件)
@@ -1123,55 +1123,54 @@ $ curl -X POST localhost:5005/webhooks/rest/webhook -d '{"message":"询深圳周
 
 #### （一）启动Action服务
 
-```
-# 启动action服务
-# 注：该服务的--port默认为5055，如果使用默认则可以省略
-$ python -m rasa run actions --port 5055 --actions actions --debug
-2020-09-21 21:39:28 INFO rasa_sdk.endpoint  - Starting action endpoint server...
-2020-09-21 21:39:28 INFO rasa_sdk.executor  - Registered function for 'action_default_fallback'.
-2020-09-21 21:39:28 INFO rasa_sdk.executor  - Registered function for 'weather_form'.
-2020-09-21 21:39:28 INFO rasa_sdk.endpoint  - Action endpoint is up and running on http://localhost:5055
-2020-09-21 21:39:28 DEBUG rasa_sdk.utils  - Using the default number of Sanic workers (1).
-
+```s
+  # 启动action服务
+  # 注：该服务的--port默认为5055，如果使用默认则可以省略
+  $ python -m rasa run actions --port 5055 --actions actions --debug
+  2020-09-21 21:39:28 INFO rasa_sdk.endpoint  - Starting action endpoint server...
+  2020-09-21 21:39:28 INFO rasa_sdk.executor  - Registered function for 'action_default_fallback'.
+  2020-09-21 21:39:28 INFO rasa_sdk.executor  - Registered function for 'weather_form'.
+  2020-09-21 21:39:28 INFO rasa_sdk.endpoint  - Action endpoint is up and running on http://localhost:5055
+  2020-09-21 21:39:28 DEBUG rasa_sdk.utils  - Using the default number of Sanic workers (1).
 ```
 - 参数说明
 
-```
-usage: rasa run actions [-h] [-v] [-vv] [--quiet] [-p PORT]
-[--cors [CORS [CORS ...]]] [--actions ACTIONS]
-[--ssl-keyfile SSL_KEYFILE]
-[--ssl-certificate SSL_CERTIFICATE]
-[--ssl-password SSL_PASSWORD]
+```s
+  usage: rasa run actions [-h] [-v] [-vv] [--quiet] [-p PORT]
+  [--cors [CORS [CORS ...]]] [--actions ACTIONS]
+  [--ssl-keyfile SSL_KEYFILE]
+  [--ssl-certificate SSL_CERTIFICATE]
+  [--ssl-password SSL_PASSWORD]
 
-optional arguments:
-  -h, --help
-  						显示帮助信息
-  -p PORT, --port PORT  
-  						指定action server的端口号，默认为5055；
-  --cors [CORS [CORS ...]]
-开启CORS;
-  --actions ACTIONS 
-  						指定action.py等文件所在包路径；
-  --ssl-certificate SSL_CERTIFICATE
-设置SSL证书，默认为None;
-  --ssl-keyfile SSL_KEYFILE
-设置SSL密钥文件，默认为None;
-  --ssl-ca-file SSL_CA_FILE
-设置CA文件便于SSL证书验证，默认为None;
+  optional arguments:
+    -h, --help
+                显示帮助信息
+    -p PORT, --port PORT  
+                指定action server的端口号，默认为5055；
+    --cors [CORS [CORS ...]]
+  开启CORS;
+    --actions ACTIONS 
+                指定action.py等文件所在包路径；
+    --ssl-certificate SSL_CERTIFICATE
+  设置SSL证书，默认为None;
+    --ssl-keyfile SSL_KEYFILE
+  设置SSL密钥文件，默认为None;
+    --ssl-ca-file SSL_CA_FILE
+  设置CA文件便于SSL证书验证，默认为None;
 
-Python Logging Options:
-  -v, --verbose 
-  						设置日志等级为INFO;
-  -vv, --DEBUG   
-  						开启调试
-  --quiet   
-  						设置日志等级为WARNING，默认为None;
+  Python Logging Options:
+    -v, --verbose 
+                设置日志等级为INFO;
+    -vv, --DEBUG   
+                开启调试
+    --quiet   
+                设置日志等级为WARNING，默认为None;
 ```
 
 
 #### （二） 开启对话窗口
 
-```
+```python
   $ rasa shell
   2020-09-22 10:05:42 INFO root  - Connecting to channel 'cmdline' which was specified by the '--connector' argument. Any other channels will be ignored. To connect to all given channels, omit the '--connector' argument.
   2020-09-22 10:05:42 INFO root  - Starting Rasa server on http://localhost:5005

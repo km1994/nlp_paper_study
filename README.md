@@ -56,6 +56,7 @@
         - [【关于 关键词提取】 那些你不知道的事](#关于-关键词提取-那些你不知道的事)
         - [【关于 搜索引擎】 那些你不知道的事](#关于-搜索引擎-那些你不知道的事)
         - [【关于 文本纠错】 那些你不知道的事](#关于-文本纠错-那些你不知道的事)
+        - [【关于 Text-to-SQL】 那些你不知道的事](#关于-text-to-sql-那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [会议收集篇](#会议收集篇)
@@ -1394,6 +1395,23 @@
     - 我们设计了自定义的字符级别转换，以将输入字符映射到纠正后的目标。
   - 效果：
     - 我们最好的单模型以及联合模型GEC标注器分别在CoNLL-2014测试集上F0.5达到65.3和66.5，在BEA-2019上F0.5达到72.4和73.6。模型的推理速度是基于Transformer的seq2seq GEC系统的10倍
+
+##### [【关于 Text-to-SQL】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/)
+
+- [【关于 Text-to-SQL 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md)
+  - [什么是 Text-to-SQL?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#什么是-text-to-sql)
+  - [为什么需要 Text-to-SQL?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#为什么需要-text-to-sql)
+  - [Text-to-SQL 定义?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#text-to-sql-定义)
+  - [Text-to-SQL 有哪些数据集?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#text-to-sql-有哪些数据集)
+  - [Text-to-SQL 如何评价?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#text-to-sql-如何评价)
+  - [Text-to-SQL 有哪些模型，都存在哪些优缺点?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#text-to-sql-有哪些模型都存在哪些优缺点)
+    - [seq2seq 模型](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#seq2seq-模型)
+    - [SQLNet 模型](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#sqlnet-模型)
+    - [TypeSQL 模型](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#typesql-模型)
+    - [SyntaxSQLNet 模型](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#syntaxsqlnet-模型)
+    - [IRNet 模型](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#irnet-模型)
+    - [Global-GNN && RAT-SQL](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#global-gnn--rat-sql)
+
 
 
 #### 实战篇
