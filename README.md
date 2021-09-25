@@ -14,7 +14,6 @@
 
 ![](other_study/resource/pic/20210523220743.png)
 
-
 - [【关于 NLP】 那些你不知道的事](#关于-nlp-那些你不知道的事)
   - [介绍](#介绍)
     - [【关于 论文工具】那些你不知道的事](#关于-论文工具那些你不知道的事)
@@ -54,6 +53,7 @@
         - [【关于 NLP分类任务】那些你不知道的事](#关于-nlp分类任务那些你不知道的事)
         - [【关于 中文分词】那些你不知道的事](#关于-中文分词那些你不知道的事)
         - [【关于 关键词提取】 那些你不知道的事](#关于-关键词提取-那些你不知道的事)
+        - [【关于 新词发现】 那些你不知道的事](#关于-新词发现-那些你不知道的事)
         - [【关于 搜索引擎】 那些你不知道的事](#关于-搜索引擎-那些你不知道的事)
         - [【关于 文本纠错】 那些你不知道的事](#关于-文本纠错-那些你不知道的事)
         - [【关于 Text-to-SQL】 那些你不知道的事](#关于-text-to-sql-那些你不知道的事)
@@ -425,7 +425,7 @@
 
 ###### [【关于 实体关系联合抽取】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/)
 
-- [【关于 A Frustratingly Easy Approach for Joint Entity and Relation Extraction】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/AFrustratinglyEasyApproachForJEandRE/) 【强烈推荐】
+- [【关于 PURE】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/PURE/) 【强烈推荐】
   - 论文：A Frustratingly Easy Approach for Joint Entity and Relation Extraction
   - 阅读理由：反直觉！陈丹琦用pipeline方式刷新关系抽取SOTA 
   - 方法：建立两个 encoders，并独立训练:
@@ -797,6 +797,32 @@
             - 最后经过属性融合模型，将各原始实体的属性字段进行融合，生成最终的实体。
           - 这个流程中的合并判断模型实际上是通过机器学习训练生成的二分类器。
       - 知识存储
+
+- [【关于 Complex KBQA】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/ComplexKBQA/)
+  - 论文：A Survey on Complex Knowledge Base Question Answering:Methods, Challenges and Solutions
+  - 会议：IJCAI'2021
+  - 论文地址：https://www.ijcai.org/proceedings/2021/0611.pdf
+  - 动机：
+    - 相比仅包含单个关系事实的简单问题，复杂问题通常有以下几个特征
+      - **需要在知识图谱中做多跳推理 (multi-hop reasoning)**
+      - **需要考虑题目中给的限制词 (constrained relations)**
+      - **需要考虑数字运算的情况 (numerical operations)**
+    - **基于语义解析的方法还是信息检索的方法都将遇到新的挑战**：
+      - **传统方法无法支撑问题的复杂逻辑**
+      - **复杂问题包含了更多的实体，导致在知识图谱中搜索空间变大**
+      - **两种方法都将问题理解作为首要步骤**
+      - **通常 Complex KBQA 数据集缺少对正确路径的标注**
+  - 预测答案两类主流的方法
+    - 基于语义解析（SP-based）的方法
+      - 问题理解 (question understanding) 模块
+      - 逻辑解析 (logical parsing) 模块
+      - 知识图谱实例化 (KB grounding) 模块
+      - 知识执行 (KB execution) 模块
+    - 基于信息检索（IR-based）的方法
+      - 子图构建 (retrieval source construction) 模块
+      - 问题表达 (question representation) 模块
+      - 基于图结构的推理 (graph based reasoning) 模块
+      - 答案排序 (answer ranking) 模块
 
 ###### [【关于 实体链指篇】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/)
 - [【关于  Low-resource Cross-lingual Entity Linking】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/entity_linking/LowResourceCrossLingualEntityLinking/)
@@ -1328,6 +1354,15 @@
     - 4.2 KeyBERT 调用
     - 4.3 语料预处理
     - 4.4 利用 KeyBert 进行关键词提取
+- [【关于 One2Set 】 那些你不知道的事](keyword_ex_study/kg_one2set/)
+  - 论文名称：One2Set: Generating Diverse Keyphrases as a Set
+  - 论文：https://aclanthology.org/2021.acl-long.354/
+  - 代码：https://github.com/jiacheng-ye/kg_one2set
+  - 会议：ACL2021
+
+##### [【关于 新词发现】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/word_discovery/)
+
+- [【关于 新词发现】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/word_discovery/)
 
 ##### [【关于 搜索引擎】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/)
 

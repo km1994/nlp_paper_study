@@ -1,4 +1,4 @@
-# 【关于 A Frustratingly Easy Approach for Joint Entity and Relation Extraction】 那些你不知道的事
+# 【关于 PURE 】 那些你不知道的事
 
 > 作者：杨夕
 > 
@@ -8,10 +8,32 @@
 > 
 > 论文：A Frustratingly Easy Approach for Joint Entity and Relation Extraction</br>
 > 论文地址：chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=https%3A%2F%2Farxiv.org%2Fpdf%2F2010.12812.pdf</br>
-> 
+> github : </br>
+>   官方：https://github.com/princeton-nlp/PURE </br>
+>   复现版：https://github.com/suolyer/PyTorch_BERT_Pipeline_IE</br>
 
-## 目录
-
+- [【关于 PURE 】 那些你不知道的事](#关于-pure--那些你不知道的事)
+  - [摘要](#摘要)
+  - [动机](#动机)
+  - [方法简述](#方法简述)
+  - [方法分析](#方法分析)
+    - [总结](#总结)
+    - [存在问题及改进](#存在问题及改进)
+  - [本文贡献](#本文贡献)
+  - [前沿方法介绍](#前沿方法介绍)
+    - [第1类：多任务学习（共享参数的联合抽取模型）](#第1类多任务学习共享参数的联合抽取模型)
+    - [第2类：结构化预测（联合解码的联合抽取模型）](#第2类结构化预测联合解码的联合抽取模型)
+  - [方法介绍](#方法介绍)
+    - [Entity  model](#entity--model)
+    - [Relation model](#relation-model)
+      - [存在问题](#存在问题)
+  - [实验结果](#实验结果)
+  - [结果分析](#结果分析)
+    - [Q1、关系抽取最care什么？实体类型信息也太重要了吧](#q1关系抽取最care什么实体类型信息也太重要了吧)
+    - [Q2、共享编码 VS 独立编码 哪家强？](#q2共享编码-vs-独立编码-哪家强)
+    - [Q3、误差传播不可避免？还是不存在？](#q3误差传播不可避免还是不存在)
+    - [Q4：Effect of Cross-sentence Context](#q4effect-of-cross-sentence-context)
+  - [参考](#参考)
 
 ## 摘要
 
