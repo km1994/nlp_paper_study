@@ -3,7 +3,7 @@
 > 作者：杨夕 </br>
 > 论文：AutoPhrase: Automated Phrase Mining from Massive Text Corpora</br>
 > 会议：IEEE</br>
-> 论文地址：https://arxiv.org/abs/1702.04457
+> 论文地址：https://arxiv.org/abs/1702.04457</br>
 > 源码 C++ 版本：https://github.com/shangjingbo1226/AutoPhrase</br>
 > 源码 Python 版本：https://github.com/luozhouyang/AutoPhraseX</br>
 > 个人github：https://github.com/km1994/nlp_paper_study </br>
