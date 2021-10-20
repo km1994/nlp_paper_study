@@ -31,9 +31,6 @@ text_simple_study/RE2_study/simple-effective-text-matching-pytorch/*
 *.tfvars
 *.all
 *.hdf5
-*.json
-*.txt
-*.csv
 task/.idea/*
 *.xml
 *.zip
@@ -45,8 +42,5 @@ task/.idea/*
 *.bz2
 *.word
 *.pkl
-*.tsv
-*.neg
-*.pos
 **/mywork/*
 
