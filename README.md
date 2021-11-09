@@ -1450,6 +1450,42 @@
     - [2. 更语义搜索](#2-更语义搜索)
     - [3。 多轮搜索](#3-多轮搜索)
 
+- [【关于 GECToR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/PLMbasedRankingInBaiduSearch/)
+  - 论文：Pre-trained Language Model based Ranking in Baidu Search
+  - 论文地址：https://arxiv.org/abs/2105.11108
+  - 论文出处：KDD'21
+  - 动机：
+    - 作为搜索引擎的核心， Ranking System 在满足用户的信息需求方面起着至关重要的作用；
+    - 基于 PLM 的 Neural Rankers 难以直接应用：
+      - （1）推理时延高：大规模神经 PLM 的计算成本过高，尤其是对于网络文档中的长文本，禁止将它们部署在需要极低延迟的 Online Ranking System 中；
+      - (2) 目标不一致问题：基于 PLM 的训练目标 与 临时检索场景目标 存在不一致问题；
+      - (3) 兼容性问题：搜索引擎通常涉及 committee of ranking components，如何 让 Fine-tuning PLM 得到的 Ranking System 与其 兼容，存在问题；
+  - 论文方法：在线搜索引擎系统中部署最先进的中文预训练语言模型（即 ERNIE）时，贡献了一系列成功应用的技术来解决这些暴露的问题。
+    - 首先，阐述了一种新颖的做法，以经济高效地汇总 Web 文档，并使用廉价但功能强大的 Pyramid-ERNIE 架构将结果汇总内容与查询联系起来。
+    - 然后，赋予了一种创新范式来精细地利用大规模嘈杂和有偏见的点击后行为数据进行面向相关的预训练。
+    - 提出了一种 针对 在线排名系统 的 human-anchored 微调策略 ，旨在稳定各种在线组件的排名信号。
+  - 实验结果：大量的离线和在线实验结果表明，所提出的技术显着提高了搜索引擎的性能。
+
+- [【关于 PLM for Web-scale Retrieval in Baidu Search 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/PLMforWeb-scaleRetrievalInBaiduSearch/)
+  - 论文：Pre-trained Language Model for Web-scale Retrieval in Baidu Search 
+  - 论文地址：https://arxiv.org/abs/2106.03373
+  - 论文出处：KDD'21
+  - 介绍： Retrieval 是网络搜索中的一个关键阶段，它从十亿规模的语料库中识别出一个与查询相关的候选集。在 retrieval 阶段发现更多语义相关的候选集 有助于 向最终用户展示更多高质量的结果。
+  - 动机：
+    - 【语义匹配】：**如何 解决 用户 query 多样化和口语化问题？**
+    - 【冷启动问题】：**对于 大多数 第一次出现的 query 和 doc，如何让 Retrieval Models 捕获 其对应语义信息？**
+    - 【工程实践】：**如何 将 Retrieval Models 应用于 Baidu Search？**
+  - 论文方法：论文描述了作者在 Baidu Search 中开发和部署的 Retrieval Models 。
+    - 该系统利用了最近最先进的中文预训练语言模型，即通过知识整合 (ERNIE) 的增强表示，它促进了系统的表达语义匹配。
+    - 基于 ERNIE 的 Retrieval Models 拥有：
+      - 1）expressive Transformer-based semantic encoders：能够 帮助 Retrieval 充分捕获 query 和 doc 对应语义信息；
+      - 2）多阶段训练范式：ERNIE 预训练模型 分别采用 不同的语料数据 进行 多阶段训练，提高模型 泛化能力；
+    - 系统工作流程：基于 ERNIE 的 Retrieval Models 结合 传统 Retrieval Models 和 Deep Retrieval Models，并 采用  lightweight post-retrieval filtering module 引入更多的统计特征（例如，点击率、停留时间），来对上述 Retrieval Models 的 检索结果 进行 统一过滤，；
+    - 最终，该系统完全部署到生产环境中，并进行了严格的离线和在线实验。
+  - 实验结果：
+    - 该系统可以执行高质量的候选 retrieval ，特别是对于那些需求不常见的尾部查询。
+    - 由预训练语言模型（即 ERNIE）推动的新 retrieval system 可以在很大程度上提高我们搜索引擎的可用性和适用性。
+
 ##### [【关于 文本纠错】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_corrector/)
 
 - [【关于 GECToR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_corrector/GECToR/)
@@ -1483,8 +1519,16 @@
     - [SyntaxSQLNet 模型](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#syntaxsqlnet-模型)
     - [IRNet 模型](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#irnet-模型)
     - [Global-GNN && RAT-SQL](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#global-gnn--rat-sql)
-
-
+- [【关于 LGESQL 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/LGESQL/readme.md)
+  - 论文：LGESQL: Line Graph Enhanced Text-to-SQL Model with Mixed Local and Non-Local Relations
+  - 来源：ACL2021
+  - 链接：https://arxiv.org/abs/2106.01093
+  - Github地址：https://github.com/rhythmcao/text2sql-lgesql
+  - 动机：这项工作旨在解决 text-to-SQL 任务中具有挑战性的异构图编码问题。以前的方法通常以节点为中心，仅利用不同的权重矩阵来参数化边类型 
+    - 1) 忽略了边的拓扑结构中嵌入的丰富语义 
+    - 2) 无法区分每个节点的局部和非局部关系。
+  - 论文方法：提出了一种 Line Graph Enhanced Text-to-SQL (LGESQL) 模型来挖掘底层关系特征，而无需构建元路径。凭借线图，消息不仅通过节点之间的连接，而且通过有向边的拓扑更有效地传播。此外，在图迭代期间，局部和非局部关系都被独特地整合在一起。我们还设计了一个称为图修剪的辅助任务，以提高编码器的判别能力。
+  - 论文实验：在撰写本文时，我们的框架在跨域文本到 SQL 基准 Spider 上取得了最先进的结果（Glove 为 62.8%，Electra 为 72.0%）。
 
 #### 实战篇
 
