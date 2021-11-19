@@ -46,6 +46,8 @@
           - [【关于 多轮检索 】那些你不知道的事](#关于-多轮检索-那些你不知道的事)
           - [【关于 KBFAQ 】那些你不知道的事](#关于-kbfaq-那些你不知道的事)
         - [【关于 对话系统】 那些的你不知道的事](#关于-对话系统-那些的你不知道的事)
+          - [【关于 自然语言理解 NLU】那些你不知道的事](#关于-自然语言理解-nlu那些你不知道的事)
+          - [【关于 状态追踪（DST）】那些你不知道的事](#关于-状态追踪dst那些你不知道的事)
           - [【关于 自然语言生成NLG 】那些你不知道的事](#关于-自然语言生成nlg-那些你不知道的事)
           - [【关于 E2E 】那些你不知道的事](#关于-e2e-那些你不知道的事)
           - [【关于 Rasa 】 那些的你不知道的事](#关于-rasa--那些的你不知道的事)
@@ -511,6 +513,22 @@
       - Relation-Specific Object Taggers 层：由一系列relation-specific object taggers（之所以这里是多个taggers是因为有多个可能的relation）；
 
 ###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/)
+
+- [【关于 AutoNER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_studyEMNLP2018_AutoNER)
+  - 论文名称：Learning Named Entity Tagger using Domain-Specific Dictionary
+  - 会议： EMNLP2018
+  - 论文地址：https://arxiv.org/abs/1809.03599
+  - 项目地址：https://github.com/shangjingbo1226/AutoNER
+  - 论文动机：
+    - 基于机器学习的命名实体识别方法：需要 手工标注特征；
+    - 基于深度学习的命名实体识别方法：需要大量标准数据；
+    - 远程监督（结合外部词典）标注数据：生成的嘈杂标签对学习
+  - 论文方法：提出了两种神经模型，以适应字典中嘈杂的远程监督：
+    - 首先，在传统的序列标记框架下，我们提出了一个修改后的模糊 CRF 层来处理具有多个可能标签的标记。
+    - 在确定远程监督中嘈杂标签的性质后，我们超越了传统框架，提出了一种新颖、更有效的神经模型 AutoNER，该模型具有新的 Tie or Break 方案。
+    - 讨论了如何改进远程监督以获得更好的 NER 性能。
+  - 实验结果：在三个基准数据集上进行的大量实验表明，仅使用字典而不需要额外的人力时，AutoNER 实现了最佳性能，并通过最先进的监督基准提供了具有竞争力的结果。
+
 
 - [【关于 Continual Learning for NER】那些你不知道的事](#关于-continual-learning-for-ner那些你不知道的事)
   - 会议：AAAI2021
@@ -1039,16 +1057,35 @@
 
 - [【关于 KBFAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/KBFAQ/)
 
-##### [【关于 对话系统】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/)
+##### [【关于 对话系统】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/)
 
-- [【关于 Domain/Intent Classification 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/IntentClassification/)
-- [【关于 槽位填充 (Slot Filling)】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/SlotFilling/)
-- [【关于 上下文LU】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/contextLU/)
-- [【关于 DSTC 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/DSTC/)
+###### [【关于 自然语言理解 NLU】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/NLU/contextLU/)
 
-###### [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/)
-- [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/)
-- [【关于 IRN 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/NLG/IRN/)
+- [【关于 上下文理解 contextLU】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/NLU/contextLU/)
+- [【关于 DIET】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/NLU/DIET/)
+  - 论文名称：DIET：Dual Intent and Entity Transformer
+  - 作者：RASA
+  - 论文代码：https://github.com/cheesama/DIET-pytorch 【韩文】
+  - 动机：
+    - 大规模的预训练语言模型在 GLUE 和 SuperGLUE 等语言理解基准上显示出令人印象深刻的结果，与分布式表示 (GloVe) 和纯监督方法等其他预训练方法相比有了显着改善。
+  - 论文方法：我们介绍了 the Dual Intent and Entity Transformer (DIET) (DIET) 架构（基于两个任务共享的Transformer）：
+    - 1 实体标签序列通过Transformer后，输出序列进入顶层条件随机场（CRF）标记层预测，输出每个Token成为BIOE的概率；
+    - 2 完整话语和意图标签经过Transformer输出到单个语义向量空间中；
+    - 3 利用点积损失最大化与目标标签的相似度，最小化与负样本的相似度。
+  - 优点：
+    - 它是一种模块化体系结构，适合典型的软件开发工作流程；
+    - 在准确性和性能方面，能达到大规模预训练语言模型的效果；
+    - 改进了现有技术，胜过当时的SOTA，并且训练速度提高了6倍。
+- [【关于 Domain/Intent Classification 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/NLU/IntentClassification/)
+- [【关于 槽位填充 (Slot Filling)】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/NLU/SlotFilling/)
+
+###### [【关于 状态追踪（DST）】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/DST/)
+
+- [【关于 状态追踪（DST）】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/DST/)
+
+###### [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/NLG/)
+- [【关于 自然语言生成NLG 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/NLG/)
+- [【关于 IRN 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/NLG/IRN/)
   - 论文：ScriptWriter: Narrative-Guided Script Generation
   - 发表会议：ACL2020
   - 论文地址：https://www.aclweb.org/anthology/2020.acl-main.10/
@@ -1059,10 +1096,10 @@
     - 强化学习：不断更新，实验证明我们的网络生成的回复中中slot关键信息生成的正确性大大提高。
   - 实验结果：对多个基准数据集进行了综合研究，结果表明所提出的方法显著降低了所有强基线的时隙错误率。人类的评估也证实了它的有效性。
 
-###### [【关于 E2E 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/)
+###### [【关于 E2E 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/E2E/)
 
-- [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/TC_Bot/)
-- [【关于 DF-Net 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/E2E/DynamicFusionNetwork/)
+- [【关于 TC_Bot(End-to-End Task-Completion Neural Dialogue Systems) 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/E2E/TC_Bot/)
+- [【关于 DF-Net 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/E2E/DynamicFusionNetwork/)
   - 论文：Dynamic Fusion Network for Multi-Domain End-to-end Task-Oriented Dialog
   - 发表会议：ACL2020
   - 论文地址：https://arxiv.org/abs/2004.11019
@@ -1087,16 +1124,16 @@
   2. 动态融合网络：动态地利用所有领域间的相关性提供给下一步细粒度知识迁移；
   3. 对抗训练 (adversarial training) ：促使共享模块生成领域共享特征
 
-###### [【关于 Rasa 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/)
+###### [【关于 Rasa 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/)
 
-1. [【关于 rasa 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa安装手册.md)
-2. [【关于 rasa 基本架构 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa基本框架_视频讲解.md)
-3. [【关于 rasa中文对话系统】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa中文对话系统.md)
-4. [【关于 rasa中文对话系统构建】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa中文对话系统构建.md)
-5. [【关于 rasa->NLU 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa系列/rasa_nlu.md)
-6. [【关于 rasa -> Core -> FormAction 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa_core_FormAction/rasa_nlu.md)
-7. [【关于 rasa -> Core -> Stories 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa系列/rasa_core_Stories.md)
-8. [【关于 rasa -> Core -> Action 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DialogueSystem_study/rasa/rasa_core_FormAction/rasa_core_Action.md)
+1. [【关于 rasa 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/rasa安装手册.md)
+2. [【关于 rasa 基本架构 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/rasa基本框架_视频讲解.md)
+3. [【关于 rasa中文对话系统】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/rasa中文对话系统.md)
+4. [【关于 rasa中文对话系统构建】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/rasa中文对话系统构建.md)
+5. [【关于 rasa->NLU 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/rasa系列/rasa_nlu.md)
+6. [【关于 rasa -> Core -> FormAction 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/rasa_core_FormAction/rasa_nlu.md)
+7. [【关于 rasa -> Core -> Stories 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/rasa系列/rasa_core_Stories.md)
+8. [【关于 rasa -> Core -> Action 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/dialogue_system_study/rasa/rasa_core_FormAction/rasa_core_Action.md)
 
 ##### [【关于 文本摘要】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/) 
 

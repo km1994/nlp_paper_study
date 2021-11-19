@@ -111,6 +111,90 @@
   - 用一个额外的判别组件来增加生成目标，即一个修正项，它可以让我们直接优化生成器的排名。
 - 实验结果：这些技术解决了上述所有问题：我们的模型比之前的生成方法快 70 倍以上，并且更准确
 
+##### End-to-End Entity Resolution and Question Answering Using Differentiable Knowledge
+
+- 论文地址：https://aclanthology.org/2021.emnlp-main.345/
+- 动机：最近，经过端到端 (E2E) 训练的知识图问答模型 (KGQA) 仅使用弱监督数据集就取得了有希望的结果。然而，这些模型是在向模型提供手动注释的问题实体的环境中进行训练和评估的，将实体解析 (ER) 的重要且重要的任务排除在 E2E 学习的范围之外。
+- 论文方法：扩展了 KGQA 的 E2E 学习的边界，以包括对 ER 组件的训练。我们的模型只需要问题文本和答案实体来训练，并提供一个独立的 QA 模型，不需要在运行时提供额外的 ER 组件。我们的方法是完全可微的，这要归功于它依赖于最近用于构建可微 KG 的方法（Cohen 等，2020）。
+- 实验结果：我们在两个公共数据集上评估了我们的 E2E 训练模型，并表明它接近使用手动注释实体的基线模型。
+
+##### From Alignment to Assignment: Frustratingly Simple Unsupervised Entity Alignment
+
+- 论文地址：https://aclanthology.org/2021.emnlp-main.226/
+- 动机：跨语言实体对齐（EA）旨在找到跨语言 KG（知识图）之间的等效实体，这是整合 KG 的关键步骤。最近，提出了许多基于 GNN 的 EA 方法，并在几个公共数据集上显示出不错的性能改进。然而，现有的基于 GNN 的 EA 方法不可避免地继承了神经网络的可解释性差和效率低。
+- 论文方法：受基于 GNN 方法的同构假设的启发，我们成功地将跨语言 EA 问题转换为分配问题。基于这种重新定义，我们提出了一种没有神经网络的简单但有效的无监督实体对齐方法（SEU）。
+- 大量实验表明，我们提出的无监督方法甚至在所有公共数据集上都优于先进的监督方法，同时具有高效率、可解释性和稳定性。
+
+##### Robustness Evaluation of Entity Disambiguation Using Prior Probes: the Case of Entity Overshadowing
+
+- 论文地址：https://aclanthology.org/2021.emnlp-main.820/
+- 动机：实体消歧 (ED) 是实体链接 (EL) 的最后一步，当候选实体根据它们出现的上下文重新排序时。 用于训练和评估 EL 模型的所有数据集都由便利样本组成，例如新闻文章和推文，将实体分布的先验概率偏差传播到更频繁出现的实体。结果表明，EL 系统在此类数据集上的性能被高估了，因为仅通过学习先验就可以获得更高的准确度分数。
+- 论文方法：为了提供更充分的评估基准，引入了 ShadowLink 数据集，其中包括 16K 短文本片段，并带有实体提及的注释。我们在 ShadowLink 基准测试中评估和报告流行 EL 系统的性能。结果显示，对于所有被评估的 EL 系统，更多和不太常见的实体之间的准确性存在相当大的差异，证明了先验概率偏差和实体遮蔽的影响。
+
+#### 1.5 other
+
+1. TEBNER: Domain Specific Named Entity Recognition with Type Expanded Boundary-aware Network
+2. Document-level Entity-based Extraction as Template Generation
+3. Injecting Entity Types into Entity-Guided Text Generation
+4. Enhanced Language Representation with Label Knowledge for Span Extraction
+5. ChemNER: Fine-Grained Chemistry Named Entity Recognition with Ontology-Guided Distant Supervision
+
+### 二、关系抽取（共19篇）
+
+#### 2.1 远程监督关系抽取
+
+##### Distantly Supervised Relation Extraction using Multi-Layer Revision Network and Confidence-based Multi-Instance Learning
+
+- 论文地址：https://aclanthology.org/2021.emnlp-main.15/
+- 动机：远程监督关系抽取由于其高效性被广泛应用于知识库的构建。存在问题：
+  - 自动获取的实例质量低，不相关的词很多。
+  - 远程监督的强假设导致句袋中存在嘈杂的句子。
+- 论文方法：
+  - 提出了一种新颖的 Multi-Layer Revision Network (MLRN) ，它通过在提取句子内的相关信息之前强调句子内部的相关性来减轻词级噪声的影响。
+  - 设计了一种 balanced and noise-resistant Confidence-based Multi-Instance Learning (CMIL) 来过滤噪声句子并为相关句子分配适当的权重。
+- 实验结果：对两个纽约时报 (NYT) 数据集的大量实验表明，我们的方法在基线上取得了显着的改进。
+
+##### Knowing False Negatives: An Adversarial Training Method for Distantly Supervised Relation Extraction
+
+- 论文方法：https://aclanthology.org/2021.emnlp-main.761/
+- 动机：远程监督关系提取 (RE) 自动将非结构化文本与知识库 (KB) 中的关系实例对齐。存在问题：
+  - 由于当前知识库的不完整性，暗示某些关系的句子可能被 标注 为 N/A 实例，这会导致所谓的假阴性 (FN) 问题。
+  - 当前的 RE 方法通常会忽略这个问题，从而在训练和测试过程中产生不适当的偏差。
+- 论文方法：提出了一个两阶段的方法。
+  - 首先，它通过启发式地利用深度神经网络的记忆机制找出可能的 FN 样本。
+  - 然后，它通过对抗性训练将那些未标记的数据与训练数据对齐到一个统一的特征空间中，以分配伪标签并进一步利用其中包含的信息。
+- 实验结果：在两个广泛使用的基准数据集上进行的实验证明了我们方法的有效性。
+
+#### 2.2 实体关系联合抽取
+
+##### TDEER: An Efficient Translating Decoding Schema for Joint Extraction of Entities and Relations
+
+- 论文方法：https://aclanthology.org/2021.emnlp-main.635/
+- 论文代码：https://github.com/4AI/TDEER.
+- 动机：从非结构化文本中联合提取实体和关系以形成事实三元组是构建知识库 (KB) 的一项基本任务。一种常见的方法是通过预测实体对来解码三元组以获得对应关系。然而，有效地处理这项任务仍然具有挑战性，特别是对于重叠三元组问题。
+- 论文方法：本文提出了一种新的高效实体和关系提取模型，称为 TDEER，（ Translating Decoding Schema for Joint Extraction of Entities and Relations）。
+  - 与常见方法不同，所提出的翻译解码模式将关系视为从主体到对象的翻译操作，即 TDEER 将三元组解码为主体 + 关系 → 对象。 
+  - TDEER 自然可以处理重叠三元组问题，因为翻译解码模式可以识别所有可能的三元组，包括重叠和非重叠三元组。
+  - 为了增强模型的鲁棒性，我们引入了负样本来减轻不同阶段的错误积累。
+- 实验结果：对公共数据集的大量实验表明，与最先进的 (SOTA) 基线相比，TDEER 产生了具有竞争力的结果。此外，计算复杂度分析表明 TDEER 比强大的基线更有效。特别是，提议的 TDEER 比最近的 SOTA 模型快 2 倍。
+
+##### A Partition Filter Network for Joint Entity and Relation Extraction
+
+- 论文方法：https://aclanthology.org/2021.emnlp-main.17/
+- 论文代码：https://github.com/Coopercoppers/PFN
+- 论文动机：在联合实体和关系提取中，现有工作要么对特定于任务的特征进行顺序编码，导致任务间特征交互的不平衡，即后来提取的特征与先出现的特征没有直接联系。或者它们以并行方式编码实体特征和关系特征，这意味着除了输入共享之外，每个任务的特征表示学习在很大程度上彼此独立。
+- 论文方法：提出了一个分区过滤器网络来正确建模任务之间的双向交互，其中特征编码被分解为两个步骤：
+  - 分区和过滤器。在我们的编码器中，我们利用两个门：实体门和关系门，将神经元分割成两个任务分区和一个共享分区。
+  - 共享分区代表对两个任务都有价值的任务间信息，并且在两个任务之间平均共享以确保正确的双向交互。
+  - 任务分区代表任务内信息，
+  - 通过两个门的共同努力形成，确保任务特定特征的编码相互依赖。
+- 实验结果：在六个公共数据集上的实验结果表明，我们的模型的性能明显优于以前的方法。此外，与之前的工作所声称的相反，我们的辅助实验表明，关系预测以不可忽略的方式对命名实体预测做出了贡献。
+
+![](img/微信截图_20211110205429.png)
+
+
+
+
 
 
 
