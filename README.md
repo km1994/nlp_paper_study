@@ -261,6 +261,36 @@
       - 微调：直接利用 特定任务数据 微调
     - 优点：
     - 缺点：
+  - [【关于 Bart】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/BART/)
+    - 论文：Bart: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension
+    - 来源：Facebook 
+    - 论文地址：https://mp.weixin.qq.com/s/42rYlyjQsh4loFKRdhJlIg
+    - 开源代码：https://github.com/renatoviolin/Bart_T5-summarization
+    - 阅读理由：Bert 问题上的改进
+    - 动机：
+      - BERT：用掩码替换随机 token，双向编码文档。由于缺失 token 被单独预测，因此 BERT 较难用于生成任务;
+      - GPT：使用自回归方式预测 token，这意味着 GPT 可用于生成任务。但是，该模型仅基于左侧上下文预测单词，无法学习双向交互
+    - 介绍：用于预训练序列到序列模型的去噪自动编码器
+    - 思路：
+      - 预训练：
+        - (1) 使用任意噪声函数破坏文本;
+          - Token Masking（token 掩码）：按照 BERT 模型，BART 采样随机 token，并用 [MASK]标记 替换它们；
+          - Sentence Permutation（句子排列变换）：按句号将文档分割成多个句子，然后以随机顺序打乱这些句子；
+          - Document Rotation（文档旋转）：随机均匀地选择 token，旋转文档使文档从该 token 开始。该任务的目的是训练模型识别文档开头；
+          - Token Deletion（token 删除）：从输入中随机删除 token。与 token 掩码不同，模型必须确定缺失输入的位置；
+          - Text Infilling（文本填充）：采样多个文本段，文本段长度取决于泊松分布 (λ = 3)。用单个掩码 token 替换每个文本段。长度为 0 的文本段对应掩码 token 的插入；
+        - (2) 学习模型以重建原始文本。
+        - Two-Stream Self-Attention for Target-Aware Representations【解决PLM出现的目标预测歧义】 
+        - XLNet将最先进的自回归模型Transformer-XL的思想整合到预训练中【解决 Bert 的 Max Len 为 512】
+      - 微调：
+        - Sequence Classification Task 序列分类任务: 将相同的输入，输入到encoder和decoder中，最后将decoder的最后一个隐藏节点作为输出，输入到分类层（全连接层）中，获取最终的分类的结果;
+        - Token Classification Task 序列分类任务: 将完整文档输入到编码器和解码器中，使用解码器最上方的隐藏状态作为每个单词的表征。该表征的用途是分类 token;
+        - Sequence Generation Task 序列生成任务: 编码器的输入是输入序列，解码器以自回归的方式生成输出;
+        - Machine Translation 机器翻译: 将BART的encoder端的embedding层替换成randomly initialized encoder，新的encoder也可以用不同的vocabulary。通过新加的Encoder，我们可以将新的语言映射到BART能解码到English(假设BART是在English的语料上进行的预训练)的空间. 具体的finetune过程分两阶段:
+          1. 第一步只更新randomly initialized encoder + BART positional embedding + BART的encoder第一层的self-attention 输入映射矩阵。
+          2. 第二步更新全部参数，但是只训练很少的几轮。
+    - 优点：它使用标准的基于 Transformer 的神经机器翻译架构，尽管它很简单，但可以看作是对 BERT（由于双向编码器）、GPT（带有从左到右的解码器）和许多其他最近的预训练方案的泛化.
+    - 缺点：
   - [【关于 RoBERTa】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T4_RoBERTa/) 
     - 阅读理由：Bert 问题上的改进
     - 动机：
@@ -450,7 +480,56 @@
       - 解答：并不认为误差传播问题不存在或无法解决，而需要探索更好的解决方案来解决此问题
     - Q4：Effect of Cross-sentence Context
       - 解答：使用跨句上下文可以明显改善实体和关系
+- [【关于 PRGC】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/PRGC)
+  - 论文：PRGC: Potential Relation and Global Correspondence Based JointRelational Triple Extraction
+  - 来源：ACL 2021
+  - 论文地址：https://arxiv.org/pdf/2106.09895
+  - 开源代码：https://github.com/hy-struggle/PRGC
+  - 动机：从非结构化文本中联合提取实体和关系是信息提取中的一项关键任务。最近的方法取得了可观的性能，但仍然存在一些固有的局限性：
+    - 关系预测的冗余：TPLinker 为了避免曝光偏差，它利用了相当复杂的解码器，导致了稀疏的标签，关系冗余；
+    - span-based 的提取泛化性差和效率低下;
+  - 论文方法：
+    - 从新颖的角度将该任务分解为三个子任务：
+      - Relation  Judgement；
+      - Entity  Extraction；
+      - Subject-object Alignment；
+    - 然后提出了一个基于 Potential Relation and Global Correspondence (PRGC) 的联合关系三重提取框架：
+      - **Potential Relation Prediction**：给定一个句子，模型先预测一个可能存在关系的子集，以及得到一个全局矩阵；
+      - **Relation-Specific Sequence Tagging**：然后执行序列标注，标注存在的主体客体，以处理 subjects  and  object 之间的重叠问题；
+      - **Global Correspondence**：枚举所有实体对，由全局矩阵裁剪；
+    - 实验结果：PRGC 以更高的效率在公共基准测试中实现了最先进的性能，并在重叠三元组的复杂场景中提供了一致的性能增益
 - [【关于 实体关系联合抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/实体关系联合抽取总结.md)
+  1. pipeline  方法
+     1. 思路：先命名实体识别（ NER） , 在 关系抽取（RE）
+     2. 问题：
+        1. 忽略两任务间的相关性
+        2. 误差传递。NER 的误差会影响 RE 的性能
+  2. end2end 方法
+     1. 解决问题：实体识别、关系分类
+     2. 思路：
+        1. 实体识别
+           1. BIOES 方法：提升召回？和文中出现的关系相关的实体召回
+           2. 嵌套实体识别方法：解决实体之间有嵌套关系问题
+           3. 头尾指针方法：和关系分类强相关？和关系相关的实体召回
+           4. copyre方法
+        2. 关系分类：
+           1. 思路：判断 【实体识别】步骤所抽取出的实体对在句子中的关系
+           2. 方法：
+              1. 方法1：1. 先预测头实体，2. 再预测关系、尾实体
+              2. 方法2：1. 根据预测的头、尾实体预测关系
+              3. 方法3：1. 先找关系，再找实体 copyre
+           3. 需要解决的问题：
+              1. 关系重叠
+              2. 关系间的交互
+  3. 论文介绍
+     1. 【paper 1】Joint entity recognition and relation extraction as a multi-head selection problem
+     2. 【paper 2】Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy[ACL2017]
+     3. 【paper 3】GraphRel:Modeling Text as Relational Graphs for Joint Entity and Relation Extraction [ACL2019]
+     4. 【paper 4】CopyMTL: Copy Mechanism for Joint Extraction of Entities and Relations with Multi-Task Learning [AAAI2020]
+     5. 【paper 5】Span-based Joint Entity and Relation Extraction with Transformer Pre-training [ECAI 2020]
+     6. 【paper 6】A Novel Cascade Binary Tagging Framework for Relational Triple Extraction[ACL2020]
+     7. 【paper 7】END-TO-END NAMED ENTITY RECOGNITION AND RELATION EXTRACTION USING PRE-TRAINED LANGUAGE MODELS
+
 - [Incremental Joint Extraction of Entity Mentions and Relations](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/T2014_joint_extraction/)
 - [【关于 Joint NER】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/ERE_study/JointER/)
   - 论文名称：Joint Extraction of Entities and Relations Based on a Novel Decomposition Strategy
@@ -1038,15 +1117,66 @@
 ###### [【关于 FAQ 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/)
 
 - [【关于 FAQ Trick】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/FAQ_trick/)
-- [【关于 FAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/)
-  - [【关于 LCNQA】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/LCNQA/)
-    - 论文名称：Lattice CNNs for Matching Based Chinese Question Answering
-  - [LSTM-based Deep Learning Models for Non-factoid Answer Selection](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
-  - [【关于 Denoising Distantly Supervised ODQA】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/T4_DenoisingDistantlySupervisedODQA/)
-    - 论文名称：Denoising Distantly Supervised Open-Domain Question Answering
-  - [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/ACM2019_faq_bert-based_query-answer_relevance/)
-  - [【DC-BERT】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/SIGIR2020_DCBert/)
-    - 论文名称：DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING
+  - 一、动机
+    - 1.1 问答系统的动机？
+    - 1.2 问答系统 是什么？
+  - 二、FAQ 检索式问答系统介绍篇
+    - 2.1 FAQ 检索式问答系统 是 什么？
+    - 2.2 query 匹配标准 QA 的核心是什么?
+  - 三、FAQ 检索式问答系统 方案篇
+    - 3.1 常用 方案有哪些？
+    - 3.2 为什么 QQ 匹配比较常用？
+      - 3.2.1 QQ 匹配的优点有哪些？
+      - 3.2.2 QQ 匹配的语义空间是什么？
+      - 3.2.3 QQ 匹配的语料的稳定性是什么？
+      - 3.2.4 QQ 匹配的业务回答与算法模型的解耦是什么？
+      - 3.2.5 QQ 匹配的新问题发现与去重是什么？
+      - 3.2.6 QQ 匹配的上线运行速度是什么？
+    - 3.3  QQ 匹配一般处理流程是怎么样？ 【假设 标准问题库 已处理好】
+  - 四、FAQ 标准问题库构建篇
+    - 4.1 如何发现 FAQ 中标准问题？
+    - 4.2 FAQ 如何做拆分？
+    - 4.3 FAQ 如何做合并？
+    - 4.4 FAQ 标准库如何实时更新？
+    - 4.5 FAQ 知识库搭建原则有哪些？
+    - 4.6 FAQ 知识库应该具备哪些特点？
+    - 4.7 FAQ 知识库应该怎么从零构建？
+    - 4.8 FAQ 标准问题库答案如何优化？
+    - 4.9 FAQ 怎样发现未能解决客户的问题？
+- [【关于 Robust Industry-scale Question Answering System】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/Industry-scaleQAS/)
+  - 论文：Towards building a Robust Industry-scale Question Answering System
+  -论文地址：https://www.aclweb.org/anthology/2020.coling-industry.9.pdf
+  - 会议：COLING 2020
+  - 工业规模的 NLP 系统需要两个功能。 
+    - 1. 鲁棒性：“零样本迁移学习”(ZSTL) 的性能值得称道； 
+    - 2. 效率：系统必须高效训练并即时响应。
+  - 论文方法：介绍了一种称为GAAMA（Go Ahead Ask Me Anything）的生产模型的发展，它具有上述两个特征：
+    - 为了稳健性，它在最近引入的Natural Questions（NQ）数据集上进行训练。 NQ 对 SQuAD 等旧数据集提出了额外的挑战：
+      - (a) QA 系统需要阅读和理解整篇 Wikipedia 文章而不是一小段文章；
+      - (b) NQ 在构建过程中不会受到观察偏差的影响，从而减少问题和问题之间的词汇重叠文章。 
+    - GAAMA 由Attention-over-Attention、注意力头的多样性、分层迁移学习和合成数据增强组成，同时计算成本低廉。
+  - 实验结果：
+    - 建立在强大的 BERTQA 模型之上，GAAMA 在 F1 中比 NQ 上的行业规模最先进 (SOTA) 系统提供了 2.0% 的绝对提升；
+    -  GAAMA 将零样本转移到了看不见的现实生活和重要领域，因为它在两个基准上产生了可观的性能：BioASQ 和新引入的 CovidQA 数据集。
+
+- [【关于 LCNQA】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/LCNQA/)
+  - 论文名称：Lattice CNNs for Matching Based Chinese Question Answering
+- [LSTM-based Deep Learning Models for Non-factoid Answer Selection](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/T1_LSTM-based_for_Non-factoid_Answer_Selection/)
+- [【关于 Denoising Distantly Supervised ODQA】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/T4_DenoisingDistantlySupervisedODQA/)
+  - 论文名称：Denoising Distantly Supervised Open-Domain Question Answering
+- [FAQ retrieval using query-question similarity and BERT-based query-answer relevance](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/ACM2019_faq_bert-based_query-answer_relevance/)
+- [【DC-BERT】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/FAQ/SIGIR2020_DCBert/)
+  - 论文名称：DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING
+  - 会议：SIGIR2020
+  - 常用方法：
+    - 遵循“检索和读取”管道，并使用基于BERT的重新排序器对检索到的文档进行筛选，
+    - 然后再将其馈送到阅读器模块中。
+    - BERT检索器将问题和每个检索到的文档的连接作为输入。
+  - 问题：
+    - 无法处理传入问题的高吞吐量，每个问题都有大量检索到的文档；
+  - 论文方法：具有双重BERT模型的解耦上下文编码框架：
+    - 一个在线BERT，仅对问题进行一次编码；
+    - 一个正式的BERT，对所有文档进行预编码并缓存其编码；
 
 ###### [【关于 多轮检索 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/QA_study/mulFAQ/)
 

@@ -137,6 +137,14 @@
         <td>--</td>
         <td>问题</td>
     </tr>
+    <tr>
+        <td>Bart</td>
+        <td>Bart: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension</td>
+        <td>BERT：用掩码替换随机 token，双向编码文档。由于缺失 token 被单独预测，因此 BERT 较难用于生成任务;<br/>GPT：使用自回归方式预测 token，这意味着 GPT 可用于生成任务。但是，该模型仅基于左侧上下文预测单词，无法学习双向交互</td>
+        <td>(1) 使用任意噪声函数破坏文本;(Token 掩码、删除、填充、句子排列变换、文档旋转) <br/>(2) 学习模型以重建原始文本。</td>
+        <td>不同任务 做的 操作不同</td>
+        <td>问题</td>
+    </tr>
 </table>
 
 ## 一、Bert

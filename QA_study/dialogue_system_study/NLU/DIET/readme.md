@@ -2,6 +2,8 @@
 
 > 论文名称：DIET：Dual Intent and Entity Transformer
 > 
+> 论文地址：https://arxiv.org/pdf/2004.09936.pdf
+> 
 > 论文代码 1：https://github.com/WeiNyn/DIETClassifier-pytorch
 
 ## 一、前言
@@ -135,8 +137,9 @@
 
 ## 参考资料
 
-1. [DIET: Lightweight Language Understanding for Dialogue Systems](https://arxiv.org/abs/2004.09936)
+1. [DIET：Dual Intent and Entity Transformer](https://arxiv.org/pdf/2004.09936.pdf)
 2. [DIET：Dual Intent and Entity Transformer——RASA论文翻译](https://zhuanlan.zhihu.com/p/337181983)
 3. [DIET：Dual Intent and Entity Transformer 笔记](https://blog.csdn.net/qq_27586341/article/details/113871056)
 4. [DIET in Rasa](https://www.jianshu.com/p/3372a5c772ad)
 5. [（六）RASA NLU意图分类器](https://zhuanlan.zhihu.com/p/333309670)
+
