@@ -1,5 +1,77 @@
 # 【关于 NLP 语料】那些你不知道的事
 
+
+## 六、文本摘要数据
+
+### 6.4 nlpcc 自动摘要英文语料库
+
+```s
+{
+  "version": "0.0.1",
+  "data":
+  [
+      {
+          "title": "知情人透露章子怡怀孕后,父母很高兴。章母已开始悉心照料。据悉,预产期大概是12月底",
+          "content": "四海网讯,近日,有媒体报道称:章子怡真怀孕了!报道还援引知情人士消息称,“章子怡怀孕大概四五个月,预产期是年底前后,现在已经不接工作了。”这到底是怎么回事?消息是真是假?针对此消息,23日晚8时30分,华西都市报记者迅速联系上了与章子怡家里关系极好的知情人士,这位人士向华西都市报记者证实说:“子怡这次确实怀孕了。她已经36岁了,也该怀孕了。章子怡怀上汪峰的孩子后,子怡的父母亲十分高兴。子怡的母亲,已开始悉心照料女儿了。子怡的预产期大概是今年12月底。”当晚9时,华西都市报记者为了求证章子怡怀孕消息,又电话联系章子怡的亲哥哥章子男,但电话通了,一直没有人接听。有关章子怡怀孕的新闻自从2013年9月份章子怡和汪峰恋情以来,就被传N遍了!不过,时间跨入2015年,事情却发生着微妙的变化。2015年3月21日,章子怡担任制片人的电影《从天儿降》开机,在开机发布会上几张合影,让网友又燃起了好奇心:“章子怡真的怀孕了吗?”但后据证实,章子怡的“大肚照”只是影片宣传的噱头。过了四个月的7月22日,《太平轮》新一轮宣传,章子怡又被发现状态不佳,不时深呼吸,不自觉想捂住肚子,又觉得不妥。然后在8月的一天,章子怡和朋友吃饭,在酒店门口被风行工作室拍到了,疑似有孕在身!今年7月11日,汪峰本来在上海要举行演唱会,后来因为台风“灿鸿”取消了。而消息人士称,汪峰原来打算在演唱会上当着章子怡的面宣布重大消息,而且章子怡已经赴上海准备参加演唱会了,怎知遇到台风,只好延期,相信9月26日的演唱会应该还会有惊喜大白天下吧。"
+      },...
+  ]
+}
+```
+
+### 6.3 SQuAD 自动摘要英文语料库
+
+```s
+  {"data": [{"title": "Super_Bowl_50", "paragraphs": [{"context": "Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24\u201310 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the \"golden anniversary\" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as \"Super Bowl L\"), so that the logo could prominently feature the Arabic numerals 50.", "qas": [{"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Which NFL team represented the AFC at Super Bowl 50?", "id": "56be4db0acb8001400a502ec"}, {"answers": [{"answer_start": 249, "text": "Carolina Panthers"}, {"answer_start": 249, "text": "Carolina Panthers"}, {"answer_start": 249, "text": "Carolina Panthers"}], "question": "Which NFL team represented the NFC at Super Bowl 50?", "id": "56be4db0acb8001400a502ed"}, {"answers": [{"answer_start": 403, "text": "Santa Clara, California"}, {"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium in the San Francisco Bay Area at Santa Clara, California."}], "question": "Where did Super Bowl 50 take place?", "id": "56be4db0acb8001400a502ee"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Which NFL team won Super Bowl 50?", "id": "56be4db0acb8001400a502ef"}, {"answers": [{"answer_start": 488, "text": "gold"}, {"answer_start": 488, "text": "gold"}, {"answer_start": 521, "text": "gold"}], "question": "What color was used to emphasize the 50th anniversary of the Super Bowl?", "id": "56be4db0acb8001400a502f0"}, {"answers": [{"answer_start": 487, "text": "\"golden anniversary\""}, {"answer_start": 521, "text": "gold-themed"}, {"answer_start": 487, "text": "\"golden anniversary"}], "question": "What was the theme of Super Bowl 50?", "id": "56be8e613aeaaa14008c90d1"}, {"answers": [{"answer_start": 334, "text": "February 7, 2016"}, {"answer_start": 334, "text": "February 7"}, {"answer_start": 334, "text": "February 7, 2016"}], "question": "What day was the game played on?", "id": "56be8e613aeaaa14008c90d2"}, {"answers": [{"answer_start": 133, "text": "American Football Conference"}, {"answer_start": 133, "text": "American Football Conference"}, {"answer_start": 133, "text": "American Football Conference"}], "question": "What is the AFC short for?", "id": "56be8e613aeaaa14008c90d3"}, {"answers": [{"answer_start": 487, "text": "\"golden anniversary\""}, {"answer_start": 521, "text": "gold-themed"}, {"answer_start": 521, "text": "gold"}], "question": "What was the theme of Super Bowl 50?", "id": "56bea9923aeaaa14008c91b9"}, {"answers": [{"answer_start": 133, "text": "American Football Conference"}, {"answer_start": 133, "text": "American Football Conference"}, {"answer_start": 133, "text": "American Football Conference"}], "question": "What does AFC stand for?", "id": "56bea9923aeaaa14008c91ba"}, {"answers": [{"answer_start": 334, "text": "February 7, 2016"}, {"answer_start": 334, "text": "February 7"}, {"answer_start": 334, "text": "February 7, 2016"}], "question": "What day was the Super Bowl played on?", "id": "56bea9923aeaaa14008c91bb"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Who won Super Bowl 50?", "id": "56beace93aeaaa14008c91df"}, {"answers": [{"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium in the San Francisco Bay Area at Santa Clara"}], "question": "What venue did Super Bowl 50 take place in?", "id": "56beace93aeaaa14008c91e0"}, {"answers": [{"answer_start": 403, "text": "Santa Clara"}, {"answer_start": 403, "text": "Santa Clara"}, {"answer_start": 403, "text": "Santa Clara"}], "question": "What city did Super Bowl 50 take place in?", "id": "56beace93aeaaa14008c91e1"}, {"answers": [{"answer_start": 693, "text": "Super Bowl L"}, {"answer_start": 704, "text": "L"}, {"answer_start": 693, "text": "Super Bowl L"}], "question": "If Roman numerals were used, what would Super Bowl 50 have been called?", "id": "56beace93aeaaa14008c91e2"}, {"answers": [{"answer_start": 116, "text": "2015"}, {"answer_start": 112, "text": "the 2015 season"}, {"answer_start": 116, "text": "2015"}], "question": "Super Bowl 50 decided the NFL champion for what season?", "id": "56beace93aeaaa14008c91e3"}, {"answers": [{"answer_start": 116, "text": "2015"}, {"answer_start": 346, "text": "2016"}, {"answer_start": 116, "text": "2015"}], "question": "What year did the Denver Broncos secure a Super Bowl title for the third time?", "id": "56bf10f43aeaaa14008c94fd"}, {"answers": [{"answer_start": 403, "text": "Santa Clara"}, {"answer_start": 403, "text": "Santa Clara"}, {"answer_start": 403, "text": "Santa Clara"}], "question": "What city did Super Bowl 50 take place in?", "id": "56bf10f43aeaaa14008c94fe"}, {"answers": [{"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium"}], "question": "What stadium did Super Bowl 50 take place in?", "id": "56bf10f43aeaaa14008c94ff"}, {"answers": [{"answer_start": 267, "text": "24\u201310"}, {"answer_start": 267, "text": "24\u201310"}, {"answer_start": 267, "text": "24\u201310"}], "question": "What was the final score of Super Bowl 50? ", "id": "56bf10f43aeaaa14008c9500"}, {"answers": [{"answer_start": 334, "text": "February 7, 2016"}, {"answer_start": 334, "text": "February 7, 2016"}, {"answer_start": 334, "text": "February 7, 2016"}], "question": "What month, day and year did Super Bowl 50 take place? ", "id": "56bf10f43aeaaa14008c9501"}, {"answers": [{"answer_start": 116, "text": "2015"}, {"answer_start": 346, "text": "2016"}, {"answer_start": 346, "text": "2016"}], "question": "What year was Super Bowl 50?", "id": "56d20362e7d4791d009025e8"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "What team was the AFC champion?", "id": "56d20362e7d4791d009025e9"}, {"answers": [{"answer_start": 249, "text": "Carolina Panthers"}, {"answer_start": 249, "text": "Carolina Panthers"}, {"answer_start": 249, "text": "Carolina Panthers"}], "question": "What team was the NFC champion?", "id": "56d20362e7d4791d009025ea"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Who won Super Bowl 50?", "id": "56d20362e7d4791d009025eb"}, {"answers": [{"answer_start": 116, "text": "2015"}, {"answer_start": 112, "text": "the 2015 season"}, {"answer_start": 116, "text": "2015"}], "question": "Super Bowl 50 determined the NFL champion for what season?", "id": "56d600e31c85041400946eae"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Which team won Super Bowl 50.", "id": "56d600e31c85041400946eb0"}, {"answers": [{"answer_start": 403, "text": "Santa Clara, California."}, {"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium"}], "question": "Where was Super Bowl 50 held?", "id": "56d600e31c85041400946eb1"}, {"answers": [{"answer_start": 0, "text": "Super Bowl"}, {"answer_start": 0, "text": "Super Bowl"}, {"answer_start": 0, "text": "Super Bowl"}], "question": "The name of the NFL championship game is?", "id": "56d9895ddc89441400fdb50e"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "What 2015 NFL team one the AFC playoff?", "id": "56d9895ddc89441400fdb510"}]},
+  ...
+}
+
+```
+
+
+### 6.2 lcsts 生成式自自动摘要中文语料库
+
+- article.txt
+
+```s
+  新华社受权于18日全文播发修改后的《中华人民共和国立法法》，修改后的立法法分为“总则”“法律”“行政法规”“地方性法规、自治条例和单行条例、规章”“适用与备案审查”“附则”等6章，共计105条。
+  一辆小轿车，一名女司机，竟造成9死24伤。日前，深圳市交警局对事故进行通报：从目前证据看，事故系司机超速行驶且操作不当导致。目前24名伤员已有6名治愈出院，其余正接受治疗，预计事故赔偿费或超一千万元。
+  1月18日，习近平总书记对政法工作作出重要指示：2014年，政法战线各项工作特别是改革工作取得新成效。新形势下，希望全国政法机关主动适应新形势，为公正司法和提高执法司法公信力提供有力制度保障。
+  针对央视3·15晚会曝光的电信行业乱象，工信部在公告中表示，将严查央视3·15晚会曝光通信违规违法行为。工信部称，已约谈三大运营商有关负责人，并连夜责成三大运营商和所在省通信管理局进行调查，依法依规严肃处理。
+  ...
+```
+
+- summary.txt
+
+```s
+  修改后的立法法全文公布
+  深圳机场9死24伤续：司机全责赔偿或超千万
+  孟建柱：主动适应形势新变化提高政法机关服务大局的能力
+  工信部约谈三大运营商严查通信违规
+  ...
+```
+
+
+### 6.1 教育培训行业抽象式自动摘要中文语料库
+
+自动文摘分为两种：
+
+1. 抽取式
+
+2. 抽象式
+
+语料库收集了教育培训行业主流垂直媒体的历史文章（截止到2018年6月5日）大约24500条数据集。主要是为训练抽象式模型而整理，每条数据有summary(摘要)和text(正文)，两个字段，Summary字段均为作者标注。
+
+压缩包大约 60 MB，解压后大约 150 MB。
+
+![sample](img/sample.png)
+
+格式如下：
+
+summary{{...}}
+
+text{{...}}
+
+
 ## 五、事件抽取数据集
 
 - [数据资源：事件图谱构建中常用事件抽取、因果事件关系数据集的总结与思考](https://mp.weixin.qq.com/s/feobmsEHINwM-UZbHVzq2w)

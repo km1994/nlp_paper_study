@@ -32,6 +32,8 @@
         - [经典论文研读篇](#经典论文研读篇)
         - [【关于 transformer 】 那些的你不知道的事](#关于-transformer--那些的你不知道的事)
         - [【关于 预训练模型】 那些的你不知道的事](#关于-预训练模型-那些的你不知道的事)
+        - [【关于 Prompt】 那些的你不知道的事](#关于-prompt-那些的你不知道的事)
+        - [【关于 Prompt For NER】 那些的你不知道的事](#关于-prompt-for-ner-那些的你不知道的事)
         - [【关于 信息抽取】 那些的你不知道的事](#关于-信息抽取-那些的你不知道的事)
           - [【关于 实体关系联合抽取】 那些的你不知道的事](#关于-实体关系联合抽取-那些的你不知道的事)
           - [【关于 命名实体识别】那些你不知道的事](#关于-命名实体识别那些你不知道的事)
@@ -438,23 +440,66 @@
       - 目标：analyze and interpret pre-trained models，测量一个单词xj对预测另一个单词xi的影响，然后从该单词间信息中得出全局语言属性（例如，依赖树）。
   - 思想：整体思想很直接，句法结构，其实本质上描述的是词和词之间的某种关系，如果我们能从BERT当中拿到词和词之间相互“作用”的信息，就能利用一些算法解析出句法结构。 
 
-- [【关于中文预训练模型】那些你不知道的事]((https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Chinese/)
+- [【关于中文预训练模型】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Chinese/)
   - [【关于ChineseBERT】那些你不知道的事]((https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Chinese/ChineseBERT/)
-  - 论文名称：ChineseBERT: Chinese Pretraining Enhanced by Glyph and Pinyin Information
-  - 会议： ACL2021
-  - 论文地址：https://arxiv.org/abs/2106.16038
-  - 论文源码地址：https://github.com/ShannonAI/ChineseBert
-  - 模型下载：https://huggingface.co/hfl/chinese-bert-wwm-ext/tree/main
-  - 动机：最近的中文预训练模型忽略了中文特有的两个重要方面：字形和拼音，它们为语言理解携带重要的句法和语义信息。
-  - 论文工作：提出了 ChineseBERT，它将汉字的 {\it glyph} 和 {\it pinyin} 信息合并到语言模型预训练中。
-    - embedding 层：将 字符嵌入（char embedding）、字形嵌入（glyph embedding）和拼音嵌入（pinyin embedding） 做拼接；
-    - Fusion Layer 层：将 拼接后的 embedding 向量 做 Fusion 得到 一个 d 维的 Fusion embedding;
-    - 位置拼接：将 Fusion embedding 和 位置嵌入（position embedding）、片段嵌入（segment embedding）相加；
-    - Transformer-Encoder层;
-  - 改进点：
-    - 在底层的融合层（Fusion Layer）融合了除字嵌入（Char Embedding）之外的字形嵌入（Glyph Embedding）和拼音嵌入（Pinyin Embedding），得到融合嵌入（Fusion Embedding），再与位置嵌入相加，就形成模型的输入；
-    - 抛弃预训练任务中的NSP任务。 由于预训练时没有使用NSP任务，因此模型结构图省略了片段嵌入（segment embedding）。实际上下游任务输入为多个段落时（例如：文本匹配、阅读理解等任务），是采用了segment embedding；
-  - 实验结果：在大规模未标记的中文语料库上进行预训练，提出的 ChineseBERT 模型在训练步骤较少的情况下显着提高了基线模型的性能。 porpsoed 模型在广泛的中文 NLP 任务上实现了新的 SOTA 性能，包括机器阅读理解、自然语言推理、文本分类、句子对匹配和命名实体识别中的竞争性能。
+    - 论文名称：ChineseBERT: Chinese Pretraining Enhanced by Glyph and Pinyin Information
+    - 会议： ACL2021
+    - 论文地址：https://arxiv.org/abs/2106.16038
+    - 论文源码地址：https://github.com/ShannonAI/ChineseBert
+    - 模型下载：https://huggingface.co/hfl/chinese-bert-wwm-ext/tree/main
+    - 动机：最近的中文预训练模型忽略了中文特有的两个重要方面：字形和拼音，它们为语言理解携带重要的句法和语义信息。
+    - 论文工作：提出了 ChineseBERT，它将汉字的 {\it glyph} 和 {\it pinyin} 信息合并到语言模型预训练中。
+      - embedding 层：将 字符嵌入（char embedding）、字形嵌入（glyph embedding）和拼音嵌入（pinyin embedding） 做拼接；
+      - Fusion Layer 层：将 拼接后的 embedding 向量 做 Fusion 得到 一个 d 维的 Fusion embedding;
+      - 位置拼接：将 Fusion embedding 和 位置嵌入（position embedding）、片段嵌入（segment embedding）相加；
+      - Transformer-Encoder层;
+    - 改进点：
+      - 在底层的融合层（Fusion Layer）融合了除字嵌入（Char Embedding）之外的字形嵌入（Glyph Embedding）和拼音嵌入（Pinyin Embedding），得到融合嵌入（Fusion Embedding），再与位置嵌入相加，就形成模型的输入；
+      - 抛弃预训练任务中的NSP任务。 由于预训练时没有使用NSP任务，因此模型结构图省略了片段嵌入（segment embedding）。实际上下游任务输入为多个段落时（例如：文本匹配、阅读理解等任务），是采用了segment embedding；
+    - 实验结果：在大规模未标记的中文语料库上进行预训练，提出的 ChineseBERT 模型在训练步骤较少的情况下显着提高了基线模型的性能。 porpsoed 模型在广泛的中文 NLP 任务上实现了新的 SOTA 性能，包括机器阅读理解、自然语言推理、文本分类、句子对匹配和命名实体识别中的竞争性能。
+
+##### 【关于 Prompt】 那些的你不知道的事
+
+##### 【关于 Prompt For NER】 那些的你不知道的事
+
+- [【关于 templateNER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Template-BasedNERUsingBART)
+  - 论文名称：Template-Based Named Entity Recognition Using BART
+  - 会议：ACL 2020
+  - 论文链接：https://aclanthology.org/2021.findings-acl.161/
+  - 论文 github 地址：https://github.com/Nealcly/templateNER
+  - 小样本NER：源领域数据多，目标领域数据少
+  - 现有方法：基于相似性的度量
+    - 缺点：不能利用模型参数中的知识进行迁移
+  - 论文方法：提出基于模板的方法
+    - NER看作一种语言模型排序问题，seq2seq框架
+    - 原始句子和模板分别作为源序列和模板序列，由候选实体span填充
+    - 推理：根据相应的模板分数对每个候选span分类
+  - 数据集
+    - 在 CoNLL03（资源丰富的任务）上达到了 92.55%的 F1score
+    - 明显优于在 MIT Movie、MIT Restaurant 和ATIS（低资源任务）
+- [【关于 LightNER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/LightNER)
+  - 论文名称：LightNER: A Lightweight Generative Framework with Prompt-guided Attention for Low-resource NER
+  - 会议：
+  - 论文链接：https://arxiv.org/pdf/2109.00720.pdf
+  - 论文 github 地址：
+  - 论文动机
+    - 传统的 NER 方法：
+      - 方法：在BERT的顶层加classifier来做token-level的分类；
+      - 存在问题：**低资源场景下泛化性不强**。在低资源场景中，即target domain上的带标注数据比较有限的时候，source domain和target domain的label可能会不同，没法共享一个classifier，对target domain上unseen class的泛化性并不好
+    - 低资源的NER传统方法：
+      - 方法：基于度量学习的方式
+      - 存在问题：因为在test set上执行预测的时候是依靠相似度度量，不涉及到模型参数更新，所以**需要source domain和target domain具有相似的pattern**，这样就会**导致在cross-domain的问题上表现不好**。
+    - template-based NER：
+      - 方法：迭代所有可能的span，然后对每个span构造一个template去预测
+      - 存在问题：复杂度高，同时也需要设计template
+  - 论文方法：
+    - BARTNER的框架：
+      - 输入:一个句子;
+      - 输出是：实体的序列;
+      - 每个实体包括：实体span在输入句子中的start index，end index，以及实体类型（tag，实际也是index）；
+      - 在decoder端，输出的hidden state与输入序列的编码以及tag序列的编码做点积+softmax，转换为在输入句子词表+tag词表中的概率分布。
+    - Semantic-aware Answer Space：实际就是说NER中很多实体类型比较复杂，是由多个单词组合而成的，比如：return_date.month_name。因此，针对这个tag，把他分解成单个word进行编码，然后加权得到tag的表示，这个权重也是学出来的。
+    - Prompt-guided Attention：实际就是使用soft prompt，是在encoder和decoder的每层的attention部分加入key和value的可微调参数，其他都是固定的。
 
 ##### [【关于 信息抽取】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/)
 
