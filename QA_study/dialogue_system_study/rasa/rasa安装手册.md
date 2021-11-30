@@ -179,7 +179,7 @@ If you want to speak to the assistant, run 'rasa shell' at any time inside the p
 
 - 运行结果
 
-将在该目录下参加以下文件：
+将在该目录下创建以下文件：
 
 <table>
     <thead>
@@ -202,9 +202,6 @@ If you want to speak to the assistant, run 'rasa shell' at any time inside the p
     </tr>
     <tr>
         <td>data/stories.md ‘*’</td><td>你的故事</td>
-    </tr>
-    <tr>
-        <td>config.yml ‘*’</td><td>配置NLU和Core模型</td>
     </tr>
     <tr>
         <td>domain.yml ‘*’</td><td>你的助手的域</td>
