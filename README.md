@@ -33,7 +33,7 @@
         - [【关于 transformer 】 那些的你不知道的事](#关于-transformer--那些的你不知道的事)
         - [【关于 预训练模型】 那些的你不知道的事](#关于-预训练模型-那些的你不知道的事)
         - [【关于 Prompt】 那些的你不知道的事](#关于-prompt-那些的你不知道的事)
-        - [【关于 Prompt For NER】 那些的你不知道的事](#关于-prompt-for-ner-那些的你不知道的事)
+          - [【关于 Prompt For NER】 那些的你不知道的事](#关于-prompt-for-ner-那些的你不知道的事)
         - [【关于 信息抽取】 那些的你不知道的事](#关于-信息抽取-那些的你不知道的事)
           - [【关于 实体关系联合抽取】 那些的你不知道的事](#关于-实体关系联合抽取-那些的你不知道的事)
           - [【关于 命名实体识别】那些你不知道的事](#关于-命名实体识别那些你不知道的事)
@@ -79,7 +79,7 @@
     - [会议收集篇](#会议收集篇)
     - [Elastrsearch 学习篇](#elastrsearch-学习篇)
     - [竞赛篇](#竞赛篇)
-      - [【关于 NLP比赛】 那些你不知道的事](#关于-nlp比赛-那些你不知道的事)
+      - [【关于 NLP比赛】 那些你不知道的事 【点击查看详情】](#关于-nlp比赛-那些你不知道的事-点击查看详情)
       - [【关于 NLP 比赛方案学习】 那些你不知道的事](#关于-nlp-比赛方案学习-那些你不知道的事)
         - [【关于 NLP 比赛方案学习】 那些你不知道的事](#关于-nlp-比赛方案学习-那些你不知道的事-1)
     - [学习资源](#学习资源)
@@ -441,7 +441,7 @@
   - 思想：整体思想很直接，句法结构，其实本质上描述的是词和词之间的某种关系，如果我们能从BERT当中拿到词和词之间相互“作用”的信息，就能利用一些算法解析出句法结构。 
 
 - [【关于中文预训练模型】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Chinese/)
-  - [【关于ChineseBERT】那些你不知道的事]((https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Chinese/ChineseBERT/)
+  - [【关于ChineseBERT】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Chinese/ChineseBERT/)
     - 论文名称：ChineseBERT: Chinese Pretraining Enhanced by Glyph and Pinyin Information
     - 会议： ACL2021
     - 论文地址：https://arxiv.org/abs/2106.16038
@@ -460,7 +460,7 @@
 
 ##### 【关于 Prompt】 那些的你不知道的事
 
-##### 【关于 Prompt For NER】 那些的你不知道的事
+###### 【关于 Prompt For NER】 那些的你不知道的事
 
 - [【关于 templateNER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Template-BasedNERUsingBART)
   - 论文名称：Template-Based Named Entity Recognition Using BART
@@ -649,7 +649,13 @@
 
 ###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/)
 
-- [【关于 AutoNER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_studyEMNLP2018_AutoNER)
+- [【关于 Few-Shot Named Entity Recognition】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/FewShotNER)
+  - 论文名称：Few-Shot Named Entity Recognition: A Comprehensive Study
+  - 将 few shot learning 应用于 NER 领域中需要面临的三个核心问题
+    1. How to adapt meta-learning such as prototype-based methods for few-shot NER? （如何将元学习方法作为 prototype-based 的方法应用到 few-shot NER 领域中？）
+    2. How to leverage freely-available web data as noisy supervised pre-training data?（如何利用大量免费可用的网页数据构造出 noisy supervised 方法中的预训练数据？）
+    3. How to leverage unlabeled in-domain sentences in a semi-supervised manner?（如何在半监督的范式中利用好 in-domain 的无标注数据？）
+- [【关于 AutoNER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EMNLP2018_AutoNER)
   - 论文名称：Learning Named Entity Tagger using Domain-Specific Dictionary
   - 会议： EMNLP2018
   - 论文地址：https://arxiv.org/abs/1809.03599
@@ -663,8 +669,6 @@
     - 在确定远程监督中嘈杂标签的性质后，我们超越了传统框架，提出了一种新颖、更有效的神经模型 AutoNER，该模型具有新的 Tie or Break 方案。
     - 讨论了如何改进远程监督以获得更好的 NER 性能。
   - 实验结果：在三个基准数据集上进行的大量实验表明，仅使用字典而不需要额外的人力时，AutoNER 实现了最佳性能，并通过最先进的监督基准提供了具有竞争力的结果。
-
-
 - [【关于 Continual Learning for NER】那些你不知道的事](#关于-continual-learning-for-ner那些你不知道的事)
   - 会议：AAAI2021
   - 论文：Continual Learning for Named Entity Recognition
@@ -675,7 +679,6 @@
     - (i) 我们展示了如何使 CL 技术适应 NLU 域，以逐步学习 NER 的新实体类型； 
     - (ii) 我们在两个 EnglishNER 数据集上的结果表明，我们的 CL 方法使模型能够不断学习新的实体类型，而不会失去识别先前获得的类型的能力； 
     - (iii) 我们表明我们的半监督策​​略实现了与全监督设置相当的结果。
-
 - [【关于 NER数据存在漏标问题】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/UnlabeledEntityProblem/)
   - 一、摘要
   - 二、为什么 数据会存在漏标？
@@ -848,7 +851,6 @@
   - [利用词汇知识通过协同图网络进行中文命名实体识别](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EMNLP2019/利用词汇知识通过协同图网络进行中文命名实体识别/)
   - [一点注释对引导低资源命名实体识别器有很多好处](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EMNLP2019/一点注释对引导低资源命名实体识别器有很多好处/)
 
-
 ###### [【关于 关系抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/)
 
 - [End-to-End Relation Extraction using LSTMs on Sequences and Tree Structures【2016】](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NRE_paper_study/T2016_LSTM_Tree/)
@@ -961,7 +963,6 @@
     2. POS-Guided Phrasal Segmentation：使用POS词性标注的结果，引导短语分词，利用POS的浅层句法分析的结果优化Phrase boundaries。
   - 论文效果 ？
     - AutoPhrase可以支持任何语言，只要该语言中有通用知识库。与当下最先进的方法比较，新方法在跨不同领域和语言的5个实际数据集上的有效性有了显著提高。
-
 
 ##### [【关于 知识图谱 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/KG_study/)
 
@@ -1111,7 +1112,6 @@
   - 论文方法：与传统作用于神经元（Dropout）或者模型参数（DropConnect）上的约束方法不同，R-Drop **作用于模型的输出层**，弥补了 Dropout 在训练和测试时的不一致性。简单来说就是在每个 mini-batch 中，**每个数据样本过两次带有 Dropout 的同一个模型，R-Drop 再使用 KL-divergence 约束两次的输出一致**。
   - 作用：**R-Drop 约束了由于 Dropout 带来的两个随机子模型的输出一致性**。
 
-
 ###### [【关于 主动学习】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/trick/active_learn_study/)
 
 - [【关于 Proactive Learning for Named Entity Recognition（命名实体识别的主动学习）】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/DL_algorithm/active_learn_study/ProactiveLearningforNamedEntityRecognition/)
@@ -1136,17 +1136,17 @@
     - 思路：提出了一种基于无监督数据的数据增强方式UDA（Unsupervised Data Augmentation）。UDA方法生成无监督数据与原始无监督数据具备分布的一致性，而以前的方法通常只是应用高斯噪声和dropout噪声（无法保证一致性）。UDA方法利用了一种目前为止最优的方法生成更加“真实”的数据。
     - 优点：使用这种数据增强方法，在极少量数据集上，六种语言任务和三种视觉任务都得到了明显的提升。
 - [【关于 “脏数据”处理】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/trick/Unsupervised/noisy_label_learning/)
-  -  一、动机
-     - 1.1 何为“脏数据”？
-     - 1.2 “脏数据” 会带来什么后果？
-   - 二、“脏数据” 处理篇
-     - 2.1 “脏数据” 怎么处理呢？
-     - 2.2 置信学习方法篇
-       - 2.2.1 什么是 置信学习方法？
-       - 2.2.2 置信学习方法 优点？
-       - 2.2.3 置信学习方法 怎么做？
-       - 2.2.4 置信学习方法 怎么用？有什么开源框架？
-       - 2.2.5 置信学习方法 的工作原理？
+  - 一、动机
+    - 1.1 何为“脏数据”？
+    - 1.2 “脏数据” 会带来什么后果？
+  - 二、“脏数据” 处理篇
+    - 2.1 “脏数据” 怎么处理呢？
+    - 2.2 置信学习方法篇
+      - 2.2.1 什么是 置信学习方法？
+      - 2.2.2 置信学习方法 优点？
+      - 2.2.3 置信学习方法 怎么做？
+      - 2.2.4 置信学习方法 怎么用？有什么开源框架？
+      - 2.2.5 置信学习方法 的工作原理？
 
 ###### [【关于 GCN in NLP 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/trick/GNN/GCN2NLP/)
 - [【关于 GCN in NLP 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/GNN/GCN2NLP/readme.md)
@@ -1483,9 +1483,6 @@
    - 动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
    - 方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
 
-
-
-
 ##### [【关于 机器翻译】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/)
 
 - [Neural Machine Translation of Rare Words with Subword Units 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/NeuralMachineTranslationOfRareWordsWithSubwordUnits/)
@@ -1509,7 +1506,6 @@
      2. （2）情节-回复匹配，其能够反映回复是否与情节相符；
      3. （3）上文-情节匹配，其能够隐式反映哪些情节已经被上文表达。
   4. 最后，这些匹配特征经过CNN的进一步抽取和聚集，再经过MLP得到最终的匹配得分。
-
 
 ##### [【关于 NLP分类任务】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/)
 
@@ -1824,87 +1820,86 @@
   
 ### 竞赛篇
 
-#### [【关于 NLP比赛】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/nlp_game/) 
+#### [【关于 NLP比赛】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/nlp_game/) 【点击查看详情】
 
-- [一、问答匹配任务](#一问答匹配任务)
-  - [5. 新冠疫情相似句对判定大赛 【比赛地址】](#5-新冠疫情相似句对判定大赛-比赛地址)
-    - [5.1 赛题背景](#51-赛题背景)
-    - [5.2 数据集介绍](#52-数据集介绍)
-    - [5.3 比赛方案收集](#53-比赛方案收集)
-  - [4. 2021搜狐校园文本匹配算法大赛 【比赛地址】](#4-2021搜狐校园文本匹配算法大赛-比赛地址)
-    - [4.1 赛题背景](#41-赛题背景)
-    - [4.2 比赛任务](#42-比赛任务)
-    - [4.3 数据说明 【地址】](#43-数据说明-地址)
-    - [4.4 比赛方案收集](#44-比赛方案收集)
-  - [3. CCF2020问答匹配比赛](#3-ccf2020问答匹配比赛)
-    - [3.1 比赛背景](#31-比赛背景)
-    - [3.2 比赛方案收集](#32-比赛方案收集)
-  - [2. 智能客服问题相似度算法设计——第三届魔镜杯大赛](#2-智能客服问题相似度算法设计第三届魔镜杯大赛)
-  - [1. 2018CIKM AnalytiCup – 阿里小蜜机器人跨语言短文本匹配算法竞赛](#1-2018cikm-analyticup--阿里小蜜机器人跨语言短文本匹配算法竞赛)
-  - [其他](#其他)
-- [二、对话](#二对话)
-  - [1. 2020 CCF BDCI《千言：多技能对话》](#1-2020-ccf-bdci千言多技能对话)
-    - [1.1 赛题简介](#11-赛题简介)
-    - [1.2 比赛方案收集](#12-比赛方案收集)
-  - [2. 2018JD Dialog Challenge 任务导向型对话系统挑战赛](#2-2018jd-dialog-challenge-任务导向型对话系统挑战赛)
-- [三、文本分类](#三文本分类)
-  - [1. 2018 DC达观-文本智能处理挑战](#1-2018-dc达观-文本智能处理挑战)
-  - [2. 路透社新闻数据集“深度”探索性分析(词向量/情感分析)](#2-路透社新闻数据集深度探索性分析词向量情感分析)
-  - [3. 知乎看山杯](#3-知乎看山杯)
-  - [4. 2018 CCL 客服领域用户意图分类评测](#4-2018-ccl-客服领域用户意图分类评测)
-  - [5. 2018 kaggle quora insincere questions classification](#5-2018-kaggle-quora-insincere-questions-classification)
-- [四、 关键词提取](#四-关键词提取)
-  - [1. “神策杯”2018高校算法大师赛(关键词提取)](#1-神策杯2018高校算法大师赛关键词提取)
-- [五、内容识别](#五内容识别)
-  - [1. 第二届搜狐内容识别大赛](#1-第二届搜狐内容识别大赛)
-- [六、观点主题](#六观点主题)
-  - [1. 汽车行业用户观点主题及情感识别](#1-汽车行业用户观点主题及情感识别)
-- [七、实体链指](#七实体链指)
-  - [7.1. CCKS&2019中文短文本的实体链指](#71-ccks2019中文短文本的实体链指)
-  - [7.2. CCKS 2020实体链指比赛](#72-ccks-2020实体链指比赛)
-- [八、命名实体识别](#八命名实体识别)
-  - [8.1 天池中药说明书实体识别](#81-天池中药说明书实体识别)
-    - [8.1.1 任务描述](#811-任务描述)
-    - [8.1.2 比赛方案](#812-比赛方案)
-  - [8.2 CCF BDCI 中文命名实体识别算法鲁棒性评测](#82-ccf-bdci-中文命名实体识别算法鲁棒性评测)
-    - [8.2.1 任务描述](#821-任务描述)
-- [九、事件抽取](#九事件抽取)
-  - [9.1 CCKS 2020：面向金融领域的小样本跨类迁移事件抽取](#91-ccks-2020面向金融领域的小样本跨类迁移事件抽取)
-    - [9.1.1 任务描述](#911-任务描述)
-    - [9.1.2 比赛方案](#912-比赛方案)
-  - [9.2 CCKS2019_EventEntityExtraction](#92-ccks2019_evententityextraction)
-    - [9.1.1 任务描述](#911-任务描述-1)
-    - [9.1.2 比赛方案](#912-比赛方案-1)
-  - [9.3 2020 科大讯飞事件抽取挑战赛](#93-2020-科大讯飞事件抽取挑战赛)
-    - [9.3.1 任务描述](#931-任务描述)
-    - [9.3.2 比赛方案](#932-比赛方案)
-- [十、阅读理解](#十阅读理解)
-  - [10.1 2021海华AI挑战赛·中文阅读理解·技术组](#101-2021海华ai挑战赛中文阅读理解技术组)
-    - [10.1.1 赛题背景](#1011-赛题背景)
-    - [10.1.2 比赛任务](#1012-比赛任务)
-    - [10.1.3 比赛方案](#1013-比赛方案)
-- [十一、关系抽取](#十一关系抽取)
-  - [11.1 2020语言与智能技术竞赛：关系抽取任务 【比赛链接】](#111-2020语言与智能技术竞赛关系抽取任务-比赛链接)
-    - [11.1.1 赛题背景](#1111-赛题背景)
-    - [11.1.2 赛题说明](#1112-赛题说明)
-    - [11.1.3 数据集介绍](#1113-数据集介绍)
-    - [11.1.4 比赛方案](#1114-比赛方案)
-- [十二、中文文本纠错](#十二中文文本纠错)
-  - [12.1 专业赛：自然语言处理技术创新大赛——中文文本纠错比赛](#121-专业赛自然语言处理技术创新大赛中文文本纠错比赛)
-    - [12.1.1 竞赛背景](#1211-竞赛背景)
-    - [12.1.2 赛题描述](#1212-赛题描述)
-    - [12.1.3 模型训练](#1213-模型训练)
-    - [12.1.4 训练集数据介绍](#1214-训练集数据介绍)
-    - [12.1.5 比赛方案](#1215-比赛方案)
-- [十三、智能人机交互自然语言理解](#十三智能人机交互自然语言理解)
-  - [13.1 CCF BDCI 智能人机交互自然语言理解](#131-ccf-bdci-智能人机交互自然语言理解)
-    - [13.1.1 竞赛背景](#1311-竞赛背景)
-    - [13.1.2 数据集介绍](#1312-数据集介绍)
-- [十四、智能人机交互自然语言理解](#十四智能人机交互自然语言理解)
-  - [14.1 CCF BDCI 预训练模型知识量度量](#141-ccf-bdci-预训练模型知识量度量)
-    - [14.1.1 竞赛背景](#1411-竞赛背景)
-    - [14.1.2 数据集介绍](#1412-数据集介绍)
-- [参考资料](#参考资料)
+- 一、问答匹配任务
+- 5. 新冠疫情相似句对判定大赛 【比赛地址】
+    - 5.1 赛题背景
+    - 5.2 数据集介绍
+    - 5.3 比赛方案收集
+- 4. 2021搜狐校园文本匹配算法大赛 【比赛地址】
+    - 4.1 赛题背景
+    - 4.2 比赛任务
+    - 4.3 数据说明 【地址】
+    - 4.4 比赛方案收集
+- 3. CCF2020问答匹配比赛
+    - 3.1 比赛背景
+    - 3.2 比赛方案收集
+- 2. 智能客服问题相似度算法设计——第三届魔镜杯大赛
+- 1. 2018CIKM AnalytiCup – 阿里小蜜机器人跨语言短文本匹配算法竞赛
+- 其他
+- 二、对话
+- 1. 2020 CCF BDCI《千言：多技能对话》
+    - 1.1 赛题简介
+    - 1.2 比赛方案收集
+- 2. 2018JD Dialog Challenge 任务导向型对话系统挑战赛
+- 三、文本分类
+- 1. 2018 DC达观-文本智能处理挑战
+- 2. 路透社新闻数据集“深度”探索性分析(词向量/情感分析)
+- 3. 知乎看山杯
+- 4. 2018 CCL 客服领域用户意图分类评测
+- 5. 2018 kaggle quora insincere questions classification
+- 四、 关键词提取
+- 1. “神策杯”2018高校算法大师赛(关键词提取)
+- 五、内容识别
+- 1. 第二届搜狐内容识别大赛
+- 六、观点主题
+- 1. 汽车行业用户观点主题及情感识别
+- 七、实体链指
+- 7.1. CCKS&2019中文短文本的实体链指
+- 7.2. CCKS 2020实体链指比赛
+- 八、命名实体识别
+- 8.1 天池中药说明书实体识别
+    - 8.1.1 任务描述
+    - 8.1.2 比赛方案
+- 8.2 CCF BDCI 中文命名实体识别算法鲁棒性评测
+    - 8.2.1 任务描述
+- 九、事件抽取
+- 9.1 CCKS 2020：面向金融领域的小样本跨类迁移事件抽取
+    - 9.1.1 任务描述
+    - 9.1.2 比赛方案
+- 9.2 CCKS2019_EventEntityExtraction
+    - 9.1.1 任务描述
+    - 9.1.2 比赛方案
+- 9.3 2020 科大讯飞事件抽取挑战赛
+    - 9.3.1 任务描述
+    - 9.3.2 比赛方案
+- 十、阅读理解
+- 10.1 2021海华AI挑战赛·中文阅读理解·技术组
+    - 10.1.1 赛题背景
+    - 10.1.2 比赛任务
+    - 10.1.3 比赛方案
+- 十一、关系抽取
+- 11.1 2020语言与智能技术竞赛：关系抽取任务 【比赛链接】
+    - 11.1.1 赛题背景
+    - 11.1.2 赛题说明
+    - 11.1.3 数据集介绍
+    - 11.1.4 比赛方案
+- 十二、中文文本纠错
+- 12.1 专业赛：自然语言处理技术创新大赛——中文文本纠错比赛
+    - 12.1.1 竞赛背景
+    - 12.1.2 赛题描述
+    - 12.1.3 模型训练
+    - 12.1.4 训练集数据介绍
+    - 12.1.5 比赛方案
+- 十三、CCF BDCI
+- 13.1 CCF BDCI 智能人机交互自然语言理解
+    - 13.1.1 竞赛背景
+    - 13.1.2 数据集介绍
+- 13.2 CCF BDCI 预训练模型知识量度量
+    - 13.2.1 竞赛背景
+    - 13.2.2 数据集介绍
+- 参考资料
 
 #### [【关于 NLP 比赛方案学习】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/nlp_game/game_study/)
 
