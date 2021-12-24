@@ -1,5 +1,19 @@
 # 《【社区说】一起来聊聊 Rasa 3.0》 不完全笔记
 
+> 编辑者：杨夕
+> 
+> NLP 百面百搭 地址：https://github.com/km1994/NLP-Interview-Notes
+> 
+> **[手机版NLP百面百搭](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100005719&idx=3&sn=5d8e62993e5ecd4582703684c0d12e44&chksm=1bbff26d2cc87b7bf2504a8a4cafc60919d722b6e9acbcee81a626924d80f53a49301df9bd97&scene=18#wechat_redirect)**
+> 
+> 推荐系统 百面百搭 地址：https://github.com/km1994/RES-Interview-Notes
+> 
+> **[手机版推荐系统百面百搭](https://mp.weixin.qq.com/s/b_KBT6rUw09cLGRHV_EUtw)**
+> 
+> NLP论文学习笔记：https://github.com/km1994/nlp_paper_study
+> 
+> **[手机版NLP论文学习笔记](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100005719&idx=1&sn=14d34d70a7e7cbf9700f804cca5be2d0&chksm=1bbff26d2cc87b7b9d2ed12c8d280cd737e270cd82c8850f7ca2ee44ec8883873ff5e9904e7e&scene=18#wechat_redirect)**
+
 ## 前言
 
 很感谢 **社区说** 举办这次活动，也很感谢 **孔晓泉孔大佬**的精彩分享，听完收获很大。
@@ -7,6 +21,42 @@
 ![](img/微信截图_20211223231945.png)
 
 > **注：本博文的所有内容和图片均来着 孔晓泉孔大佬的分享 PPT,如有侵权，麻烦告知删除！！！**
+
+## 目录
+
+- [《【社区说】一起来聊聊 Rasa 3.0》 不完全笔记](#社区说一起来聊聊-rasa-30-不完全笔记)
+  - [前言](#前言)
+  - [目录](#目录)
+  - [一、Chatbot 结构](#一chatbot-结构)
+    - [1.1 NLU 介绍](#11-nlu-介绍)
+    - [1.2 对话管理（DM） 介绍](#12-对话管理dm-介绍)
+    - [1.3 NLG](#13-nlg)
+  - [二、算法工程师的 看不见的 90% 工作](#二算法工程师的-看不见的-90-工作)
+  - [三、Rasa 简介](#三rasa-简介)
+  - [四、Rasa 架构](#四rasa-架构)
+    - [4.1 从 宏观角度看 Rasa](#41-从-宏观角度看-rasa)
+    - [4.2 功能模块](#42-功能模块)
+      - [4.2.1 组件配置](#421-组件配置)
+      - [4.2.2 Domain 数据](#422-domain-数据)
+      - [4.2.3 Rasa NLU](#423-rasa-nlu)
+      - [4.2.4 Rasa Core](#424-rasa-core)
+        - [4.2.4.1 Policy](#4241-policy)
+        - [4.2.4.2 Tracker](#4242-tracker)
+      - [4.2.5 Rasa SDK](#425-rasa-sdk)
+      - [4.2.6 Rasa CLI](#426-rasa-cli)
+  - [五、为什么说 Rasa 是工业级产品？](#五为什么说-rasa-是工业级产品)
+  - [六、Rasa X](#六rasa-x)
+  - [七、Rasa 架构 带来的启示](#七rasa-架构-带来的启示)
+  - [八、Rasa 3.0](#八rasa-30)
+    - [8.1 Rasa 3.0 介绍](#81-rasa-30-介绍)
+    - [8.2 Rasa2.0 -> Rasa3.0 你必须知道的事](#82-rasa20---rasa30-你必须知道的事)
+      - [8.2.1 对 普通开发者影响](#821-对-普通开发者影响)
+      - [8.2.2 对 写自定义组件的影响](#822-对-写自定义组件的影响)
+      - [8.2.3 对研究 Rasa 代码的人的影响](#823-对研究-rasa-代码的人的影响)
+  - [九、Rasa 2.0 小小笔记](#九rasa-20-小小笔记)
+    - [9.1 学习篇](#91-学习篇)
+    - [9.2 实战篇](#92-实战篇)
+  - [参考](#参考)
 
 ## 一、Chatbot 结构
 
@@ -68,9 +118,13 @@
 
 ![](img/微信截图_20211223233334.png)
 
+> 注：大佬分享干货太多来不及记，具体可以查看：  [（九）RASA自定义pipeline组件](https://mp.weixin.qq.com/s/Q5Z_n9yiLk2YcnpFLGzBqQ)
+
 #### 4.2.2 Domain 数据
 
 ![](img/微信截图_20211223233409.png)
+
+> 注：大佬分享干货太多来不及记，具体可以查看：  [（十二）RASA Domain](https://mp.weixin.qq.com/s/4O18bSNH-U8kjxRzRn4Mfg)
 
 #### 4.2.3 Rasa NLU
 
@@ -79,9 +133,13 @@
 ![](img/微信截图_20211223233510.png)
 > 训练数据格式
 
+> 注：大佬分享干货太多来不及记，具体可以查看： [（三）RASA NLU语言模型](https://mp.weixin.qq.com/s/Hc0ggnu9Twav4y3p6LLguA)
+
 #### 4.2.4 Rasa Core
 
 ##### 4.2.4.1 Policy
+
+- 介绍：Policy是负责决策Action的调用在Tracker的状态发生变更之后，Policy来决定下一步的Action。
 
 ![](img/微信截图_20211223233645.png)
 > 数据格式
@@ -99,10 +157,21 @@
    1. 问题：当有 多个 Policy 时，怎么办？
    2. 解决方法: 所有的Policy 同时预测，按照得分取结果, 得分相同时，按优先级去结果
 
+> 注：大佬分享干货太多来不及记，具体可以查看：[（十）RASA CORE Policy](https://mp.weixin.qq.com/s/YBoGv_IUVZElQMxHZ68Wcw)
+
+##### 4.2.4.2 Tracker
+
+在Rasa Core中Tracker负责记录整个对话的流程，而Tracker中数据的新增、编辑和删除是通过Event进行管理的。
+
 ![](img/微信截图_20211223234121.png)
 > 训练数据 Story (Markdown 格式)
 
 #### 4.2.5 Rasa SDK
+
+- Action：Action是对用户输入的一种回应
+  - default actions (action_listen, action_restart, action_default_fallback)
+  - utter actions, starting with utter_, which just sends a message to the user.
+  - custom actions - any other action, these actions can run arbitrary code
 
 ![](img/微信截图_20211223234322.png)
 
@@ -191,6 +260,40 @@
 - changed the way NLU components and policies are trained and run duringinference. unified and adapted.
   - 解读: 原来是线性的pipeline，现在用的是有向无环图( DAG )。训练和推理的逻辑都发生了变化。内部结构(尤其是底层)变化很多。同时代码逻辑难度增加不少
   - 解决方法：解决办法:建议从入口( entry point )开始读。重点关注配置到图( graph )的转变过程。可以使用程序断点观察实例和验证自己的理解。测试代码可以帮助理解。使用诸如sourcetrial等专业的代码阅读工具。
+
+## 九、Rasa 2.0 小小笔记
+
+### 9.1 学习篇
+
+- [（一）对话机器人概述](https://mp.weixin.qq.com/s/drwKUXIsmMBY_W4-BmMppQ)
+- [（二）RASA开源引擎介绍](https://mp.weixin.qq.com/s/d_EtuAax3mJ3eCdIu8YKNQ)
+- [（三）RASA NLU语言模型](https://mp.weixin.qq.com/s/Hc0ggnu9Twav4y3p6LLguA)
+- [（四）RASA NLU分词器](https://mp.weixin.qq.com/s/E0yWpSEFyQNJW5KI7RuMzg)
+- [（五）RASA NLU特征生成器](https://mp.weixin.qq.com/s/pYHJiOWn755uv1KbBkhFlg)
+- [（六）RASA NLU意图分类器](https://mp.weixin.qq.com/s/NaF6ugxjwufeA5Ezj0gEHQ)
+- [（七）RASA NLU实体提取器](https://mp.weixin.qq.com/s/OxFgOe00L2UjpHoxYHzh_g)
+- [（九）RASA自定义pipeline组件](https://mp.weixin.qq.com/s/Q5Z_n9yiLk2YcnpFLGzBqQ)
+- [（十）RASA CORE Policy](https://mp.weixin.qq.com/s/YBoGv_IUVZElQMxHZ68Wcw)
+- [（十一）RASA CORE Action](https://mp.weixin.qq.com/s/B-RITgn4OagCrEiMZPn_Lw)
+- [（十二）RASA Domain](https://mp.weixin.qq.com/s/4O18bSNH-U8kjxRzRn4Mfg)
+- [（十三）RASA 训练数据](https://mp.weixin.qq.com/s/2HyQAUV02ziqQ0ZPGvLH7Q)
+- [（十四）RASA story](https://mp.weixin.qq.com/s/ovFF8fb1qrxh-MH-R_Namw)
+- [（十五）Rasa Rules](https://mp.weixin.qq.com/s/lDDDI1S51gsiXfYkbIYWfQ)
+- [（十六）RASA最佳实践](https://mp.weixin.qq.com/s/ork9WzlaIOvtbm0jJro7JQ)
+- [（十七）基于RASA开始中文机器人](https://mp.weixin.qq.com/s/4l4ePC-BOzlb8QMgPIZ8Ew)
+- [（十八）基于RASA开始中文机器人实现机制](https://mp.weixin.qq.com/s/1mywqJO1AemYghHDquOhjw)
+- [（十九）基于知识图谱的问答系统（KBQA）](https://mp.weixin.qq.com/s/MyxvBHzVnepo9jTQ-SlNPQ)
+- [（二十）基于阅读理解的问答系统](https://mp.weixin.qq.com/s/SDjGoz8mPQ9yD5alMs9MlA)
+- [（二十一）RASA应用常见问题](https://mp.weixin.qq.com/s/c9OdDa0mmyAefRcmcE4CJg)
+- [（二十二）RASA的超参数优化](https://mp.weixin.qq.com/s/dk-DpfolasBiGiFfUqcBGg)
+- [（二十三）机器人测试与评估](https://mp.weixin.qq.com/s/OK5p2Dbv-VW1QRN7L8GemA)
+- [（二十四）利用Rasa Forms创建上下文对话助手](https://mp.weixin.qq.com/s/TN0y7BSGAogOKwceNuOwhw)
+- [DIET：Dual Intent and Entity Transformer——RASA论文翻译](https://mp.weixin.qq.com/s/LMgNlxMSnnEpAMoiySMdaw)
+
+### 9.2 实战篇
+
+- [rasa_ch_faq](https://github.com/Dustyposa/rasa_ch_faq)
+- [基于 Rasa 的前端项目](https://github.com/Dustyposa/rasa_bot_front)
 
 ## 参考
 
