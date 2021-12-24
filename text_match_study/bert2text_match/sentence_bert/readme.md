@@ -34,6 +34,7 @@
     - [5.2 加载预训练模型](#52-加载预训练模型)
     - [5.3 句子编码](#53-句子编码)
     - [5.4 聚类](#54-聚类)
+    - [5.5 微调](#55-微调)
   - [参考](#参考)
 
 ## 一、动机
@@ -304,6 +305,84 @@ show_cluster_image(corpus_embeddings, cluster_assignment)
 ```
 
 ![](img/微信截图_20210527164007.png)
+
+### 5.5 微调
+
+- 数据 格式
+
+```s
+  面部多处软组织切割伤	面部软组织下垂	0
+  头晕.下肢浮肿[脾肾不足.血脉瘀滞]	盲肠瘀滞症	0
+  多囊肾并出血	肾出血	1
+  耳后粉瘤感染	耳后脓肿	0
+  """升结肠ca术后复查,肠镜检查 肠道准备"""	胎儿镜检查	0
+  继发性间质肺疾病	间质性肺病	1
+  ...
+```
+
+- 训练代码
+
+```s
+import pandas as pd 
+from tools.loader import load_json
+import os
+from sentence_transformers import SentenceTransformer, InputExample, losses, models,evaluation
+from torch.utils.data import DataLoader
+from torch import nn
+
+class DataProcessor(object):
+    def __init__(self, root, is_lower=True):
+        self.task_data_dir = root
+        self.train_path = os.path.join(self.task_data_dir, 'CHIP-CDN_train.txt')
+        self.dev_path = os.path.join(self.task_data_dir, 'CHIP-CDN_dev.txt')
+        self.test_path = os.path.join(self.task_data_dir, 'CHIP-CDN_test.txt')
+
+    def get_train_sample(self):
+        return self._pre_process(self.train_path, is_train=True)
+
+    def get_dev_sample(self):
+        return self._pre_process(self.dev_path, is_train=False)
+
+    def _pre_process(self, path, is_train=True):
+        df = pd.read_csv(path,encoding="utf-8",sep="\t",header=None)
+        df.columns = ['sent1','sent2','label']
+        if is_train:
+            train_examples = []
+            for index,row in df.T.iteritems():
+                train_examples.append(
+                    InputExample(texts=[row['sent1'], row['sent2']], label=float(row['label']))
+                )
+            return train_examples
+        else:
+            return df
+
+if __name__ == "__main__":
+    # 变量设置
+    origin_data_path = "data/"
+    # model_path = 'F:/document/datasets/nlpData/SBert/'
+    model_path = "/content/drive/MyDrive/bert_series/sbert/"
+    model_name = "distiluse-base-multilingual-cased"
+    output_path = "output/"
+  
+    data_processor = DataProcessor(f"{origin_data_path}")
+    train_examples = data_processor.get_train_sample()
+
+    dev_examples = data_processor.get_dev_sample()
+
+    model = SentenceTransformer(f"{model_path}{model_name}")
+    train_dataloader = DataLoader(train_examples, shuffle=True, batch_size=128)
+    train_loss = losses.CosineSimilarityLoss(model)
+
+    evaluator = evaluation.EmbeddingSimilarityEvaluator(
+        list(dev_examples['sent1']), list(dev_examples['sent2']), list(dev_examples['label'])
+    )
+
+    model.fit(train_objectives=[(train_dataloader, train_loss)], epochs=3, warmup_steps=100, evaluator=evaluator, evaluation_steps=5)
+
+    model.save(f"{output_path}{model_name}_new")
+```
+
+- 参考:[Training Overview](https://www.sbert.net/docs/training/overview.html)
 
 
 ## 参考
