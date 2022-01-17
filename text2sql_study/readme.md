@@ -1,21 +1,26 @@
 # 【关于 Text-to-SQL 】 那些你不知道的事
 
 - [【关于 Text-to-SQL 】 那些你不知道的事](#关于-text-to-sql--那些你不知道的事)
-  - [什么是 Text-to-SQL?](#什么是-text-to-sql)
-  - [为什么需要 Text-to-SQL?](#为什么需要-text-to-sql)
-  - [Text-to-SQL 定义?](#text-to-sql-定义)
-  - [Text-to-SQL 有哪些数据集?](#text-to-sql-有哪些数据集)
-  - [Text-to-SQL 如何评价?](#text-to-sql-如何评价)
-  - [Text-to-SQL 有哪些模型，都存在哪些优缺点?](#text-to-sql-有哪些模型都存在哪些优缺点)
-    - [seq2seq 模型](#seq2seq-模型)
-    - [SQLNet 模型](#sqlnet-模型)
-    - [TypeSQL 模型](#typesql-模型)
-    - [SyntaxSQLNet 模型](#syntaxsqlnet-模型)
-    - [IRNet 模型](#irnet-模型)
-    - [Global-GNN && RAT-SQL](#global-gnn--rat-sql)
+  - [一、什么是 Text-to-SQL?](#一什么是-text-to-sql)
+  - [二、为什么需要 Text-to-SQL?](#二为什么需要-text-to-sql)
+  - [三、Text-to-SQL 定义?](#三text-to-sql-定义)
+  - [四、Text-to-SQL 有哪些数据集?](#四text-to-sql-有哪些数据集)
+  - [五、Text-to-SQL 如何评价?](#五text-to-sql-如何评价)
+  - [六、Text-to-SQL 有哪些模型，都存在哪些优缺点?](#六text-to-sql-有哪些模型都存在哪些优缺点)
+    - [6.1 seq2seq 模型](#61-seq2seq-模型)
+    - [6.2 模板槽位填充方法](#62-模板槽位填充方法)
+      - [6.2.1 SQLNet 模型](#621-sqlnet-模型)
+      - [6.2.2 TypeSQL 模型](#622-typesql-模型)
+      - [6.2.3 SyntaxSQLNet 模型](#623-syntaxsqlnet-模型)
+    - [6.3 中间表达方法](#63-中间表达方法)
+      - [6.3.1 IRNet 模型](#631-irnet-模型)
+    - [6.4 结合图网络的方法](#64-结合图网络的方法)
+      - [6.4.1 Global-GNN && RAT-SQL](#641-global-gnn--rat-sql)
+    - [6.5 强化学习方法](#65-强化学习方法)
+    - [6.6 结合预训练模型、语义匹配的方法](#66-结合预训练模型语义匹配的方法)
   - [参考资料](#参考资料)
 
-## 什么是 Text-to-SQL?
+## 一、什么是 Text-to-SQL?
 
 Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机器自动将用户输入的自然语言问题转成数据库可操作的SQL查询语句，实现基于数据库的自动问答能力。
 
@@ -29,14 +34,14 @@ Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机
         3. 最后向用户返回查询结果“山西省汾阳市”。
 ```
 
-## 为什么需要 Text-to-SQL?
+## 二、为什么需要 Text-to-SQL?
 
 1. SQL 作为一种 数据库查询语言 被广泛使用；
 2. SQL 对于普通人来说，SQL学习门槛比较高;
 
 如果我们能够有一个工具，自动地把我们的描述转化为SQL查询语句，再交给计算机去执行，就能方便地对数据库进行查询，那就大大提高了我们的生活和工作效率。
 
-## Text-to-SQL 定义?
+## 三、Text-to-SQL 定义?
 
 在给定关系型数据库（或表）的前提下，由用户的提问生成相应的SQL查询语句。
 
@@ -44,11 +49,11 @@ Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机
 
 ![](img/微信截图_20210830112306.png)
 
-## Text-to-SQL 有哪些数据集?
+## 四、Text-to-SQL 有哪些数据集?
 
 参考：[一文了解Text-to-SQL](https://www.jiqizhixin.com/articles/2019-12-27-11)
 
-## Text-to-SQL 如何评价?
+## 五、Text-to-SQL 如何评价?
 
 1. 精确匹配率（exact match ）：预测得到的SQL与正确的SQL语句在SELECT、WHERE等模块达到字符串完全匹配，即整句匹配；
 
@@ -58,9 +63,9 @@ Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机
 
 ![](img/微信截图_20210830142541.png)
 
-## Text-to-SQL 有哪些模型，都存在哪些优缺点?
+## 六、Text-to-SQL 有哪些模型，都存在哪些优缺点?
 
-### seq2seq 模型
+### 6.1 seq2seq 模型
 
 - 效果：
   - 在ATIS、GeoQuery数据集上达到84%的精确匹配；
@@ -76,7 +81,13 @@ Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机
   - 通过定义新的对齐特征，利用重排序技术，对beamsearch得到的多条候选结果进行正确答案的挑选；
   - 数据增强方法。
 
-### SQLNet 模型
+### 6.2 模板槽位填充方法
+
+- 介绍：将SQL的生成过程分为多个子任务，每一个子任务负责预测一种语法现象中的列
+- 优点：对于单表无嵌套效果好，并且生成的SQL可以保证语法正确；
+- 缺点：只能建模固定的SQL语法模板，对于有嵌套的SQL情况，无法对所有嵌套现象进行灵活处理
+
+#### 6.2.1 SQLNet 模型
 
 ![](img/微信截图_20210830113324.png)
 
@@ -85,7 +96,7 @@ Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机
   - SELECT子句部分与Seq2SQL类似；
   - 在于WHERE子句，它使用了一种 **sequence-to-set**（由序列生成集合）机制，用于**选取目标SQL语句中的WHERE子句可能出现的列**。对于表中的每一列给出一个概率。之后计算出WHERE子句中的条件个数k，然后选取概率最高的前k个列。最后通过注意力机制进行分类得到操作符和条件值。
 
-### TypeSQL 模型
+#### 6.2.2 TypeSQL 模型
 
 ![](img/微信截图_20210830113612.png)
 > 图5 TypeSQL示意图：显式地赋予每个单词类型
@@ -103,7 +114,7 @@ Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机
     - MODEL_AGG：AGG
     - MODEL_OPVAL：OP, COND_VAL
 
-### SyntaxSQLNet 模型
+#### 6.2.3 SyntaxSQLNet 模型
 
 - 介绍：相比于之前decoder输出一段线性的文本，SyntaxSQLNet将解码的过程引入了结构性信息，即解码的对象为SQL语句构成的树结构。通过该技术，模型的精确匹配率提高了14.8%。
 
@@ -132,7 +143,11 @@ Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机
       - 然后从库中选择相同类型的列；
       - 最后用列名和值填充SQL模板和问句模板。
 
-### IRNet 模型
+### 6.3 中间表达方法
+
+- 介绍：将SQL生成分为两步，第一步预测SQL语法骨干结构，第二步对前面的预测结果做列和值的补充。
+
+#### 6.3.1 IRNet 模型
 
 - 介绍：
   - 改进一：定义了一系列的CFG文法，将SQL转发为语法树结构。可以将其看作一种自然语言与SQL语句间的中间表示（作者称之为SemQL），整个parsing的过程也是针对SemQL进行的。
@@ -146,12 +161,27 @@ Text-to-SQL : 一项转化自然语言描述为SQL查询语句的技术。让机
 ![](img/微信截图_20210830120902.png)
 > 图8 IRNet的模型结构
 
-### Global-GNN && RAT-SQL
+### 6.4 结合图网络的方法
+
+- 动机：此方法主要为解决多个表中有同名的列的时候，预测不准确的问题
+- 问题：由于数据库之间并没有边相连接，所以此方法提升不大且模型消耗算力较大
+
+#### 6.4.1 Global-GNN && RAT-SQL
 
 - 参考：[Global-GNN && RAT-SQL](https://www.jiqizhixin.com/articles/2019-12-27-11)
+
+### 6.5 强化学习方法
+
+- 介绍：此方法以Seq2SQL为代表，每一步计算当前决策生成的SQL是否正确，本质上强化学习是基于交互产生的训练数据集的有监督学习，此法效果和翻译模型相似。
+
+### 6.6 结合预训练模型、语义匹配的方法
+
+- 介绍：该方法以表格内容作为预训练语料，结合语义匹配任务目标输入数据库Schema，从而选中需要的列
+- 例如：BREIDGE、GRAPPA等。
 
 ## 参考资料
 
 1. [一文了解Text-to-SQL](https://www.jiqizhixin.com/articles/2019-12-27-11)
 2. [语义解析 (Text-to-SQL) 技术研究及应用 上篇](https://aijishu.com/a/1060000000195677)
 3. [语义解析 (Text-to-SQL) 技术研究及应用 下篇](https://mp.weixin.qq.com/s/5lTLW5OOuRMo2zjbzMxr_Q)
+4. [百分点认知智能实验室：基于NL2SQL的问答技术和实践](https://zhuanlan.zhihu.com/p/448833359)
