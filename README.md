@@ -22,7 +22,7 @@
 
 ![](other_study/resource/pic/微信截图_20210301212242.png)
 
-> **关注公众号 【关于NLP那些你不知道的事】 加入 【NLP && 推荐学习群】一起学习！！！**
+> 手机版笔记，可以关注公众号 **【关于NLP那些你不知道的事】** 获取，并加入 【NLP && 推荐学习群】一起学习！！！
 
 > 注：github 网页版 看起来不舒服，可以看 **[手机版NLP论文学习笔记](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100005719&idx=1&sn=14d34d70a7e7cbf9700f804cca5be2d0&chksm=1bbff26d2cc87b7b9d2ed12c8d280cd737e270cd82c8850f7ca2ee44ec8883873ff5e9904e7e&scene=18#wechat_redirect)**
 
@@ -348,6 +348,46 @@
     - 方法
       - 问题二解决方法：提出 SentAugment 方法 从 web 上获取有用数据；
       - 问题一解决方法：使用标记的任务数据训练一个 teacher 模型，然后用它对检索到的未标注句子进行标注，并基于这个合成数据集训练最终的模型。
+  - [【关于 Bart】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/BART)
+    - 论文：Bart: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension
+    - 来源：Facebook 
+    - 论文地址：https://mp.weixin.qq.com/s/42rYlyjQsh4loFKRdhJlIg
+    - 开源代码：https://github.com/renatoviolin/Bart_T5-summarization
+    - 动机
+      - BERT：用掩码替换随机 token，双向编码文档。由于缺失 token 被单独预测，因此 BERT 较难用于生成任务;
+      - GPT：使用自回归方式预测 token，这意味着 GPT 可用于生成任务。但是，该模型仅基于左侧上下文预测单词，无法学习双向交互
+    - 预训练方法
+      - 通过破坏文档再优化重建损失：
+        - Token Masking（token 掩码）：按照 BERT 模型，BART 采样随机 token，并用 [MASK]标记 替换它们；
+        - Sentence Permutation（句子排列变换）：按句号将文档分割成多个句子，然后以随机顺序打乱这些句子；
+        - Document Rotation（文档旋转）：随机均匀地选择 token，旋转文档使文档从该 token 开始。该任务的目的是训练模型识别文档开头；
+        - Token Deletion（token 删除）：从输入中随机删除 token。与 token 掩码不同，模型必须确定缺失输入的位置；
+        - Text Infilling（文本填充）：采样多个文本段，文本段长度取决于泊松分布 (λ = 3)。用单个掩码 token 替换每个文本段。长度为 0 的文本段对应掩码 token 的插入；
+  - [【关于 Bart】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/BART)
+    - 论文名称：Revisiting Pre-trained Models for Chinese Natural Language Processing 
+    - 会议：EMNLP 2020
+    - 论文地址：https://arxiv.org/abs/2004.13922
+    - 论文源码地址：https://github.com/ymcui/MacBERT
+    - 动机：主要为了解决与训练阶段和微调阶段存在的差异性
+    - 方法：
+      - MLM
+        - 使用Whole Word Masking、N-gram Masking：single token、2-gram、3-gram、4-gram分别对应比例为0.4、0.3、0.2、0.1；
+        - 由于finetuning时从未见过[MASK]token，因此使用相似的word进行替换。使用工具Synonyms toolkit 获得相似的词。如果被选中的N-gram存在相似的词，则随机选择相似的词进行替换，否则随机选择任意词替换；
+        - 对于一个输入文本，15%的词进行masking。其中80%的使用相似的词进行替换，10%使用完全随机替换，10%保持不变。
+      - NSP
+        - 采用ALBERT提出的SOP替换NSP
+  - [【关于 SpanBERT 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/SpanBERT)
+    - 论文名称：SpanBERT: Improving Pre-training by Representing and Predicting Spans
+    - 会议：EMNLP 2020
+    - 论文地址：https://arxiv.org/abs/1907.10529
+    - 论文源码地址：https://github.com/facebookresearch/SpanBERT
+    - 动机：旨在更好地表示和预测文本的 span;
+    - 论文方法->扩展了BERT：
+      - （1）屏蔽连续的随机跨度，而不是随机标记；
+      - （2）训练跨度边界表示来预测屏蔽跨度的整个内容，而不依赖其中的单个标记表示。
+    - 实验结果：
+      - SpanBERT始终优于BERT和我们更好调整的基线，在跨选择任务（如问题回答和共指消解）上有实质性的收益。特别是在训练数据和模型大小与BERT-large相同的情况下，我们的单一模型在1.1班和2.0班分别获得94.6%和88.7%的F1。我们还实现了OntoNotes共指消解任务（79.6\%F1）的最新发展，在TACRED关系抽取基准测试上表现出色，甚至在GLUE上也有所提高。
+
 
 - [【关于 Bert 模型压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
   - [【关于 Bert 模型压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/Bert_zip)
