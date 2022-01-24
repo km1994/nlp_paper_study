@@ -19,7 +19,8 @@
 > 推荐系统论文学习笔记：https://github.com/km1994/RS_paper_study
 > 
 > GCN 论文学习笔记：https://github.com/km1994/GCN_study
-
+> 
+> **推广搜 军火库**：https://github.com/km1994/recommendation_advertisement_search
 ![](other_study/resource/pic/微信截图_20210301212242.png)
 
 > 手机版笔记，可以关注公众号 **【关于NLP那些你不知道的事】** 获取，并加入 【NLP && 推荐学习群】一起学习！！！
