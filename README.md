@@ -773,6 +773,21 @@
       - 4.1 span_loss 损失函数定义
       - 4.2 focal_loss 损失函数定义
     - 四、模型训练
+  - [【关于 命名实体识别 之 GlobalPointer 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/GlobalPointer)
+    - 博客：【[GlobalPointer：用统一的方式处理嵌套和非嵌套NER](https://spaces.ac.cn/archives/8373)】
+    - 代码：https://github.com/bojone/GlobalPointer
+    - 动机：
+      - 在做实体识别或者阅读理解时，一般是用两个模块分别识别实体的首和尾；存在问题：出现 训练和预测时的不一致问题
+    - 论文方法：
+      - **GlobalPointer是基于内积的token-pair识别模块，它可以用于NER场景，因为对于NER来说我们只需要把每一类实体的“(首, 尾)”这样的token-pair识别出来就行了。**
+    - 结论：
+      - 利用**全局归一化**的思路来进行命名实体识别（NER），可以无差别地识别嵌套实体和非嵌套实体，在非嵌套（Flat NER）的情形下它能取得媲美CRF的效果，而在嵌套（Nested NER）情形它也有不错的效果。还有，在理论上，GlobalPointer的设计思想就比CRF更合理；而在实践上，它训练的时候不需要像CRF那样递归计算分母，预测的时候也不需要动态规划，是完全并行的，理想情况下时间复杂度是 O(1)。
+  - [【关于 命名实体识别 之 Efficient GlobalPointer 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/EfficientGlobalPointer)
+    - 博客：【[Efficient GlobalPointer：少点参数，多点效果](https://kexue.fm/archives/8877)】
+    - 代码：https://github.com/bojone/GlobalPointer
+    - 动机：原GlobalPointer参数利用率不高
+    - 解决方法：**分解为“抽取”和“分类”**两个步骤，**“抽取”就是抽取出为实体的片段，“分类”则是确定每个实体的类型**。
+
 - [【关于 NER trick】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/NER_study/NERtrick.md)
 - [【关于TENER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/ACL2019/ACL2019_TENER/)
   - 论文名称：TENER: Adapting Transformer Encoder for Name Entity Recognition

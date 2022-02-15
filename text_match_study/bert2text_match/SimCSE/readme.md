@@ -1,4 +1,4 @@
-# 【关于 /SimCSE】 那些你不知道的事
+# 【关于 SimCSE】 那些你不知道的事
 
 > 作者：杨夕
 > 
@@ -12,7 +12,7 @@
 > 
 > 论文地址：https://arxiv.org/abs/2104.08821
 
-- [【关于 /SimCSE】 那些你不知道的事](#关于-simcse-那些你不知道的事)
+- [【关于 SimCSE】 那些你不知道的事](#关于-simcse-那些你不知道的事)
   - [一、论文摘要](#一论文摘要)
   - [二、对比学习](#二对比学习)
     - [2.1 什么是对比学习？](#21-什么是对比学习)
@@ -144,7 +144,7 @@ SimCSE 提出两种变体：
 
 对于Unsupervised SimCSE，核心在于如何生成dropout mask。
 
-**因为BERT内部每次dropout都随机会生成一个不同的dropout mask。**所以SimCSL不需要改变原始BERT，只需要将同一个句子喂给模型两次，得到的两个向量就是应用两次不同dropout mask的结果。然后将两个向量作为正例对。
+**因为BERT内部每次dropout都随机会生成一个不同的dropout mask。**所以SimCSE不需要改变原始BERT，只需要将同一个句子喂给模型两次，得到的两个向量就是应用两次不同dropout mask的结果。然后将两个向量作为正例对。
 
 ### 3.3 有监督 SimCSE
 
