@@ -693,6 +693,23 @@
 
 ###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/)
 
+- [【关于 命名实体识别 之 W2NER 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/AAAI2022_W2NER)
+  - 论文：Unified Named Entity Recognition as Word-Word Relation Classification
+  - 会议：AAAI 2022
+  - 论文地址：https://arxiv.org/pdf/2112.10070.pdf
+  - 代码：https://github.com/ljynlp/w2ner
+  - 动机：
+    - 如何 构建解决非嵌套，嵌套，不连续实体的统一框架？
+      - span-based 只关注边界识别
+      - Seq2Seq 可能会受到暴露偏差的影响
+    - 论文方法：
+      - 通过将统一的 NER 建模为 word-word relation classification（W2NER）
+      - 该架构通过使用 Next-Neighboring-Word (NNW) 和 Tail-Head-Word-* (THW-*) 关系有效地建模实体词之间的相邻关系，解决了统一 NER 的内核瓶颈。
+      - 基于 W2NER 方案，我们开发了一个神经框架，其中统一的 NER 被建模为单词对的 2D 网格。
+      - 然后，我们提出了多粒度 2D 卷积，以更好地细化网格表示。
+      - 最后，使用一个共同预测器来充分推理词-词关系。
+    - 实验：在 14 个广泛使用的基准数据集上进行了广泛的实验，用于非嵌套，嵌套，不连续实体的 NER（8 个英文和 6 个中文数据集），其中我们的模型击败了所有当前表现最好的基线，推动了最先进的性能- 统一NER的mances
+  
 - [【关于 Few-Shot Named Entity Recognition】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/information_extraction/NER_study/FewShotNER)
   - 论文名称：Few-Shot Named Entity Recognition: A Comprehensive Study
   - 将 few shot learning 应用于 NER 领域中需要面临的三个核心问题

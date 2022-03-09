@@ -1,116 +1,117 @@
-# 【关于 命名实体识别 之 GlobalPointer 】 那些你不知道的事
+# 【关于 命名实体识别 之 W2NER 】 那些你不知道的事
 
 > 作者：杨夕
 > 
 > 项目地址：https://github.com/km1994/nlp_paper_study
 > 
-> 博客：【[GlobalPointer：用统一的方式处理嵌套和非嵌套NER](https://spaces.ac.cn/archives/8373)】
+> 论文：Unified Named Entity Recognition as Word-Word Relation Classification
 > 
-> 代码：https://github.com/bojone/GlobalPointer
+> 会议：AAAI 2022
+> 
+> 论文地址：https://arxiv.org/pdf/2112.10070.pdf
+> 
+> 代码：https://github.com/ljynlp/w2ner
 > 
 > 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
 
-## 一、前言
+## 一、摘要
 
-本文将介绍一个称为GlobalPointer的设计，它利用**全局归一化**的思路来进行命名实体识别（NER），可以无差别地识别嵌套实体和非嵌套实体，在非嵌套（Flat NER）的情形下它能取得媲美CRF的效果，而在嵌套（Nested NER）情形它也有不错的效果。还有，在理论上，GlobalPointer的设计思想就比CRF更合理；而在实践上，它训练的时候不需要像CRF那样递归计算分母，预测的时候也不需要动态规划，是完全并行的，理想情况下时间复杂度是 O(1)。
+So far, named entity recognition (NER) has been involved with three major types, including flat, overlapped (aka.nested), and discontinuous NER, which have mostly been studied individually. Recently, a growing interest has been built for unified NER, tackling the above three jobs concurrently with one single model. Current best-performing methods mainly include span-based and sequence-to-sequence models, where unfortunately the former merely focus on boundary identification and the latter may suffer from exposure bias. In this work, we present a novel alternative by modeling the unified NER as word-word relation classification, namely W2NER. The architecture resolves the kernel bottleneck of unified NER by effectively modeling the neighboring relations between entity words with Next-Neighboring-Word (NNW) and Tail-Head-Word-* (THW-*) relations. Based on the W2NER scheme we develop a neural framework, in which the unified NER is modeled as a 2D grid of word pairs. We then propose multi-granularity 2D convolutions for better refining the grid representations. Finally, a co-predictor is used to sufficiently reason the word-word relations. We perform extensive experiments on 14 widely-used benchmark datasets for flat, overlapped, and discontinuous NER (8 English and 6 Chinese datasets), where our model beats all the current top-performing baselines, pushing the state-of-the-art performances of unified NER.
 
-## 二、 动机
+- 动机：
+  - 如何 构建解决非嵌套，嵌套，不连续实体的统一框架？
+  - span-based 只关注边界识别 
+  - Seq2Seq 可能会受到暴露偏差的影响
+- 论文方法：
+  - 通过将统一的 NER 建模为 word-word relation classification（W2NER）
+  - 该架构通过使用 Next-Neighboring-Word (NNW) 和 Tail-Head-Word-* (THW-*) 关系有效地建模实体词之间的相邻关系，解决了统一 NER 的内核瓶颈。
+  - 基于 W2NER 方案，我们开发了一个神经框架，其中统一的 NER 被建模为单词对的 2D 网格。
+  - 然后，我们提出了多粒度 2D 卷积，以更好地细化网格表示。
+  - 最后，使用一个共同预测器来充分推理词-词关系。
+- 实验：在 14 个广泛使用的基准数据集上进行了广泛的实验，用于非嵌套，嵌套，不连续实体的 NER（8 个英文和 6 个中文数据集），其中我们的模型击败了所有当前表现最好的基线，推动了最先进的性能- 统一NER的mances
 
-### 2.1 Pointer Network
+## 二、动机
 
-- 设计思路：在做实体识别或者阅读理解时，一般是用两个模块分别识别实体的首和尾；
-- 存在问题：出现 训练和预测时的不一致问题
+- 如何 构建解决非嵌套，嵌套，不连续实体的统一框架？
+- 序列标注： 
+  - 介绍：对实体span内的每一个token进行标注，比如BIO或BIESO；
+- span-based 
+  - 介绍：对实体span的start和end进行标注，比如可采取指针网络、Token-pair矩阵建模、片段枚举组合预测等方式。
+  - 存在问题：只关注边界识别 
+- Seq2Seq 
+  - 介绍：以Seq2Seq的方式进行，序列输出的文本除了label信息，Span必须出现在原文中，这就要求生成式统一建模时对解码进行限制（受限解码）
+  - 存在问题：可能会受到暴露偏差的影响
 
-## 三、GlobalPointer
+## 三、论文方法
 
-### 3.1 针对 Pointer Network 问题，GlobalPointer 解决方法
+### 3.1 W2NER 介绍
 
-- 解决方法：针对这个不一致而设计的，它将首尾视为一个整体去进行判别，所以它更有“全局观”（更Global）。
+- 作用：不光进行实体边界的识别，还有学习实体词之间的相邻关系。
+- 两种相邻关系的学习方法:
+  - Next-Neighboring-Word (NNW) : 实体词识别，表明两个词在一个实体中是否相邻(例如，实体aching和实体in是否相邻)；
+  - Tail-Head-Word-* (THW- * ): 进行实体边界和类型检测，判断两个词是否分别是“*”（这里星号指实体类型）实体的尾部和头部边界(例如，症状*，尾实体legs 和 头实体aching)
 
-### 3.2 基本思路
+![](img/微信截图_20220309133446.png)
 
-对于 长度为 n 的文本序列，对于 某一类 实体，其所包含的 候选实体 数量 为 n(n+1)/2，而 在 n(n+1)/2 候选实体中 只有 k 个 真正实体，那么就是 一个 “n(n+1)/2选k” 的多标签分类问题。如果有m种实体类型需要识别，那么就做成 m个“n(n+1)/2选k” 的多标签分类问题。这就是**GlobalPointer的基本思想，以实体为基本单位进行判别**，如图所示。
+- 效果：通过上述的两种Tag标记方式连接任意两个Word，就可以解决如上图中各种复杂的实体抽取：（ABCD分别是一个Word）
+  - a): AB和CD代表两个扁平实体；
+  - b): 实体BC嵌套在实体ABC中；
+  - c): 实体ABC嵌套在非连续实体ABD；
+  - d): 两个非连续实体ACD和BCE；
 
-![](img/微信截图_20210514214226.png)
+![](img/微信截图_20220309133614.png)
 
-> 可能有读者会问：这种设计的复杂度明明就是O(n2)呀，不会特别慢吗？如果现在还是RNN/CNN的时代，那么它可能就显得很慢了，但如今是Transformer遍布NLP的时代，Transformer的每一层都是O(n2)的复杂度，多GlobalPointer一层不多，少GlobalPointer一层也不少，关键是O(n2)的复杂度仅仅是空间复杂度，如果并行性能好的话，时间复杂度甚至可以降到O(1)，所以不会有明显感知。
+### 3.2 Unified NER Framework
 
-### 3.3 数学形式
+![](img/微信截图_20220309134009.png)
 
-设长度为 n 的输入 t 经过编码后得到向量序列[h1,h2,⋯,hn]，经过变换 
+#### 3.2.1 Encoder Layer
 
-![](img/微信截图_20220214094434.png)
+- 采用bert+bilstm，字粒度分词
+- 假设输入句子长度N ，最后语义表示输出N*dh (dh为词向量维度)
+  
+#### 3.2.2 Convolution Layer
 
-我们可以得到序列向量序列[q1,α,q2,α,⋯,qn,α]和[k1,α,k2,α,⋯,kn,α]，它们是识别第α种类型实体所用的向量序列。此时我们可以定义
+采取CNNs,天然适合2维网格，卷积层由3部分构成
 
-![](img/微信截图_20220214100016.png)
+- conditional layer with normalization：生成词对网格的表示
 
-作为从i到j的连续片段是一个类型为α的实体的打分。也就是说，用 $q_{i,α}$ 与 $k_{j,α}$ 的内积，作为片段 $t_{[i:j]}$ 是类型为α的实体的打分（logits），这里的 $t_{[i:j]}$ 指的是序列t的第i个到第j个元素组成的连续子串。在这样的设计下，GlobalPointer事实上就是Multi-Head Attention的一个简化版而已，有多少种实体就对应多少个head，相比Multi-Head Attention去掉了V相关的运算。
+1. 词对的语义3维表示 V：N*N*dh;每一个词对（xi,xj）的表示为Vij
+2. 由于NNW和THW关系都是单向的，所以对于词对表示（xi,xj）中xi和xj 的联合表示 暗含了 xj是以xi为条件进行表示的，所以使用CLN生产词对的语义网格，计算公式如下，将xi作为条件计算增益和偏差，根据xj计算均值和方差
 
-### 3.4 相对位置
+![](img/微信截图_20220309134306.png)
 
-#### 3.4.1 动机
+- BERT-style grid representation：bert语义网格丰富词义信息
 
-- 动机1：虽然 式（1） 的设计能够对模型有提升，但是由于训练样本有限，导致模型效果欠缺，因为它没有显式地包含相对位置信息。在后面的实验中我们将会看到，加不加相对位置信息，效果可以相差30个百分点以上！
+1. 受bert编码时token、position、sentential三种编码聚合的方式启发针对2维网格提出新的语义表示结合策略
+2. 词的编码，每对单词之间的相对位置信息，在网格中区分上下三角形区域的区域信息
+3. 通过MLP reduce维度，整合语义表示
 
-比如，我们要识别出地名，输入是天气预报的内容“北京：21度；上海：22度；杭州：23度；广州：24度；...”，这时候要识别出来的实体有很多，如果没有相对位置信息输入的话，GlobalPointer对实体的长度和跨度都不是特别敏感，因此很容易把任意两个实体的首尾组合都当成目标预测出来（即预测出“北京：21度；上海”这样的实体）。相反，有了相对位置信息之后，GlobalPointer就会对实体的长度和跨度比较敏感，因此能更好地分辨出真正的实体出来。
+- multigranularity dilated convolution：捕获近距离单词之间交互作用
 
-- 动机2：Transformer里边所有的相对位置编码局限性。大多数相对位置编码都对相对位置进行了一个截断，虽然这个截断范围对我们要识别的实体来说基本都够用了，但未免有点不优雅，不截断又会面临可学参数太多的问题。
+利用多粒度的空洞卷积获取不同单词的作用信息
 
-#### 3.4.2 旋转式位置编码（RoPE）
+#### 3.2.3 Co-Predictor Layer
 
-> 参考： [Transformer升级之路：2、博采众长的旋转式位置编码](https://kexue.fm/archives/8265)
+1. 采用MLP和biaffine进行关系分类
+2. Biaffine Predictor：Figure3 中虚线，直接来之Encoder Layer的编码输出，相当于残差连接，在仿射结构里分别使用一个MLP来计算xi和xj的语义表示，最后用一个仿射分类器计算预测的关系分数
+3. MLP Predictor：将经过Conditional Layer Normalization、BERT-Style Grid Representation Build-Up、Multi-Granularity Dilated Convolution输出的向量通过MLP进行关系分数预测
+4. 最后使用softmax 计算Biaffine Predictor 和 MLP Predictor 的分数
 
-RoPE 其实就是一个变换矩阵 Ri，满足关系
+![](img/微信截图_20220309134446.png)
 
-![](img/微信截图_20220214100727.png)
+#### 3.2.4 Decoding
 
-这样一来我们分别应用到q,k中，就有
+针对四种情况的解码方式
 
-![](img/微信截图_20220214100811.png)
+![](img/微信截图_20220309134530.png)
 
-从而就显式地往打分sα(i,j)注入了相对位置信息。
+#### 3.2.5 损失函数
 
-## 四、优化细节
-
-### 4.1 损失函数 优化
-
-- 动机：虽然 设计好了打分sα(i,j)，将 识别特定的类α的实体，转变成了共有n(n+1)/2类的多标签分类问题。最朴素的思路是变成n(n+1)/2个二分类，然而实际使用时n往往并不小，那么n(n+1)/2更大，而每个句子的实体数不会很多（每一类的实体数目往往只是个位数），所以如果是n(n+1)/2个二分类的话，会带来极其严重的**类别不均衡问题**。
-
-- 方法：softmax+交叉熵 损失函数
-  - 特点：
-    - 适用于多标签分类的损失函数
-    - 它 是单目标多分类交叉熵的推广，特别适合总类别数很大、目标类别数较小的多标签分类问题。其形式也不复杂
-
-> 参考：[将“softmax+交叉熵”推广到多标签分类问题](https://kexue.fm/archives/7359)
-
-- 公式
-
-![](img/微信截图_20220214101528.png)
-
-其中Pα是该样本的所有类型为α的实体的首尾集合，Qα是该样本的所有非实体或者类型非α的实体的首尾集合，注意我们只需要考虑i≤j的组合，即
-
-![](img/微信截图_20220214101954.png)
-
-### 4.2 评价指标
-
-- 动机：对于NER来说，常见的评价指标就是F1，注意是实体级别的F1，并非标注标签级别的F1。在传统的Pointer Network或者CRF的设计下，我们并不容易在训练过程中直接计算实体级别的F1
-- 优化方式：能有这么简单，主要就是因为GlobalPointer的“Global”，它的y_true和y_pred本身就已经是实体级别了，通过**y_pred > 0我们就可以知道哪些实体被抽取出来的，然后做个匹配就可以算出各种（实体级别的）指标，达到了训练、评估、预测的一致性**。
-
-```s
-def global_pointer_f1_score(y_true, y_pred):
-    """给GlobalPointer设计的F1
-    """
-    y_pred = K.cast(K.greater(y_pred, 0), K.floatx())
-    return 2 * K.sum(y_true * y_pred) / K.sum(y_true + y_pred)
-```
-
-## 五、总结
-
-GlobalPointer是基于内积的token-pair识别模块，它可以用于NER场景，因为对于NER来说我们只需要把每一类实体的“(首, 尾)”这样的token-pair识别出来就行了。
-
+![](img/微信截图_20220309134601.png)
 
 
 ## 参考
 
-1. [GlobalPointer：用统一的方式处理嵌套和非嵌套NER](https://spaces.ac.cn/archives/8373)
+1. [算法框架-信息抽取-NER识别-Unified Named Entity Recognition as Word-Word Relation Classification（2022）](https://zhuanlan.zhihu.com/p/473742306)
+2. [NER统一模型：刷爆14个中英文数据SOTA](https://zhuanlan.zhihu.com/p/476746322)
