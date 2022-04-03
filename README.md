@@ -39,14 +39,14 @@
         - [【关于 Prompt】 那些的你不知道的事](#关于-prompt-那些的你不知道的事)
           - [【关于 Prompt For NER】 那些的你不知道的事](#关于-prompt-for-ner-那些的你不知道的事)
         - [【关于 信息抽取】那些的你不知道的事](#关于-信息抽取那些的你不知道的事)
-          - [【关于 实体关系联合抽取】 那些的你不知道的事](#关于-实体关系联合抽取-那些的你不知道的事)
+          - [【关于 实体关系联合抽取】那些的你不知道的事](#关于-实体关系联合抽取那些的你不知道的事)
           - [【关于 命名实体识别】那些你不知道的事](#关于-命名实体识别那些你不知道的事)
           - [【关于 关系抽取】那些你不知道的事](#关于-关系抽取那些你不知道的事)
           - [【关于 文档级别关系抽取】那些你不知道的事](#关于-文档级别关系抽取那些你不知道的事)
           - [【关于 事件抽取】那些你不知道的事](#关于-事件抽取那些你不知道的事)
-          - [【关于 关键词提取】 那些你不知道的事](#关于-关键词提取-那些你不知道的事)
-          - [【关于 新词发现】 那些你不知道的事](#关于-新词发现-那些你不知道的事)
-        - [【关于 知识图谱 】那些的你不知道的事](#关于-知识图谱-那些的你不知道的事)
+          - [【关于 关键词提取】那些你不知道的事](#关于-关键词提取那些你不知道的事)
+          - [【关于 新词发现】那些你不知道的事](#关于-新词发现那些你不知道的事)
+        - [【关于 知识图谱】那些的你不知道的事](#关于-知识图谱那些的你不知道的事)
           - [【关于 实体链指篇】 那些的你不知道的事](#关于-实体链指篇-那些的你不知道的事)
           - [【关于 实体消歧 】 那些的你不知道的事](#关于-实体消歧--那些的你不知道的事)
           - [【关于KGQA 】 那些的你不知道的事](#关于kgqa--那些的你不知道的事)
@@ -58,26 +58,26 @@
           - [【关于 文本预处理】 那些的你不知道的事](#关于-文本预处理-那些的你不知道的事)
           - [【关于 半监督学习】 那些的你不知道的事](#关于-半监督学习-那些的你不知道的事)
           - [【关于 GCN in NLP 】那些你不知道的事](#关于-gcn-in-nlp-那些你不知道的事)
-        - [【关于 问答系统】 那些的你不知道的事](#关于-问答系统-那些的你不知道的事)
+        - [【关于 问答系统】那些的你不知道的事](#关于-问答系统那些的你不知道的事)
           - [【关于 FAQ 】那些你不知道的事](#关于-faq-那些你不知道的事)
           - [【关于 多轮检索 】那些你不知道的事](#关于-多轮检索-那些你不知道的事)
           - [【关于 KBFAQ 】那些你不知道的事](#关于-kbfaq-那些你不知道的事)
-        - [【关于 对话系统】 那些的你不知道的事](#关于-对话系统-那些的你不知道的事)
+        - [【关于 对话系统】那些的你不知道的事](#关于-对话系统那些的你不知道的事)
           - [【关于 自然语言理解 NLU】那些你不知道的事](#关于-自然语言理解-nlu那些你不知道的事)
           - [【关于 状态追踪（DST）】那些你不知道的事](#关于-状态追踪dst那些你不知道的事)
           - [【关于 自然语言生成NLG 】那些你不知道的事](#关于-自然语言生成nlg-那些你不知道的事)
           - [【关于 E2E 】那些你不知道的事](#关于-e2e-那些你不知道的事)
           - [【关于 Rasa 】 那些的你不知道的事](#关于-rasa--那些的你不知道的事)
-        - [【关于 文本摘要】 那些的你不知道的事](#关于-文本摘要-那些的你不知道的事)
-        - [【关于 文本匹配】 那些的你不知道的事](#关于-文本匹配-那些的你不知道的事)
-        - [【关于 机器翻译】 那些的你不知道的事](#关于-机器翻译-那些的你不知道的事)
-        - [【关于 文本生成】 那些的你不知道的事](#关于-文本生成-那些的你不知道的事)
+        - [【关于 文本摘要】那些的你不知道的事](#关于-文本摘要那些的你不知道的事)
+        - [【关于 文本匹配】那些的你不知道的事](#关于-文本匹配那些的你不知道的事)
+        - [【关于 机器翻译】那些的你不知道的事](#关于-机器翻译那些的你不知道的事)
+        - [【关于 文本生成】那些的你不知道的事](#关于-文本生成那些的你不知道的事)
         - [【关于 NLP分类任务】那些你不知道的事](#关于-nlp分类任务那些你不知道的事)
           - [【关于 细粒度情感分析】 那些的你不知道的事](#关于-细粒度情感分析-那些的你不知道的事)
         - [【关于 中文分词】那些你不知道的事](#关于-中文分词那些你不知道的事)
-        - [【关于 搜索引擎】 那些你不知道的事](#关于-搜索引擎-那些你不知道的事)
-        - [【关于 文本纠错】 那些你不知道的事](#关于-文本纠错-那些你不知道的事)
-        - [【关于 Text-to-SQL】 那些你不知道的事](#关于-text-to-sql-那些你不知道的事)
+        - [【关于 搜索引擎】那些你不知道的事](#关于-搜索引擎那些你不知道的事)
+        - [【关于 文本纠错】那些你不知道的事](#关于-文本纠错那些你不知道的事)
+        - [【关于 Text-to-SQL】那些你不知道的事](#关于-text-to-sql那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [会议收集篇](#会议收集篇)
@@ -546,7 +546,7 @@
 
 ##### [【关于 信息抽取】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/)
 
-###### [【关于 实体关系联合抽取】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/)
+###### [【关于 实体关系联合抽取】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/)
 
 - [【关于 PURE】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/PURE/) 【强烈推荐】
   - 论文：A Frustratingly Easy Approach for Joint Entity and Relation Extraction
@@ -1001,7 +1001,7 @@
     - 然后，利用信息聚合器汇总句子语义和事件提及信息；
     - 最后，通过迭代多个由双向解码器和信息聚合器构造的单元，并在每一层传递邻近句子的汇总信息，最终感知到整个文档的语义和事件提及信息。
 
-###### [【关于 关键词提取】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/keyword_ex_study/)
+###### [【关于 关键词提取】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/keyword_ex_study/)
 
 - [【关于 关键词提取】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/keyword_ex_study/)
   - 一、TF-IDF关键词提取算法
@@ -1041,7 +1041,7 @@
   - 代码：https://github.com/jiacheng-ye/kg_one2set
   - 会议：ACL2021
 
-###### [【关于 新词发现】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/word_discovery/)
+###### [【关于 新词发现】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/word_discovery/)
 
 - [【关于 新词发现】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/word_discovery/)
 - [【关于 AutoPhrase】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/word_discovery/AutoPhrase/)
@@ -1066,7 +1066,7 @@
   - 论文效果 ？
     - AutoPhrase可以支持任何语言，只要该语言中有通用知识库。与当下最先进的方法比较，新方法在跨不同领域和语言的5个实际数据集上的有效性有了显著提高。
 
-##### [【关于 知识图谱 】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/)
+##### [【关于 知识图谱】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/)
 
 - [【关于 知识图谱 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/)
   - 一、知识图谱简介
@@ -1259,7 +1259,7 @@
     -  序列关系；
     -  词典
 
-##### [【关于 问答系统】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/) 
+##### [【关于 问答系统】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/) 
 
 ###### [【关于 FAQ 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/FAQ/)
 
@@ -1345,7 +1345,7 @@
 
 - [【关于 KBFAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/KBFAQ/)
 
-##### [【关于 对话系统】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/)
+##### [【关于 对话系统】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/)
 
 ###### [【关于 自然语言理解 NLU】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/NLU/contextLU/)
 
@@ -1423,9 +1423,9 @@
 7. [【关于 rasa -> Core -> Stories 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/rasa/rasa系列/rasa_core_Stories.md)
 8. [【关于 rasa -> Core -> Action 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/rasa/rasa_core_FormAction/rasa_core_Action.md)
 
-##### [【关于 文本摘要】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/) 
+##### [【关于 文本摘要】那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/) 
 
-- [【关于 Bertsum】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/EMNLP2019_bertsum/) **【推荐阅读】**
+- [【关于 Bertsum】那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/summarization_study/EMNLP2019_bertsum/) **【推荐阅读】**
   - 论文名称：Fine-tune BERT for Extractive Summarization
   - 会议：EMNLP2019
   - Bert 在抽取式文本摘要中的应用
@@ -1474,9 +1474,9 @@
       - 作用：每个时间步t,考虑当前序列的注意力分布，注意力分布用于生成编码器隐藏状态的加权总和，转化为上下文向量，与解码器t时刻的隐状态进行concatenated然后喂到两个线性层来计算词汇分布P（一个固定维度的向量，每个维度代表被预测词的概率，取argmax就能得到预测的单词）。
       - 目的：告诉模型在当前步的预测过程中，原文中的哪些词更重要
 
-##### [【关于 文本匹配】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/) 
+##### [【关于 文本匹配】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/) 
 
-- [【关于 SimCSE】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/SimCSE/) **【推荐阅读】**
+- [【关于 SimCSE】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/SimCSE/) **【推荐阅读】**
   - 论文：SimCSE: Simple Contrastive Learning of Sentence Embeddings
   - 会议：
   - 论文地址：https://arxiv.org/abs/2104.08821
@@ -1585,14 +1585,14 @@
    - 动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
    - 方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
 
-##### [【关于 机器翻译】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/)
+##### [【关于 机器翻译】那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/)
 
 - [Neural Machine Translation of Rare Words with Subword Units 论文学习](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/NeuralMachineTranslationOfRareWordsWithSubwordUnits/)
 
-##### [【关于 文本生成】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/)
+##### [【关于 文本生成】那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/)
 
-- [【关于 SLCVAE 安装 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/SLCVAE/)
-- [【关于 ScriptWriter 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/ScriptWriter/)
+- [【关于 SLCVAE 安装】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/SLCVAE/)
+- [【关于 ScriptWriter】那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/ScriptWriter/)
   - 论文：ScriptWriter: Narrative-Guided Script Generation
   - 发表会议：ACL2020
   - 论文地址：https://arxiv.org/abs/2005.10331
@@ -1722,7 +1722,7 @@
       - 方法：在源域数据集和通过Distant annotation构造的目标领域数据集上联合进行Adversarial training的方法。
       - 优点：Adversarial training模块可以捕获特定领域更深入的特性，和不可知领域的特性。
 
-##### [【关于 搜索引擎】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/)
+##### [【关于 搜索引擎】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/)
 
 - [【关于 搜索引擎】 那些你不知道的事](search_engine/)
   - [搜索系统的架构设计](#搜索系统的架构设计)
@@ -1807,9 +1807,9 @@
     - 该系统可以执行高质量的候选 retrieval ，特别是对于那些需求不常见的尾部查询。
     - 由预训练语言模型（即 ERNIE）推动的新 retrieval system 可以在很大程度上提高我们搜索引擎的可用性和适用性。
 
-##### [【关于 文本纠错】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_corrector/)
+##### [【关于 文本纠错】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_corrector/)
 
-- [【关于 GECToR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_corrector/GECToR/)
+- [【关于 GECToR】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_corrector/GECToR/)
   - 动机：
     - 由于 NMT-based GEC系统 的 核心是 seq2seq 结构，所以在部署的时候会遇到以下问题：
     1. 缓慢的推理速度；
@@ -1825,9 +1825,9 @@
   - 效果：
     - 我们最好的单模型以及联合模型GEC标注器分别在CoNLL-2014测试集上F0.5达到65.3和66.5，在BEA-2019上F0.5达到72.4和73.6。模型的推理速度是基于Transformer的seq2seq GEC系统的10倍
 
-##### [【关于 Text-to-SQL】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/)
+##### [【关于 Text-to-SQL】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/)
 
-- [【关于 Text-to-SQL 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md)
+- [【关于 Text-to-SQL】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md)
   - [什么是 Text-to-SQL?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#什么是-text-to-sql)
   - [为什么需要 Text-to-SQL?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#为什么需要-text-to-sql)
   - [Text-to-SQL 定义?](https://github.com/km1994/nlp_paper_study/tree/master/text2sql_study/readme.md#text-to-sql-定义)
@@ -1922,85 +1922,92 @@
   
 ### 竞赛篇
 
-#### [【关于 NLP比赛】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/nlp_game/) 【点击查看详情】
+#### [【关于 NLP比赛】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_game) 【点击查看详情】
 
 - 一、问答匹配任务
-- 5. 新冠疫情相似句对判定大赛 【比赛地址】
+  - 5. 新冠疫情相似句对判定大赛 【比赛地址】
     - 5.1 赛题背景
     - 5.2 数据集介绍
     - 5.3 比赛方案收集
-- 4. 2021搜狐校园文本匹配算法大赛 【比赛地址】
+  - 4. 2021搜狐校园文本匹配算法大赛 【比赛地址】
     - 4.1 赛题背景
     - 4.2 比赛任务
     - 4.3 数据说明 【地址】
     - 4.4 比赛方案收集
-- 3. CCF2020问答匹配比赛
+  - 3. CCF2020问答匹配比赛
     - 3.1 比赛背景
     - 3.2 比赛方案收集
-- 2. 智能客服问题相似度算法设计——第三届魔镜杯大赛
-- 1. 2018CIKM AnalytiCup – 阿里小蜜机器人跨语言短文本匹配算法竞赛
-- 其他
+  - 2. 智能客服问题相似度算法设计——第三届魔镜杯大赛
+  - 1. 2018CIKM AnalytiCup – 阿里小蜜机器人跨语言短文本匹配算法竞赛
+  - 其他
 - 二、对话
-- 1. 2020 CCF BDCI《千言：多技能对话》
+  - 1. 2020 CCF BDCI《千言：多技能对话》
     - 1.1 赛题简介
     - 1.2 比赛方案收集
-- 2. 2018JD Dialog Challenge 任务导向型对话系统挑战赛
+  - 2. 2018JD Dialog Challenge 任务导向型对话系统挑战赛
 - 三、文本分类
-- 1. 2018 DC达观-文本智能处理挑战
-- 2. 路透社新闻数据集“深度”探索性分析(词向量/情感分析)
-- 3. 知乎看山杯
-- 4. 2018 CCL 客服领域用户意图分类评测
-- 5. 2018 kaggle quora insincere questions classification
-- 四、 关键词提取
-- 1. “神策杯”2018高校算法大师赛(关键词提取)
+  - 1. 2018 DC达观-文本智能处理挑战
+  - 2. 路透社新闻数据集“深度”探索性分析(词向量/情感分析)
+  - 3. 知乎看山杯
+  - 4. 2018 CCL 客服领域用户意图分类评测
+  - 5. 2018 kaggle quora insincere questions classification
+- 四、关键词提取
+  - 1. “神策杯”2018高校算法大师赛(关键词提取)
 - 五、内容识别
-- 1. 第二届搜狐内容识别大赛
+  - 1. 第二届搜狐内容识别大赛
 - 六、观点主题
-- 1. 汽车行业用户观点主题及情感识别
+  - 1. 汽车行业用户观点主题及情感识别
 - 七、实体链指
-- 7.1. CCKS&2019中文短文本的实体链指
-- 7.2. CCKS 2020实体链指比赛
+  - 7.1. CCKS&2019中文短文本的实体链指
+  - 7.2. CCKS 2020实体链指比赛
 - 八、命名实体识别
-- 8.1 天池中药说明书实体识别
+  - 8.1 天池中药说明书实体识别
     - 8.1.1 任务描述
     - 8.1.2 比赛方案
-- 8.2 CCF BDCI 中文命名实体识别算法鲁棒性评测
+  - 8.2 CCF BDCI 中文命名实体识别算法鲁棒性评测
     - 8.2.1 任务描述
+  - 8.3 商品标题实体识别
+    - 8.3.1 任务描述
+    - 8.3.2 比赛方案
 - 九、事件抽取
-- 9.1 CCKS 2020：面向金融领域的小样本跨类迁移事件抽取
+  - 9.1 CCKS 2020：面向金融领域的小样本跨类迁移事件抽取
     - 9.1.1 任务描述
     - 9.1.2 比赛方案
-- 9.2 CCKS2019_EventEntityExtraction
+  - 9.2 CCKS2019_EventEntityExtraction
     - 9.1.1 任务描述
     - 9.1.2 比赛方案
-- 9.3 2020 科大讯飞事件抽取挑战赛
+  - 9.3 2020 科大讯飞事件抽取挑战赛
     - 9.3.1 任务描述
     - 9.3.2 比赛方案
 - 十、阅读理解
-- 10.1 2021海华AI挑战赛·中文阅读理解·技术组
+  - 10.1 2021海华AI挑战赛·中文阅读理解·技术组
     - 10.1.1 赛题背景
     - 10.1.2 比赛任务
     - 10.1.3 比赛方案
 - 十一、关系抽取
-- 11.1 2020语言与智能技术竞赛：关系抽取任务 【比赛链接】
+  - 11.1 2020语言与智能技术竞赛：关系抽取任务 【比赛链接】
     - 11.1.1 赛题背景
     - 11.1.2 赛题说明
     - 11.1.3 数据集介绍
     - 11.1.4 比赛方案
 - 十二、中文文本纠错
-- 12.1 专业赛：自然语言处理技术创新大赛——中文文本纠错比赛
+  - 12.1 专业赛：自然语言处理技术创新大赛——中文文本纠错比赛
     - 12.1.1 竞赛背景
     - 12.1.2 赛题描述
     - 12.1.3 模型训练
     - 12.1.4 训练集数据介绍
     - 12.1.5 比赛方案
 - 十三、CCF BDCI
-- 13.1 CCF BDCI 智能人机交互自然语言理解
+  - 13.1 CCF BDCI 智能人机交互自然语言理解
     - 13.1.1 竞赛背景
     - 13.1.2 数据集介绍
-- 13.2 CCF BDCI 预训练模型知识量度量
+  - 13.2 CCF BDCI 预训练模型知识量度量
     - 13.2.1 竞赛背景
     - 13.2.2 数据集介绍
+- 十四、搜索
+  - 14.1 “阿里灵杰”问天引擎电商搜索算法赛
+    - 14.1.1 比赛方案
+    - 14.1.2 比赛方案
 - 参考资料
 
 #### [【关于 NLP 比赛方案学习】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/nlp_game/game_study/)
