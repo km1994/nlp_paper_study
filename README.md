@@ -1722,9 +1722,9 @@
       - 方法：在源域数据集和通过Distant annotation构造的目标领域数据集上联合进行Adversarial training的方法。
       - 优点：Adversarial training模块可以捕获特定领域更深入的特性，和不可知领域的特性。
 
-##### [【关于 搜索引擎】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/)
+##### [【关于 搜索引擎】那些你不知道的事](https://github.com/km1994/nlp_paper_study_search_engine/tree/master/search_engine/)
 
-- [【关于 搜索引擎】 那些你不知道的事](search_engine/)
+- [【关于 搜索引擎】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_search_engine/tree/master/search_engine/)
   - [搜索系统的架构设计](#搜索系统的架构设计)
     - [搜索 QP（query理解）的架构设计](#搜索-qpquery理解的架构设计)
   - [搜索j介绍](#搜索j介绍)
@@ -1771,7 +1771,7 @@
     - [2. 更语义搜索](#2-更语义搜索)
     - [3。 多轮搜索](#3-多轮搜索)
 
-- [【关于 GECToR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/PLMbasedRankingInBaiduSearch/)
+- [【关于 GECToR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_search_engine/tree/master/search_engine/PLMbasedRankingInBaiduSearch/)
   - 论文：Pre-trained Language Model based Ranking in Baidu Search
   - 论文地址：https://arxiv.org/abs/2105.11108
   - 论文出处：KDD'21
@@ -1787,7 +1787,7 @@
     - 提出了一种 针对 在线排名系统 的 human-anchored 微调策略 ，旨在稳定各种在线组件的排名信号。
   - 实验结果：大量的离线和在线实验结果表明，所提出的技术显着提高了搜索引擎的性能。
 
-- [【关于 PLM for Web-scale Retrieval in Baidu Search 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/search_engine/PLMforWeb-scaleRetrievalInBaiduSearch/)
+- [【关于 PLM for Web-scale Retrieval in Baidu Search 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_search_engine/tree/master/search_engine/PLMforWeb-scaleRetrievalInBaiduSearch/)
   - 论文：Pre-trained Language Model for Web-scale Retrieval in Baidu Search 
   - 论文地址：https://arxiv.org/abs/2106.03373
   - 论文出处：KDD'21
