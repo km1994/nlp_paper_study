@@ -942,6 +942,33 @@
 
 ###### [【关于 文档级别关系抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/Doc-level_Relation_Extraction/)
 
+- [【关于 自适应Focal Loss和知识蒸馏的文档级关系抽取】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/Doc-level_Relation_Extraction/AdaptiveFocalLossAndKnowledgeDistillation/)
+  - 论文：Document-Level Relation Extraction with Adaptive Focal Loss and Knowledge Distillation
+  - 发表会议：ACL 2022
+  - 论文地址：https://arxiv.org/abs/2203.10900
+  - github：https://github.com/tonytan48/KD-DocRE
+  - 论文动机：
+    - **大部分文档级别的实体关系横跨多个句子**，关系抽取模型需要捕捉更长的上下文信息；
+    - **同一文档中包含大量实体，文档级别关系抽取需要同时抽取所有实体间的关系**，其复杂度与文档中的实体数成平方关系，分类过程中存在大量的负样本；
+    - **文档级别关系抽取的样本类别属于长尾分布**。以清华大学发布的 DocRED 数据集为例，频率前十的关系占到了所有关系的 60%，而剩下的 86 种关系只占全部关系三元组的 40%；
+    - 由于文档级别的数据标注任务较难，现有的数据集中人工标注的训练数据十分有限。大量的训练数据为远程监督[2]的训练数据，而**远程监督的数据中存在大量的噪音，限制模型的训练**。
+  - 论文方法：
+    - 提出了一个包含三个新组件的 DocRE 半监督框架。
+      - 首先，我们使用轴向注意力模块来学习实体对之间的相互依赖关系，从而提高了两跳关系的性能。
+      - 其次，我们提出了一种自适应焦点损失来解决 DocRE 的类不平衡问题。
+      - 最后，我们使用知识蒸馏来克服人工注释数据和远程监督数据之间的差异。
+  - 实验结果：对两个 DocRE 数据集进行了实验。我们的模型始终优于强大的基线，其性能在 DocRED 排行榜上超过了之前的 SOTA 1.36 F1 和 1.46 Ign_F1 分数。
+- [【关于 RelationPrompt】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/Doc-level_Relation_Extraction/RelationPrompt/)
+  - 论文：RelationPrompt: Leveraging Prompts to Generate Synthetic Data for Zero-Shot Relation Triplet Extraction
+  - 发表会议：ACL 2022
+  - 论文地址：https://arxiv.org/abs/2203.09101
+  - github：https://github.com/declare-lab/RelationPrompt 【未更新】
+  - 动机：尽管关系提取在构建和表示知识方面很重要，但**很少有研究集中在推广到看不见的关系类型**。
+  - 论文方法：
+    - 介绍了零样本关系三元组提取（ZeroRTE）的任务设置，以鼓励对低资源关系提取方法的进一步研究。给定一个输入句子，每个提取的三元组由头部实体、关系标签和尾部实体组成，其中在训练阶段看不到关系标签。
+    - 为了解决 ZeroRTE，建议通过提示语言模型生成结构化文本来合成关系示例。具体来说，我们**统一语言模型提示和结构化文本方法来设计结构化提示模板，用于在以关系标签提示（RelationPrompt）为条件时生成合成关系样本**。
+    - 为了克服在句子中提取多个关系三元组的局限性，设计了一种新颖的三元组搜索解码方法。
+  - 实验结果：在 FewRel 和 Wiki-ZSL 数据集上的实验显示了 RelationPrompt 对 ZeroRTE 任务和零样本关系分类的有效性。
 - [【关于 Double Graph Based Reasoning for Document-level Relation Extraction】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/Doc-level_Relation_Extraction/DoubleGraphBasedReasoningforDocumentlevelRelationExtraction/)
 - [【关于 ATLOP】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/Doc-level_Relation_Extraction/ATLOP/)
   - 论文：Document-Level Relation Extraction with Adaptive Thresholding and Localized Context Pooling
