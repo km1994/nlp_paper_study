@@ -578,6 +578,17 @@
 
 ###### [【关于 实体关系联合抽取】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/)
 
+- [【关于 PL-Marker 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/ACL2022_PL-Marker/) 
+  - 论文名称：《Packed Levitated Marker for Entity and Relation Extraction》
+  - 会议：ACL2022
+  - 论文地址：https://arxiv.org/abs/2109.06067v4
+  - 源码地址：https://github.com/thunlp/PL-Marker
+  - 动机：现有作品的一个主要限制是它们忽略了span（对）之间的相互关系。
+  - 论文工作：提出了一种新的span表示方法，称为 Packed Levitated Markers (PL-Marker):
+    - 通过战略性地在编码器中 packing the markers 来考虑span（对）之间的相互关系。
+    - 提出了一种 neighborhood-oriented packing strategy ，该策略综合考虑了邻域span，以更好地建模实体边界信息。
+    - 对于那些更复杂的span对分类任务，我们设计了一种面向主题的 packs  策略，将每个主题及其所有对象 packs  ，以模拟同一主题span对之间的相互关系。实验结果表明，通过增强标记特征，
+  - 论文结果：在六个 NER 基准上推进了基线，并且在 ACE04 和 ACE05 上比之前的最先进模型更快地获得了 4.1%-4.3% 的严格关系 F1 改进.
 - [【关于 PURE】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/PURE/) 【强烈推荐】
   - 论文：A Frustratingly Easy Approach for Joint Entity and Relation Extraction
   - 阅读理由：反直觉！陈丹琦用pipeline方式刷新关系抽取SOTA 
@@ -593,7 +604,7 @@
     - Q1、关系抽取最care什么？
       - 解答：引入实体类别信息会让你的关系模型有提升
     - Q2、共享编码 VS 独立编码 哪家强？
-      -  解答：由于两个任务各自是不同的输入形式，并且需要不同的特征去进行实体和关系预测，也就是说：使用单独的编码器确实可以学习更好的特定任务特征。
+      - 解答：由于两个任务各自是不同的输入形式，并且需要不同的特征去进行实体和关系预测，也就是说：使用单独的编码器确实可以学习更好的特定任务特征。
     - Q3：误差传播不可避免？还是不存在？
       - 解答：并不认为误差传播问题不存在或无法解决，而需要探索更好的解决方案来解决此问题
     - Q4：Effect of Cross-sentence Context
@@ -616,6 +627,20 @@
       - **Relation-Specific Sequence Tagging**：然后执行序列标注，标注存在的主体客体，以处理 subjects  and  object 之间的重叠问题；
       - **Global Correspondence**：枚举所有实体对，由全局矩阵裁剪；
     - 实验结果：PRGC 以更高的效率在公共基准测试中实现了最先进的性能，并在重叠三元组的复杂场景中提供了一致的性能增益
+- [【关于 PFN】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/EMNLP2021_PFN)
+  - 论文名称：PFN:A Partition Filter Network for Joint Entity and Relation Extraction
+  - 会议：EMNLP2021
+  - 论文地址：https://arxiv.org/abs/2108.12202v8
+  - 源码地址：https://github.com/Coopercoppers/PFN
+  - 动机：
+    - 在联合实体和关系提取中，现有工作要么顺序编码任务特定的特征，导致任务间特征交互的不平衡，即后来提取的特征与先提取的特征没有直接联系。
+    - 或者它们以并行方式编码实体特征和关系特征，这意味着每个任务的特征表示学习在很大程度上是相互独立的，除了输入共享。
+  - 论文方法：提出了一个分区过滤网络来适当地模拟任务之间的双向交互，
+    - 其中特征编码被分解为两个步骤：分区和过滤。
+      - 在我们的编码器中，我们利用两个门：实体门和关系门，将神经元分割成两个任务分区和一个共享分区。
+      - 共享分区代表对两个任务都有价值的任务间信息，并在两个任务之间均匀共享，以确保正确的双向交互。
+      - 任务分区代表任务内信息，并通过两个门的共同努力形成，确保任务特定特征的编码相互依赖。
+  - 论文实验：在六个公共数据集上的实验结果表明，我们的模型比以前的方法表现得更好。此外，与之前的工作所声称的相反，我们的辅助实验表明关系预测对命名实体预测的贡献是不可忽略的。
 - [【关于 实体关系联合抽取】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/实体关系联合抽取总结.md)
   1. pipeline  方法
      1. 思路：先命名实体识别（ NER） , 在 关系抽取（RE）
@@ -722,6 +747,18 @@
 
 ###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/NER_study/)
 
+- [【关于 Label Semantics for Few Shot NER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/NER_study/ACL2022_LabelSemanticsForFewShotNER) 【推荐理由：ACL2022 SOTA】
+  - 论文名称：Label Semantics for Few Shot Named Entity Recognition
+  - 会议：ACL2022
+  - 论文地址：https://arxiv.org/abs/2203.08985
+  - 动机：命名实体识别的少数镜头学习问题。
+  - 论文方法：
+    - 利用标签名称中的语义信息作为为模型提供额外信号和丰富先验的一种方式；
+    - 提出了一种由两个 BERT 编码器组成的神经架构：
+      - 一个用于编码文档及其标记；
+      - 一个用于以自然语言格式对每个标签进行编码。
+    - 我们的模型学习将第一个编码器计算的命名实体的表示与第二个编码器计算的标签表示相匹配。
+  - 实验结果：标签语义信号被证明可以在多个少数镜头 NER 基准测试中支持改进的最先进的结果，并在标准基准测试中提供同等性能。我们的模型在资源匮乏的环境中特别有效。
 - [【关于 命名实体识别 之 W2NER 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/NER_study/AAAI2022_W2NER)
   - 论文：Unified Named Entity Recognition as Word-Word Relation Classification
   - 会议：AAAI 2022
