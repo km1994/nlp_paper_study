@@ -55,6 +55,7 @@
           - [【关于 实体消歧 】 那些的你不知道的事](#关于-实体消歧--那些的你不知道的事)
           - [【关于KGQA 】 那些的你不知道的事](#关于kgqa--那些的你不知道的事)
           - [【关于Neo4j  】 那些的你不知道的事](#关于neo4j---那些的你不知道的事)
+          - [【关于 知识图谱补全(图谱推理) 】 那些的你不知道的事](#关于-知识图谱补全图谱推理--那些的你不知道的事)
         - [【关于 NLP Trick】那些你不知道的事](#关于-nlp-trick那些你不知道的事)
           - [【关于 Dropout】那些你不知道的事](#关于-dropout那些你不知道的事)
           - [【关于 主动学习】那些的你不知道的事](#关于-主动学习那些的你不知道的事)
@@ -1179,31 +1180,6 @@
           - 这个流程中的合并判断模型实际上是通过机器学习训练生成的二分类器。
       - 知识存储
 
-- [【关于 Complex KBQA】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/ComplexKBQA/)
-  - 论文：A Survey on Complex Knowledge Base Question Answering:Methods, Challenges and Solutions
-  - 会议：IJCAI'2021
-  - 论文地址：https://www.ijcai.org/proceedings/2021/0611.pdf
-  - 动机：
-    - 相比仅包含单个关系事实的简单问题，复杂问题通常有以下几个特征
-      - **需要在知识图谱中做多跳推理 (multi-hop reasoning)**
-      - **需要考虑题目中给的限制词 (constrained relations)**
-      - **需要考虑数字运算的情况 (numerical operations)**
-    - **基于语义解析的方法还是信息检索的方法都将遇到新的挑战**：
-      - **传统方法无法支撑问题的复杂逻辑**
-      - **复杂问题包含了更多的实体，导致在知识图谱中搜索空间变大**
-      - **两种方法都将问题理解作为首要步骤**
-      - **通常 Complex KBQA 数据集缺少对正确路径的标注**
-  - 预测答案两类主流的方法
-    - 基于语义解析（SP-based）的方法
-      - 问题理解 (question understanding) 模块
-      - 逻辑解析 (logical parsing) 模块
-      - 知识图谱实例化 (KB grounding) 模块
-      - 知识执行 (KB execution) 模块
-    - 基于信息检索（IR-based）的方法
-      - 子图构建 (retrieval source construction) 模块
-      - 问题表达 (question representation) 模块
-      - 基于图结构的推理 (graph based reasoning) 模块
-      - 答案排序 (answer ranking) 模块
 
 ###### [【关于 实体链指篇】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/entity_linking/)
 - [【关于  Low-resource Cross-lingual Entity Linking】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/entity_linking/LowResourceCrossLingualEntityLinking/)
@@ -1244,6 +1220,32 @@
   - 会议：ACL2020
   - 链接：https://www.aclweb.org/anthology/2020.acl-main.91/
   - 代码：https://github.com/lanyunshi/Multi-hopComplexKBQA
+- [【关于 Complex KBQA】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/ComplexKBQA/)
+  - 论文：A Survey on Complex Knowledge Base Question Answering:Methods, Challenges and Solutions
+  - 会议：IJCAI'2021
+  - 论文地址：https://www.ijcai.org/proceedings/2021/0611.pdf
+  - 动机：
+    - 相比仅包含单个关系事实的简单问题，复杂问题通常有以下几个特征
+      - **需要在知识图谱中做多跳推理 (multi-hop reasoning)**
+      - **需要考虑题目中给的限制词 (constrained relations)**
+      - **需要考虑数字运算的情况 (numerical operations)**
+    - **基于语义解析的方法还是信息检索的方法都将遇到新的挑战**：
+      - **传统方法无法支撑问题的复杂逻辑**
+      - **复杂问题包含了更多的实体，导致在知识图谱中搜索空间变大**
+      - **两种方法都将问题理解作为首要步骤**
+      - **通常 Complex KBQA 数据集缺少对正确路径的标注**
+  - 预测答案两类主流的方法
+    - 基于语义解析（SP-based）的方法
+      - 问题理解 (question understanding) 模块
+      - 逻辑解析 (logical parsing) 模块
+      - 知识图谱实例化 (KB grounding) 模块
+      - 知识执行 (KB execution) 模块
+    - 基于信息检索（IR-based）的方法
+      - 子图构建 (retrieval source construction) 模块
+      - 问题表达 (question representation) 模块
+      - 基于图结构的推理 (graph based reasoning) 模块
+      - 答案排序 (answer ranking) 模块
+
 
 ###### [【关于Neo4j  】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/neo4j/)
 
@@ -1267,6 +1269,30 @@
   - 四、数据导入 Neo4j 图数据库篇
 
 - [【关于 Neo4j 索引】那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/neo4j/index.md)
+
+###### [【关于 知识图谱补全(图谱推理) 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/KG_reasoning/)
+
+- [【关于 知识图谱补全】那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/KG_reasoning/)
+
+- [【关于 基于逻辑规则的图谱推理 RNNLogic 】 那些你不知道的事]()
+  - 论文：RNNLogic: Learning Logic Rules for Reasoning on Knowledge Graphs
+  - 动机：
+    - **图谱信息是不完全的**，而补全图谱的人工成本又是非常巨大的，尤其是像是一些医药、金融等一些特定的领域。如果还要考虑知识的动态更新的话，就更加大了图谱补全的难度。
+    - 图谱表示法：模型缺乏可解释性
+    - 归纳逻辑编程法：对规则的搜索空间大，因为固定的生成器。如果想要得到比较好的结果就要尝试大量的逻辑规则，导致效率较低。
+    - 基于强化学习的方法：整个框架的优化很难；依赖KGE（图谱嵌入）的方法来做激励调整。
+  - 论文思路：
+    - 研究点 1：链式的逻辑规则：可以将链式的逻辑规则变成一个关系序列，其中用END来表示结尾。那很自然的，可以通过LSTM来生成这些不同的链式逻辑规则，并输出每一条逻辑规则的概率，进而得到一个弱逻辑规则的集合；
+    - 研究点 2：随机逻辑编程（stochastic logic programming）：
+      - 会通过生成器的弱关系集合进行游走，如图中所示的两种关系链：
+        - 第一种可以得到France这个答案；
+        - 第二个逻辑规则可以得到France，Canada和US三个答案。
+      - 对于每个潜在答案，我们可以给它定义一个分数，也就是到达这个实体的逻辑规则的weight的和。
+      - 最后就可以根据分数得到每种答案的概率，挑选出那些概率最大的来当成我们最终的答案。
+    - 研究点 3：优化方法
+      - 1. 给定一个查询（Query），让生成器生成很多逻辑规则，再把逻辑规则和知识图谱同时送到预测器里面，去更新预测器，最大化生成正确答案的概率；
+      - 2. 从所有生成的这些逻辑规则里面去挑选出那些最重要的逻辑规则。这里我们通过使用后验推断的方法来计算每一条弱的逻辑规则的后验概率进行挑选。因此，在整个过程中，每一条弱的规则概率是由生成器来提供的，似然函数由预测器来提供。这样结合两者共同的信息来得到一个比较重要的逻辑规则；
+      - 3. 把找到的高质量的逻辑规则当成训练数据，送回生成器去学习；
 
 ##### 【关于 NLP Trick】那些你不知道的事
 
