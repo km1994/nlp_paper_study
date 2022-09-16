@@ -43,6 +43,7 @@
         - [【关于 Prompt】 那些的你不知道的事](#关于-prompt-那些的你不知道的事)
           - [【关于 Prompt For NER】 那些的你不知道的事](#关于-prompt-for-ner-那些的你不知道的事)
         - [【关于 信息抽取】那些的你不知道的事](#关于-信息抽取那些的你不知道的事)
+          - [【关于 通用信息抽取】 那些的你不知道的事](#关于-通用信息抽取-那些的你不知道的事)
           - [【关于 实体关系联合抽取】那些的你不知道的事](#关于-实体关系联合抽取那些的你不知道的事)
           - [【关于 命名实体识别】那些你不知道的事](#关于-命名实体识别那些你不知道的事)
           - [【关于 关系抽取】那些你不知道的事](#关于-关系抽取那些你不知道的事)
@@ -55,6 +56,7 @@
           - [【关于 实体消歧 】 那些的你不知道的事](#关于-实体消歧--那些的你不知道的事)
           - [【关于KGQA 】 那些的你不知道的事](#关于kgqa--那些的你不知道的事)
           - [【关于Neo4j  】 那些的你不知道的事](#关于neo4j---那些的你不知道的事)
+          - [【关于 知识图谱补全(图谱推理) 】 那些的你不知道的事](#关于-知识图谱补全图谱推理--那些的你不知道的事)
         - [【关于 NLP Trick】那些你不知道的事](#关于-nlp-trick那些你不知道的事)
           - [【关于 Dropout】那些你不知道的事](#关于-dropout那些你不知道的事)
           - [【关于 主动学习】那些的你不知道的事](#关于-主动学习那些的你不知道的事)
@@ -74,6 +76,8 @@
           - [【关于 Rasa 】 那些的你不知道的事](#关于-rasa--那些的你不知道的事)
         - [【关于 文本摘要】那些的你不知道的事](#关于-文本摘要那些的你不知道的事)
         - [【关于 文本匹配】那些的你不知道的事](#关于-文本匹配那些的你不知道的事)
+          - [【关于 Bert to 文本匹配】 那些的你不知道的事](#关于-bert-to-文本匹配-那些的你不知道的事)
+          - [【关于 DL to 文本匹配】 那些的你不知道的事](#关于-dl-to-文本匹配-那些的你不知道的事)
         - [【关于 机器翻译】那些的你不知道的事](#关于-机器翻译那些的你不知道的事)
         - [【关于 文本生成】那些的你不知道的事](#关于-文本生成那些的你不知道的事)
         - [【关于 NLP分类任务】那些你不知道的事](#关于-nlp分类任务那些你不知道的事)
@@ -577,6 +581,20 @@
 
 ##### [【关于 信息抽取】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/)
 
+###### [【关于 通用信息抽取】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/all_extraction/)
+
+- [【关于 UIE 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/all_extraction/UIE/) 
+  - 研究动机
+    - 不同的输出结构使得很难对所有信息抽取任务统一化建模，这样就产生了三个问题：
+
+      - 由于不同的任务、不同的设置（全监督、低资源、少样本、零样本）、不同的作用场景（医学、金融等），研究人员需要设计大量针对特定情况的模型，这是一件极其耗费资源的事情；
+      - 不同的任务有很多可以公用的知识，比如从图1中的(a)图可以看出：关系抽取需要用到命名实体识别的结果，事件抽取中的论元也是实体，而**现在存在大量的针对特定任务的模型无法做到共享这些实体知识**。
+      - 信息抽取的数据标注是一件极其耗费时间和人力的事情，但由于任务之间的独立，需要对每一个任务都标注数据。
+  - 论文贡献
+    - 设计了一种结构化抽取语言(Structural Extraction Language, SEL)，它能够将四种信息抽取任务的不同结构统一描述，使得模型的输出结构针对不同任务都是一致的。
+    - 由于模型可以做多个任务，所以需要一种方式去指导模型做指定的任务，因此作者设计了结构化模式指导器(Structural Schema Instructor, SSI)，其实这就是一种prompt。
+    - 由于模型的输出都是符合SEL语法的结构化信息，而目前常用的生成式预训练模型如T5、BART都是以生成自然语言为主，若直接采用这种预训练模型会影响到模型性能，因此作者专门针对text to structure的结构来预训练了一个大模型
+
 ###### [【关于 实体关系联合抽取】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/)
 
 - [【关于 PL-Marker 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/ACL2022_PL-Marker/) 
@@ -748,6 +766,19 @@
 
 ###### [【关于 命名实体识别】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/NER_study/)
 
+- [【关于 kNN-NER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/NER_study/knnNER) 
+  - 论文名称：<kNN-NER: Named Entity Recognition with Nearest Neighbor Search >
+  - 会议：
+  - 论文地址：https://arxiv.org/pdf/2203.17103.pdf
+  - 论文代码：https://github.com/ShannonAI/KNN-NER
+  - 动机：在推理阶段，加入kNN机制，以一种集成的思路来做NER，的确是一种较为简洁的方式提升识别效果。
+  - 论文方法：
+    - 在训练阶段，按正常的序列任务训练一个常规的NER模型；
+    - 在推理阶段，由常规模型预测一个分布+由kNN检索出来的一个分布，两个分布融合作为最终的预测分布，从而达到提高NER识别效果。
+  - 实验结果：
+    - kNN-NER框架在处理长尾数据（long-tail）及小样数据（few-shot）问题上，比常规的NER模型表现更好，而这也正是业务场景容易遇到的问题。
+    - 在对比的baseline下，加入kNN机制都有提升，在Weibo数据集上最高达1.23个点提升，还是很明显的。
+    - 在训练集5%的情况，kNN-NER对比常规序列模型有近2个点的提升，说明论文在小样本学习上表现更好。
 - [【关于 Label Semantics for Few Shot NER】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/NER_study/ACL2022_LabelSemanticsForFewShotNER) 【推荐理由：ACL2022 SOTA】
   - 论文名称：Label Semantics for Few Shot Named Entity Recognition
   - 会议：ACL2022
@@ -1180,31 +1211,6 @@
           - 这个流程中的合并判断模型实际上是通过机器学习训练生成的二分类器。
       - 知识存储
 
-- [【关于 Complex KBQA】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/ComplexKBQA/)
-  - 论文：A Survey on Complex Knowledge Base Question Answering:Methods, Challenges and Solutions
-  - 会议：IJCAI'2021
-  - 论文地址：https://www.ijcai.org/proceedings/2021/0611.pdf
-  - 动机：
-    - 相比仅包含单个关系事实的简单问题，复杂问题通常有以下几个特征
-      - **需要在知识图谱中做多跳推理 (multi-hop reasoning)**
-      - **需要考虑题目中给的限制词 (constrained relations)**
-      - **需要考虑数字运算的情况 (numerical operations)**
-    - **基于语义解析的方法还是信息检索的方法都将遇到新的挑战**：
-      - **传统方法无法支撑问题的复杂逻辑**
-      - **复杂问题包含了更多的实体，导致在知识图谱中搜索空间变大**
-      - **两种方法都将问题理解作为首要步骤**
-      - **通常 Complex KBQA 数据集缺少对正确路径的标注**
-  - 预测答案两类主流的方法
-    - 基于语义解析（SP-based）的方法
-      - 问题理解 (question understanding) 模块
-      - 逻辑解析 (logical parsing) 模块
-      - 知识图谱实例化 (KB grounding) 模块
-      - 知识执行 (KB execution) 模块
-    - 基于信息检索（IR-based）的方法
-      - 子图构建 (retrieval source construction) 模块
-      - 问题表达 (question representation) 模块
-      - 基于图结构的推理 (graph based reasoning) 模块
-      - 答案排序 (answer ranking) 模块
 
 ###### [【关于 实体链指篇】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/entity_linking/)
 - [【关于  Low-resource Cross-lingual Entity Linking】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/entity_linking/LowResourceCrossLingualEntityLinking/)
@@ -1245,6 +1251,43 @@
   - 会议：ACL2020
   - 链接：https://www.aclweb.org/anthology/2020.acl-main.91/
   - 代码：https://github.com/lanyunshi/Multi-hopComplexKBQA
+- [【关于 Complex KBQA】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/ComplexKBQA/)
+  - 论文：A Survey on Complex Knowledge Base Question Answering:Methods, Challenges and Solutions
+  - 会议：IJCAI'2021
+  - 论文地址：https://www.ijcai.org/proceedings/2021/0611.pdf
+  - 动机：
+    - 相比仅包含单个关系事实的简单问题，复杂问题通常有以下几个特征
+      - **需要在知识图谱中做多跳推理 (multi-hop reasoning)**
+      - **需要考虑题目中给的限制词 (constrained relations)**
+      - **需要考虑数字运算的情况 (numerical operations)**
+    - **基于语义解析的方法还是信息检索的方法都将遇到新的挑战**：
+      - **传统方法无法支撑问题的复杂逻辑**
+      - **复杂问题包含了更多的实体，导致在知识图谱中搜索空间变大**
+      - **两种方法都将问题理解作为首要步骤**
+      - **通常 Complex KBQA 数据集缺少对正确路径的标注**
+  - 预测答案两类主流的方法
+    - 基于语义解析（SP-based）的方法
+      - 问题理解 (question understanding) 模块
+      - 逻辑解析 (logical parsing) 模块
+      - 知识图谱实例化 (KB grounding) 模块
+      - 知识执行 (KB execution) 模块
+    - 基于信息检索（IR-based）的方法
+      - 子图构建 (retrieval source construction) 模块
+      - 问题表达 (question representation) 模块
+      - 基于图结构的推理 (graph based reasoning) 模块
+      - 答案排序 (answer ranking) 模块
+    - [【关于 子图检索增强的知识图谱问答方法】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/SubgraphRetrievalKBQA/)
+      - 论文：Subgraph Retrieval Enhanced Model for Multi-hop Knowledge Base Question Answering
+      - 会议：ACL2022
+      - 链接：https://github.com/RUCKBReasoning/SubgraphRetrievalKBQA/tree/main/paper
+      - 代码：https://github.com/RUCKBReasoning/SubgraphRetrievalKBQA
+      - 背景：最近关于知识库问答 (KBQA) 的工作检索子图以便于推理。 
+      - 动机：
+        - 所需的子图至关重要，因为小的子图可能会排除答案，但大的子图可能会引入更多噪声。
+        - 然而，现有的检索要么是启发式的，要么与推理交织在一起，导致对部分子图的推理，在缺少中间监督时增加了推理偏差。
+      - 论文方法：本文提出了一种与后续推理过程分离的可训练子图检索器（SR），它使即插即用框架能够增强任何面向子图的 KBQA 模型。 
+      - 实验结果：与现有检索方法相比，SR 取得了显着更好的检索和 QA 性能。 通过弱监督的预训练以及端到端的微调，SRl 与 NSM（一种面向子图的推理器）相结合，用于基于嵌入的 KBQA 方法，实现了新的最先进的性能。
+
 
 ###### [【关于Neo4j  】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/neo4j/)
 
@@ -1268,6 +1311,30 @@
   - 四、数据导入 Neo4j 图数据库篇
 
 - [【关于 Neo4j 索引】那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/neo4j/index.md)
+
+###### [【关于 知识图谱补全(图谱推理) 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/KG_reasoning/)
+
+- [【关于 知识图谱补全】那些你不知道的事](https://github.com/km1994/nlp_paper_study_kg/tree/master/KG_study/KG_reasoning/)
+
+- [【关于 基于逻辑规则的图谱推理 RNNLogic 】 那些你不知道的事]()
+  - 论文：RNNLogic: Learning Logic Rules for Reasoning on Knowledge Graphs
+  - 动机：
+    - **图谱信息是不完全的**，而补全图谱的人工成本又是非常巨大的，尤其是像是一些医药、金融等一些特定的领域。如果还要考虑知识的动态更新的话，就更加大了图谱补全的难度。
+    - 图谱表示法：模型缺乏可解释性
+    - 归纳逻辑编程法：对规则的搜索空间大，因为固定的生成器。如果想要得到比较好的结果就要尝试大量的逻辑规则，导致效率较低。
+    - 基于强化学习的方法：整个框架的优化很难；依赖KGE（图谱嵌入）的方法来做激励调整。
+  - 论文思路：
+    - 研究点 1：链式的逻辑规则：可以将链式的逻辑规则变成一个关系序列，其中用END来表示结尾。那很自然的，可以通过LSTM来生成这些不同的链式逻辑规则，并输出每一条逻辑规则的概率，进而得到一个弱逻辑规则的集合；
+    - 研究点 2：随机逻辑编程（stochastic logic programming）：
+      - 会通过生成器的弱关系集合进行游走，如图中所示的两种关系链：
+        - 第一种可以得到France这个答案；
+        - 第二个逻辑规则可以得到France，Canada和US三个答案。
+      - 对于每个潜在答案，我们可以给它定义一个分数，也就是到达这个实体的逻辑规则的weight的和。
+      - 最后就可以根据分数得到每种答案的概率，挑选出那些概率最大的来当成我们最终的答案。
+    - 研究点 3：优化方法
+      - 1. 给定一个查询（Query），让生成器生成很多逻辑规则，再把逻辑规则和知识图谱同时送到预测器里面，去更新预测器，最大化生成正确答案的概率；
+      - 2. 从所有生成的这些逻辑规则里面去挑选出那些最重要的逻辑规则。这里我们通过使用后验推断的方法来计算每一条弱的逻辑规则的后验概率进行挑选。因此，在整个过程中，每一条弱的规则概率是由生成器来提供的，似然函数由预测器来提供。这样结合两者共同的信息来得到一个比较重要的逻辑规则；
+      - 3. 把找到的高质量的逻辑规则当成训练数据，送回生成器去学习；
 
 ##### 【关于 NLP Trick】那些你不知道的事
 
@@ -1544,7 +1611,9 @@
 
 ##### [【关于 文本匹配】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/) 
 
-- [【关于 SimCSE】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/SimCSE/) **【推荐阅读】**
+###### [【关于 Bert to 文本匹配】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/) 
+
+- [【关于 SimCSE】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/SimCSE/) **【推荐阅读】**
   - 论文：SimCSE: Simple Contrastive Learning of Sentence Embeddings
   - 会议：
   - 论文地址：https://arxiv.org/abs/2104.08821
@@ -1555,7 +1624,7 @@
   - 实验结果：
     - 作者评估了标准语义文本相似性（STS）任务上的 SimCSE，使用 BERT-base 的无监督和监督模型分别平均实现了 74.5％ 和 81.6％ 的 Spearman 相关性，与之前的最佳结果相比，分别提高了 7.9 和 4.6点。
     - 作者还表明，对比学习理论上将嵌入分布得更均匀，并且在有监督信号可用时，它可以更好地对齐正样本。
-- [【关于 BERT-flow 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/BERTFlow/)
+- [【关于 BERT-flow 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/BERTFlow/)
   - 论文：On the Sentence Embeddings from Pre-trained Language Models
   - 会议：EMNLP2020
   - 论文地址：https://arxiv.org/pdf/2011.05864.pdf
@@ -1564,8 +1633,8 @@
   - 动机：已经发现，未经微调的来自预训练语言模型的句子嵌入很难捕获句子的语义；
   - 论文方法：在本文中，我们认为BERT嵌入中的语义信息没有得到充分利用。我们首先从理论上揭示了掩盖的语言模型预训练目标与语义相似性任务之间的理论联系，然后从经验上分析了BERT句子的嵌入。
   - 实验结果：我们发现BERT总是诱发非光滑的各向异性语义空间，这会损害其语义相似性的表现。为解决此问题，我们建议通过将非正则化的流量标准化来将各向异性的语义嵌入分布转换为平滑的各向异性高斯分布。实验结果表明，我们提出的BERT流方法在各种语义文本相似性任务上比最先进的句子嵌入方法具有明显的性能提升。
-- [【关于 Sentence-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/sentence_bert/)
-  - 项目地址：https://github.com/km1994/nlp_paper_study_qa
+- [【关于 Sentence-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/sentence_bert/)
+  - 项目地址：https://github.com/km1994/nlp_paper_study
   - 论文：Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks
   - github:https://github.com/UKPLab/sentence-transformers
   - 动机：
@@ -1576,17 +1645,74 @@
   - 论文方法：
     - 我们开发了SBERT。 siamese network 体系结构使得可以导出输入句子的固定大小矢量。 使用余弦相似度或Manhatten / Euclidean距离之类的相似度度量，可以找到语义上相似的句子。 
   - 存在问题解答：
-    - 小问题：[在语义相似度任务中，SBERT的计算速度为什么比纯bert进行句子编码要快？](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/sentence_bert/)
-- [【关于 语义相似度匹配任务中的 BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/bert_similairity/)  **【推荐阅读】**
+    - 小问题：[在语义相似度任务中，SBERT的计算速度为什么比纯bert进行句子编码要快？](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/sentence_bert/)
+- [【关于 语义相似度匹配任务中的 BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/bert_similairity/)  **【推荐阅读】**
   - 阅读理由：BERT 在 语义相似度匹配任务 中的应用，可以由很多种方式，然而，你真的了解这些方式的区别和优缺点么？
   - 动机：BERT 在 语义相似度匹配任务 中的应用，可以常用 Sentence Pair Classification Task：使用 [CLS]、cosine similairity、sentence/word embedding、siamese network 方法，那么哪种是最佳的方式呢？你是否考虑过呢?
-- [【关于 MPCNN】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
+- [【关于 DPR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/DPR_emnlp2020/)
+  - 论文名称：Dense Passage Retrieval for Open-Domain Question Answering
+  - 会议：EMNLP2020
+  - 阅读理由：双塔模型 第一次 引入 Bert 
+  - 动机：双塔模型 第一次 引入 Bert 
+  - 论文方法：
+    - 双塔模型，主要idea在于双塔使用了两个独立的BERT
+- [【关于 Poly-Encoders】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/Poly-Encoders_ICLR2020/)
+  - 论文名称：Dense Passage Retrieval for Open-Domain Question Answering
+  - 会议：ICLR2020
+  - 动机：
+    - 为了解决上文提到的不能离线索引的问题，并兼顾性能；
+    - 如何让query和doc进行更为深入的交互？
+  - 论文方法：
+    - 本质：双塔模型。
+    - 主要创新点：
+      - 如何让query和doc进行更为深入的交互？
+      - 就是在query embedding的计算上，通过训练m个独立的encoder，把query编码成m个向量并求和，再在最后一层进行交互。
+- [【关于 DC-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/SIGIR2020_DCBert/)
+  - 论文名称：DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING
+  - 阅读理由：Bert 在 QA 上面的应用
+  - 动机：Bert 无法处理传入问题的高吞吐量，每个问题都有大量检索到的文档；
+  - 论文方法：具有双重BERT模型的解耦上下文编码框架：
+    - 一个在线BERT，仅对问题进行一次编码；
+    - 一个正式的BERT，对所有文档进行预编码并缓存其编码；
+- [【关于 SIGIR2020】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/SIGIR2020/)
+  - 论文名称：ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT
+  - 会议：ICLR2020
+  - 动机：
+  - 论文方法：
+    - 对query与doc在token-level的编码进行匹配计算，并通过MaxSim算符取出最大值并求和作为最终的分数
+- [【关于 tBERT 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/SIGIR2020_DCBert/)
+   - 论文：tBERT: Topic Models and BERT Joining Forces for Semantic Similarity Detection
+   - 会议：ACL2020
+   - 论文地址：https://www.aclweb.org/anthology/2020.acl-main.630/
+   - 论文代码：https://github.com/wuningxi/tBERT
+   - 动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
+   - 方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
+- [【关于 DCSR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/bert2text_match/ACL2022_DCSR/) 
+  - 论文：《Sentence-aware Contrastive Learning for Open-Domain Passage Retrieval》
+  - 会议：ACL2022
+  - 论文地址：https://aclanthology.org/2022.acl-long.76.pdf
+  - 论文代码：https://github.com/chengzhipanpan/DCSR
+  - 动机：
+    - 每一个段落由多个句子组成，而每个句子对应的问题可能在语义上差别很大
+      - 1. **「相似性传递」**：对比学习框架的目标是**使问题的向量表征与其对应的黄金段落的向量表征之间的相似性最大**。而这种一对多的关系，会**造成同一个段落中语义差异很大的不同问题之间的向量表征极其相似**。
+      - 2. **「样本即正亦负」**：对比学习框架中大批次是一个很重要的参数，而这种一对多的关系，会造成**一个批次中包含同一个段落对应的多个问题，导致一个段落对于相同问题即使正样本也是负样本**。
+  - 思路：
+    - 正负例 构建
+      - 正例构建：对于给定问题 q，在批次内的正段落为 p；
+      - 简单负例获取：利用 BM25技术，针对问题 q 从检索库中，找到与其相关的负段落；
+      - 段落内负例获取：**在正段落中，随机抽取一个不包含答案的句子**。如果正段落不包含这样的句子，则从 N 中随机抽取一个简单负例做代替。
+    - 检索排序：
+      - 在检索中，计算问题向量和所有上下文句子向量之间的匹配分数，由于一篇段落中有多个句子，因此检索了前 100*k 个句子进行排序，其中 k 是所有段落中句子个数的平均数。
+
+###### [【关于 DL to 文本匹配】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/) 
+
+- [【关于 MPCNN】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
   - 论文：Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks
-- [【关于 RE2】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/Multi-RE2_study/)
+- [【关于 RE2】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/Multi-RE2_study/)
   - 论文：Simple and Effective Text Matching with Richer Alignment Features
   - 动机： 可以使用多个序列间比对层构建更强大的模型。 代替基于单个对准过程的比较结果进行预测，具有多个对准层的堆叠模型将保持其中间状态并逐渐完善其预测。**但是，由于底层特征的传播效率低下和梯度消失，这些更深的体系结构更难训练。** 
   - 介绍：一种快速强大的神经体系结构，具有用于通用文本匹配的多个对齐过程。 我们对以前文献中介绍的文本匹配方法中许多慢速组件的必要性提出了质疑，包括复杂的多向对齐机制，对齐结果的大量提炼，外部句法特征或当模型深入时用于连接堆叠块的密集连接。 这些设计选择会极大地减慢模型的速度，并且可以用重量更轻且效果相同的模型代替。 同时，我们重点介绍了有效文本匹配模型的三个关键组成部分。 这些组件（名称为RE2代表）是以前的对齐特征（残差矢量），原始点向特征（嵌入矢量）和上下文特征（编码矢量）。 其余组件可能尽可能简单，以保持模型快速，同时仍能产生出色的性能。
-- [【关于 DSSM】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/cikm2013_DSSM/)
+- [【关于 DSSM】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/cikm2013_DSSM/)
   - 论文：Deep Structured Semantic Model
   - 论文会议：CIKM2013
   - 问题：语义相似度问题
@@ -1606,11 +1732,11 @@
     - word hashing可能造成冲突
     - DSSM采用了词袋模型，损失了上下文信息
     - 在排序中，搜索引擎的排序由多种因素决定，由于用户点击时doc的排名越靠前，点击的概率就越大，如果仅仅用点击来判断是否为正负样本，噪声比较大，难以收敛
-- [【关于 ABCNN 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/TACL2016_ABCNN/)
+- [【关于 ABCNN 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/TACL2016_ABCNN/)
   - 论文：ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs
   - 会议：TACL 2016
   - 论文方法：采用了CNN的结构来提取特征，并用attention机制进行进一步的特征处理，作者一共提出了三种attention的建模方法
-- [【关于 ESIM 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/TACL2017_ESIM/)
+- [【关于 ESIM 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/TACL2017_ESIM/)
   - 论文：Enhanced LSTM for Natural Language Inference
   - 会议：TACL2017
   - 自然语言推理（NLI: natural language inference）问题：
@@ -1625,7 +1751,7 @@
       - local inference modeling；
       - inference composition；
       - Prediction
-- [【关于 BiMPM 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/IJCAI2017_BiMPM/)
+- [【关于 BiMPM 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/IJCAI2017_BiMPM/)
   - 论文：Bilateral multi-perspective matching for natural language sentences
   - 会议：IJCAI2017
   - 方法：
@@ -1634,24 +1760,10 @@
     - Matching layer: 对两个句子PP和QQ从两个方向进行匹配, 其中⊗⊗表示某个句子的某个时间步的输出对另一个句子所有时间步的输出进行匹配的结果. 最终匹配的结果还是代表两个句子的匹配向量序列.
     - Aggregation Layer: 使用另一个双向LSTM模型, 将两个匹配向量序列两个方向的最后一个时间步的表示(共4个)进行拼接, 得到两个句子的聚合表示.
 - Prediction Layer: 对拼接后的表示, 使用全连接层, 再进行softmax得到最终每个标签的概率.
-- [【关于 DIIN 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study_qa/tree/master/text_match_study/T2017_DIIN/)
+- [【关于 DIIN 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/T2017_DIIN/)
   - 论文：Densely Interactive Inference Network
   - 会议：TACL2017
   - 模型主要包括五层：嵌入层（Embedding Layer）、编码层（Encoding Layer）、交互层（Interaction Layer ）、特征提取层（Feature Extraction Layer）和输出层（Output Layer）
-- [【关于 DC-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/SIGIR2020_DCBert/)
-  - 论文名称：DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING
-  - 阅读理由：Bert 在 QA 上面的应用
-  - 动机：Bert 无法处理传入问题的高吞吐量，每个问题都有大量检索到的文档；
-  - 论文方法：具有双重BERT模型的解耦上下文编码框架：
-    - 一个在线BERT，仅对问题进行一次编码；
-    - 一个正式的BERT，对所有文档进行预编码并缓存其编码；
-- [【关于 tBERT 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/SIGIR2020_DCBert/)
-   - 论文：tBERT: Topic Models and BERT Joining Forces for Semantic Similarity Detection
-   - 会议：ACL2020
-   - 论文地址：https://www.aclweb.org/anthology/2020.acl-main.630/
-   - 论文代码：https://github.com/wuningxi/tBERT
-   - 动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
-   - 方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
 
 ##### [【关于 机器翻译】那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/MachineTranslation/)
 
