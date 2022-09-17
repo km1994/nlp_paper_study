@@ -536,6 +536,24 @@
       - 抛弃预训练任务中的NSP任务。 由于预训练时没有使用NSP任务，因此模型结构图省略了片段嵌入（segment embedding）。实际上下游任务输入为多个段落时（例如：文本匹配、阅读理解等任务），是采用了segment embedding；
     - 实验结果：在大规模未标记的中文语料库上进行预训练，提出的 ChineseBERT 模型在训练步骤较少的情况下显着提高了基线模型的性能。 porpsoed 模型在广泛的中文 NLP 任务上实现了新的 SOTA 性能，包括机器阅读理解、自然语言推理、文本分类、句子对匹配和命名实体识别中的竞争性能。
 
+- [【关于 Bert trick】那些你不知道的事](https://github.com/km1994/nlp_paper_study_bert/tree/master/bert_study/bert_trick/)
+  - [【关于 Bert 未登录词处理】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_bert/tree/master/bert_study/bert_trick/UNK_process)
+    - 动机
+      - 中文预训练BERT 对于 英文单词覆盖不全问题。由于  中文预训练BERT 主要针对中文，所以词表中英文单词比较少，但是一般英文单词如果简单的直接使用tokenize函数，往往在一些序列预测问题上存在一些对齐问题，或者很多不存在的单词或符号没办法处理而直接使用　unk　替换了，某些英文单词或符号失去了单词的预训练效果；
+      - 专业领域（如医疗、金融）用词或中文偏僻词问题。NLP经常会用到预训练的语言模型，小到word2vector，大到bert。现在bert之类的基本都用char级别来训练，然而由于 Bert 等预训练模型都是采用开放域的语料进行预训练，所以对词汇覆盖的更多是日常用词，专业用词则覆盖不了，这时候该怎么处理？
+    - 方法
+      - 方法一：直接在 BERT 词表 vocab.txt 中替换 [unused]
+      - 方法二：通过重构词汇矩阵来增加新词
+      - 方法三：添加特殊占位符号 add_special_tokens
+    - 方法对比
+      - 方法一：
+        - 优点：如果存在大量领域内专业词汇，而且已经整理成词表，可以利用该方法批量添加；
+        - 缺点：因为 方法1 存在 未登录词数量限制（eg：cased模型只有99个空位，uncased模型有999个空位），所以当 未登录词 太多时，将不适用；
+      - 方法二：
+        - 优点：不存在 方法1 的 未登录词数量限制 问题；
+      - 方法三：
+        - 优点：对于一些 占位符（eg：<e></e>），方法一和方法二可能都无法生效，因为 <, e, >和 <e></e>均存在于 vocab.txt，但前三者的优先级高于 <e></e>，而 add_special_tokens会起效，却会使得词汇表大小增大，从而需另外调整模型size。但是，如果同时在词汇表vocab.txt中替换[unused]，同时 add_special_tokens，则新增词会起效，同时词汇表大小不变。
+
 ##### 【关于 Prompt】 那些的你不知道的事
 
 ###### 【关于 Prompt For NER】 那些的你不知道的事
@@ -2036,15 +2054,15 @@
 ##### [【关于 多标签文本分类】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/)
 
 - [【关于 多标签文本分类】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/)
-- [【关于 Balancing Methods for Multi-label Text Classification 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/BalancingLoss/)
-  - 介绍：多标签文本分类是一项具有挑战性的任务，因为它需要捕获标签依赖关系。 
-  - 动机：
-    - 问题1：类别不均衡问题：当类分布是长尾时，它变得更具挑战性；
-      - 方法1：重采样和重新加权
-    - 问题2：类别标签的联动（类别共现）；
-      - 方法1会导致 公共标签的过采样
-  - 论文方法：平衡损失函数在多标签文本分类中的应用
-  - 论文实验：对具有 90 个标签 (Reuters-21578) 的通用域数据集和来自 PubMed 的具有 18211 个标签的特定域数据集进行实验。 我们发现，一个分布平衡的损失函数，它本质上解决了类不平衡和标签链接问题，优于常用的损失函数。 分布平衡方法已成功应用于图像识别领域。 在这里，我们展示了它们在自然语言处理中的有效性。
+  - [【关于 Balancing Methods for Multi-label Text Classification 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/BalancingLoss/)
+    - 介绍：多标签文本分类是一项具有挑战性的任务，因为它需要捕获标签依赖关系。 
+    - 动机：
+      - 问题1：类别不均衡问题：当类分布是长尾时，它变得更具挑战性；
+        - 方法1：重采样和重新加权
+      - 问题2：类别标签的联动（类别共现）；
+        - 方法1会导致 公共标签的过采样
+    - 论文方法：平衡损失函数在多标签文本分类中的应用
+    - 论文实验：对具有 90 个标签 (Reuters-21578) 的通用域数据集和来自 PubMed 的具有 18211 个标签的特定域数据集进行实验。 我们发现，一个分布平衡的损失函数，它本质上解决了类不平衡和标签链接问题，优于常用的损失函数。 分布平衡方法已成功应用于图像识别领域。 在这里，我们展示了它们在自然语言处理中的有效性。
 
 #### 实战篇
 
