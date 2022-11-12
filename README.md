@@ -1157,6 +1157,7 @@
   - 论文：https://aclanthology.org/2021.acl-long.354/
   - 代码：https://github.com/jiacheng-ye/kg_one2set
   - 会议：ACL2021
+- [盘点 KeyBert、TextRank 等九种主流关键词提取算法原理及 Python 代码实现](https://zhuanlan.zhihu.com/p/568271135)
 
 ###### [【关于 新词发现】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/word_discovery/)
 
