@@ -87,6 +87,7 @@
         - [【关于 文本纠错】那些你不知道的事](#关于-文本纠错那些你不知道的事)
         - [【关于 Text-to-SQL】那些你不知道的事](#关于-text-to-sql那些你不知道的事)
         - [【关于 多标签文本分类】 那些你不知道的事](#关于-多标签文本分类-那些你不知道的事)
+        - [【关于 tts】 那些你不知道的事](#关于-tts-那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [会议收集篇](#会议收集篇)
@@ -97,7 +98,7 @@
         - [【关于 NLP 比赛方案学习】 那些你不知道的事](#关于-nlp-比赛方案学习-那些你不知道的事-1)
     - [学习资源](#学习资源)
     - [NLP 数据集](#nlp-数据集)
-    - [GCN_study学习篇](#gcn_study学习篇)
+    - [GCN\_study学习篇](#gcn_study学习篇)
   - [参考资料](#参考资料)
 
 ## 介绍
@@ -2050,12 +2051,10 @@
   - 论文方法：提出了一种 Line Graph Enhanced Text-to-SQL (LGESQL) 模型来挖掘底层关系特征，而无需构建元路径。凭借线图，消息不仅通过节点之间的连接，而且通过有向边的拓扑更有效地传播。此外，在图迭代期间，局部和非局部关系都被独特地整合在一起。我们还设计了一个称为图修剪的辅助任务，以提高编码器的判别能力。
   - 论文实验：在撰写本文时，我们的框架在跨域文本到 SQL 基准 Spider 上取得了最先进的结果（Glove 为 62.8%，Electra 为 72.0%）。
 
-
-
 ##### [【关于 多标签文本分类】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/)
 
 - [【关于 多标签文本分类】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/)
-  - [【关于 Balancing Methods for Multi-label Text Classification 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/BalancingLoss/)
+  - [【关于 Balancing Methods for Multi-label Text Classification 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/BalancingLoss/)
     - 介绍：多标签文本分类是一项具有挑战性的任务，因为它需要捕获标签依赖关系。 
     - 动机：
       - 问题1：类别不均衡问题：当类分布是长尾时，它变得更具挑战性；
@@ -2064,6 +2063,29 @@
         - 方法1会导致 公共标签的过采样
     - 论文方法：平衡损失函数在多标签文本分类中的应用
     - 论文实验：对具有 90 个标签 (Reuters-21578) 的通用域数据集和来自 PubMed 的具有 18211 个标签的特定域数据集进行实验。 我们发现，一个分布平衡的损失函数，它本质上解决了类不平衡和标签链接问题，优于常用的损失函数。 分布平衡方法已成功应用于图像识别领域。 在这里，我们展示了它们在自然语言处理中的有效性。
+
+##### [【关于 tts】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/)
+
+- [【关于 tts】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/)
+  - [【关于 FastSpeech】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/FastSpeech/)
+    - 动机：
+      - **推理阶段速度过慢**（traditional Transformer虽然训练的速度很快，但是推理阶段仍然需要上一时间步的输出，无法做到真正的并行）；
+      - **生成的语音不是鲁棒的，有一些单词会被跳过或者重复地生成**（这一点笔者在实验的时候真的是深有体会啊，而造成这一原因主要是因为传统语音合成系统的Alignment是隐式的，在推断的过程中，存在着错误对齐的情况）；
+      - **无法做到可控**（这里笔者的可控应该主要指的是生成的语速方面，因为在Prosody的层面已经有工作做到了很好的效果）。
+    - 论文方法：
+      - Feed-Forward Transformer(图a)
+      - FFT Block
+      - Length Regulator
+      - Duration Predictor
+  - [【关于 FastSpeech2】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/FastSpeech2/)
+    - 动机：
+      - 1. teacher-student的蒸馏过程非常复杂并且耗时；
+      - 2. 从teacher模型attention中提取的时长预测不够准确；
+      - 3. 用teacher模型预测的mel谱作为target，相比GT有信息损失从而导致结果音质受损。
+    - 论文方法：
+      - 1. encoder将phoneme embedding转换成phoneme hidden seq;
+      - 2. 然后设计了variance adaptor引入不同的声学特征信息;
+      - 3. 最终decoder将adapted hidden seq并行地转换成mel谱。
 
 #### 实战篇
 
