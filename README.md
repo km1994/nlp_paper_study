@@ -69,6 +69,7 @@
           - [【关于 多轮检索 】那些你不知道的事](#关于-多轮检索-那些你不知道的事)
           - [【关于 KBFAQ 】那些你不知道的事](#关于-kbfaq-那些你不知道的事)
         - [【关于 对话系统】那些的你不知道的事](#关于-对话系统那些的你不知道的事)
+          - [【关于 ChatGPT】 那些你不知道的事](#关于-chatgpt-那些你不知道的事)
           - [【关于 自然语言理解 NLU】那些你不知道的事](#关于-自然语言理解-nlu那些你不知道的事)
           - [【关于 状态追踪（DST）】那些你不知道的事](#关于-状态追踪dst那些你不知道的事)
           - [【关于 自然语言生成NLG 】那些你不知道的事](#关于-自然语言生成nlg-那些你不知道的事)
@@ -1501,6 +1502,14 @@
 - [【关于 KBFAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/KBFAQ/)
 
 ##### [【关于 对话系统】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/)
+
+###### [【关于 ChatGPT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/ChatGPT/)
+
+- [【关于 ChatGPT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/ChatGPT/)
+  - 思路：
+    - ChatGPT 阶段一：冷启动阶段的监督策略模型
+    - ChatGPT 阶段二：训练回报模型（Reward Model,RM）
+    - ChatGPT 阶段三：采用强化学习来增强预训练模型的能力
 
 ###### [【关于 自然语言理解 NLU】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/NLU/contextLU/)
 
