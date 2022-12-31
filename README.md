@@ -41,6 +41,8 @@
           - [transformer 变体综述篇](#transformer-变体综述篇)
         - [【关于 预训练模型】 那些的你不知道的事](#关于-预训练模型-那些的你不知道的事)
         - [【关于 Prompt】 那些的你不知道的事](#关于-prompt-那些的你不知道的事)
+          - [【关于 Prompts2QA 】 那些的你不知道的事](#关于-prompts2qa--那些的你不知道的事)
+          - [【关于 Prompts2Summarization】 那些的你不知道的事](#关于-prompts2summarization-那些的你不知道的事)
           - [【关于 Prompt For NER】 那些的你不知道的事](#关于-prompt-for-ner-那些的你不知道的事)
         - [【关于 信息抽取】那些的你不知道的事](#关于-信息抽取那些的你不知道的事)
           - [【关于 通用信息抽取】 那些的你不知道的事](#关于-通用信息抽取-那些的你不知道的事)
@@ -557,6 +559,29 @@
         - 优点：对于一些 占位符（eg：<e></e>），方法一和方法二可能都无法生效，因为 <, e, >和 <e></e>均存在于 vocab.txt，但前三者的优先级高于 <e></e>，而 add_special_tokens会起效，却会使得词汇表大小增大，从而需另外调整模型size。但是，如果同时在词汇表vocab.txt中替换[unused]，同时 add_special_tokens，则新增词会起效，同时词汇表大小不变。
 
 ##### 【关于 Prompt】 那些的你不知道的事
+
+###### [【关于 Prompts2QA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2QA/)
+
+- [【关于 基于反向提示的预训练模型可控文本生成】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2QA/ControllableGenerationFromPLMviaInversePrompting/)
+  - 论文名称：Controllable Generation from Pre-trained Language Models via Inverse Prompting
+  - 会议：KDD 2021 Research Track
+  - 论文链接：https://www.aminer.cn/pub/605869d391e011537aff4c3c
+  - 动机：大规模预训练语言模型在生成仿真文本时有强大的功能。但控制生成的结果使之符合给定的需求仍然有着巨大的困难。之前能够控制生成的方式寥寥无几，比如“给定前文”的方法，只能够控制生成文本中开头的一些文字的导向，而后面则会随着生成的长度渐渐增加而渐渐离题万里。
+  - 论文方法：提出了“反向提示”（Inverse Prompting）的方法，在搜索最佳生成结果的过程中以“能否还原给定的主题”为搜索准则，生成文本。
+  - 实验结果：生成的诗歌和问答在真人评分中均获得了很好的结果，取得了接近人类的水平。
+- [【关于 Response Generation with Context-Aware Prompt Learning】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2QA/)
+  - 论文名称：Response Generation with Context-Aware Prompt Learning
+  - 论文链接：https://arxiv.org/pdf/2111.02643.pdf
+  - 思路：该论文设计了一个新颖的动态prompt编码器来鼓励上下文感知的prompt learning，以更好地重利用大规模预训练语言模型中的知识并生成更有知识的回复。
+    - 首先将上文文本的embedding送入可学习的prompt编码器中获得感知上文的prompt编码表示，再同时利用prompt的编码表示和上文文本来预测下文。
+
+###### [【关于 Prompts2Summarization】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2Summarization/) 
+
+- [【关于 Planning with Learned Entity Prompts for Abstractive Summarization】 那些你不知道的事]([)](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2Summarization/EntityPromptsForAbstractiveSummarization)
+  - 动机：我们引入了一种简单而灵活的机制来学习中间计划，以实现抽象摘要的生成。
+  - 做法：
+    1. 在目标摘要前加上(or prompt)实体链——摘要中提到的实体的有序序列；
+    2. 然后训练 Transformer-based sequence-to-sequence models 生成实体链，然后继续生成以实体链和输入为条件的摘要；
 
 ###### 【关于 Prompt For NER】 那些的你不知道的事
 
