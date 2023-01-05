@@ -41,6 +41,8 @@
           - [transformer 变体综述篇](#transformer-变体综述篇)
         - [【关于 预训练模型】 那些的你不知道的事](#关于-预训练模型-那些的你不知道的事)
         - [【关于 Prompt】 那些的你不知道的事](#关于-prompt-那些的你不知道的事)
+          - [【关于 Prompts2QA 】 那些的你不知道的事](#关于-prompts2qa--那些的你不知道的事)
+          - [【关于 Prompts2Summarization】 那些的你不知道的事](#关于-prompts2summarization-那些的你不知道的事)
           - [【关于 Prompt For NER】 那些的你不知道的事](#关于-prompt-for-ner-那些的你不知道的事)
         - [【关于 信息抽取】那些的你不知道的事](#关于-信息抽取那些的你不知道的事)
           - [【关于 通用信息抽取】 那些的你不知道的事](#关于-通用信息抽取-那些的你不知道的事)
@@ -69,6 +71,7 @@
           - [【关于 多轮检索 】那些你不知道的事](#关于-多轮检索-那些你不知道的事)
           - [【关于 KBFAQ 】那些你不知道的事](#关于-kbfaq-那些你不知道的事)
         - [【关于 对话系统】那些的你不知道的事](#关于-对话系统那些的你不知道的事)
+          - [【关于 ChatGPT】 那些你不知道的事](#关于-chatgpt-那些你不知道的事)
           - [【关于 自然语言理解 NLU】那些你不知道的事](#关于-自然语言理解-nlu那些你不知道的事)
           - [【关于 状态追踪（DST）】那些你不知道的事](#关于-状态追踪dst那些你不知道的事)
           - [【关于 自然语言生成NLG 】那些你不知道的事](#关于-自然语言生成nlg-那些你不知道的事)
@@ -87,6 +90,7 @@
         - [【关于 文本纠错】那些你不知道的事](#关于-文本纠错那些你不知道的事)
         - [【关于 Text-to-SQL】那些你不知道的事](#关于-text-to-sql那些你不知道的事)
         - [【关于 多标签文本分类】 那些你不知道的事](#关于-多标签文本分类-那些你不知道的事)
+        - [【关于 tts】 那些你不知道的事](#关于-tts-那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [会议收集篇](#会议收集篇)
@@ -97,7 +101,7 @@
         - [【关于 NLP 比赛方案学习】 那些你不知道的事](#关于-nlp-比赛方案学习-那些你不知道的事-1)
     - [学习资源](#学习资源)
     - [NLP 数据集](#nlp-数据集)
-    - [GCN_study学习篇](#gcn_study学习篇)
+    - [GCN\_study学习篇](#gcn_study学习篇)
   - [参考资料](#参考资料)
 
 ## 介绍
@@ -555,6 +559,29 @@
         - 优点：对于一些 占位符（eg：<e></e>），方法一和方法二可能都无法生效，因为 <, e, >和 <e></e>均存在于 vocab.txt，但前三者的优先级高于 <e></e>，而 add_special_tokens会起效，却会使得词汇表大小增大，从而需另外调整模型size。但是，如果同时在词汇表vocab.txt中替换[unused]，同时 add_special_tokens，则新增词会起效，同时词汇表大小不变。
 
 ##### 【关于 Prompt】 那些的你不知道的事
+
+###### [【关于 Prompts2QA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2QA/)
+
+- [【关于 基于反向提示的预训练模型可控文本生成】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2QA/ControllableGenerationFromPLMviaInversePrompting/)
+  - 论文名称：Controllable Generation from Pre-trained Language Models via Inverse Prompting
+  - 会议：KDD 2021 Research Track
+  - 论文链接：https://www.aminer.cn/pub/605869d391e011537aff4c3c
+  - 动机：大规模预训练语言模型在生成仿真文本时有强大的功能。但控制生成的结果使之符合给定的需求仍然有着巨大的困难。之前能够控制生成的方式寥寥无几，比如“给定前文”的方法，只能够控制生成文本中开头的一些文字的导向，而后面则会随着生成的长度渐渐增加而渐渐离题万里。
+  - 论文方法：提出了“反向提示”（Inverse Prompting）的方法，在搜索最佳生成结果的过程中以“能否还原给定的主题”为搜索准则，生成文本。
+  - 实验结果：生成的诗歌和问答在真人评分中均获得了很好的结果，取得了接近人类的水平。
+- [【关于 Response Generation with Context-Aware Prompt Learning】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2QA/)
+  - 论文名称：Response Generation with Context-Aware Prompt Learning
+  - 论文链接：https://arxiv.org/pdf/2111.02643.pdf
+  - 思路：该论文设计了一个新颖的动态prompt编码器来鼓励上下文感知的prompt learning，以更好地重利用大规模预训练语言模型中的知识并生成更有知识的回复。
+    - 首先将上文文本的embedding送入可学习的prompt编码器中获得感知上文的prompt编码表示，再同时利用prompt的编码表示和上文文本来预测下文。
+
+###### [【关于 Prompts2Summarization】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2Summarization/) 
+
+- [【关于 Planning with Learned Entity Prompts for Abstractive Summarization】 那些你不知道的事]([)](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2Summarization/EntityPromptsForAbstractiveSummarization)
+  - 动机：我们引入了一种简单而灵活的机制来学习中间计划，以实现抽象摘要的生成。
+  - 做法：
+    1. 在目标摘要前加上(or prompt)实体链——摘要中提到的实体的有序序列；
+    2. 然后训练 Transformer-based sequence-to-sequence models 生成实体链，然后继续生成以实体链和输入为条件的摘要；
 
 ###### 【关于 Prompt For NER】 那些的你不知道的事
 
@@ -1157,6 +1184,7 @@
   - 论文：https://aclanthology.org/2021.acl-long.354/
   - 代码：https://github.com/jiacheng-ye/kg_one2set
   - 会议：ACL2021
+- [盘点 KeyBert、TextRank 等九种主流关键词提取算法原理及 Python 代码实现](https://zhuanlan.zhihu.com/p/568271135)
 
 ###### [【关于 新词发现】那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/word_discovery/)
 
@@ -1499,6 +1527,14 @@
 - [【关于 KBFAQ】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/KBFAQ/)
 
 ##### [【关于 对话系统】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/)
+
+###### [【关于 ChatGPT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/ChatGPT/)
+
+- [【关于 ChatGPT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/ChatGPT/)
+  - 思路：
+    - ChatGPT 阶段一：冷启动阶段的监督策略模型
+    - ChatGPT 阶段二：训练回报模型（Reward Model,RM）
+    - ChatGPT 阶段三：采用强化学习来增强预训练模型的能力
 
 ###### [【关于 自然语言理解 NLU】那些你不知道的事](https://github.com/km1994/nlp_paper_study_qa/tree/master/QA_study/dialogue_system_study/NLU/contextLU/)
 
@@ -2049,12 +2085,10 @@
   - 论文方法：提出了一种 Line Graph Enhanced Text-to-SQL (LGESQL) 模型来挖掘底层关系特征，而无需构建元路径。凭借线图，消息不仅通过节点之间的连接，而且通过有向边的拓扑更有效地传播。此外，在图迭代期间，局部和非局部关系都被独特地整合在一起。我们还设计了一个称为图修剪的辅助任务，以提高编码器的判别能力。
   - 论文实验：在撰写本文时，我们的框架在跨域文本到 SQL 基准 Spider 上取得了最先进的结果（Glove 为 62.8%，Electra 为 72.0%）。
 
-
-
 ##### [【关于 多标签文本分类】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/)
 
 - [【关于 多标签文本分类】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/)
-  - [【关于 Balancing Methods for Multi-label Text Classification 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/multi_label_text_classification/BalancingLoss/)
+  - [【关于 Balancing Methods for Multi-label Text Classification 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/BalancingLoss/)
     - 介绍：多标签文本分类是一项具有挑战性的任务，因为它需要捕获标签依赖关系。 
     - 动机：
       - 问题1：类别不均衡问题：当类分布是长尾时，它变得更具挑战性；
@@ -2063,6 +2097,29 @@
         - 方法1会导致 公共标签的过采样
     - 论文方法：平衡损失函数在多标签文本分类中的应用
     - 论文实验：对具有 90 个标签 (Reuters-21578) 的通用域数据集和来自 PubMed 的具有 18211 个标签的特定域数据集进行实验。 我们发现，一个分布平衡的损失函数，它本质上解决了类不平衡和标签链接问题，优于常用的损失函数。 分布平衡方法已成功应用于图像识别领域。 在这里，我们展示了它们在自然语言处理中的有效性。
+
+##### [【关于 tts】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/)
+
+- [【关于 tts】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/)
+  - [【关于 FastSpeech】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/FastSpeech/)
+    - 动机：
+      - **推理阶段速度过慢**（traditional Transformer虽然训练的速度很快，但是推理阶段仍然需要上一时间步的输出，无法做到真正的并行）；
+      - **生成的语音不是鲁棒的，有一些单词会被跳过或者重复地生成**（这一点笔者在实验的时候真的是深有体会啊，而造成这一原因主要是因为传统语音合成系统的Alignment是隐式的，在推断的过程中，存在着错误对齐的情况）；
+      - **无法做到可控**（这里笔者的可控应该主要指的是生成的语速方面，因为在Prosody的层面已经有工作做到了很好的效果）。
+    - 论文方法：
+      - Feed-Forward Transformer(图a)
+      - FFT Block
+      - Length Regulator
+      - Duration Predictor
+  - [【关于 FastSpeech2】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/FastSpeech2/)
+    - 动机：
+      - 1. teacher-student的蒸馏过程非常复杂并且耗时；
+      - 2. 从teacher模型attention中提取的时长预测不够准确；
+      - 3. 用teacher模型预测的mel谱作为target，相比GT有信息损失从而导致结果音质受损。
+    - 论文方法：
+      - 1. encoder将phoneme embedding转换成phoneme hidden seq;
+      - 2. 然后设计了variance adaptor引入不同的声学特征信息;
+      - 3. 最终decoder将adapted hidden seq并行地转换成mel谱。
 
 #### 实战篇
 
