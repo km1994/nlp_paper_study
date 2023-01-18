@@ -639,6 +639,14 @@
     - 设计了一种结构化抽取语言(Structural Extraction Language, SEL)，它能够将四种信息抽取任务的不同结构统一描述，使得模型的输出结构针对不同任务都是一致的。
     - 由于模型可以做多个任务，所以需要一种方式去指导模型做指定的任务，因此作者设计了结构化模式指导器(Structural Schema Instructor, SSI)，其实这就是一种prompt。
     - 由于模型的输出都是符合SEL语法的结构化信息，而目前常用的生成式预训练模型如T5、BART都是以生成自然语言为主，若直接采用这种预训练模型会影响到模型性能，因此作者专门针对text to structure的结构来预训练了一个大模型
+- [【关于 USM 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/all_extraction/USM_AAAI2023/) 
+  - 论文：Universal Information Extraction as Unified Semantic Matching
+  - 会议：AAAI2023
+  - 论文地址：https://arxiv.org/abs/2301.03282
+  - 动机：
+    - 传统的信息抽取方法：需要**针对特定的任务进行模型设计和数据标注**，使得难以推广到新的模式中，极大限制了IE系统的使用；
+    - UIE 由于**Seq2Seq的生成模型的黑盒特性**，导致无法判断跨任务或跨模式的迁移在什么情况下会成功or失败
+  - 思路：提出了一种统一的语义匹配框架——USM，它联合编码提取模式和输入文本，并行统一提取子结构，并根据需要对目标结构进行可控解码。
 
 ###### [【关于 实体关系联合抽取】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/)
 
