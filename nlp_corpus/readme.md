@@ -127,12 +127,11 @@ xiaohuangji（小黄鸡语料） | https://github.com/candlewill/Dialog_Corpus
 ### 6.3 SQuAD 自动摘要英文语料库
 
 ```s
-  {"data": [{"title": "Super_Bowl_50", "paragraphs": [{"context": "Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24\u201310 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the \"golden anniversary\" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as \"Super Bowl L\"), so that the logo could prominently feature the Arabic numerals 50.", "qas": [{"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Which NFL team represented the AFC at Super Bowl 50?", "id": "56be4db0acb8001400a502ec"}, {"answers": [{"answer_start": 249, "text": "Carolina Panthers"}, {"answer_start": 249, "text": "Carolina Panthers"}, {"answer_start": 249, "text": "Carolina Panthers"}], "question": "Which NFL team represented the NFC at Super Bowl 50?", "id": "56be4db0acb8001400a502ed"}, {"answers": [{"answer_start": 403, "text": "Santa Clara, California"}, {"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium in the San Francisco Bay Area at Santa Clara, California."}], "question": "Where did Super Bowl 50 take place?", "id": "56be4db0acb8001400a502ee"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Which NFL team won Super Bowl 50?", "id": "56be4db0acb8001400a502ef"}, {"answers": [{"answer_start": 488, "text": "gold"}, {"answer_start": 488, "text": "gold"}, {"answer_start": 521, "text": "gold"}], "question": "What color was used to emphasize the 50th anniversary of the Super Bowl?", "id": "56be4db0acb8001400a502f0"}, {"answers": [{"answer_start": 487, "text": "\"golden anniversary\""}, {"answer_start": 521, "text": "gold-themed"}, {"answer_start": 487, "text": "\"golden anniversary"}], "question": "What was the theme of Super Bowl 50?", "id": "56be8e613aeaaa14008c90d1"}, {"answers": [{"answer_start": 334, "text": "February 7, 2016"}, {"answer_start": 334, "text": "February 7"}, {"answer_start": 334, "text": "February 7, 2016"}], "question": "What day was the game played on?", "id": "56be8e613aeaaa14008c90d2"}, {"answers": [{"answer_start": 133, "text": "American Football Conference"}, {"answer_start": 133, "text": "American Football Conference"}, {"answer_start": 133, "text": "American Football Conference"}], "question": "What is the AFC short for?", "id": "56be8e613aeaaa14008c90d3"}, {"answers": [{"answer_start": 487, "text": "\"golden anniversary\""}, {"answer_start": 521, "text": "gold-themed"}, {"answer_start": 521, "text": "gold"}], "question": "What was the theme of Super Bowl 50?", "id": "56bea9923aeaaa14008c91b9"}, {"answers": [{"answer_start": 133, "text": "American Football Conference"}, {"answer_start": 133, "text": "American Football Conference"}, {"answer_start": 133, "text": "American Football Conference"}], "question": "What does AFC stand for?", "id": "56bea9923aeaaa14008c91ba"}, {"answers": [{"answer_start": 334, "text": "February 7, 2016"}, {"answer_start": 334, "text": "February 7"}, {"answer_start": 334, "text": "February 7, 2016"}], "question": "What day was the Super Bowl played on?", "id": "56bea9923aeaaa14008c91bb"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Who won Super Bowl 50?", "id": "56beace93aeaaa14008c91df"}, {"answers": [{"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium in the San Francisco Bay Area at Santa Clara"}], "question": "What venue did Super Bowl 50 take place in?", "id": "56beace93aeaaa14008c91e0"}, {"answers": [{"answer_start": 403, "text": "Santa Clara"}, {"answer_start": 403, "text": "Santa Clara"}, {"answer_start": 403, "text": "Santa Clara"}], "question": "What city did Super Bowl 50 take place in?", "id": "56beace93aeaaa14008c91e1"}, {"answers": [{"answer_start": 693, "text": "Super Bowl L"}, {"answer_start": 704, "text": "L"}, {"answer_start": 693, "text": "Super Bowl L"}], "question": "If Roman numerals were used, what would Super Bowl 50 have been called?", "id": "56beace93aeaaa14008c91e2"}, {"answers": [{"answer_start": 116, "text": "2015"}, {"answer_start": 112, "text": "the 2015 season"}, {"answer_start": 116, "text": "2015"}], "question": "Super Bowl 50 decided the NFL champion for what season?", "id": "56beace93aeaaa14008c91e3"}, {"answers": [{"answer_start": 116, "text": "2015"}, {"answer_start": 346, "text": "2016"}, {"answer_start": 116, "text": "2015"}], "question": "What year did the Denver Broncos secure a Super Bowl title for the third time?", "id": "56bf10f43aeaaa14008c94fd"}, {"answers": [{"answer_start": 403, "text": "Santa Clara"}, {"answer_start": 403, "text": "Santa Clara"}, {"answer_start": 403, "text": "Santa Clara"}], "question": "What city did Super Bowl 50 take place in?", "id": "56bf10f43aeaaa14008c94fe"}, {"answers": [{"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium"}], "question": "What stadium did Super Bowl 50 take place in?", "id": "56bf10f43aeaaa14008c94ff"}, {"answers": [{"answer_start": 267, "text": "24\u201310"}, {"answer_start": 267, "text": "24\u201310"}, {"answer_start": 267, "text": "24\u201310"}], "question": "What was the final score of Super Bowl 50? ", "id": "56bf10f43aeaaa14008c9500"}, {"answers": [{"answer_start": 334, "text": "February 7, 2016"}, {"answer_start": 334, "text": "February 7, 2016"}, {"answer_start": 334, "text": "February 7, 2016"}], "question": "What month, day and year did Super Bowl 50 take place? ", "id": "56bf10f43aeaaa14008c9501"}, {"answers": [{"answer_start": 116, "text": "2015"}, {"answer_start": 346, "text": "2016"}, {"answer_start": 346, "text": "2016"}], "question": "What year was Super Bowl 50?", "id": "56d20362e7d4791d009025e8"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "What team was the AFC champion?", "id": "56d20362e7d4791d009025e9"}, {"answers": [{"answer_start": 249, "text": "Carolina Panthers"}, {"answer_start": 249, "text": "Carolina Panthers"}, {"answer_start": 249, "text": "Carolina Panthers"}], "question": "What team was the NFC champion?", "id": "56d20362e7d4791d009025ea"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Who won Super Bowl 50?", "id": "56d20362e7d4791d009025eb"}, {"answers": [{"answer_start": 116, "text": "2015"}, {"answer_start": 112, "text": "the 2015 season"}, {"answer_start": 116, "text": "2015"}], "question": "Super Bowl 50 determined the NFL champion for what season?", "id": "56d600e31c85041400946eae"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Which team won Super Bowl 50.", "id": "56d600e31c85041400946eb0"}, {"answers": [{"answer_start": 403, "text": "Santa Clara, California."}, {"answer_start": 355, "text": "Levi's Stadium"}, {"answer_start": 355, "text": "Levi's Stadium"}], "question": "Where was Super Bowl 50 held?", "id": "56d600e31c85041400946eb1"}, {"answers": [{"answer_start": 0, "text": "Super Bowl"}, {"answer_start": 0, "text": "Super Bowl"}, {"answer_start": 0, "text": "Super Bowl"}], "question": "The name of the NFL championship game is?", "id": "56d9895ddc89441400fdb50e"}, {"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "What 2015 NFL team one the AFC playoff?", "id": "56d9895ddc89441400fdb510"}]},
+  {"data": [{"title": "Super_Bowl_50", "paragraphs": [{"context": "Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24\u201310 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the \"golden anniversary\" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as \"Super Bowl L\"), so that the logo could prominently feature the Arabic numerals 50.", "qas": [{"answers": [{"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}, {"answer_start": 177, "text": "Denver Broncos"}], "question": "Which NFL team represented the AFC at Super Bowl 50?", "id": "56be4db0acb8001400a502ec"}, {"answers": [{"answer_start": 249, "text": "Carolina Panthers"}, 
   ...
 }
 
 ```
-
 
 ### 6.2 lcsts 生成式自自动摘要中文语料库
 
@@ -156,13 +155,11 @@ xiaohuangji（小黄鸡语料） | https://github.com/candlewill/Dialog_Corpus
   ...
 ```
 
-
 ### 6.1 教育培训行业抽象式自动摘要中文语料库
 
 自动文摘分为两种：
 
 1. 抽取式
-
 2. 抽象式
 
 语料库收集了教育培训行业主流垂直媒体的历史文章（截止到2018年6月5日）大约24500条数据集。主要是为训练抽象式模型而整理，每条数据有summary(摘要)和text(正文)，两个字段，Summary字段均为作者标注。
@@ -181,6 +178,613 @@ text{{...}}
 ## 五、事件抽取数据集
 
 - [数据资源：事件图谱构建中常用事件抽取、因果事件关系数据集的总结与思考](https://mp.weixin.qq.com/s/feobmsEHINwM-UZbHVzq2w)
+
+### 5.1 ACE事件抽取数据集
+
+- 介绍：ACE是当前事件抽取评测中最富盛名的包括多个评测任务，由NIST举办，从2000开始举办至2008年，后被KBP会议继承。
+- 时间：
+- 字段说明：
+  - 包括生命、移动、联系、冲突、商务、交易、人事、司法共8大类事件类型。每个类别下分有二级的小类事件和33+1种子类型，例如，生命包括出生、结婚、离婚、伤害、死亡四种事件，商务事件包括机构合并、破产声明、机构成立、机构终止等事件类型。
+  - 该评测将事件的论元角色类型进行了定义，如人物、地点、卖家、买家、价格、赠与者、起点、终点等共35种论元角色类型。
+  - 该评测还定义出了共6类属性信息，包括类型（Type）、子类（Subtype）、模态（Modality）、倾向性（Polarity）、普遍性（Genercity）和时态（Tense）。
+- 数据集：包括529个训练文件、30个验证文件以及40个测试文件
+- 地址：  https://github.com/nlpcl-lab/ace2005-preprocessing
+- 数据格式
+
+```s
+  [
+      {
+      "sentence": "Earlier documents in the case have included embarrassing details about perks Welch received as part of his retirement package from GE at a time when corporate scandals were sparking outrage.",
+      "golden-entity-mentions": [
+        {
+          "text": "Welch",
+          "entity-type": "PER:Individual",
+          "head": {
+            "text": "Welch",
+            "start": 11,
+            "end": 12
+          },
+          "entity_id": "APW_ENG_20030325.0786-E24-38",
+          "start": 11,
+          "end": 12
+        },
+        {
+          "text": "his",
+          "entity-type": "PER:Individual",
+          "head": {
+            "text": "his",
+            "start": 16,
+            "end": 17
+          },
+          "entity_id": "APW_ENG_20030325.0786-E24-39",
+          "start": 16,
+          "end": 17
+        },
+        {
+          "text": "GE",
+          "entity-type": "ORG:Commercial",
+          "head": {
+            "text": "GE",
+            "start": 20,
+            "end": 21
+          },
+          "entity_id": "APW_ENG_20030325.0786-E26-40",
+          "start": 20,
+          "end": 21
+        }
+      ],
+      "golden-event-mentions": [
+        {
+          "trigger": {
+            "text": "retirement",
+            "start": 17,
+            "end": 18
+          },
+          "arguments": [
+            {
+              "role": "Person",
+              "entity-type": "PER:Individual",
+              "text": "Welch",
+              "start": 11,
+              "end": 12
+            },
+            {
+              "role": "Entity",
+              "entity-type": "ORG:Commercial",
+              "text": "GE",
+              "start": 20,
+              "end": 21
+            }
+          ],
+          "event_type": "Personnel:End-Position"
+        }
+      ],
+      "stanford-colcc": [
+        "ROOT/dep=6/gov=-1",
+        "amod/dep=0/gov=1",
+        "nsubj/dep=1/gov=6",
+        "case/dep=2/gov=4",
+        "det/dep=3/gov=4",
+        "nmod:in/dep=4/gov=1",
+        "aux/dep=5/gov=6",
+        "amod/dep=7/gov=8",
+        "dobj/dep=8/gov=6",
+        "case/dep=9/gov=10",
+        "nmod:about/dep=10/gov=6",
+        "nsubj/dep=11/gov=12",
+        "acl:relcl/dep=12/gov=10",
+        "case/dep=13/gov=14",
+        "nmod:as/dep=14/gov=12",
+        "case/dep=15/gov=18",
+        "nmod:poss/dep=16/gov=18",
+        "compound/dep=17/gov=18",
+        "nmod:of/dep=18/gov=14",
+        "case/dep=19/gov=20",
+        "nmod:from/dep=20/gov=12",
+        "case/dep=21/gov=23",
+        "det/dep=22/gov=23",
+        "nmod:at/dep=23/gov=12",
+        "advmod/dep=24/gov=28",
+        "amod/dep=25/gov=26",
+        "nsubj/dep=26/gov=28",
+        "aux/dep=27/gov=28",
+        "acl:relcl/dep=28/gov=23",
+        "dobj/dep=29/gov=28",
+        "punct/dep=30/gov=6"
+      ],
+      "words": [
+        "Earlier",
+        "documents",
+        "in",
+        "the",
+        "case",
+        "have",
+        "included",
+        "embarrassing",
+        "details",
+        "about",
+        "perks",
+        "Welch",
+        "received",
+        "as",
+        "part",
+        "of",
+        "his",
+        "retirement",
+        "package",
+        "from",
+        "GE",
+        "at",
+        "a",
+        "time",
+        "when",
+        "corporate",
+        "scandals",
+        "were",
+        "sparking",
+        "outrage",
+        "."
+      ],
+      "pos-tags": [
+        "JJR",
+        "NNS",
+        "IN",
+        "DT",
+        "NN",
+        "VBP",
+        "VBN",
+        "JJ",
+        "NNS",
+        "IN",
+        "NNS",
+        "NNP",
+        "VBD",
+        "IN",
+        "NN",
+        "IN",
+        "PRP$",
+        "NN",
+        "NN",
+        "IN",
+        "NNP",
+        "IN",
+        "DT",
+        "NN",
+        "WRB",
+        "JJ",
+        "NNS",
+        "VBD",
+        "VBG",
+        "NN",
+        "."
+      ],
+      "lemma": [
+        "earlier",
+        "document",
+        "in",
+        "the",
+        "case",
+        "have",
+        "include",
+        "embarrassing",
+        "detail",
+        "about",
+        "perk",
+        "Welch",
+        "receive",
+        "as",
+        "part",
+        "of",
+        "he",
+        "retirement",
+        "package",
+        "from",
+        "GE",
+        "at",
+        "a",
+        "time",
+        "when",
+        "corporate",
+        "scandal",
+        "be",
+        "spark",
+        "outrage",
+        "."
+      ],
+      "parse": "(ROOT\n  (S\n    (NP\n      (NP (JJR Earlier) (NNS documents))\n      (PP (IN in)\n        (NP (DT the) (NN case))))\n    (VP (VBP have)\n      (VP (VBN included)\n        (NP (JJ embarrassing) (NNS details))\n        (PP (IN about)\n          (NP\n            (NP (NNS perks))\n            (SBAR\n              (S\n                (NP (NNP Welch))\n                (VP (VBD received)\n                  (PP (IN as)\n                    (NP\n                      (NP (NN part))\n                      (PP (IN of)\n                        (NP (PRP$ his) (NN retirement) (NN package)))))\n                  (PP (IN from)\n                    (NP (NNP GE)))\n                  (PP (IN at)\n                    (NP\n                      (NP (DT a) (NN time))\n                      (SBAR\n                        (WHADVP (WRB when))\n                        (S\n                          (NP (JJ corporate) (NNS scandals))\n                          (VP (VBD were)\n                            (VP (VBG sparking)\n                              (NP (NN outrage)))))))))))))))\n    (. .)))"
+    }
+  ]
+    ...
+```
+
+### 5.2 医疗事件抽取数据集
+
+- 介绍：给定主实体为肿瘤的电子病历文本数据，定义肿瘤事件的若干属性，如肿瘤大小，肿瘤原发部位等，识别并抽取事件及属性，进行文本结构化。
+- 时间：
+- 字段说明：
+
+| 事件论元角色色 | 示例 |
+| ---- | ---- |
+| 事件主实体 | 事件发生所属的实体 |
+| 原发部位 | 某种疾病最先发生于的组织或者器官 |
+| 病灶大小 | 原发部位的大小 |
+| 转移部位 | 某种疾病从最先发生的组织或者器官转移到的其他组织或器官 |
+
+- 数据集： 
+  - 1400条标注数据
+  - 1300条非标注数据
+  - 863个实体词表
+- 地址：  
+- 数据格式
+
+```s
+
+```
+
+### 5.3 CCKS2020金融领域小样本迁移事件抽取数据集
+
+- 介绍：从金融领域新闻资讯句子中，抽取事件知识，并将大样本下训练的模型跨类迁移到小样本的其他事件类型上。
+- 时间：
+- 字段说明：涵盖九大类事件类型，包括质押、股份股权转让、投资、起诉和高管减持、收购、担保、中标、签署合同和判决，每类事件所对应的事件论元存在差异。
+
+| 事件类型 | 事件论元 |
+| ---- | ---- |
+| 起诉 | 原告公司、原告个人、被告公司、被告个人、起诉日期 |
+| 质押 | 质押公司、质押人、质权公司、质权人、质押物、质押日期、质押金额、质押数量、质押比例 |
+| 股份股权 | 股份股权转让公司、股份股权转让人、受转让公司、受转让人、股份股权转让物、转让日期、转让交易金额、转让数量、转让比例、标的公司 |
+| 投资 | 发起投资的组织或单位(投资方) 、被投资的组织或单位(被投资方)、投资金额、日期 |
+| 减持 | 减持方、被减持方、减持方的职务、日期、减持的股份占个人股份百分比、减持的股份占公司股份的百分比 |
+| 收购 | 收购公司、收购方、被收购公司、收购方式、收购日期、收购金额、收购股份数量、收购股份比例 |
+| 中标 | 中标方、招标方、中标金额、中标日期 |
+| 签署合同 | 发起合同签署的组织或单位、发起合同签署的自然人、接受合同签署的组织或单位、接受合同签署的自然人、成交额、日期 |
+| 判决 | 裁判单位 (法院) 、原告 (个人) 、原告(公司) 、被告 (个人)、被告 (公司) 、判决日期、判决金额 |
+
+- 数据集： 
+  - 训练集包含初始事件类型的训练集，数据规模为7000左右，还提供包含需要迁移的五个事件类型的训练集，其中收购、判决两个事件训练数量约各200条，其余三个事件约各100条。
+- 地址：   https://www.biendata.xyz/competition/ccks_2020_3/
+- 数据格式
+
+```s
+{
+    "id": "id字符串",
+    "content": "文本内容"
+    "events": [
+    {
+            "type": "事件类型",
+            "mentions": [
+                {
+                    "word":"事件元素",
+                    "span": [起始位置, 终止位置],    //两个元素，分别为起始终止位置
+                    "role": "trigger"
+                },
+                {
+                    "word":"事件元素",
+                    "span":[起始位置, 终止位置],   //两个元素，分别为起始和终止位置
+                    "role": "sub",
+                },
+                ......
+            ]
+        },
+        {
+            "type": "事件类型",
+            ......
+        }
+    ]
+}
+```
+
+### 5.4 CCKS2020金融领域小样本迁移事件抽取数据集
+
+- 介绍：在给定文本抽取其中所有的事件类型集合，以及每个事件类型的事件主体，主体实体类型为公司名称或人名或机构名称。
+- 时间：2020
+- 字段说明：来自金融领域的新闻、公告，一个文本可能有多个事件类型或者同一事件类型有多个事件主体，对事件类型集合和事件主体集合进行了标注。
+- 数据集： 5000条训练样本、1000条验证集以及1000条测试集
+- 地址：   https://www.biendata.xyz/competition/ccks_2020_4_2/data/
+- 数据格式
+
+```s
+
+```
+
+### 5.5 CCKS2020金融领域的篇章级事件抽取数据集
+
+- 介绍：来源于互联网上的新闻文本，上市公司发布的公告文本。
+- 时间：2020
+- 字段说明：9大类事件类型，包括财务造假、偿付能力不足、高层失联/去世、企业破产、重大资损、重大赔付、重大事故、股权冻结、股权质押、增持、减持。每类事件类型定义出了其事件论元，如事件类型“破产清算”，包括“发布公告时间”、“破产清算的公司”、“受理法院”、“公司所属行业”、“裁定时间”
+
+![](img/20230222214159.png)
+
+- 数据集： 2万条训练集、1千条验证集以及1000条测试集
+- 地址：   https://www.biendata.xyz/competition/ccks_2020_4_1/data/
+- 数据格式
+
+训练集每行 1 列，JSON 格式，格式为：
+
+```s
+{“content”:”XXX”,”doc_id”:”XXX”,”events”:[{“eventElement1”:”xxx”,”eventElement2”:”xxx”},{“eventElement1”:”yyy”,”eventElement2”:”yyy”}]}，
+```
+
+验证集每行 1 列，JSON 格式，格式为：
+
+```s
+{“content”:”XXX”,”doc_id”:”XXX”}。
+```
+
+### 5.6 CCKS2021金融领域篇章级事件抽取数据集
+
+- 介绍：从给定的长文本以及事件类型中，抽取对应的事件的13个要素，包括涉案平台、嫌疑人、交易号、订单号等。
+- 时间：2021
+- 字段说明：9大类事件类型，包括财务造假、偿付能力不足、高层失联/去世、企业破产、重大资损、重大赔付、重大事故、股权冻结、股权质押、增持、减持。每类事件类型定义出了其事件论元，如事件类型“破产清算”，包括“发布公告时间”、“破产清算的公司”、“受理法院”、“公司所属行业”、“裁定时间”
+
+![](img/20230222214456.png)
+
+- 数据集： 5.5千条左右的文本及其所标注的三个事件类型以及每个文本标注的事件要素，和1千条左右的验证文本及其所标注的三个事件类型。训练集以json格式，包含“text”、“level1”、“level2”、“level3”分别表示文本和三个事件类型，包含“attributes”表示训练集中事件的要素，注意同一个要素可能有多个取值，需要都识别出来。验证集以json格式，“text”、“level1”、“level2”、“level3”分别表示文本和三个事件类型
+- 地址：   https://www.biendata.xyz/competition/ccks_2021_task6_1/
+- 数据格式
+
+```s
+输入：{“text_id”:”123456”, “text”:“王某新认识一个网友小刘,聊了一会之后了解了一下情况就很自来熟一样,过了几天小刘说肚子疼上医院要软件打五百块钱给她,没过多久脚又被行李箱砸伤又问王某要了八百，之后联系不上”,”level1”:” 欺诈风险”,”level2”:” 冒充身份类”,”level3”:” 好友/领导/婚恋交友”}
+输出：{“text_id”:”123456”, “attribute”:[{“type”:”支付渠道”,”entity”:”软件”, “start”:47,”end”:48},{“type”:”资损金额”,”entity”:”五百块钱”, “start”:50,”end”:53},{“type”:”资损金额”,”entity”:”八百”, “start”:75,”end”:76},{“type”:”嫌疑人”,”entity”:”小刘”, “start”:9,”end”:10},{“type”:”受害人”,”entity”:”王某”, “start”:0,”end”:1}]}
+```
+
+### 5.7 DuEE-Fin 句子级事件抽取
+
+- 介绍：对于给定的自然语言句子，根据预先指定的事件类型和论元角色，识别句子中所有目标事件类型的事件，并根据相应的论元角色集合抽取事件所对应的论元。其中目标事件类型 (event_type) 和论元角色 (role) 限定了抽取的范围，例如 (event_type：胜负，role：时间，胜者，败者，赛事名称)、(event_type：夺冠，role：夺冠事件，夺冠赛事，冠军)。
+- 时间：2021
+- 字段说明：
+
+![](img/20230222215142.png)
+
+- 数据集： 包含65个事件类型的1.7万个具有事件信息的句子（2万个事件）。事件类型根据百度风云榜的热点榜单选取确定，具有较强的代表性。65个事件类型中不仅包含「结婚」、「辞职」、「地震」等传统事件抽取评测中常见的事件类型，还包含了「点赞」等极具时代特征的事件类型。
+- 地址：   https://aistudio.baidu.com/aistudio/competition/detail/65/0/task-definition
+- 数据格式
+
+```s
+句子级事件抽取输入/输出：
+
+输入：包含事件信息的一个或多个连续完整句子。
+Input: One or multiple consecutive and complete sentences containing event information.
+
+输出：属于预先定义的事件类型、论元角色的事件论元。
+Output: Event arguments with corresponding argument roles and event types.
+
+输入示例：
+
+{
+   "text":"历经4小时51分钟的体力、意志力鏖战，北京时间9月9日上午纳达尔在亚瑟·阿什球场，以7比5、6比3、5比7、4比6和6比4击败赛会5号种子俄罗斯球员梅德韦杰夫，夺得了2019年美国网球公开赛男单冠军。",
+   "id":"6a10824fe9c7b2aa776aa7e3de35d45d"
+}
+输出示例：
+
+{
+    "id":"6a10824fe9c7b2aa776aa7e3de35d45d",
+    "event_list":[
+        {
+            "event_type":"竞赛行为-胜负",
+            "arguments":[
+                {
+                    "role":"时间",
+                    "argument":"北京时间9月9日上午"
+                },
+                {
+                    "role":"胜者",
+                    "argument":"纳达尔"
+                },
+                {
+                    "role":"败者",
+                    "argument":"5号种子俄罗斯球员梅德韦杰夫"
+                },
+                {
+                    "role":"赛事名称",
+                    "argument":"2019年美国网球公开赛"
+                }
+            ]
+        },
+        {
+            "event_type":"竞赛行为-夺冠",
+            "arguments":[
+                {
+                    "role":"时间",
+                    "argument":"北京时间9月9日上午"
+                },
+                {
+                    "role":"夺冠赛事",
+                    "argument":"2019年美国网球公开赛"
+                },
+                {
+                    "role":"冠军",
+                    "argument":"纳达尔"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+### 5.8 DuEE-Fin篇章级事件抽取数据集
+
+- 介绍：事件抽取任务，其任务形式与前一任务基本相同。但与前一任务不同的是，该任务将输入的待抽取文本片段从句子级升级为篇章级，同时将待抽取的事件类型限定为金融领域。
+- 时间：2021
+- 字段说明：
+
+![](img/20230222214921.png)
+
+- 数据集： 含13个事件类型的1.17万个篇章，同时存在部分非目标篇章作为负样例
+- 地址：   https://aistudio.baidu.com/aistudio/competition/detail/65/0/task-definition
+- 数据格式
+
+```s
+输入：经过处理后的篇章内容，包含标题和处理后的正文。
+Input: Processed content of a document, including the title and the body.
+
+输出：属于预先定义的事件类型、论文角色的事件论元。
+Output: Event arguments with corresponding argument roles and event types.
+
+输入示例：
+
+{
+    "text":"【亿邦动力讯】9月21日消息，“卡方科技”今日宣布获得数千万元B轮融资，由广发信德领投，老股东华盖资本跟投，由义柏资本担任独家财务顾问。卡方科技以算法交易执行切入量化交易领域，拥有自主知识产权的交易服务平台ATGO，为客户提供算法交易策略和量化投资的解决方案。本轮融资将用于进一步的研发投入及人才引进。",
+    "title":"定位算法交易服务商“卡方科技”获数千万元B轮融资",
+    "id":"6a10824fe9c7b2aa776aa7e3de35d45c"
+}
+输出示例：
+
+{
+    "id":"6a10824fe9c7b2aa776aa7e3de35d45c",
+    "event_list":[
+        {
+            "event_type": "企业融资",
+            "arguments":[
+                {
+                    "role": "投资方",
+                    "argument": "广发信德"
+                },
+                {
+                    "role": "投资方",
+                    "argument": "华盖资本"
+                },
+                {
+                    "role": "被投资方",
+                    "argument": "卡方科技"
+                },
+                {
+                    "role": "融资轮次",
+                    "argument": "B"
+                },
+                {
+                    "role": "融资金额",
+                    "argument": "数千万元"
+                },
+                {
+                    "role": "事件时间",
+                    "argument": "9月21日"
+                },
+                {
+                    "role": "披露时间",
+                    "argument": "9月21日"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### 5.9 科大讯飞开放域事件抽取数据集
+
+- 介绍：从通用新闻文本中抽取事件触发词、事件论元以及事件属性。 在传统的事件定义中，事件由事件触发词( Trigger) 和描述事件结构的元素 (Argument)构成。事件触发词标识着事件的发生。事件论元为事件主体(Subject)、客体(Object)、时间(Time)、地点(Location)等，是表达事件重要信息的载体。
+- 时间：2021
+- 字段说明：
+
+![](img/20230222214921.png)
+
+- 数据集： 
+  - 该数据集中事件要素抽取数据集提供了6958条中文句子、9644条提取结果，包括训练集共5758条句子，测试集共1200条句子。
+  - 事件属性抽取数据集提供了3335条中文句子，及其3384条提取结果，包括训练集：共2456条句子，测试集：共1200条句子
+- 地址：  http://challenge.xfyun.cn/topic/info?type=hotspot
+- 数据格式
+
+```s
+
+```
+
+### 5.10 CCKS2021通用细粒度事件检测数据集
+
+- 介绍：通用细粒度事件检测任务，对于给定的一组英文纯文本文档和文档中的候选触发词，识别出其中的所有事件触发词并分类出对应的事件类别。
+- 时间：2021
+- 字段说明：包含十万余个事件实例的大规模数据集，覆盖了168类通用域事件类型
+- 数据集： 训练集包含2913篇文档，验证集包含710篇文档。
+- 地址：  https://www.biendata.xyz/competition/ccks_2021_maven/data/
+- 数据格式
+
+```s
+{
+    "id": '6b2e8c050e30872e49c2f46edb4ac044', //文档id字符串
+    "title": 'Selma to Montgomery marches'， //文档标题
+    "content": [ //文档内容，每个元素为一个句子
+            {
+                "sentence":"...", //句子的纯文本内容
+                "tokens": ["...", "..."] //分词后的句子的单词序列
+        }
+    ],
+    "events":[ //标注出的事件的List，每一个元素为一个事件（可能含有多个触发词）
+            {
+                    "id": '75343904ec49aefe12c5749edadb7802', //事件id
+                    "type": 'Arranging', //事件类型
+                    "type_id": 70, //事件类型的数字id
+                    "mention":[ //事件触发词的List，每个元素为一个触发词
+                        {
+                              "id": "2db165c25298aefb682cba50c9327e4f", //触发词id
+                              "trigger_word": "organized", //触发词内容
+                              "sent_id": 1, //触发词的句子序号，从0开始
+                              "offset": [3, 4],//触发词在单词序列中的位置，两个元素分别为起始位置（含）和结束位置（不含），从0开始
+                          }
+                          ]
+            },
+    ],
+    "negative_triggers":[//非事件触发词的候选触发词（负样本），格式同上
+        {
+            "id": "46348f4078ae8460df4916d03573b7de",
+                "trigger_word": "desire",
+                "sent_id": 1,
+                "offset": [10, 11],
+        },
+    ]
+}
+```
+
+### 5.11 面向金融领域的篇章级事件因果关系抽取
+
+- 介绍：通以国务院颁布的《国家突发公共事件总体应急预案》的分类体系，涵盖了地震、火灾、交通事故、恐怖袭击和食物中毒共5类事件类型。
+- 时间：2021
+- 字段说明：Event、Denoter、Time、Location、Participant、Object等类型。
+- 数据集： 包括332篇文章
+- 地址：  https://codechina.csdn.net/mirrors/shijiebei2009/CEC-Corpus
+- 数据格式
+
+```s
+
+```
+
+### 5.12 CEC事件抽取数据集
+
+- 介绍：面向金融领域的篇章级事件因果关系抽取是ccks2021的一个评测额任务，该任务旨在给定一段描述因果或影响关系的文本，从文本中抽取原因事件的表示和结果事件的表示，其中事件的表示包括事件类型和事件的三个要素：影响地域、产品、行业。
+- 时间：2021
+- 字段说明：来自金融领域的公开新闻、报道。每条标注数据中，标注reason_type、reason_product、reason_region、result_region、result_industry、result_type、reason_industry、result_product共7类信息。
+- 数据集： 包括7000条标注数据、1000条验证数据以及1000条测试数据。
+- 地址：  https://codechina.csdn.net/mirrors/shijiebei2009/CEC-Corpus
+- 数据格式
+
+```s
+{"text_id": "1291633", "text": "铁矿：中长期，今年铁矿供需格局明显改善，巴西矿难及飓风对发运的影响，导致铁矿石全年供应走低", "result": [{"reason_type": "台风", "reason_product": "", "reason_region": "巴西", "result_region": "", "result_industry": "", "result_type": "供给减少", "reason_industry": "", "result_product": "铁矿石"}]}
+{"text_id": "1855814", "text": "炼焦煤市场进入传统旺季，国内供给收缩叠加澳洲煤进口限制，钢厂压缩成本增加焦煤使用，促焦煤格持续上涨，首推低估值焦煤股平煤股份、阳泉煤业和西山煤电###炼焦煤市场持续向好，国内供给收缩叠加澳洲煤进口限制，钢厂压缩成本增加焦煤使用，促焦煤格持续上涨，首推低估值焦煤股平煤股份、阳泉煤业和西山煤电###而钢铁方面，预计受春季基建拉动影响，建筑钢材市场需求旺盛，同时伴随焦煤需求旺季到来，进一步推动钢厂补库存，看好未来2月底3月初焦煤格上涨###焦煤：今日焦煤表现强势，在下游焦企提涨过程僵持运行下，焦煤的上涨更加顺畅，主要由于目前焦化厂利润高位运行，开工率不断上升，对焦煤采购量加大，焦煤场销售情况火爆，多出煤矿供不应求，市场看涨情绪较为浓重，多数跟随市场开始上调价格###焦煤需求旺盛促使焦煤价格上涨，但考虑到近期焦炭格持续走弱，焦企利润受到相应挤压，后续焦企开工积极性或将有所降低，焦煤价格继续上行空间不大###短期由于动力煤供应紧张，部分可转做动力煤的配焦煤种需求增加，库存下降，出现小幅提价###炼焦煤市场有望企稳回升，国内供给收缩叠加澳洲煤进口受限，钢厂压缩成本增加焦煤使用，促焦煤格持续上涨，首推低估值国企改革焦煤股标的平煤股份、阳泉煤业和西山煤电###2010年10月以来，钢材综合价格指数持续回升，从而为焦煤提价打开空间，我们预计2011年粗钢产量料增长逾6%至纪录高位，由于焦煤的稀缺性，钢铁产能的提升将给焦煤价格提供强有力的支撑，焦煤需求旺季即将到来，未来焦煤格再次上涨（1月份已有过一次提价）将是大概率事件", "result": [{"reason_type": "需求增加", "reason_product": "焦煤", "reason_region": "", "result_region": "", "result_industry": "", "result_type": "市场价格提升", "reason_industry": "", "result_product": "焦煤"}]}
+...
+```
+
+### 5.13 SemEval/SCIF句子级因果事件关系数据集
+
+- 介绍：将因果关系当成是一种事件关系，那么与上述事件类似，SCIF-2019通过修订和扩展SemEval2010-task8提出的因果数据集，针对SemEval的缺陷和不足，将一因一果扩展到多重因果关系、词与短语等。
+- 时间：2021
+- 字段说明：
+- 数据集： 包括具有因果关系的有1270句，没有因果关系有3966句。
+- 地址：  https://alt.qcri.org/semeval2018/index.php?id=tasks
+- 数据格式
+
+```s
+输入：
+[Bacteria] and [comedonal debris] cause [acne pimples] or [pustules]
+
+输出：
+[Cause-Effect([Bacteria], [acne pimples])、
+Cause-Effect([Bacteria], [pustules])、
+Cause-Effect([comedonal debris], [pustules])、
+Cause-Effect([comedonal debris], [acne pimples])]
+...
+```
+
+### 5.14 其他事件抽取相关数据集
+
+- [事件抽取相关数据集整理](https://blog.csdn.net/carrie_0307/article/details/121822637)
 
 ## 四、文本分类
 
@@ -378,32 +982,6 @@ text{{...}}
 
 ## 三、问答数据
 
-### 3.2 保险行业问答数据
-
-- 介绍：8000 多条保险行业问答数据
-- 时间：
-- 字段说明
-
-| 字段 | 说明 |
-| ---- | ---- |
-| title | 问题的标题 |
-| question | 问题内容（可为空） |
-| reply| 回复内容 |
-| is_best| 是否为页面上显示的最佳回答 |
-
-- 数据集：8000 多条保险行业问答数据
-- 地址： 百度云盘 全部文件>数据集>问答语料>保险行业问答数据
-- 数据格式
-
-```s
-  title	question	reply	is_best
-  6733	五险两金和五险一金有什么区别	单位招聘，独立待遇中有一项是五险两金。有些单位是五险一金，还有些五险两金。然而我刚毕业小白，...	五险一金是指：医疗保险，生育保险，工伤保险，失业保险和养老保险，还有住房公积金。五险两金指的...	0
-  7580	户口不在本地如何办医疗保险	户口不在本地如何办医疗保险	户口不在本地可以办理医保，通常都是以单位名义进行办理。医疗保险分两种办理方式，一种是单位办理...	1
-  6310	酒精含量百分之二十八保险公司理赔吗？	NaN	不会赔	0
-  5843	我买的二手车，车险都没过户，怎么交保险	NaN	要看保险合同了，有的是指定被保险人的，如果你出了险，保险公司是不理赔的。建议尽快去过户，或者...	0
-    ...
-```
-
 ### 3.1 电信问答数据
 
 - 介绍：电信问答数据
@@ -432,13 +1010,135 @@ text{{...}}
     ...
 ```
 
-### 3.6 金融行业问答数据
+### 3.2 保险行业问答数据
 
-### 3.5 投资行业问答数据
+- 介绍：8000 多条保险行业问答数据
+- 时间：
+- 字段说明
+
+| 字段 | 说明 |
+| ---- | ---- |
+| title | 问题的标题 |
+| question | 问题内容（可为空） |
+| reply| 回复内容 |
+| is_best| 是否为页面上显示的最佳回答 |
+
+- 数据集：8000 多条保险行业问答数据
+- 地址： 百度云盘 全部文件>数据集>问答语料>保险行业问答数据
+- 数据格式
+
+```s
+  title	question	reply	is_best
+  6733	五险两金和五险一金有什么区别	单位招聘，独立待遇中有一项是五险两金。有些单位是五险一金，还有些五险两金。然而我刚毕业小白，...	五险一金是指：医疗保险，生育保险，工伤保险，失业保险和养老保险，还有住房公积金。五险两金指的...	0
+  7580	户口不在本地如何办医疗保险	户口不在本地如何办医疗保险	户口不在本地可以办理医保，通常都是以单位名义进行办理。医疗保险分两种办理方式，一种是单位办理...	1
+  6310	酒精含量百分之二十八保险公司理赔吗？	NaN	不会赔	0
+  5843	我买的二手车，车险都没过户，怎么交保险	NaN	要看保险合同了，有的是指定被保险人的，如果你出了险，保险公司是不理赔的。建议尽快去过户，或者...	0
+    ...
+```
+
+### 3.3 农行知道
+
+- 介绍：4 万条农业银行问答数据，包括用户提问、网友回答、最佳回答
+- 时间：
+- 字段说明
+
+| 字段 | 说明 |
+| ---- | ---- |
+| title | 问题的标题 |
+| question | 问题内容（可为空） |
+| reply| 回复内容 |
+| is_best| 是否为页面上显示的最佳回答 |
+
+- 数据集： 4万 条农业银行问答数据
+- 地址： https://pan.baidu.com/s/1n-jT9SKkt6cwI_PjCd7i_g
+- 数据格式
+
+```s
+  	title	question	reply	is_best
+  31655	广东农行转账到江苏农行，几天可以到账？1月4日晚上10点多转的！	NaN	这么久还没有到账的话，建议查询一下是否被退回了，如果未退回的话，需要联系银行查询原因。	0
+  20349	惠水哪里有小额贷款的，而且抵押的东西能方	NaN	留vx..	0
+  20303	想问一下重庆分行的体检通知还有第二批吗	NaN	若客户申请的是农行招聘，则可以参考以下信息：1、请登录农行官网，在“关于农行”栏目下选择点击...
+    ...
+```
 
 ### 3.4 联通问答数据
 
-### 3.3 农业银行问答数据
+- 介绍：20.3 万条联通问答数据，包括用户提问、网友回答、最佳回答
+- 时间：
+- 字段说明
+
+
+| 字段 | 说明 |
+| ---- | ---- |
+| title | 问题的标题 |
+| question | 问题内容（可为空） |
+| reply | 回复内容 |
+| is_best | 是否为页面上显示的最佳回答 |
+
+- 数据集： 20.3万 条联通问答数据
+- 地址： https://pan.baidu.com/s/1oYi9SfbXpnvreJYGV837Nw
+- 数据格式
+
+```s
+  	    	title	question	reply	is_best
+  104525	拖欠联通话费会有利息出现吗？	NaN	应该没有	0
+  116168	5S日版为什么插移动卡可以用.联通卡就不读卡	NaN	苹果手机卡贴分为移动和联通的，说明卡贴支持移动卡，不支持联通卡，主要是网络制式决定的。联通网...	1
+  154475	联通空中号激活了也不能打电话是怎么回事	联通空中号激活了也不能打电话是怎么回事	手机已激活却无法接打电话的常见原因及解决方法如下：【1】检查手机是否欠费停机，建议缴费充值；...	1
+  153069	联通48元送2g活动本月月租到底算不算进去？	NaN	算
+    ...
+```
+
+### 3.5 保险知道
+
+- 介绍：58.8 万条保险行业问答数据，包括用户提问、网友回答、最佳回答
+- 时间：
+- 字段说明
+
+| 字段 | 说明 |
+| ---- | ---- |
+| title | 问题的标题 |
+| question | 问题内容（可为空） |
+| reply | 回复内容 |
+| is_best | 是否为页面上显示的最佳回答 |
+
+- 数据集： 8000 多条保险行业问答数据
+- 地址： https://pan.baidu.com/s/1cgYeIrJHAgb8D33H09Zc5w
+- 数据格式
+
+```s
+  	title	question	reply	is_best
+  6733	五险两金和五险一金有什么区别	单位招聘，独立待遇中有一项是五险两金。有些单位是五险一金，还有些五险两金。然而我刚毕业小白，...	五险一金是指：医疗保险，生育保险，工伤保险，失业保险和养老保险，还有住房公积金。五险两金指的...	0
+  7580	户口不在本地如何办医疗保险	户口不在本地如何办医疗保险	户口不在本地可以办理医保，通常都是以单位名义进行办理。医疗保险分两种办理方式，一种是单位办理...	1
+  6310	酒精含量百分之二十八保险公司理赔吗？	NaN	不会赔
+    ...
+```
+
+### 3.6 金融行业问答数据
+
+- 介绍：77 万条金融行业问答数据，包括用户提问、网友回答、最佳回答
+- 地址： https://www.heywhale.com/mw/dataset/5e9588f8e7ec38002d0331b1/content
+- 字段说明
+
+| 字段 | 说明 |
+| ---- | ---- |
+| title | 问题的标题 |
+| question | 问题内容（可为空） |
+| reply | 回复内容 |
+| is_best | 是否为页面上显示的最佳回答 |
+
+- 数据格式
+
+```s
+title	question	reply	is_best
+壹方水榭可以用深*的公积金贷款吗，壹方水榭二套房		由于各城市相关政策有所不同，具体您所在当地是否有开展公积金贷款业务，以及相关业务规定，您可以直接与当地网点个贷部门联系确认!	0
+了多久能放款，为什么迟迟不放款		我行贷款如您提交申请资料齐全审批大约15个工作日左右，因为中间涉及评估、办理抵押登记等环节，每个客户情况会有差异；贷款具体的放款时间、审核状态、办理进度、能否取消等相关信息，请您直接联系经办网点或贷款客户经理确认。	0
+...
+```
+
+
+
+
+
 
 ## 一、命名实体识别
 
@@ -526,8 +1226,21 @@ text{{...}}
 - 地址：   https://www.biendata.xyz/competition/ccks_2020_8/
 - 数据格式
 
+> 输入：
 ```s
-    
+美国洛马公司在新墨西哥州白沙导弹靶场，完成“微型碰撞杀伤”拦截弹重新设计后的第二次飞行试验，进一步检验了拦截弹的敏捷性和气动性能，标志着其成熟度进一步提升。“微型碰撞杀伤”拦截弹采取直接碰撞杀伤技术，主要用于提高美国陆军应对火箭弹威胁的能力。
+```
+
+> 输出：
+```s
+{
+"begin_pos":21,"end_pos":31,"试验要素"
+"begin_pos":56,"end_pos":58,"性能指标"
+"begin_pos":60,"end_pos":63,"性能指标"
+"begin_pos":91,"end_pos":98,"系统组成"
+"begin_pos":106,"end_pos":109,"任务场景"
+"begin_pos":112, "end_pos":116,"任务场景"
+}
 ```
 
 ### 1.7 BosonNLP实体数据集
@@ -568,12 +1281,16 @@ text{{...}}
 
 - 时间：2017
 - 实体类型：症状和体征、检查和检验、疾病和诊断、治疗、身体部位
+
+![](img/20230222204648.png)
+
 - 数据集：训练集包括300个医疗记录，测试集包含100个医疗记录
 - 地址：   https://www.biendata.xyz/competition/CCKS2017_2/
 - 数据格式
 
 ```s
-
+  患者无明显胸闷，无胸痛，偶有头痛，无头晕，无心悸、气短，无恶心、呕吐，饮食可，睡眠及二便正常。查体：BP：140/90mmHg，口唇无发绀，双肺呼吸音清，未闻及干湿性啰音，心界不大，心率70次/分，律齐，各瓣膜未闻及病理性杂音，腹软，无压痛，无反跳痛及肌紧张，肝脾肋下未触及，肠鸣音正常。双下肢无水肿。神经系统查体：神清，言语不清，查体合作，额纹对称，双侧瞳孔正大等圆，对光反射灵敏。双侧鼻唇沟无变浅，伸舌居中，示齿口角不偏。右侧上肢肌力Ⅲ级，右侧下肢肌力Ⅲ级，肌张力减低，左侧上肢肌力Ⅴ级，左侧下肢肌Ⅴ级，肌张力正常，双侧肱二三头肌腱及跟膝腱反射正常存在，双侧巴氏征阴性。
+  ...
 ```
 
 #### 1.9.2 CCKS2018数据集
@@ -582,10 +1299,19 @@ text{{...}}
 - 实体类型：解剖部位、症状描述、独立症状、药物、手术
 - 数据集：训练集包括600个医疗记录，测试集包含400个医疗记录
 - 地址：  https://www.biendata.xyz/competition/CCKS2018_1
+- 百度云盘地址：[百度云盘](https://pan.baidu.com/share/init?surl=FfvhPd06iVX2CGS_VV3XOg) ( 提取码：ypqh )
 - 数据格式
 
 ```s
-
+1,
+2,
+...
+64,
+65,
+66,乙状结肠 10  14  解剖部位;乙状结肠癌根治术   32  40  手术;乙状结肠 74  78  解剖部位;肠壁 138 140 解剖部位;淋巴结    149 152 解剖部位;淋巴结    160 163 解剖部位;奥沙利铂   264 268 药物;亚叶酸钙 277 281 药物;氟尿嘧啶 286 290 药物;肝    312 313 解剖部位;吐  315 316 独立症状;恶心 344 346 独立症状;腹  348 349 解剖部位;痛  349 350 症状描述;腹  350 351 解剖部位;胀  351 352 症状描述;不适 352 354 症状描述;乙状结肠   388 392 解剖部位;
+67,直肠   9   11  解剖部位;直肠癌DIXON手术 17  27  手术;直肠   67  69  解剖部位;横结肠造口术 79  85  手术;直肠   128 130 解剖部位;神经 144 146 解剖部位;肠壁 193 195 解剖部位;淋巴结    263 266 解剖部位;奥沙利铂   392 396 药物;氟尿嘧啶 404 408 药物;亚叶酸钙 420 424 药物;肝    438 439 解剖部位;胃  441 442 解剖部位;吐  444 445 独立症状;发热 486 488 独立症状;畏寒 488 490 独立症状;恶心 492 494 独立症状;呕吐 494 496 独立症状;咳嗽 498 500 独立症状;胸  500 501 解剖部位;闷  501 502 症状描述;腹  504 505 解剖部位;胀  505 506 症状描述;腹  506 507 解剖部位;泻  507 508 症状描述;腹  510 511 解剖部位;痛  511 512 症状描述;直肠 555 557 解剖部位;
+68,上腹   18  20  解剖部位;不适 20  22  症状描述;腹  25  26  解剖部位;痛  26  27  症状描述;嗳气 35  37  独立症状;反酸 39  41  独立症状;腹  42  43  解剖部位;胀  43  44  症状描述;恶心 45  47  独立症状;呕吐 48  50  独立症状;黑便 51  53  独立症状;胃  78  79  解剖部位;胃窦小弯侧  83  88  解剖部位;胃角 117 119 解剖部位;胃窦 121 123 解剖部位;胃  176 177 解剖部位;胃角 182 184 解剖部位;胃角 210 212 解剖部位;胃癌根治术  251 256 手术;胃    267 268 解剖部位;淋巴结    281 284 解剖部位;多西他赛   333 337 药物;S-1  338 341 药物;
+...
 ```
 
 #### 1.9.3 CCKS2019数据集
@@ -640,7 +1366,13 @@ text{{...}}
 - 数据格式
 
 ```s
-
+   U.N.         NNP  I-NP  I-ORG 
+   official     NN   I-NP  O 
+   Ekeus        NNP  I-NP  I-PER 
+   heads        VBZ  I-VP  O 
+   for          IN   I-PP  O 
+   Baghdad      NNP  I-NP  I-LOC 
+   .            .    O     O 
 ```
 
 ### 1.12 OntoNotes5.0 数据集
@@ -692,6 +1424,34 @@ text{{...}}
   },...
 ]
 ```
+
+### 1.15 中药说明书实体识别数据集（“万创杯”中医药天池大数据竞赛）
+
+- 介绍：疫情催化下，人工智能正在持续助力中医药传承创新加速发展，其中中医用药知识体系沉淀挖掘是一个基础工作。通过挖掘中药说明书构建中药合理用药的知识图谱，将为中医规范诊疗奠定较好基础。挑战旨在通过抽取中药药品说明书中的关键信息，中医药药品知识库的目标。
+- 时间：2020-11-12
+- 实体类型：
+  - 药品(DRUG):中药名称，指在中医理论指导下，用于预防、治疗、诊断疾病并具有康复与保健作用的物质。中药主要来源于天然药及其加工品，包括植物药、动物药、矿物药及部分化学、生物制品类药物。例子: 六味地黄丸、逍遥散
+  - 药物成分(DRUG_INGREDIENT): 中药组成成分，指中药复方中所含有的所有与该复方临床应用目的密切相关的药理活性成分。例子:当归、人参、枸杞
+  - 疾病(DISEASE): 疾病名称，指人体在一定原因的损害性作用下，因自稳调节紊乱而发生的异常生命活动过程，是特定的异常病理情形，而且会影响生物体的部分或是所有器官。通常解释为“身体病况”（medical condition），而且伴随着特定的症状及医学征象。例子：高血压、心绞痛、糖尿病
+  - 症状(SYMPTOM): 指疾病过程中机体内的一系列机能、代谢和形态结构异常变化所引起的病人主观上的异常感觉或某些客观病态改变。例子_：头晕、心悸、小腹胀痛_
+  - 证候(SYNDROME): 中医学专用术语，概括为一系列有相互关联的症状总称，即通过望、闻、问、切四诊所获知的疾病过程中表现在整体层次上的机体反应状态及其运动、变化，简称证或者候，是指不同症状和体征的综合表现，单一的症状和体征无法表现一个完整的证候。 例子：血瘀、气滞、气血不足、气血两虚
+  - 疾病分组(DISEASE_GROUP): 疾病涉及有人体组织部位的疾病名称的统称概念，非某项具体医学疾病。例子：肾病、肝病、肺病
+  - 食物(FOOD):指能够满足机体正常生理和生化能量需求，并能延续正常寿命的物质。对人体而言，能够满足人的正常生活活动需求并利于寿命延长的物质称之为食物。例子：苹果、茶、木耳、萝卜
+  - 食物分组(FOOD_GROUP): 中医中饮食养生中，将食物分为寒热温凉四性，同时中医药禁忌中对于具有某类共同属性食物的统称，记为食物分组。例子：油腻食物、辛辣食物、凉性食物
+  - 人群(PERSON_GROUP): 中医药的适用及禁忌范围内相关特定人群。例子：孕妇、经期妇女、儿童、青春期少女
+  - 药品分组(DRUG_GROUP): 具有某一类共同属性的药品类统称概念，非某项具体药品名。例子：止咳药、退烧药
+  - 药物剂型(DRUG_DOSAGE): 药物在供给临床使用前，均必须制成适合于医疗和预防应用的形式，成为药物剂型。例子：浓缩丸、水蜜丸、糖衣片
+  - 药物性味(DRUG_TASTE): 药品的性质和气味。例子：味甘、酸涩、气凉
+  - 中药功效(DRUG_EFFICACY): 药品的主治功能和效果的统称，例子：滋阴补肾、去瘀生新、活血化瘀
+- 数据集：
+- 地址：    https://tianchi.aliyun.com/competition/entrance/531824/introduction
+- 数据格式
+
+```s
+{"text": " 口服，一次6克，一日2-3次。  用于子宫寒冷，月经量少子宫寒冷，月经量少、后错，痛经  尚不明确。  1.忌食生冷食物。2.感冒时不宜服用。患有其他疾病者，应在医师指导下服用。3.平素月经正常，突然出现月经过少，或经期错后，或阴道不规则出血，或带下伴阴痒，或赤带者应去医院就诊。4.治疗痛经，宜在经前3～5天开始服药，连服1周。如有生育要求，应在医师指导下服用。5.服药后痛经不减轻，或重度痛经者，应到医院诊治。6.服药2周症状无缓解，应去医院就诊。7.对本品过敏者禁用，过敏体质者慎用。8.本品性状发生改变时禁止使用。9.请将本品放在儿童不能接触的地方。10.如正在使用其他药品，使用本品前请咨询医师或药师。  云南腾药制药股份有限公司  补气养血，调经止带。用于气血凝滞，子宫寒冷，月经量少、后错，痛经，白带量多，小腹下坠，不思饮食 6g*9袋  非处方药物（甲类）  如与其他药物同时使用可能会发生药物相互作用，详情请咨询医师或药师。 ", "entity_list": [{"entity_index": {"begin": 25, "end": 29}, "entity_type": "症状", "entity": "月经量少"}, {"entity_index": {"begin": 29, "end": 33}, "entity_type": "症状", "entity": "子宫寒冷"}, {"entity_index": {"begin": 42, "end": 44}, "entity_type": "症状", "entity": "痛经"}, {"entity_index": {"begin": 57, "end": 59}, "entity_type": "食物分组", "entity": "生冷"}, {"entity_index": {"begin": 103, "end": 107}, "entity_type": "症状", "entity": "月经过少"}, {"entity_index": {"begin": 109, "end": 113}, "entity_type": "症状", "entity": "经期错后"}, {"entity_index": {"begin": 115, "end": 122}, "entity_type": "症状", "entity": "阴道不规则出血"}, {"entity_index": {"begin": 124, "end": 129}, "entity_type": "症状", "entity": "带下伴阴痒"}, {"entity_index": {"begin": 131, "end": 133}, "entity_type": "症状", "entity": "赤带"}, {"entity_index": {"begin": 143, "end": 147}, "entity_type": "中药功效", "entity": "治疗痛经"}, {"entity_index": {"begin": 188, "end": 193}, "entity_type": "症状", "entity": "痛经不减轻"}, {"entity_index": {"begin": 195, "end": 199}, "entity_type": "症状", "entity": "重度痛经"}, {"entity_index": {"begin": 232, "end": 235}, "entity_type": "人群", "entity": "过敏者"}, {"entity_index": {"begin": 270, "end": 272}, "entity_type": "人群", "entity": "儿童"}, {"entity_index": {"begin": 323, "end": 327}, "entity_type": "中药功效", "entity": "补气养血"}, {"entity_index": {"begin": 328, "end": 332}, "entity_type": "中药功效", "entity": "调经止带"}, {"entity_index": {"begin": 335, "end": 339}, "entity_type": "症状", "entity": "气血凝滞"}, {"entity_index": {"begin": 340, "end": 344}, "entity_type": "症状", "entity": "子宫寒冷"}, {"entity_index": {"begin": 345, "end": 349}, "entity_type": "症状", "entity": "月经量少"}, {"entity_index": {"begin": 353, "end": 355}, "entity_type": "症状", "entity": "痛经"}, {"entity_index": {"begin": 356, "end": 360}, "entity_type": "症状", "entity": "白带量多"}, {"entity_index": {"begin": 361, "end": 365}, "entity_type": "症状", "entity": "小腹下坠"}]}
+...
+```
+
 
 ## 二、实体关系抽取数据集
 
@@ -970,12 +1730,78 @@ NA	0
 - 介绍：在基于远程监督的关系抽取任务上最常用的数据集，由NYT corpus 在2010年基于Freebase远程监督得到的
 - 时间：2010
 - 实体关系类型：founders、place_of_birth在内的53种关系（包括一种NA），存在一定的噪声。
+
+```s
+{
+    "/location/fr_region/capital": 2, 
+     "/location/cn_province/capital": 3, 
+     "/location/in_state/administrative_capital": 4, 
+     "/base/locations/countries/states_provinces_within": 5, 
+     "/sports/sports_team_location/teams": 53, 
+     "/business/company/founders": 6, 
+     "/film/film_festival/location": 52, 
+     "/people/person/place_of_birth": 8, 
+     "/people/deceased_person/place_of_death": 9, 
+     "/location/it_region/capital": 10, 
+     "/people/family/members": 11, 
+     "/people/profession/people_with_this_profession": 14, 
+     "/people/ethnicity/people": 54, 
+     "/location/neighborhood/neighborhood_of": 1, 
+     "NA": 0, 
+     "/location/in_state/legislative_capital": 16, 
+     "/sports/sports_team/location": 17, 
+     "/location/in_state/judicial_capital": 19, 
+     "/business/company_advisor/companies_advised": 20, 
+     "/people/family/country": 21, 
+     "/location/country/capital": 47, 
+     "/business/company/place_founded": 23, 
+     "/location/administrative_division/country": 24, 
+     "/people/person/place_lived": 36, 
+     "/people/ethnicity/included_in_group": 25, 
+     "/business/company/industry": 56, 
+     "/location/br_state/capital": 15, 
+     "/location/location/contains": 48, 
+     "/location/province/capital": 27, 
+     "/people/person/nationality": 28, 
+     "/business/person/company": 29, 
+     "/business/shopping_center_owner/shopping_centers_owned": 30, 
+     "/business/company/advisors": 31, 
+     "/business/shopping_center/owner": 32, 
+     "/location/country/languages_spoken": 7, 
+     "/people/deceased_person/place_of_burial": 34, 
+     "/location/us_county/county_seat": 13, 
+     "/people/ethnicity/geographic_distribution": 35, 
+     "/people/person/religion": 18, 
+     "/business/company/major_shareholders": 37, 
+     "/broadcast/producer/location": 38, 
+     "/location/us_state/capital": 12, 
+     "/broadcast/content/location": 39, 
+     "/business/company_shareholder/major_shareholder_of": 55, 
+     "/business/business_location/parent_company": 40, 
+     "/film/film/featured_film_locations": 42, 
+     "/people/place_of_interment/interred_here": 43, 
+     "/location/de_state/capital": 44, 
+     "/people/person/profession": 45, 
+     "/business/company/locations": 46, 
+     "/time/event/locations": 22, 
+     "/location/mx_state/capital": 26, 
+     "/people/person/ethnicity": 33, 
+     "/location/country/administrative_divisions": 49, 
+     "/people/person/children": 50, 
+     "/film/film_location/featured_in_films": 51, 
+     "/location/jp_prefecture/capital": 41, 
+     "/people/ethnicity/includes_groups": 57
+}
+```
+
 - 数据集：466876条训练集、55167条验证集以及172448条测试集。
 - 地址：    https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_nyt10.sh
 - 数据格式
 
 ```s
-
+{"text": "She also oversaw the refinancing of the state Superfund law ; the creation of a plan for decontaminating heavily polluted Onondaga Lake , near Syracuse ; the acquisition of hundreds of thousands of acres of Adirondack woodlands ; and the imposition of tough new acid rain rules .", "relation": "/location/location/contains", "h": {"id": "m.071cn", "name": "Syracuse", "pos": [143, 151]}, "t": {"id": "m.02_v74", "name": "Onondaga Lake", "pos": [122, 135]}}
+{"text": "More than 2.5 million cubic yards of contaminated mud will be dredged from Onondaga Lake , near Syracuse , under a consent decree between the state and Honeywell International that was announced yesterday .", "relation": "/location/location/contains", "h": {"id": "m.071cn", "name": "Syracuse", "pos": [96, 104]}, "t": {"id": "m.02_v74", "name": "Onondaga Lake", "pos": [75, 88]}}
+...
 ```
 
 ### 2.4 Wiki80实体关系数据集
@@ -983,12 +1809,100 @@ NA	0
 - 介绍：从数据集FewRel上提取的一个关系数据集
 - 时间：
 - 实体关系类型：包含location、part of、follows等80种关系，每种关系个数均为700，共56000个样本。
+
+```s
+{
+     "place served by transport hub": 0, 
+      "mountain range": 1, 
+      "religion": 2, 
+      "participating team": 3, 
+      "contains administrative territorial entity": 4, 
+      "head of government": 5, 
+      "country of citizenship": 6, 
+      "original network": 7, 
+      "heritage designation": 8, 
+      "performer": 9, 
+      "participant of": 10, 
+      "position held": 11, 
+      "has part": 12, 
+      "location of formation": 13, 
+      "located on terrain feature": 14, 
+      "architect": 15, 
+      "country of origin": 16, 
+      "publisher": 17, 
+      "director": 18, 
+      "father": 19, 
+      "developer": 20, 
+      "military branch": 21, 
+      "mouth of the watercourse": 22, 
+      "nominated for": 23, 
+      "movement": 24, 
+      "successful candidate": 25, 
+      "followed by": 26, 
+      "manufacturer": 27, 
+      "instance of": 28, 
+      "after a work by": 29, 
+      "member of political party": 30, 
+      "licensed to broadcast to": 31, 
+      "headquarters location": 32, 
+      "sibling": 33, 
+      "instrument": 34, 
+      "country": 35, 
+      "occupation": 36, 
+      "residence": 37, 
+      "work location": 38, 
+      "subsidiary": 39, 
+      "participant": 40, 
+      "operator": 41, 
+      "characters": 42, 
+      "occupant": 43, 
+      "genre": 44, 
+      "operating system": 45, 
+      "owned by": 46, 
+      "platform": 47, 
+      "tributary": 48, 
+      "winner": 49, 
+      "said to be the same as": 50, 
+      "composer": 51, 
+      "league": 52, 
+      "record label": 53, 
+      "distributor": 54, 
+      "screenwriter": 55, 
+      "sports season of league or competition": 56, 
+      "taxon rank": 57, 
+      "location": 58, 
+      "field of work": 59, 
+      "language of work or name": 60, 
+      "applies to jurisdiction": 61, 
+      "notable work": 62, 
+      "located in the administrative territorial entity": 63, 
+      "crosses": 64, 
+      "original language of film or TV show": 65, 
+      "competition class": 66, 
+      "part of": 67, 
+      "sport": 68, 
+      "constellation": 69, 
+      "position played on team / speciality": 70, 
+      "located in or next to body of water": 71, 
+      "voice type": 72, 
+      "follows": 73, 
+      "spouse": 74, 
+      "military rank": 75, 
+      "mother": 76, 
+      "member of": 77, 
+      "child": 78, 
+      "main subject": 79
+}
+```
+
 - 数据集：50400条训练集、5600条验证集
 - 地址：   https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_wiki80.sh
 - 数据格式
 
 ```s
-
+  {"token": ["Merpati", "flight", "106", "departed", "Jakarta", "(", "CGK", ")", "on", "a", "domestic", "flight", "to", "Tanjung", "Pandan", "(", "TJQ", ")", "."], "h": {"name": "tjq", "id": "Q1331049", "pos": [16, 17]}, "t": {"name": "tanjung pandan", "id": "Q3056359", "pos": [13, 15]}, "relation": "place served by transport hub"}
+  {"token": ["The", "name", "was", "at", "one", "point", "changed", "to", "Nottingham", "East", "Midlands", "Airport", "so", "as", "to", "include", "the", "name", "of", "the", "city", "that", "is", "supposedly", "most", "internationally", "recognisable", ",", "mainly", "due", "to", "the", "Robin", "Hood", "legend", "."], "h": {"name": "east midlands airport", "id": "Q8977", "pos": [9, 12]}, "t": {"name": "nottingham", "id": "Q41262", "pos": [8, 9]}, "relation": "place served by transport hub"}
+  ...
 ```
 
 ### 2.3 FewRel实体关系数据集
@@ -996,12 +1910,84 @@ NA	0
 - 介绍：清华大学于2018年发布的精标注关系抽取数据集，是当前规模最大的中文实体关系数据集
 - 时间：2018
 - 实体关系类型：100个关系类别、70,000个关系实例
+
+```s
+  {
+    "P931": 0, 
+    "P4552": 1, 
+    "P140": 2, 
+    "P1923": 3, 
+    "P150": 4, 
+    "P6": 5, 
+    "P27": 6, 
+    "P449": 7, 
+    "P1435": 8, 
+    "P175": 9, 
+    "P1344": 10, 
+    "P39": 11, 
+    "P527": 12, 
+    "P740": 13, 
+    "P706": 14, 
+    "P84": 15, 
+    "P495": 16, 
+    "P123": 17, 
+    "P57": 18, 
+    "P22": 19, 
+    "P178": 20, 
+    "P241": 21, 
+    "P403": 22, 
+    "P1411": 23, 
+    "P135": 24, 
+    "P991": 25, 
+    "P156": 26, 
+    "P176": 27, 
+    "P31": 28, 
+    "P1877": 29, 
+    "P102": 30, 
+    "P1408": 31, 
+    "P159": 32, 
+    "P3373": 33, 
+    "P1303": 34, 
+    "P17": 35, 
+    "P106": 36, 
+    "P551": 37, 
+    "P937": 38, 
+    "P355": 39, 
+    "P710": 40, 
+    "P137": 41, 
+    "P674": 42, 
+    "P466": 43, 
+    "P136": 44, 
+    "P306": 45, 
+    "P127": 46, 
+    "P400": 47, 
+    "P974": 48, 
+    "P1346": 49, 
+    "P460": 50, 
+    "P86": 51, 
+    "P118": 52, 
+    "P264": 53, 
+    "P750": 54, 
+    "P58": 55, 
+    "P3450": 56, 
+    "P105": 57, 
+    "P276": 58, 
+    "P101": 59, 
+    "P407": 60, 
+    "P1001": 61, 
+    "P800": 62, 
+    "P131": 63
+}
+```
+
 - 数据集：每句的平均长度为24.99，一共出现 124,577 个不同的单词/符号。
 - 地址：  https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_fewrel.sh
 - 数据格式
 
 ```s
-
+  {"token": ["Merpati", "flight", "106", "departed", "Jakarta", "(", "CGK", ")", "on", "a", "domestic", "flight", "to", "Tanjung", "Pandan", "(", "TJQ", ")", "."], "h": {"name": "tjq", "id": "Q1331049", "pos": [16, 17]}, "t": {"name": "tanjung pandan", "id": "Q3056359", "pos": [13, 15]}, "relation": "P931"}
+  {"token": ["The", "name", "was", "at", "one", "point", "changed", "to", "Nottingham", "East", "Midlands", "Airport", "so", "as", "to", "include", "the", "name", "of", "the", "city", "that", "is", "supposedly", "most", "internationally", "recognisable", ",", "mainly", "due", "to", "the", "Robin", "Hood", "legend", "."], "h": {"name": "east midlands airport", "id": "Q8977", "pos": [9, 12]}, "t": {"name": "nottingham", "id": "Q41262", "pos": [8, 9]}, "relation": "P931"}
+  ...
 ```
 
 ### 2.2 SemEval实体关系数据集
@@ -1009,12 +1995,39 @@ NA	0
 - 介绍：2010年国际语义评测大会中Task8任务所使用的数据集
 - 时间：2010
 - 实体关系类型：Cause-Effect(因果关系)、Instrument-Agency(操作、使用关系)、Product-Producer(产品-生产者关系)、 Content-Container(空间包含关系)、Entity-Origin(起源关系)、Entity-Destination(导向关系)、 Component-Whole(组件-整体关系)、Member-Collection(成员-集合关系)、Message-Topic(主题关系)等10类关系。
+
+```s
+  {
+    "Component-Whole(e2,e1)": 0, 
+    "Other": 1, 
+    "Instrument-Agency(e2,e1)": 2, 
+    "Member-Collection(e1,e2)": 3, 
+    "Cause-Effect(e2,e1)": 4, 
+    "Entity-Destination(e1,e2)": 5, 
+    "Content-Container(e1,e2)": 6, 
+    "Message-Topic(e1,e2)": 7, 
+    "Product-Producer(e2,e1)": 8, 
+    "Member-Collection(e2,e1)": 9, 
+    "Entity-Origin(e1,e2)": 10, 
+    "Cause-Effect(e1,e2)": 11, 
+    "Component-Whole(e1,e2)": 12, 
+    "Message-Topic(e2,e1)": 13, 
+    "Product-Producer(e1,e2)": 14, 
+    "Entity-Origin(e2,e1)": 15, 
+    "Content-Container(e2,e1)": 16, 
+    "Instrument-Agency(e1,e2)": 17, 
+    "Entity-Destination(e2,e1)": 18
+} 
+```
+
 - 数据集：8000个训练样本，2717个测试样本
 - 地址：  https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_semeval.sh
 - 数据格式
 
 ```s
-
+  {"token": ["the", "original", "play", "was", "filled", "with", "very", "topical", "humor", ",", "so", "the", "director", "felt", "free", "to", "add", "current", "topical", "humor", "to", "the", "script", "."], "h": {"name": "play", "pos": [2, 3]}, "t": {"name": "humor", "pos": [8, 9]}, "relation": "Component-Whole(e2,e1)"}
+  {"token": ["the", "crane", "arm", "raises", ",", "swivels", ",", "and", "extends", "to", "a", "maximum", "length", "of", "11", "''", "inches", ",", "just", "like", "our", "own", "poe", "ghostal", "."], "h": {"name": "crane", "pos": [1, 2]}, "t": {"name": "arm", "pos": [2, 3]}, "relation": "Component-Whole(e2,e1)"}
+  ...
 ```
 
 ### 2.1 ACE实体关系数据集
