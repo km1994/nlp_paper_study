@@ -186,19 +186,19 @@
 ###### transformer 长文本改进篇
 
 - [【关于 Longformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_transformer/tree/master/DL_algorithm/transformer_study/naacl2021_longformer/)
-- 论文：Longformer: The Long-Document Transformer
-- 发表会议：naacl2021
-- 论文地址：https://arxiv.org/abs/2004.05150
-- github：https://github.com/allenai/longformer
-- 动机：
-  - 基于传统Transformer的模型，因为 每一个token都要与其他所有token进行交互，其**self-attention的点积计算量都是 O(n^2)** ，(其中 n 为输入序列长度)，因此对于长序列的处理存在内存瓶颈（self-attention的计算可以并行化，所以时间复杂度仍然是 O(n) ）。这也是传统Transformer模型把输入长度限制在512个token以内的原因之一。
-  - 在面对超过长度限制的长文档时，往往需要**进行切片、截断或者抽取重要片段等处理**，这种做法 导致不同的text span之间无法进行交互，因而必然存在大量information loss，**既繁琐又破坏了原始文本的完整性**。
-  - 通过添加一些其他机制来加强这种text span之间的交互。但这种新增机制实现起来通常比较复杂，而且往往是task-specific的，通用性不强
-- 论文方法
-  - 对于每一个token，**只对固定窗口大小的附近token计算local attention**，并结合具体任务，**计算少量的global attention**。该方法的优点包括：
-    - 复杂度低，将attention机制的复杂度降至 O(n)
-    - 通用性强，可用于各类文档级任务
-    - 部署容易，作者在cuda内核上直接实现了Longformer的attention pattern，并提供了开源代码。
+  - 论文：Longformer: The Long-Document Transformer
+  - 发表会议：naacl2021
+  - 论文地址：https://arxiv.org/abs/2004.05150
+  - github：https://github.com/allenai/longformer
+  - 动机：
+    - 基于传统Transformer的模型，因为 每一个token都要与其他所有token进行交互，其**self-attention的点积计算量都是 O(n^2)** ，(其中 n 为输入序列长度)，因此对于长序列的处理存在内存瓶颈（self-attention的计算可以并行化，所以时间复杂度仍然是 O(n) ）。这也是传统Transformer模型把输入长度限制在512个token以内的原因之一。
+    - 在面对超过长度限制的长文档时，往往需要**进行切片、截断或者抽取重要片段等处理**，这种做法 导致不同的text span之间无法进行交互，因而必然存在大量information loss，**既繁琐又破坏了原始文本的完整性**。
+    - 通过添加一些其他机制来加强这种text span之间的交互。但这种新增机制实现起来通常比较复杂，而且往往是task-specific的，通用性不强
+  - 论文方法
+    - 对于每一个token，**只对固定窗口大小的附近token计算local attention**，并结合具体任务，**计算少量的global attention**。该方法的优点包括：
+      - 复杂度低，将attention机制的复杂度降至 O(n)
+      - 通用性强，可用于各类文档级任务
+      - 部署容易，作者在cuda内核上直接实现了Longformer的attention pattern，并提供了开源代码。
 
 - [【关于 Transformer-XL】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_transformer/tree/master/DL_algorithm/transformer_study/T3_Transformer_XL/)
   - 动机
@@ -402,7 +402,7 @@
         - Document Rotation（文档旋转）：随机均匀地选择 token，旋转文档使文档从该 token 开始。该任务的目的是训练模型识别文档开头；
         - Token Deletion（token 删除）：从输入中随机删除 token。与 token 掩码不同，模型必须确定缺失输入的位置；
         - Text Infilling（文本填充）：采样多个文本段，文本段长度取决于泊松分布 (λ = 3)。用单个掩码 token 替换每个文本段。长度为 0 的文本段对应掩码 token 的插入；
-  - [【关于 Bart】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_bert/bert_study/BART)
+  - [【关于 MacBERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_bert/bert_study/MacBERT)
     - 论文名称：Revisiting Pre-trained Models for Chinese Natural Language Processing 
     - 会议：EMNLP 2020
     - 论文地址：https://arxiv.org/abs/2004.13922
@@ -639,6 +639,14 @@
     - 设计了一种结构化抽取语言(Structural Extraction Language, SEL)，它能够将四种信息抽取任务的不同结构统一描述，使得模型的输出结构针对不同任务都是一致的。
     - 由于模型可以做多个任务，所以需要一种方式去指导模型做指定的任务，因此作者设计了结构化模式指导器(Structural Schema Instructor, SSI)，其实这就是一种prompt。
     - 由于模型的输出都是符合SEL语法的结构化信息，而目前常用的生成式预训练模型如T5、BART都是以生成自然语言为主，若直接采用这种预训练模型会影响到模型性能，因此作者专门针对text to structure的结构来预训练了一个大模型
+- [【关于 USM 】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/all_extraction/USM_AAAI2023/) 
+  - 论文：Universal Information Extraction as Unified Semantic Matching
+  - 会议：AAAI2023
+  - 论文地址：https://arxiv.org/abs/2301.03282
+  - 动机：
+    - 传统的信息抽取方法：需要**针对特定的任务进行模型设计和数据标注**，使得难以推广到新的模式中，极大限制了IE系统的使用；
+    - UIE 由于**Seq2Seq的生成模型的黑盒特性**，导致无法判断跨任务或跨模式的迁移在什么情况下会成功or失败
+  - 思路：提出了一种统一的语义匹配框架——USM，它联合编码提取模式和输入文本，并行统一提取子结构，并根据需要对目标结构进行可控解码。
 
 ###### [【关于 实体关系联合抽取】那些的你不知道的事](https://github.com/km1994/nlp_paper_study_information_extraction/tree/master/information_extraction/ERE_study/)
 
