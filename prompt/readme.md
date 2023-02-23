@@ -140,7 +140,7 @@
 
 - 动机：手工设计prompt（基于token的prompt）存在问题，那么是否可以引入（基于vector的prompt），所以就有了 基于 token+vector 的 prompt
 - 具体说明（如下图）：
-  - 任务是让模型来预测一个国家的首都
+  - 任务：模型来预测一个国家的首都
   - 左边是全token的prompt，文献里称为“离散的prompt”，有的同学一听"离散"就感觉懵了，其实就是一个一个token组成的prompt就叫“离散的prompt”。
   - 右边是token+vector形式的prompt，其实是保留了原token prompt里面的关键信息(capital, Britain)，(capital, Britain)是和任务、输出结果最相关的信息，其他不关键的词汇(the, of ,is)留给模型来学习。
 
@@ -149,13 +149,142 @@
 
 ![](img/20230223075648.png)
 
+### 4.3 P-tuning v2——全vector prompt [论文](https://arxiv.org/pdf/2110.07602.pdf) [github](https://github.com/THUDM/P-tuning-v2)
 
+- 思路：全vecotor可以直接拼接在预训练模型的layer里面，而且这个模型可以做序列tagging任务(给输入序列中每个token打标签)
 
+![](img/20230223222727.png)
 
+### 4.4 PPT——预训练prompt [论文](https://arxiv.org/pdf/2109.04332.pdf) [github](https://github.com/THUDM/P-tuning-v2)
 
+- 动机：以上Prompt采用vector形式之后，在训练集比较大(full-data)的时候效果是好的，但是在few-shot(训练集很小)场景下就不好了，因为数据量小不好学嘛。那怎么办呢？既然NLP任务都有预训练模型，那么prompt是否也可以先进行预训练再微调呢？
+- 思路：拿大量无标签语料对Prompt先做个预训练，再在下游任务上做微调
 
+![](img/20230223223029.png)
 
+## 五、prompt 总结
 
+1. prompt设计：可以手动设计模板，也可以自动学习prompt，这里可填坑的地方比较多；
+2. 预训练模型的选择：选择跟任务贴近的预训练模型即可；
+3. 预测结果到label的映射：如何设计映射函数，这里可填坑的地方也比较多
+4. 训练策略：根据prompt是否有参数，预训练模型参数要不要调，可以组合出各种训练模式，根据标注数据样本量，选择zero-shot, few-shot还是full-data。比如few-shot场景，训练数据不多，如果prompt有参数，可以固定住预训练模型的参数，只调prompt的参数，毕竟prompt参数量少嘛，可以避免过拟合。
+
+## 六、prompt-tuning 代码学习
+
+### 6.1 prompt-tuning 学习代码
+
+- [OpenPrompt](https://github.com/thunlp/OpenPrompt)
+  - 由清华推出了prompt-tuning工具包
+  - 特点：每个 class 都继承了 torch 的类或者 huggingface 的类，可以方便地部署自己的任务
+
+![](img/20230223223840.png)
+
+- [Prompt在中文分类few-shot场景中的尝试](https://zhuanlan.zhihu.com/p/424888379)
+  - 特点：包含数据集构建、模板构建、训练测试一套完整代码
+
+### 6.2 prompt-tuning 实战 
+
+#### 6.2.1 定义任务
+
+根据你的任务和数据来定义classes 和 InputExample。
+
+以情感分类任务为例，classes包含2个label："negative"和"positive"
+
+```s
+  from openprompt.data_utils import InputExample
+  classes = [ # There are two classes in Sentiment Analysis, one for negative and one for positive
+      "negative",
+      "positive"
+  ]
+  dataset = [ # For simplicity, there's only two examples
+      # text_a is the input text of the data, some other datasets may have multiple input sentences in one example.
+      InputExample(
+          guid = 0,
+          text_a = "Albert Einstein was one of the greatest intellects of his time.",
+      ),
+      InputExample(
+          guid = 1,
+          text_a = "The film was badly made.",
+      ),
+  ]
+```
+
+#### 6.2.2 定义预训练语言模型
+
+根据具体任务选择合适的预训练语言模型，这里采用的预训练模型是bert，因为根据prompt的设计，是想让模型输出[mask]位置的词语，属于填空问题。
+
+```s
+  from openprompt.plms import load_plm
+  plm, tokenizer, model_config, WrapperClass = load_plm("bert", "bert-base-cased")
+```
+
+#### 6.2.3 定义prompt模板
+
+这个例子是手动设计模板，模板放在ManualTemplate里面，text = '{"placeholder":"texta"} It was {"mask"}', 其中text_a就是InputExample里面的输入text_a，It was {"mask"} 就是prompt。
+
+```s
+  from openprompt.prompts import ManualTemplate
+  promptTemplate = ManualTemplate(
+      text = '{"placeholder":"text_a"} It was {"mask"}',
+      tokenizer = tokenizer,
+  )
+```
+
+#### 6.2.4 定义输出-label映射
+
+在情感分类里面，[Mask]位置的输出是一个单词，我们要把这些单词映射成"positive","negative"标签，这个过程称为"Verbalizer"，比如"bad"属于"negative"， "good", "wonderful", "great"属于"positive"。
+
+```s
+  from openprompt.prompts import ManualVerbalizer
+  promptVerbalizer = ManualVerbalizer(
+      classes = classes,
+      label_words = {
+          "negative": ["bad"],
+          "positive": ["good", "wonderful", "great"],
+      },
+      tokenizer = tokenizer,
+  )
+```
+
+#### 6.2.5 组合构建为PromptModel类
+
+将前面几步构建的模板(promptTemplate)、预训练模型(plm)、输出映射(promptVerbalizer)组成promptModel
+
+```s
+  from openprompt import PromptForClassification
+  promptModel = PromptForClassification(
+      template = promptTemplate,
+      plm = plm,
+      verbalizer = promptVerbalizer,
+  )
+```
+
+#### 6.2.6 组定义dataloader
+
+将前面几步构建的模板(promptTemplate)、预训练模型(plm)、输出映射(promptVerbalizer)组成promptModel
+
+```s
+from openprompt import PromptDataLoader
+data_loader = PromptDataLoader(
+        dataset = dataset,
+        tokenizer = tokenizer, 
+        template = promptTemplate, 
+        tokenizer_wrapper_class=WrapperClass,
+    )
+```
+
+#### 6.2.7 开始训练、测试
+
+```s
+ # making zero-shot inference using pretrained MLM with prompt
+ promptModel.eval()
+ with torch.no_grad():
+ for batch in data_loader:
+        logits = promptModel(batch)
+        preds = torch.argmax(logits, dim = -1)
+        print(classes[preds])
+        # predictions would be 1, 0 for classes 'positive', 'negative'
+```
 
 
 ## 参考资料
@@ -167,3 +296,8 @@
 - [NLPer福利！清华推出Prompt-tuning开源工具包，取代传统的微调fine-tuning](https://zhuanlan.zhihu.com/p/415944918)
 - [一文跟进Prompt进展！综述+15篇最新论文逐一梳理](https://blog.csdn.net/qq_27590277/article/details/121173627)
 - [Prompt在低资源NER中的应用](https://zhuanlan.zhihu.com/p/428225612)
+- [Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing](https://arxiv.org/abs/2107.13586)
+- [GPT Understands, Too](https://arxiv.org/pdf/2103.10385.pdf)
+- [P-Tuning v2: Prompt Tuning Can Be Comparable to Fine-tuning Universally Across Scales and Tasks](https://arxiv.org/abs/2110.07602)
+- [PPT: Pre-trained Prompt Tuning for Few-shot Learning](https://arxiv.org/pdf/2109.04332.pdf)
+- [Fine-tune之后的NLP新范式：Prompt越来越火，CMU华人博士后出了篇综述文章](https://zhuanlan.zhihu.com/p/395795968)
