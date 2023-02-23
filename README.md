@@ -41,6 +41,7 @@
           - [transformer 变体综述篇](#transformer-变体综述篇)
         - [【关于 预训练模型】 那些的你不知道的事](#关于-预训练模型-那些的你不知道的事)
         - [【关于 Prompt】 那些的你不知道的事](#关于-prompt-那些的你不知道的事)
+          - [【关于 OpenPrompt 】 那些的你不知道的事](#关于-openprompt--那些的你不知道的事)
           - [【关于 Prompts2QA 】 那些的你不知道的事](#关于-prompts2qa--那些的你不知道的事)
           - [【关于 Prompts2Summarization】 那些的你不知道的事](#关于-prompts2summarization-那些的你不知道的事)
           - [【关于 Prompt For NER】 那些的你不知道的事](#关于-prompt-for-ner-那些的你不知道的事)
@@ -560,6 +561,20 @@
 
 ##### 【关于 Prompt】 那些的你不知道的事
 
+###### [【关于 OpenPrompt 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/OpenPrompt/)
+
+- [【关于 OpenPrompt 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/OpenPrompt/)
+  - OpenPrompt： An Open-source Framework for Prompt-learning
+  - 论文链接：https://arxiv.org/abs/2111.01998
+  - 论文 github 地址：https://github.com/thunlp/OpenPrompt
+  - 动机：
+    - 目前还没有提出 Prompt-learning 的标准实施框架，大多数现有的 Prompt-learning 代码库，往往是不规范的，只为特定场景提供有限的实现；
+    - 由于在 Prompt-learning 中需要考虑许多细节，如模板策略、初始化策略和口语化策略等，从业者在快速调整所需的提示学习方法以适应其应用方面面临着障碍。
+  - OpenPrompt 特点
+    - OpenPrompt是一个便于研究的框架，它具有高效、模块化和可扩展性，其可组合性允许在一个统一的范式中自由组合不同的PLM、任务格式和提示模块；
+    - 用户可以方便地部署 Prompt-learning 框架，并评估它们在不同的NLP任务上的泛化性，不受限制
+
+
 ###### [【关于 Prompts2QA 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2QA/)
 
 - [【关于 基于反向提示的预训练模型可控文本生成】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2QA/ControllableGenerationFromPLMviaInversePrompting/)
@@ -577,7 +592,7 @@
 
 ###### [【关于 Prompts2Summarization】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2Summarization/) 
 
-- [【关于 Planning with Learned Entity Prompts for Abstractive Summarization】 那些你不知道的事]([)](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2Summarization/EntityPromptsForAbstractiveSummarization)
+- [【关于 Planning with Learned Entity Prompts for Abstractive Summarization】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/prompt/Prompts2Summarization/EntityPromptsForAbstractiveSummarization)
   - 动机：我们引入了一种简单而灵活的机制来学习中间计划，以实现抽象摘要的生成。
   - 做法：
     1. 在目标摘要前加上(or prompt)实体链——摘要中提到的实体的有序序列；
