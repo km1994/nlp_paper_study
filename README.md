@@ -427,7 +427,23 @@
       - （2）训练跨度边界表示来预测屏蔽跨度的整个内容，而不依赖其中的单个标记表示。
     - 实验结果：
       - SpanBERT始终优于BERT和我们更好调整的基线，在跨选择任务（如问题回答和共指消解）上有实质性的收益。特别是在训练数据和模型大小与BERT-large相同的情况下，我们的单一模型在1.1班和2.0班分别获得94.6%和88.7%的F1。我们还实现了OntoNotes共指消解任务（79.6\%F1）的最新发展，在TACRED关系抽取基准测试上表现出色，甚至在GLUE上也有所提高。
-
+  - [【关于 Flan-T5 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/bert_study/FlanT5)
+    - 论文名称：Scaling Instruction-Finetuned Language Models
+    - 会议：
+    - 论文地址：https://arxiv.org/abs/2210.11416
+    - 论文源码地址：https://huggingface.co/google/flan-t5-xxl
+    - 动机：是否有这种方案：通过在超大规模的任务上进行微调，让语言模型具备了极强的泛化性能，做到单个模型就可以在1800多个NLP任务上都能有很好的表现呢？即 实现 **One model for ALL tasks**？
+    - Flan-T5 介绍：这里的Flan 指的是（Instruction finetuning ），即"基于指令的微调"；T5是2019年Google发布的一个语言模型了。注意这里的语言模型可以进行任意的替换（需要有Decoder部分，所以不包括BERT这类纯Encoder语言模型），论文的核心贡献是提出一套多任务的微调方案（Flan），来极大提升语言模型的泛化性。
+    - Flan-T5 实现机制
+      - step 1: 任务收集：收集一系列监督的数据，这里一个任务可以被定义成<数据集，任务类型的形式>，比如“基于SQuAD数据集的问题生成任务”。需要注意的是这里有9个任务是需要进行推理的任务，即Chain-of-thought （CoT）任务。
+      - step 2: 形式改写：因为需要用单个语言模型来完成超过1800+种不同的任务，所以需要将任务都转换成相同的“输入格式”喂给模型训练，同时这些任务的输出也需要是统一的“输出格式”。
+      - 训练过程：采用恒定的学习率以及Adafactor优化器进行训练；同时会将多个训练样本“打包”成一个训练样本，这些训练样本直接会通过一个特殊的“结束token”进行分割。训练时候在每个指定的步数会在“保留任务”上进行模型评估，保存最佳的checkpoint。
+    - 总结：
+      - 微调很重要
+      - 模型越大效果越好
+      - 任务越多效果越好
+      - 混杂CoT相关的任务很重要
+      - 整合起来
 
 - [【关于 Bert 模型压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_bert/tree/master/bert_study/Bert_zip)
   - [【关于 Bert 模型压缩】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_bert/tree/master/bert_study/Bert_zip)
