@@ -16,9 +16,61 @@
 > 
 > **[手机版推荐系统百面百搭](https://mp.weixin.qq.com/s/b_KBT6rUw09cLGRHV_EUtw)**
 
+## 动机
+
+在很长的一段时间内，NLP的任务采用的都是 Pretrain + Fine-tuning（Model Tuning）的解决方案，但是这种方案，**需要对于每个任务都重新 fine-tune 一个新的模型，且不能共用**。
+
+但是**对于一个预训练的大语言模型来说，这就仿佛好像是对于每个任务都进行了定制化，十分不高效**。
+
+**是否存在一种方式，可以将预训练语言模型作为电源，不同的任务当作电器，仅需要根据不同的电器（任务），选择不同的插座，对于模型来说，即插入不同的任务特定的参数，就可以使得模型适配该下游任务**。
+
+Prompt Learning 就是这个适配器，它能高效得进行预训练语言模型的使用。
+
+这种方式大大地提升了预训练模型的使用效率，如下图：
+
+- 左边是传统的 Model Tuning 的范式：对于不同的任务，都需要将整个预训练语言模型进行精调，每个任务都有自己的一整套参数。
+- 右边是Prompt Tuning，对于不同的任务，仅需要插入不同的prompt 参数，每个任务都单独训练Prompt 参数，不训练预训练语言模型，这样子可以大大缩短训练时间，也极大的提升了模型的使用率。
+
+![](img/20230305151328.png)
+
+所以什么是 Prompt, 字面上来讲，Prompt 就是提示：
+
+例如我们有人忘记了某个事情，我们给予特定的提示，他就可以想起来，例如我们说：
+
+> 白日依山尽,
+
+大家自然而然地会想起来下一句诗：黄河入海流。
+
+亦或者，搜索引擎，可以根据我们的输入，进行输出的提示：
+
+![](img/20230305151550.png)
+
 ## 一、Prompt Tuning 发展路线
 
-### 1.1 技术发展路线
+### 1.1 Prompt 是什么？
+
+那么在NLP中 Prompt 代表的是什么呢？
+
+- prompt 就是给 预训练语言模型 的一个线索/提示，帮助它可以更好的理解 人类的问题。
+
+例如，下图的BERT/BART/ERNIE 均为预训练语言模型，对于人类提出的问题，以及线索，预训练语言模型可以给出正确的答案。
+
+- 根据提示，BERT能回答，JDK 是 Oracle 研发的
+- 根据 TL;DR: 的提示，BART知道人类想要问的是文章的摘要
+- 根据提示，ERNIE 知道人类想要问鸟类的能力--飞行
+
+![](img/20230305151728.png)
+
+Prompt 更严谨的定义如下：
+
+> Prompt is the technique of making better use of the knowledge from the pre-trained model by adding additional texts to the input.
+
+> Prompt 是一种为了更好的使用预训练语言模型的知识，采用在输入段添加额外的文本的技术。
+
+- 目的：更好挖掘预训练语言模型的能力
+- 手段：在输入端添加文本，即重新定义任务（task reformulation）
+
+### 1.2 技术发展路线
 
 - 特征工程阶段
   - 依赖大量人工
@@ -29,7 +81,7 @@
 - 预训练-微调阶段
   - 预训练可以不需要监督数据
 
-### 1.2 工业界 vs 学术界
+### 1.3 工业界 vs 学术界
 
 - 工业界:更适合工业界的少数据场景，减少一部分标注成本
   - 工业界对于少数据场景，往往(也有用半监督学习) 先rule-based走通业务逻辑，在线上线下标注数据，再进一步监督学习或微调。
@@ -41,16 +93,29 @@
 
 ## 二、Prompt Tuning 工作流程介绍
 
+### 2.0 工作流程
+
+1. Prompt 模版（Template）的构造
+2. Prompt 答案空间映射（Verbalizer）的构造
+3. 文本代入template，并且使用预训练语言模型进行预测
+4. 将预测的结果映射回label。
+
+![](img/20230305151933.png)
+
 ### 2.1 文本代入 Template
 
+- 模板Template的作用：输入和输出进行重新构造，变成一个新的带有mask slots的文本
 - 介绍：模板Template 构造，文本代入 Template
 - 思路：
-  - step 1: 构建模板：[x] overall,it was a[z] movie.
-  - step 2: 构建文本：l love this movie.
-  - step 3: 文本代入 Template: l love this movie. overall, it was a [z] movie
+  - step 1: 构建模板：[x] overall,it was a [z] movie.
+  - step 2: 构建文本x ：l love this movie.
+  - step 3: 文本x 代入 Template [x]位置: l love this movie. overall, it was a [z] movie
+
+![](img/20230305152329.png)
 
 ### 2.2 映射 Verbalizer 构造
 
+- 动机：对于构造的prompt，需要知道预测词和 label 之间的关系，并且也不可能允许 z 是任意词
 - 介绍：建立预测词-标签的映射关系
 - eg:
 
@@ -59,11 +124,16 @@
     boring、bad -> negative
 ```
 
+![](img/20230305152718.png)
+
 ### 2.3 Prediction预测
 
-- 介绍：根据 Verbalizer ，使用预训练模型对 2.1 代后的文本进行预测
+- 介绍：根据 Verbalizer ，使用预训练模型对 2.1 代后的 mask slots [z] 进行预测
 - eg:
   - I love this movie.overallit was a **fantastic** movie
+
+![](img/20230305152755.png)
+> 注：预训练模型预测得到了结果 fantastic, 我们需要将其代入[z] 中
 
 ### 2.4 Mapping映射
 
@@ -73,6 +143,8 @@
 ```s
     fantastic -> positive
 ```
+
+![](img/20230305152939.png)
 
 ## 三、Prompt Tuning 研究方向介绍
 
@@ -113,17 +185,80 @@
   - 用KB去查询Label相关词作为候选集，然后去噪
 
 ![](img/20230223073844.png)
+> 注：Label Space Y 是: Positive, Negative, Answer Space Z 可以是表示positive或者negative 的词，例如 Interesting/Fantastic/Happy/Boring/1-Star/Bad，具体的 Answer Space Z 的选择范围可以由我们指定。可以指定一个 y 对应1-N个字符/词。
 
-### 3.3 训练策略(Prompt-based Training Strategies)
+具体的答案空间的选择可以有以下三个分类标注：
 
-- Tuning-free Prompting
-  - 直接做zero-shot
-- Fixed-LM Prompt Tuning
-  - 引入额外与Prompt相关的参数，固定LM参数，微调与Prompt相关参数
-- Fixed-prompt LM Tuning
-  - 引入额外与Prompt相关的参数，固定与Prompt相关参数，微调LM
-- Prompt + LM Tuning
-  - 引入额外与Prompt相关的参数，两者都微调
+- 根据形状
+  - 1.1 Token 类型
+  - 1.2 Span 类型
+  - 1.3 Sentence 类型
+- 是否有界
+  - 2.1 有界
+  - 2.2 无界
+- 是否人工选择
+  - 3.1 人工选择
+  - 3.2 自动搜素
+    - 3.2.1 离散空间
+    - 3.2.2 连续空间
+
+### 3.3 Pre-trained Model Choice（预训练模型选择）
+
+- 动机：在定义完模版以及答案空间后，需要选择合适的预训练语言模型对 prompt 进行预测，如何选择一个合适的预训练语言模型也是需要人工经验判别的。
+- 具体的预训练语言模型分类：
+  - autoregressive-models: 自回归模型，主要代表有 GPT，主要用于生成任务；
+  - autoencoding-models: 自编码模型，主要代表有 BERT，主要用于NLU任务；
+  - seq-to-seq-models：序列到序列任务，包含了an encoder 和 a decoder，主要代表有 BART，主要用于基于条件的生成任务，例如翻译，summary等；
+  - multimodal-models：多模态模型
+  - retrieval-based-models：基于召回的模型，主要用于开放域问答
+
+![](img/20230305154110.png)
+> 注：想要做summary 任务，我们可以选择更合适的 BART 模型
+
+### 3.4 Expanding the Paradigm（范式拓展）
+
+- 动机：如何对已有的 Prompt 进行任务增强以及拓展
+- 从以下几个方面进行探讨
+
+1. Prompt Ensemble：Prompt 集成，采用多种方式询问同一个问题
+
+![](img/微信截图_20230305154232.png)
+
+2. Prompt Augmentation：Prompt 增强，采用类似的 prompt 提示进行增强
+
+![](img/微信截图_20230305154256.png)
+
+3. Prompt Composition：Prompt 组合，例如将一个任务，拆成多个任务的组合，比如判别两个实体之间是否是父子关系，首先对于每个实体，先用Prompt 判别是人物，再进行实体关系的预测。
+
+![](img/微信截图_20230305154312.png)
+
+4. Prompt Decomposition：将一个prompt 拆分成多个prompt
+
+![](img/微信截图_20230305154334.png)
+
+### 3.5 训练策略(Prompt-based Training Strategies)
+
+- 动机：Prompt-based 模型在训练中，有多种训练策略，可以选择哪些模型部分训练，哪些不训练
+- 根据训练数据区分：
+  - Zero-shot: 对于下游任务，没有任何训练数据
+  - Few-shot: 对于下游任务只有很少的训练数据，例如100条
+  - Full-data: 有很多的训练数据，例如1万多条数据
+- 根据不同的参数更新的部分：
+  - 预训练模型
+  - Prompts 参数
+- 预训练语言模型：可以选择精调，或者不训练
+- 对于prompts：
+  - Tuning-free Prompting
+    - 直接做zero-shot
+  - Fixed-LM Prompt Tuning
+    - 引入额外与Prompt相关的参数，固定LM参数，微调与Prompt相关参数
+  - Fixed-prompt LM Tuning
+    - 引入额外与Prompt相关的参数，固定与Prompt相关参数，微调LM
+  - Prompt + LM Tuning
+    - 引入额外与Prompt相关的参数，两者都微调
+- 策略选择
+  - 数据量级是多少
+  - 是否有个超大的 Left-to-right 的语言模型（注：通常如果只有很少的数据的时候，往往希望不要去 fine-tune 预训练语言模型，而是使用LM的超强能力，只是去调prompt 参数。而让数据量足够多的时候，可以精调语言模型。）
 
 ## 四、prompt进阶——自动学习prompt
 
@@ -162,7 +297,55 @@
 
 ![](img/20230223223029.png)
 
-## 五、prompt 总结
+## 五、prompt 优势与总结
+
+### 5.1 prompt 优势
+
+Prompt Learning 的优势有哪些呢？我们可以从四个角度进行分析。
+
+- Level 1. Prompt Learning 角度
+- Level 2. Prompt Learning 和 Fine-tuning 的区别
+- Level 3. 现代 NLP 历史
+- Level 4. 超越NLP
+
+![](img/微信截图_20230305155204.png)
+
+#### 5.1.1 Level 1. Prompt Learning 使得所有的NLP任务成为一个语言模型的问题
+
+- Prompt Learning 可以将所有的任务归一化预训练语言模型的任务
+- 避免了预训练和fine-tuning 之间的gap，几乎所有 NLP 任务都可以直接使用，不需要训练数据。
+- 在少样本的数据集上，能取得超过fine-tuning的效果。
+- 使得所有的任务在方法上变得一致
+
+![](img/微信截图_20230305155258.png)
+
+#### 5.1.2 Level 2. Prompt Learning 和 Fine-tuning 的范式区别
+
+- Fine-tuning 是使得预训练语言模型适配下游任务
+- Prompting 是将下游任务进行任务重定义，使得其利用预训练语言模型的能力，即适配语言模型
+
+![](img/微信截图_20230305155338.png)
+
+#### 5.1.3 Level 3. 现代 NLP 第四范式
+
+Prompting 方法是现在NLP的第四范式。其中现在NLP的发展史包含
+
+1. Feature Engineering：即使用文本特征，例如词性，长度等，在使用机器学习的方法进行模型训练。（无预训练语言模型）
+2. Architecture Engineering：在W2V基础上，利用深度模型，加上固定的embedding。（有固定预训练embedding，但与下游任务无直接关系）
+3. Objective Engineering：在bert 的基础上，使用动态的embedding，在加上fine-tuning。（有预训练语言模型，但与下游任务有gap）
+4. Prompt Engineering：直接利用与训练语言模型辅以特定的prompt。（有预训练语言模型，但与下游任务无gap）
+
+我们可以发现，在四个范式中，预训练语言模型，和下游任务之间的距离，变得越来越近，直到最后Prompt Learning是直接完全利用LM的能力。
+
+![](img/微信截图_20230305155434.png)
+
+#### 5.1.4 Level 4. 超越NLP的角度
+
+Prompt 可以作为连接多模态的一个契机，例如 CLIP 模型，连接了文本和图片。相信在未来，可以连接声音和视频，这是一个广大的待探索的领域。
+
+![](img/微信截图_20230305155459.png)
+
+### 5.2 prompt 总结
 
 1. prompt设计：可以手动设计模板，也可以自动学习prompt，这里可填坑的地方比较多；
 2. 预训练模型的选择：选择跟任务贴近的预训练模型即可；
@@ -301,3 +484,6 @@ data_loader = PromptDataLoader(
 - [P-Tuning v2: Prompt Tuning Can Be Comparable to Fine-tuning Universally Across Scales and Tasks](https://arxiv.org/abs/2110.07602)
 - [PPT: Pre-trained Prompt Tuning for Few-shot Learning](https://arxiv.org/pdf/2109.04332.pdf)
 - [Fine-tune之后的NLP新范式：Prompt越来越火，CMU华人博士后出了篇综述文章](https://zhuanlan.zhihu.com/p/395795968)
+- [【NLP】Prompt Learning 超强入门教程](https://zhuanlan.zhihu.com/p/442486331)
+- [大模型prompt tuning技术上](https://www.bilibili.com/video/BV1Sf4y1g7ra/?from=search&seid=12417442891380693418&spm_id_from=333.337.0.0)
+- [Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing](https://arxiv.org/pdf/2107.13586.pdf)
