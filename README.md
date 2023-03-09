@@ -92,6 +92,7 @@
         - [【关于 Text-to-SQL】那些你不知道的事](#关于-text-to-sql那些你不知道的事)
         - [【关于 多标签文本分类】 那些你不知道的事](#关于-多标签文本分类-那些你不知道的事)
         - [【关于 tts】 那些你不知道的事](#关于-tts-那些你不知道的事)
+        - [【关于 img2text】 那些你不知道的事](#关于-img2text-那些你不知道的事)
       - [实战篇](#实战篇)
         - [重点推荐篇](#重点推荐篇)
     - [会议收集篇](#会议收集篇)
@@ -1881,6 +1882,13 @@
      2. （2）情节-回复匹配，其能够反映回复是否与情节相符；
      3. （3）上文-情节匹配，其能够隐式反映哪些情节已经被上文表达。
   4. 最后，这些匹配特征经过CNN的进一步抽取和聚集，再经过MLP得到最终的匹配得分。
+- [【关于 GENIUS 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/GENIUS/)
+  - 论文：GENIUS: Sketch-based Language Model Pre-training via Extreme and Selective Masking for Text Generation and Augmentation
+  - 发表会议：
+  - 论文地址：https://arxiv.org/abs/2211.10330v1
+  - github：https://github.com/beyondguo/genius
+  - demo：https://huggingface.co/spaces/beyond/genius
+  - GENIUS模型，是一个conditional text generation (CLM) 预训练模型，能根据你给定的一个sketch（草稿，包含你要表达的关键信息，可以是词、短语、短句），来生成一段完整流畅的文本
 
 ##### [【关于 NLP分类任务】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/)
 
@@ -2159,6 +2167,18 @@
       - 1. encoder将phoneme embedding转换成phoneme hidden seq;
       - 2. 然后设计了variance adaptor引入不同的声学特征信息;
       - 3. 最终decoder将adapted hidden seq并行地转换成mel谱。
+  - [【关于 VITS】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/tts/VITS/)
+
+##### [【关于 img2text】 那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/img2text/)
+
+- [【关于 BLIP-2 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/img2text/blip2)
+  - [BLIP-2 模型文档](https://hf.co/docs/transformers/main/en/model_doc/blip-2)
+  - [BLIP-2 论文链接](https://arxiv.org/pdf/2301.12597.pdf)
+  - 模型介绍：BLIP-2 通过**在冻结的预训练图像编码器和冻结的预训练大语言模型之间添加一个轻量级 查询 Transformer (Query Transformer, Q-Former) 来弥合视觉和语言模型之间的模态隔阂 (modality gap)**。在整个模型中，Q-Former 是唯一的可训练模块，而图像编码器和语言模型始终保持冻结状态。
+- [【关于 OFA-Chinese】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/img2text/OFA_Chinese)
+  - 论文标题：Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework
+  - github ：https://github.com/yangjianxin1/OFA-Chinese
+  - 介绍：OFA是由阿里达摩院发布的多模态预训练模型，OFA将各种模态任务统一于Seq2Seq框架中。如下图所示，OFA支持的下游任务包括但不限于Image Caption、Image Classification、 Image genaration、Language Understanding等等。
 
 #### 实战篇
 
