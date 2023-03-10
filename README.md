@@ -219,7 +219,9 @@
   - 动机：Transformer 有着巨大的内存和算力需求，因为它构造了一个注意力矩阵，需求与输入呈平方关系;
   - 思路：使用一个高效的（线性）广义注意力框架（generalized attention framework），允许基于不同相似性度量（核）的一类广泛的注意力机制。
   - 优点：该方法在保持线性空间和时间复杂度的同时准确率也很有保证，也可以应用到独立的 softmax 运算。此外，该方法还可以和可逆层等其他技术进行互操作。
-
+- [ A Survey on Long Text Modeling with Transformers](https://github.com/km1994/nlp_paper_study_transformer/tree/master/DL_algorithm/transformer_study/Survey_on_Long_Text_Modeling_with_Transformers) 
+  - 论文名称：A Survey on Long Text Modeling with Transformers
+  - 论文地址：https://arxiv.org/abs/2302.14502
 
 ###### transformer 变体综述篇
 
