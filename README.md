@@ -1891,6 +1891,21 @@
   - github：https://github.com/beyondguo/genius
   - demo：https://huggingface.co/spaces/beyond/genius
   - GENIUS模型，是一个conditional text generation (CLM) 预训练模型，能根据你给定的一个sketch（草稿，包含你要表达的关键信息，可以是词、短语、短句），来生成一段完整流畅的文本
+- [Difformer - 在嵌入空间上增强扩散模型来做文本生成](https://github.com/km1994/nlp_paper_study/tree/master/text_generation/Difformer_2023/)
+  - 论文：Difformer:  empowering diffusion models on the embedding space for text generation
+  - 发表会议：
+  - 论文地址：https://arxiv.org/pdf/2212.09412.pdf
+  - 论文动机：
+    - 问题：“连续数据空间”和“嵌入空间”之间有挑战存在。
+      - 问题一，embeddings的data distribution是可学习的，这可能会导致Loss function崩溃；
+      - 问题二，常用词和偏僻词的embeddings向量的范数(norm）是有区别的，如果追加同样的噪声，会得到次优的结果。
+      - 问题三，作者发现，normal level of noise （普通水平下的噪声）会导致模型的训练不充分问题。
+  - 三个核心模块：
+    1. 一个额外的锚损失函数，anchor loss function，来稳定训练过程；
+    2. 一个面向embedding的layer normalization，放到embedding layer之上，来对常用词和偏僻词的嵌入进行归一化到一个uniform scale（统一的刻度，统一的尺寸），从而可以消除他们的多尺度的影响；
+    3. 一个给高斯噪声的噪声因子，noise factor，来提升增加的高斯噪声的刻度，来提升每一个扩散步上的，去噪目标的指导。
+
+
 
 ##### [【关于 NLP分类任务】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/)
 
@@ -1959,6 +1974,19 @@
   - 会议：EMNLP2020
   - 论文地址：chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=https%3A%2F%2Faclanthology.org%2F2021.eacl-main.20.pdf#=&zoom=125
   - 论文源码地址：https://github.com/timoschick/pet
+- [【关于 LTA 】那些你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/LTA/)
+  - 论文名称：Learn to Adapt for Generalized Zero-Shot Text Classification
+  - 会议：ACL2022
+  - 论文地址：https://aclanthology.org/2022.acl-long.39
+  - 论文源码地址：https://github.com/Quareia/LTA
+  - 论文动机：
+    - 广义零样本（Zero-shot）文本分类旨在对可见类（seen classes）和增量出现的未见类（unseen classes）的文本实例进行分类。
+    - 由于参数在学习过程中仅对可见类进行优化，而未考虑未见类，且参数在预测过程中保持稳定，因此大多数现有方法的泛化能力较差。
+  - 论文方法：
+    - 提出了一个**新的学习适应（Learn to Adapt，LTA）网络**，该网络使用一个可变的元学习框架。
+    - 具体而言，**LTA 通过使用可见类和虚拟的未见类来训练自适应分类器**，根据测试时间模拟广义零样本学习（generalized zero-shot learning，GZSL）场景。
+    - 与此同时，**学习校准类原型（prototype）和样本表示，使学习参数适应传入的未见类**。
+    - 作者声称，所提出的模型能够表征所有的原型和样本。将两个类映射到到一个分布更一致的全局空间。
 
 ###### [【关于 细粒度情感分析】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/classifier_study/ABSC_study/)
 
