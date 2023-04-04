@@ -104,6 +104,7 @@
     - [学习资源](#学习资源)
     - [NLP 数据集](#nlp-数据集)
     - [GCN\_study学习篇](#gcn_study学习篇)
+  - [sponsorship 赞助](#sponsorship-赞助)
   - [参考资料](#参考资料)
 
 ## 介绍
@@ -2444,6 +2445,24 @@
   - [DGL](https://github.com/km1994/dgl)
   - [DGL 入门](https://github.com/km1994/GCN_study/blob/master/DGL_study/DGL_introduction.md)
   - [DGL 入门 —— GCN 实现](https://github.com/km1994/GCN_study/blob/master/DGL_study/DGL_GCN_introduction.md)
+
+## sponsorship 赞助
+
+Top 3 Sponsors
+
+| Time     | Sponsor     | Amount |
+| --- | --- | --- |
+| 2021/3/25 | 林*  | 500 |
+| 2022/6/24 | 李*     | 200    |
+
+这原本是个人的一个学习项目，我们原本计划编写到1.0为止。但是由于 这个项目 帮助到了 社区里面很多 nlper 超过了我们的想象。如果您愿意赞助我们的项目，可以
+
+扫描这个[二维码](https://github.com/km1994/GCN_study/blob/master/resource/pic/zfb.jpg)
+
+并且加这个支付宝账号，留下您的姓名
+
+项目的资金流向将被公开，所有的资金将被用于该学习项目的开支。我们会总结在sponsorship的表格中。备用链接 二维码 , 支付宝账号
+
 
 ## 参考资料
 
