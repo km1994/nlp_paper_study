@@ -25,7 +25,10 @@
 
 > 手机版笔记，可以关注公众号 **【关于NLP那些你不知道的事】** 获取，并加入 【NLP && 推荐学习群】一起学习！！！
 
-> 注：github 网页版 看起来不舒服，可以看 **[手机版NLP论文学习笔记](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100005719&idx=1&sn=14d34d70a7e7cbf9700f804cca5be2d0&chksm=1bbff26d2cc87b7b9d2ed12c8d280cd737e270cd82c8850f7ca2ee44ec8883873ff5e9904e7e&scene=18#wechat_redirect)**
+> 注：github 网页版 看起来不舒服，可以加入 **知识星球【关于AiGC那些你不知道的事】**
+
+> **所有文章已经搬到 知识星球【关于AiGC那些你不知道的事】，方便大家利用手机学习**
+![](other_study/resource/pic/20230408151226.jpg)
 
 - [【关于 NLP】 那些你不知道的事](#关于-nlp-那些你不知道的事)
   - [介绍](#介绍)
