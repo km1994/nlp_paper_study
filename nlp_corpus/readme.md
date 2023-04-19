@@ -1,6 +1,1275 @@
 # 【关于 NLP 语料】那些你不知道的事
 
+- [【关于 NLP 语料】那些你不知道的事](#关于-nlp-语料那些你不知道的事)
+  - [一、命名实体识别](#一命名实体识别)
+    - [1.1 MSRA-NER实体数据集](#11-msra-ner实体数据集)
+    - [1.2 人民日报实体数据集](#12-人民日报实体数据集)
+    - [1.3 新浪微博实体数据集](#13-新浪微博实体数据集)
+    - [1.4 CLUENER细粒度实体数据集](#14-cluener细粒度实体数据集)
+    - [1.5 Yidu-S4K医疗命名实体识别数据集](#15-yidu-s4k医疗命名实体识别数据集)
+    - [1.6 面向试验鉴定的实体数据集](#16-面向试验鉴定的实体数据集)
+    - [1.7 BosonNLP实体数据集](#17-bosonnlp实体数据集)
+    - [1.8 影视音乐书籍实体数据集](#18-影视音乐书籍实体数据集)
+    - [1.9 中文电子病历实体数据集](#19-中文电子病历实体数据集)
+      - [1.9.1 CCKS2017数据集](#191-ccks2017数据集)
+      - [1.9.2 CCKS2018数据集](#192-ccks2018数据集)
+      - [1.9.3 CCKS2019数据集](#193-ccks2019数据集)
+      - [1.9.4 CCKS2020数据集](#194-ccks2020数据集)
+    - [1.10 中文电子简历实体数据集](#110-中文电子简历实体数据集)
+    - [1.11 CoNLL 2003数据集](#111-conll-2003数据集)
+    - [1.12 OntoNotes5.0 数据集](#112-ontonotes50-数据集)
+    - [1.13 CMeEE](#113-cmeee)
+    - [1.15 中药说明书实体识别数据集（“万创杯”中医药天池大数据竞赛）](#115-中药说明书实体识别数据集万创杯中医药天池大数据竞赛)
+  - [二、实体关系抽取数据集](#二实体关系抽取数据集)
+    - [2.11 CMeIE](#211-cmeie)
+    - [2.10 DocRED文档级实体关系数据集](#210-docred文档级实体关系数据集)
+    - [2.9 Chinese Literature Text文档级实体关系数据集](#29-chinese-literature-text文档级实体关系数据集)
+    - [2.8 人物实体关系数据集](#28-人物实体关系数据集)
+    - [2.7 COAE2016实体关系数据集](#27-coae2016实体关系数据集)
+    - [2.6 DuIE2.0实体关系数据集](#26-duie20实体关系数据集)
+    - [2.5 NYT10实体关系数据集](#25-nyt10实体关系数据集)
+    - [2.4 Wiki80实体关系数据集](#24-wiki80实体关系数据集)
+    - [2.3 FewRel实体关系数据集](#23-fewrel实体关系数据集)
+    - [2.2 SemEval实体关系数据集](#22-semeval实体关系数据集)
+    - [2.1 ACE实体关系数据集](#21-ace实体关系数据集)
+  - [十一、翻译语料](#十一翻译语料)
+    - [11.1 翻译语料(translation2019zh)](#111-翻译语料translation2019zh)
+  - [十、预训练语料](#十预训练语料)
+    - [10.1 维基百科json版(wiki2019zh)](#101-维基百科json版wiki2019zh)
+  - [九、文本生成](#九文本生成)
+    - [9.1 现代诗生成](#91-现代诗生成)
+    - [9.2 中文古诗生成](#92-中文古诗生成)
+    - [9.3 古诗数据](#93-古诗数据)
+  - [八、对话语料](#八对话语料)
+    - [8.4 Diamante中文开放域闲聊数据集](#84-diamante中文开放域闲聊数据集)
+      - [8.4.1 介绍](#841-介绍)
+      - [8.4.2 数据预览](#842-数据预览)
+      - [8.4.3 数据样本](#843-数据样本)
+    - [8.1 对话语料介绍](#81-对话语料介绍)
+    - [8.2 对话语料下载](#82-对话语料下载)
+    - [8.3 KdConv](#83-kdconv)
+  - [七、文本匹配数据](#七文本匹配数据)
+    - [7.1 afqmc数据集](#71-afqmc数据集)
+    - [7.2 ccks2018\_task3 数据集](#72-ccks2018_task3-数据集)
+    - [7.3 chip2019数据集](#73-chip2019数据集)
+    - [7.4 COVID-19数据集](#74-covid-19数据集)
+    - [7.5 diac2019数据集](#75-diac2019数据集)
+    - [7.6 gaiic2021\_task3数据集](#76-gaiic2021_task3数据集)
+    - [7.7 lcqmc数据集](#77-lcqmc数据集)
+    - [7.8 pawsx数据集](#78-pawsx数据集)
+    - [7.9 ths2021数据集](#79-ths2021数据集)
+    - [7.10 xf2021数据集](#710-xf2021数据集)
+    - [7.11 sohu\_2021数据集](#711-sohu_2021数据集)
+    - [7.12 cmnli数据集](#712-cmnli数据集)
+    - [7.13 csnli数据集](#713-csnli数据集)
+    - [7.14 ocnli数据集](#714-ocnli数据集)
+    - [7.15 cstsb数据集](#715-cstsb数据集)
+    - [7.16 pku数据集](#716-pku数据集)
+    - [参考](#参考)
+  - [六、文本摘要数据](#六文本摘要数据)
+    - [6.5 法律文本摘要](#65-法律文本摘要)
+    - [6.4 nlpcc 自动摘要英文语料库](#64-nlpcc-自动摘要英文语料库)
+    - [6.3 SQuAD 自动摘要英文语料库](#63-squad-自动摘要英文语料库)
+    - [6.2 lcsts 生成式自自动摘要中文语料库](#62-lcsts-生成式自自动摘要中文语料库)
+    - [6.1 教育培训行业抽象式自动摘要中文语料库](#61-教育培训行业抽象式自动摘要中文语料库)
+  - [五、事件抽取数据集](#五事件抽取数据集)
+    - [5.1 ACE事件抽取数据集](#51-ace事件抽取数据集)
+    - [5.2 医疗事件抽取数据集](#52-医疗事件抽取数据集)
+    - [5.3 CCKS2020金融领域小样本迁移事件抽取数据集](#53-ccks2020金融领域小样本迁移事件抽取数据集)
+    - [5.4 CCKS2020金融领域小样本迁移事件抽取数据集](#54-ccks2020金融领域小样本迁移事件抽取数据集)
+    - [5.5 CCKS2020金融领域的篇章级事件抽取数据集](#55-ccks2020金融领域的篇章级事件抽取数据集)
+    - [5.6 CCKS2021金融领域篇章级事件抽取数据集](#56-ccks2021金融领域篇章级事件抽取数据集)
+    - [5.7 DuEE-Fin 句子级事件抽取](#57-duee-fin-句子级事件抽取)
+    - [5.8 DuEE-Fin篇章级事件抽取数据集](#58-duee-fin篇章级事件抽取数据集)
+    - [5.9 科大讯飞开放域事件抽取数据集](#59-科大讯飞开放域事件抽取数据集)
+    - [5.10 CCKS2021通用细粒度事件检测数据集](#510-ccks2021通用细粒度事件检测数据集)
+    - [5.11 面向金融领域的篇章级事件因果关系抽取](#511-面向金融领域的篇章级事件因果关系抽取)
+    - [5.12 CEC事件抽取数据集](#512-cec事件抽取数据集)
+    - [5.13 SemEval/SCIF句子级因果事件关系数据集](#513-semevalscif句子级因果事件关系数据集)
+    - [5.14 其他事件抽取相关数据集](#514-其他事件抽取相关数据集)
+  - [四、文本分类](#四文本分类)
+    - [4.8 带情感标注 amazon  【 yf\_amazon 】](#48-带情感标注-amazon---yf_amazon-)
+    - [4.7 带情感标注 餐馆名称  【 yf\_dianping 】](#47-带情感标注-餐馆名称---yf_dianping-)
+    - [4.6 带情感标注 豆瓣电影  【 dmsc\_v2 】](#46-带情感标注-豆瓣电影---dmsc_v2-)
+    - [4.5 带情感标注 新浪微博  【simplifyweibo\_4\_moods 】](#45-带情感标注-新浪微博--simplifyweibo_4_moods-)
+    - [4.4 带情感标注 新浪微博  【weibo\_senti\_100k 】](#44-带情感标注-新浪微博--weibo_senti_100k-)
+    - [4.3 情感/观点/评论 倾向性分析  【online\_shopping\_10\_cats】](#43-情感观点评论-倾向性分析--online_shopping_10_cats)
+    - [4.2 外卖平台收集的用户评价 【waimai\_10k】](#42-外卖平台收集的用户评价-waimai_10k)
+    - [4.1 酒店评论数据 【ChnSentiCorp\_htl\_all】](#41-酒店评论数据-chnsenticorp_htl_all)
+  - [三、问答数据](#三问答数据)
+    - [3.1 电信问答数据](#31-电信问答数据)
+    - [3.2 保险行业问答数据](#32-保险行业问答数据)
+    - [3.3 农行知道](#33-农行知道)
+    - [3.4 联通问答数据](#34-联通问答数据)
+    - [3.5 保险知道](#35-保险知道)
+    - [3.6 金融行业问答数据](#36-金融行业问答数据)
+    - [3.7 WebQA 中文问题生成](#37-webqa-中文问题生成)
+    - [3.8 百科类问答json版(baike2018qa)](#38-百科类问答json版baike2018qa)
+    - [3.9 百科类问答json版(baike2018qa)](#39-百科类问答json版baike2018qa)
+    - [3.10 社区问答json版(webtext2019zh) ：大规模高质量数据集](#310-社区问答json版webtext2019zh-大规模高质量数据集)
+  - [参考](#参考-1)
+
+## 一、命名实体识别
+
+### 1.1 MSRA-NER实体数据集
+
+- 介绍：由微软亚洲研究院标注的新闻领域的实体识别数据集，也是SIGNAN backoff 2006的实体识别任务的数据集之一。
+- 时间：2016
+- 实体类型：LOC(地名), ORG(机构名), PER(人名)
+- 数据集：训练集46364个句子，验证集4365个句子
+- 地址： https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/MSRA
+- 数据格式
+
+```s
+    {"text": "当希望工程救助的百万儿童成长起来，科教兴国蔚然成风时，今天有收藏价值的书你没买，明日就叫你悔不当初！", "entity_list": []}
+    {"text": "藏书本来就是所有传统收藏门类中的第一大户，只是我们结束温饱的时间太短而已。", "entity_list": []}
+    {"text": "因有关日寇在京掠夺文物详情，藏界较为重视，也是我们收藏北京史料中的要件之一。", "entity_list": [{"entity_index": {"begin": 3, "end": 4}, "entity_type": "LOC", "entity": "日"}, {"entity_index": {"begin": 6, "end": 7}, "entity_type": "LOC", "entity": "京"}, {"entity_index": {"begin": 27, "end": 29}, "entity_type": "LOC", "entity": "北京"}]}
+    ...
+```
+
+### 1.2 人民日报实体数据集
+
+- 介绍：以1998年人民日报语料为对象，由北京大学计算语言学研究所和富士通研究开发中心有限公司共同制作的标注语料库。
+- 实体类型：LOC(地名), ORG(机构名), PER(人名)
+- 数据集：19359条数据集
+- 地址： https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/people_daily
+- 数据格式
+
+```s
+    {"text": "迈向充满希望的新世纪——一九九八年新年讲话(附图片1张)", "entity_list": [{"entity_index": {"begin": 12, "end": 19}, "entity_type": "DATE", "entity": "一九九八年新年"}]}
+    {"text": "中共中央总书记、国家主席江泽民", "entity_list": [{"entity_index": {"begin": 0, "end": 4}, "entity_type": "ORG", "entity": "中共中央"}, {"entity_index": {"begin": 12, "end": 15}, "entity_type": "PERSON", "entity": "江泽民"}]}
+    ...
+```
+
+### 1.3 新浪微博实体数据集
+
+- 介绍：根据新浪微博2013年11月至2014年12月间历史数据筛选过滤生成，包含1890条微博消息，基于LDC2014的DEFT ERE的标注标准进行标注。
+- 时间：2014
+- 实体类型：地名、人名、机构名、行政区名，并且每个类别可细分为特指（NAM，如“张三”标签为“PER.NAM”）和泛指（NOM，如“男人”标签为“PER.NOM”）。
+- 数据集：包括1890条微博消息，发布于2015年。包括1350条训练集、270条验证集、270条测试集。
+- 地址：  https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/weibo
+- 数据格式
+
+```s
+    {"text": "科技全方位资讯智能，快捷的汽车生活需要有三屏一云爱你", "entity_list": []}
+    {"text": "对，输给一个女人，的成绩。失望", "entity_list": []}
+    {"text": "今天下午起来看到外面的太阳。。。。我第一反应竟然是强烈的想回家泪想我们一起在嘉鱼个时候了。。。。有好多好多的话想对你说李巾凡想要瘦瘦瘦成李帆我是想切开云朵的心", "entity_list": [{"entity_index": {"begin": 38, "end": 39}, "entity_type": "LOC", "entity": "嘉"}, {"entity_index": {"begin": 59, "end": 62}, "entity_type": "PER", "entity": "李巾凡"}, {"entity_index": {"begin": 68, "end": 70}, "entity_type": "PER", "entity": "李帆"}]}
+    ...
+```
+
+### 1.4 CLUENER细粒度实体数据集
+
+- 介绍：根据清华大学开源的文本分类数据集THUCNEWS，进行筛选过滤、实体标注生成，原数据来源于Sina News RSS。
+- 时间：2020
+- 实体类型：组织(organization)、人名(name)、地址(address)、公司(company)、政府(government)、书籍(book)、游戏(game)、电影(movie)、职位(position)、景点(scene)等10个实体类别，且实体类别分布较为均衡。
+- 数据集：训练集10748个句子，验证集1343个句子
+- 地址：  https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/cluener_public
+- 数据格式
+
+```s
+    {"text": "浙商银行企业信贷部叶老桂博士则从另一个角度对五道门槛进行了解读。叶老桂认为，对目前国内商业银行而言，", "entity_list": [{"entity_type": "name", "entity": "叶老桂", "entity_index": {"begin": 9, "end": 12}}, {"entity_type": "company", "entity": "浙商银行", "entity_index": {"begin": 0, "end": 4}}]}
+    {"text": "生生不息CSOL生化狂潮让你填弹狂扫", "entity_list": [{"entity_type": "game", "entity": "CSOL", "entity_index": {"begin": 4, "end": 8}}]}
+    ...
+```
+
+### 1.5 Yidu-S4K医疗命名实体识别数据集
+
+- 介绍：源自CCKS2019评测任务一，即“面向中文电子病历的命名实体识别”的数据集。
+- 时间：2019
+- 实体类型：实验室检验、影像检查、手术、疾病和诊断、药物、解剖部位共6类实体类型。
+- 数据集：1000条训练集、379条测试集
+- 地址：  https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/yidu-s4k
+- 数据格式
+
+```s
+    {"text": "，患者3月前因“直肠癌”于在我院于全麻上行直肠癌根治术（DIXON术），手术过程顺利，术后给予抗感染及营养支持治疗，患者恢复好，切口愈合良好。，术后病理示：直肠腺癌（中低度分化），浸润溃疡型，面积3.5*2CM，侵达外膜。双端切线另送“近端”、“远端”及环周底部切除面未查见癌。肠壁一站（10个）、中间组（8个）淋巴结未查见癌。，免疫组化染色示：ERCC1弥漫（+）、TS少部分弱（+）、SYN（-）、CGA（-）。术后查无化疗禁忌后给予3周期化疗，，方案为：奥沙利铂150MG D1，亚叶酸钙0.3G+替加氟1.0G D2-D6，同时给与升白细胞、护肝、止吐、免疫增强治疗，患者副反应轻。院外期间患者一般情况好，无恶心，无腹痛腹胀胀不适，无现患者为行复查及化疗再次来院就诊，门诊以“直肠癌术后”收入院。   近期患者精神可，饮食可，大便正常，小便正常，近期体重无明显变化。", "entity_list": [{"entity_index": {"begin": 8, "end": 11}, "entity_type": "疾病和诊断", "entity": "直肠癌"}, {"entity_index": {"begin": 21, "end": 35}, "entity_type": "手术", "entity": "直肠癌根治术（DIXON术）"}, {"entity_index": {"begin": 78, "end": 95}, "entity_type": "疾病和诊断", "entity": "直肠腺癌（中低度分化），浸润溃疡型"}, {"entity_index": {"begin": 139, "end": 159}, "entity_type": "解剖部位", "entity": "肠壁一站（10个）、中间组（8个）淋巴结"}, {"entity_index": {"begin": 230, "end": 234}, "entity_type": "药物", "entity": "奥沙利铂"}, {"entity_index": {"begin": 243, "end": 247}, "entity_type": "药物", "entity": "亚叶酸钙"}, {"entity_index": {"begin": 252, "end": 255}, "entity_type": "药物", "entity": "替加氟"}, {"entity_index": {"begin": 276, "end": 277}, "entity_type": "解剖部位", "entity": "肝"}, {"entity_index": {"begin": 312, "end": 313}, "entity_type": "解剖部位", "entity": "腹"}, {"entity_index": {"begin": 314, "end": 315}, "entity_type": "解剖部位", "entity": "腹"}, {"entity_index": {"begin": 342, "end": 347}, "entity_type": "疾病和诊断", "entity": "直肠癌术后"}]}
+    ...
+```
+
+### 1.6 面向试验鉴定的实体数据集
+
+- 介绍：面向试验鉴定的命名实体数据集是由军事科学院系统工程研究院在CCKS 2020中组织的一个评测。
+- 时间：2020
+- 实体类型：试验要素(如：RS-24弹道导弹、SPY-1D相控阵雷达)、性能指标(如测量精度、圆概率偏差、失效距离)、系统组成(如中波红外导引头、助推器、整流罩)、任务场景(如法国海军、导弹预警、恐怖袭击)四大类。
+- 数据集：400篇的标注文档
+- 地址：   https://www.biendata.xyz/competition/ccks_2020_8/
+- 数据格式
+
+> 输入：
+```s
+美国洛马公司在新墨西哥州白沙导弹靶场，完成“微型碰撞杀伤”拦截弹重新设计后的第二次飞行试验，进一步检验了拦截弹的敏捷性和气动性能，标志着其成熟度进一步提升。“微型碰撞杀伤”拦截弹采取直接碰撞杀伤技术，主要用于提高美国陆军应对火箭弹威胁的能力。
+```
+
+> 输出：
+```s
+{
+"begin_pos":21,"end_pos":31,"试验要素"
+"begin_pos":56,"end_pos":58,"性能指标"
+"begin_pos":60,"end_pos":63,"性能指标"
+"begin_pos":91,"end_pos":98,"系统组成"
+"begin_pos":106,"end_pos":109,"任务场景"
+"begin_pos":112, "end_pos":116,"任务场景"
+}
+```
+
+### 1.7 BosonNLP实体数据集
+
+- 介绍：玻森数据提供的命名实体识别数据，采用UTF-8进行编码
+- 时间：2020
+- 实体类型：时间、地点、人名、组织名、公司名、产品名
+- 数据集：2000段落
+- 地址：   https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/boson
+- 数据格式
+
+```s
+    {"text": "高勇：男，中国国籍，无境外居留权，", "entity_list": [{"entity_index": {"begin": 0, "end": 2}, "entity_type": "NAME", "entity": "高勇"}, {"entity_index": {"begin": 5, "end": 9}, "entity_type": "CONT", "entity": "中国国籍"}]}
+    {"text": "1966年出生，汉族，中共党员，本科学历，工程师、美国项目管理协会注册会员（PMIMember）、注册项目管理专家（PMP）、项目经理。", "entity_list": [{"entity_index": {"begin": 8, "end": 10}, "entity_type": "RACE", "entity": "汉族"}, {"entity_index": {"begin": 11, "end": 15}, "entity_type": "TITLE", "entity": "中共党员"}, {"entity_index": {"begin": 16, "end": 20}, "entity_type": "EDU", "entity": "本科学历"}, {"entity_index": {"begin": 21, "end": 24}, "entity_type": "TITLE", "entity": "工程师"}, {"entity_index": {"begin": 25, "end": 33}, "entity_type": "ORG", "entity": "美国项目管理协会"}, {"entity_index": {"begin": 33, "end": 37}, "entity_type": "TITLE", "entity": "注册会员"}, {"entity_index": {"begin": 38, "end": 47}, "entity_type": "TITLE", "entity": "PMIMember"}, {"entity_index": {"begin": 49, "end": 57}, "entity_type": "TITLE", "entity": "注册项目管理专家"}, {"entity_index": {"begin": 58, "end": 61}, "entity_type": "TITLE", "entity": "PMP"}, {"entity_index": {"begin": 63, "end": 67}, "entity_type": "TITLE", "entity": "项目经理"}]}
+    ...
+```
+
+### 1.8 影视音乐书籍实体数据集
+
+- 介绍：影视音乐书籍实体数据集
+- 时间：
+- 实体类型：影视、音乐、书籍
+- 数据集：大约10000条，具体包括7814条训练集、977条验证集以及978条测试集。
+- 地址：   https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/video_music_book_datasets
+- 数据格式
+
+```s
+    {"text": "我个人前一段看过求无欲的诡案组系列，剧情不错，主要是人物特点表现的很好，人物性格很大众化", "entity_list": [{"entity_index": {"begin": 12, "end": 15}, "entity_type": "boo", "entity": "诡案组"}]}
+    {"text": "本人也比较喜欢看仙侠小说，推荐几个我个人爱看的：、绝世武魂、绝世武神、追鬼龙王之极品强少、万古武帝、", "entity_list": [{"entity_index": {"begin": 25, "end": 29}, "entity_type": "boo", "entity": "绝世武魂"}, {"entity_index": {"begin": 30, "end": 34}, "entity_type": "boo", "entity": "绝世武神"}, {"entity_index": {"begin": 35, "end": 44}, "entity_type": "boo", "entity": "追鬼龙王之极品强少"}, {"entity_index": {"begin": 45, "end": 49}, "entity_type": "boo", "entity": "万古武帝"}]}
+    ...
+```
+
+### 1.9 中文电子病历实体数据集
+
+- 介绍：目前现存公开的中文电子病历标注数据十分稀缺，为了推动CNER系统在中文临床文本上的表现， CCKS在2017、2018、2019、2020都组织了面向中文电子病历的命名实体识别评测任务。
+
+#### 1.9.1 CCKS2017数据集
+
+- 时间：2017
+- 实体类型：症状和体征、检查和检验、疾病和诊断、治疗、身体部位
+
+![](img/20230222204648.png)
+
+- 数据集：训练集包括300个医疗记录，测试集包含100个医疗记录
+- 地址：   https://www.biendata.xyz/competition/CCKS2017_2/
+- 数据格式
+
+```s
+  患者无明显胸闷，无胸痛，偶有头痛，无头晕，无心悸、气短，无恶心、呕吐，饮食可，睡眠及二便正常。查体：BP：140/90mmHg，口唇无发绀，双肺呼吸音清，未闻及干湿性啰音，心界不大，心率70次/分，律齐，各瓣膜未闻及病理性杂音，腹软，无压痛，无反跳痛及肌紧张，肝脾肋下未触及，肠鸣音正常。双下肢无水肿。神经系统查体：神清，言语不清，查体合作，额纹对称，双侧瞳孔正大等圆，对光反射灵敏。双侧鼻唇沟无变浅，伸舌居中，示齿口角不偏。右侧上肢肌力Ⅲ级，右侧下肢肌力Ⅲ级，肌张力减低，左侧上肢肌力Ⅴ级，左侧下肢肌Ⅴ级，肌张力正常，双侧肱二三头肌腱及跟膝腱反射正常存在，双侧巴氏征阴性。
+  ...
+```
+
+#### 1.9.2 CCKS2018数据集
+
+- 时间：2018
+- 实体类型：解剖部位、症状描述、独立症状、药物、手术
+- 数据集：训练集包括600个医疗记录，测试集包含400个医疗记录
+- 地址：  https://www.biendata.xyz/competition/CCKS2018_1
+- 百度云盘地址：[百度云盘](https://pan.baidu.com/share/init?surl=FfvhPd06iVX2CGS_VV3XOg) ( 提取码：ypqh )
+- 数据格式
+
+```s
+1,
+2,
+...
+64,
+65,
+66,乙状结肠 10  14  解剖部位;乙状结肠癌根治术   32  40  手术;乙状结肠 74  78  解剖部位;肠壁 138 140 解剖部位;淋巴结    149 152 解剖部位;淋巴结    160 163 解剖部位;奥沙利铂   264 268 药物;亚叶酸钙 277 281 药物;氟尿嘧啶 286 290 药物;肝    312 313 解剖部位;吐  315 316 独立症状;恶心 344 346 独立症状;腹  348 349 解剖部位;痛  349 350 症状描述;腹  350 351 解剖部位;胀  351 352 症状描述;不适 352 354 症状描述;乙状结肠   388 392 解剖部位;
+67,直肠   9   11  解剖部位;直肠癌DIXON手术 17  27  手术;直肠   67  69  解剖部位;横结肠造口术 79  85  手术;直肠   128 130 解剖部位;神经 144 146 解剖部位;肠壁 193 195 解剖部位;淋巴结    263 266 解剖部位;奥沙利铂   392 396 药物;氟尿嘧啶 404 408 药物;亚叶酸钙 420 424 药物;肝    438 439 解剖部位;胃  441 442 解剖部位;吐  444 445 独立症状;发热 486 488 独立症状;畏寒 488 490 独立症状;恶心 492 494 独立症状;呕吐 494 496 独立症状;咳嗽 498 500 独立症状;胸  500 501 解剖部位;闷  501 502 症状描述;腹  504 505 解剖部位;胀  505 506 症状描述;腹  506 507 解剖部位;泻  507 508 症状描述;腹  510 511 解剖部位;痛  511 512 症状描述;直肠 555 557 解剖部位;
+68,上腹   18  20  解剖部位;不适 20  22  症状描述;腹  25  26  解剖部位;痛  26  27  症状描述;嗳气 35  37  独立症状;反酸 39  41  独立症状;腹  42  43  解剖部位;胀  43  44  症状描述;恶心 45  47  独立症状;呕吐 48  50  独立症状;黑便 51  53  独立症状;胃  78  79  解剖部位;胃窦小弯侧  83  88  解剖部位;胃角 117 119 解剖部位;胃窦 121 123 解剖部位;胃  176 177 解剖部位;胃角 182 184 解剖部位;胃角 210 212 解剖部位;胃癌根治术  251 256 手术;胃    267 268 解剖部位;淋巴结    281 284 解剖部位;多西他赛   333 337 药物;S-1  338 341 药物;
+...
+```
+
+#### 1.9.3 CCKS2019数据集
+
+- 时间：2019
+- 实体类型：疾病和诊断、检查、检验、手术、药物、解剖部位
+- 数据集：训练集包括1000个医疗记录，测试集包含379个医疗记录
+- 地址：  https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/2020_ccks_ner
+- 数据格式
+
+```s
+    {"originalText": "，患者3月前因“直肠癌”于在我院于全麻上行直肠癌根治术（DIXON术），手术过程顺利，术后给予抗感染及营养支持治疗，患者恢复好，切口愈合良好。，术后病理示：直肠腺癌（中低度分化），浸润溃疡型，面积3.5*2CM，侵达外膜。双端切线另送“近端”、“远端”及环周底部切除面未查见癌。肠壁一站（10个）、中间组（8个）淋巴结未查见癌。，免疫组化染色示：ERCC1弥漫（+）、TS少部分弱（+）、SYN（-）、CGA（-）。术后查无化疗禁忌后给予3周期化疗，，方案为：奥沙利铂150MG D1，亚叶酸钙0.3G+替加氟1.0G D2-D6，同时给与升白细胞、护肝、止吐、免疫增强治疗，患者副反应轻。院外期间患者一般情况好，无恶心，无腹痛腹胀胀不适，无现患者为行复查及化疗再次来院就诊，门诊以“直肠癌术后”收入院。   近期患者精神可，饮食可，大便正常，小便正常，近期体重无明显变化。", "entities": [{"label_type": "疾病和诊断", "overlap": 0, "start_pos": 8, "end_pos": 11}, {"label_type": "手术", "overlap": 0, "start_pos": 21, "end_pos": 35}, {"label_type": "疾病和诊断", "overlap": 0, "start_pos": 78, "end_pos": 95}, {"label_type": "解剖部位", "overlap": 0, "start_pos": 139, "end_pos": 159}, {"end_pos": 234, "label_type": "药物", "overlap": 0, "start_pos": 230}, {"end_pos": 247, "label_type": "药物", "overlap": 0, "start_pos": 243}, {"end_pos": 255, "label_type": "药物", "overlap": 0, "start_pos": 252}, {"label_type": "解剖部位", "overlap": 0, "start_pos": 276, "end_pos": 277}, {"label_type": "解剖部位", "overlap": 0, "start_pos": 312, "end_pos": 313}, {"label_type": "解剖部位", "overlap": 0, "start_pos": 314, "end_pos": 315}, {"label_type": "疾病和诊断", "overlap": 0, "start_pos": 342, "end_pos": 347}]}
+    ...
+```
+
+#### 1.9.4 CCKS2020数据集
+
+- 时间：2020
+- 实体类型：疾病和诊断、检查、检验、手术、药物、解剖部位
+- 数据集：训练集包括1050个医疗记录
+- 地址：  https://www.biendata.xyz/competition/ccks_2020_2_1/
+- 数据格式
+
+```s
+    对儿童SARST细胞亚群的研究表明，与成人SARS相比，儿童细胞下降不明显，证明上述推测成立。|||3    9    bod|||19    24    dis|||
+    研究证实，细胞减少与肺内病变程度及肺内炎性病变吸收程度密切相关。|||10    10    bod|||10    13    sym|||17    17    bod|||17    22    sym|||
+    ...
+```
+
+### 1.10 中文电子简历实体数据集
+
+- 介绍：根据新浪财经网关于上市公司的高级经理人的简历摘要数据，进行筛选过滤和人工标注生成的，建于2018年。
+- 时间：2018
+- 实体类型：人名、国籍、籍贯、种族、专业、学位、机构、职称
+- 数据集：3821条训练集、463条验证集、477条测试集
+- 地址：   https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/ResumeNER
+- 数据格式
+
+```s
+    {"text": "高勇：男，中国国籍，无境外居留权，", "entity_list": [{"entity_index": {"begin": 0, "end": 2}, "entity_type": "NAME", "entity": "高勇"}, {"entity_index": {"begin": 5, "end": 9}, "entity_type": "CONT", "entity": "中国国籍"}]}
+    {"text": "1966年出生，汉族，中共党员，本科学历，工程师、美国项目管理协会注册会员（PMIMember）、注册项目管理专家（PMP）、项目经理。", "entity_list": [{"entity_index": {"begin": 8, "end": 10}, "entity_type": "RACE", "entity": "汉族"}, {"entity_index": {"begin": 11, "end": 15}, "entity_type": "TITLE", "entity": "中共党员"}, {"entity_index": {"begin": 16, "end": 20}, "entity_type": "EDU", "entity": "本科学历"}, {"entity_index": {"begin": 21, "end": 24}, "entity_type": "TITLE", "entity": "工程师"}, {"entity_index": {"begin": 25, "end": 33}, "entity_type": "ORG", "entity": "美国项目管理协会"}, {"entity_index": {"begin": 33, "end": 37}, "entity_type": "TITLE", "entity": "注册会员"}, {"entity_index": {"begin": 38, "end": 47}, "entity_type": "TITLE", "entity": "PMIMember"}, {"entity_index": {"begin": 49, "end": 57}, "entity_type": "TITLE", "entity": "注册项目管理专家"}, {"entity_index": {"begin": 58, "end": 61}, "entity_type": "TITLE", "entity": "PMP"}, {"entity_index": {"begin": 63, "end": 67}, "entity_type": "TITLE", "entity": "项目经理"}]}
+    ...
+```
+
+### 1.11 CoNLL 2003数据集
+
+- 介绍：1393篇英语新闻文章和909篇德语新闻文章
+- 时间：2013
+- 实体类型：LOC、ORG、PER、MISC
+- 数据集：1393篇英语新闻文章和909篇德语新闻文章
+- 地址：   https://www.clips.uantwerpen.be/conll2003/ner/
+- 数据格式
+
+```s
+   U.N.         NNP  I-NP  I-ORG 
+   official     NN   I-NP  O 
+   Ekeus        NNP  I-NP  I-PER 
+   heads        VBZ  I-VP  O 
+   for          IN   I-PP  O 
+   Baghdad      NNP  I-NP  I-LOC 
+   .            .    O     O 
+```
+
+### 1.12 OntoNotes5.0 数据集
+
+- 介绍：1745k英语、900k中文和300k阿拉伯语文本数据组成，来源于电话对话、新闻通讯社、广播新闻、广播对话和博客
+- 时间：2013
+- 实体类型：PERSON、ORGANIZATION和LOCATION等18个类别
+- 数据集：1393篇英语新闻文章和909篇德语新闻文章
+- 地址：    https://catalog.ldc.upenn.edu/ldc2013t19
+- 数据格式
+
+```s
+
+```
+
+### 1.13 CMeEE
+
+- 介绍：数据集全称是Chinese Medical Entity Extraction，由“北京大学”、“郑州大学”、“鹏城实验室”和“哈尔滨工业大学（深圳）”联合提供，这是一个标准的NER识别任务
+- 时间：2013
+- 实体类型：疾病(dis)，临床表现(sym)，药物(dru)，医疗设备(equ)，医疗程序(pro)，身体(bod)，医学检验项目(ite)，微生物类(mic)，科室(dep)
+- 数据集：
+- 地址：    https://tianchi.aliyun.com/specials/promotion/2021chinesemedicalnlpleaderboardchallenge
+- 数据格式
+
+```s
+[
+  {
+    "text": "（5）房室结消融和起搏器植入作为反复发作或难治性心房内折返性心动过速的替代疗法。",
+    "entities": [
+      {
+        "start_idx": 3,
+        "end_idx": 7,
+        "type": "pro",
+        "entity": "房室结消融"
+      },
+      {
+        "start_idx": 9,
+        "end_idx": 13,
+        "type": "pro",
+        "entity": "起搏器植入"
+      },
+      {
+        "start_idx": 16,
+        "end_idx": 33,
+        "type": "dis",
+        "entity": "反复发作或难治性心房内折返性心动过速"
+      }
+    ]
+  },...
+]
+```
+
+### 1.15 中药说明书实体识别数据集（“万创杯”中医药天池大数据竞赛）
+
+- 介绍：疫情催化下，人工智能正在持续助力中医药传承创新加速发展，其中中医用药知识体系沉淀挖掘是一个基础工作。通过挖掘中药说明书构建中药合理用药的知识图谱，将为中医规范诊疗奠定较好基础。挑战旨在通过抽取中药药品说明书中的关键信息，中医药药品知识库的目标。
+- 时间：2020-11-12
+- 实体类型：
+  - 药品(DRUG):中药名称，指在中医理论指导下，用于预防、治疗、诊断疾病并具有康复与保健作用的物质。中药主要来源于天然药及其加工品，包括植物药、动物药、矿物药及部分化学、生物制品类药物。例子: 六味地黄丸、逍遥散
+  - 药物成分(DRUG_INGREDIENT): 中药组成成分，指中药复方中所含有的所有与该复方临床应用目的密切相关的药理活性成分。例子:当归、人参、枸杞
+  - 疾病(DISEASE): 疾病名称，指人体在一定原因的损害性作用下，因自稳调节紊乱而发生的异常生命活动过程，是特定的异常病理情形，而且会影响生物体的部分或是所有器官。通常解释为“身体病况”（medical condition），而且伴随着特定的症状及医学征象。例子：高血压、心绞痛、糖尿病
+  - 症状(SYMPTOM): 指疾病过程中机体内的一系列机能、代谢和形态结构异常变化所引起的病人主观上的异常感觉或某些客观病态改变。例子_：头晕、心悸、小腹胀痛_
+  - 证候(SYNDROME): 中医学专用术语，概括为一系列有相互关联的症状总称，即通过望、闻、问、切四诊所获知的疾病过程中表现在整体层次上的机体反应状态及其运动、变化，简称证或者候，是指不同症状和体征的综合表现，单一的症状和体征无法表现一个完整的证候。 例子：血瘀、气滞、气血不足、气血两虚
+  - 疾病分组(DISEASE_GROUP): 疾病涉及有人体组织部位的疾病名称的统称概念，非某项具体医学疾病。例子：肾病、肝病、肺病
+  - 食物(FOOD):指能够满足机体正常生理和生化能量需求，并能延续正常寿命的物质。对人体而言，能够满足人的正常生活活动需求并利于寿命延长的物质称之为食物。例子：苹果、茶、木耳、萝卜
+  - 食物分组(FOOD_GROUP): 中医中饮食养生中，将食物分为寒热温凉四性，同时中医药禁忌中对于具有某类共同属性食物的统称，记为食物分组。例子：油腻食物、辛辣食物、凉性食物
+  - 人群(PERSON_GROUP): 中医药的适用及禁忌范围内相关特定人群。例子：孕妇、经期妇女、儿童、青春期少女
+  - 药品分组(DRUG_GROUP): 具有某一类共同属性的药品类统称概念，非某项具体药品名。例子：止咳药、退烧药
+  - 药物剂型(DRUG_DOSAGE): 药物在供给临床使用前，均必须制成适合于医疗和预防应用的形式，成为药物剂型。例子：浓缩丸、水蜜丸、糖衣片
+  - 药物性味(DRUG_TASTE): 药品的性质和气味。例子：味甘、酸涩、气凉
+  - 中药功效(DRUG_EFFICACY): 药品的主治功能和效果的统称，例子：滋阴补肾、去瘀生新、活血化瘀
+- 数据集：
+- 地址：    https://tianchi.aliyun.com/competition/entrance/531824/introduction
+- 数据格式
+
+```s
+{"text": " 口服，一次6克，一日2-3次。  用于子宫寒冷，月经量少子宫寒冷，月经量少、后错，痛经  尚不明确。  1.忌食生冷食物。2.感冒时不宜服用。患有其他疾病者，应在医师指导下服用。3.平素月经正常，突然出现月经过少，或经期错后，或阴道不规则出血，或带下伴阴痒，或赤带者应去医院就诊。4.治疗痛经，宜在经前3～5天开始服药，连服1周。如有生育要求，应在医师指导下服用。5.服药后痛经不减轻，或重度痛经者，应到医院诊治。6.服药2周症状无缓解，应去医院就诊。7.对本品过敏者禁用，过敏体质者慎用。8.本品性状发生改变时禁止使用。9.请将本品放在儿童不能接触的地方。10.如正在使用其他药品，使用本品前请咨询医师或药师。  云南腾药制药股份有限公司  补气养血，调经止带。用于气血凝滞，子宫寒冷，月经量少、后错，痛经，白带量多，小腹下坠，不思饮食 6g*9袋  非处方药物（甲类）  如与其他药物同时使用可能会发生药物相互作用，详情请咨询医师或药师。 ", "entity_list": [{"entity_index": {"begin": 25, "end": 29}, "entity_type": "症状", "entity": "月经量少"}, {"entity_index": {"begin": 29, "end": 33}, "entity_type": "症状", "entity": "子宫寒冷"}, {"entity_index": {"begin": 42, "end": 44}, "entity_type": "症状", "entity": "痛经"}, {"entity_index": {"begin": 57, "end": 59}, "entity_type": "食物分组", "entity": "生冷"}, {"entity_index": {"begin": 103, "end": 107}, "entity_type": "症状", "entity": "月经过少"}, {"entity_index": {"begin": 109, "end": 113}, "entity_type": "症状", "entity": "经期错后"}, {"entity_index": {"begin": 115, "end": 122}, "entity_type": "症状", "entity": "阴道不规则出血"}, {"entity_index": {"begin": 124, "end": 129}, "entity_type": "症状", "entity": "带下伴阴痒"}, {"entity_index": {"begin": 131, "end": 133}, "entity_type": "症状", "entity": "赤带"}, {"entity_index": {"begin": 143, "end": 147}, "entity_type": "中药功效", "entity": "治疗痛经"}, {"entity_index": {"begin": 188, "end": 193}, "entity_type": "症状", "entity": "痛经不减轻"}, {"entity_index": {"begin": 195, "end": 199}, "entity_type": "症状", "entity": "重度痛经"}, {"entity_index": {"begin": 232, "end": 235}, "entity_type": "人群", "entity": "过敏者"}, {"entity_index": {"begin": 270, "end": 272}, "entity_type": "人群", "entity": "儿童"}, {"entity_index": {"begin": 323, "end": 327}, "entity_type": "中药功效", "entity": "补气养血"}, {"entity_index": {"begin": 328, "end": 332}, "entity_type": "中药功效", "entity": "调经止带"}, {"entity_index": {"begin": 335, "end": 339}, "entity_type": "症状", "entity": "气血凝滞"}, {"entity_index": {"begin": 340, "end": 344}, "entity_type": "症状", "entity": "子宫寒冷"}, {"entity_index": {"begin": 345, "end": 349}, "entity_type": "症状", "entity": "月经量少"}, {"entity_index": {"begin": 353, "end": 355}, "entity_type": "症状", "entity": "痛经"}, {"entity_index": {"begin": 356, "end": 360}, "entity_type": "症状", "entity": "白带量多"}, {"entity_index": {"begin": 361, "end": 365}, "entity_type": "症状", "entity": "小腹下坠"}]}
+...
+```
+
+
+## 二、实体关系抽取数据集
+
+### 2.11 CMeIE
+
+- 介绍：数据集全称是Chinese Medical Information Extraction，与CMeEE的数据提供方一样。这是一个关系抽取任务，共包括53类关系类型（具体类型参加官网介绍），从关系种类数量来看，这是一个比较难的任务。这个任务与传统的关系抽取任务有两处不同： 1. 预测阶段并没有事先给出要判定的实体，输入就是原始的文本，因此选手需要同时处理实体识别和关系抽取，可以看作是一个端对端的关系抽取任务；2. 训练数据中的实体并没有给出具体的下标，如果一个实体在句子中多次出现，难点是无法得知关系中的实体具体是指哪一次出现的实体。
+- 时间：2020
+- 实体关系类型：53_schema
+- 数据集：14,339 training set data, 3,585 validation set data, 4,482 test set data
+- 地址：      https://tianchi.aliyun.com/dataset/dataDetail?dataId=95414&lang=en-us
+- 数据格式
+
+```s
+{  
+  "text": "慢性胰腺炎@ ###低剂量放射 自1964年起，有几项病例系列报道称外照射 (5-50Gy) 可以有效改善慢性胰腺炎患者的疼痛症状。慢性胰腺炎@从概念上讲，外照射可以起到抗炎和止痛作用，并且已经开始被用于非肿瘤性疼痛的治疗。", 
+  "spo_list": [ 
+    { 
+      "predicate": "放射治疗", 
+      "subject": "慢性胰腺炎", 
+      "subject_type": "疾病", 
+      "object": { "@value": "外照射" }, 
+      "object_type": { "@value": "其他治疗" } 
+    }, 
+    { 
+      "predicate": "放射治疗", 
+      "subject": "非肿瘤性疼痛", 
+      "subject_type": "疾病", 
+      "object": { "@value": "外照射" }, 
+      "object_type": { "@value": "其他治疗" } 
+      }
+    }
+  ] 
+}
+```
+
+> 53_schemas.json
+```s
+{"subject_type": "疾病", "predicate": "预防", "object_type": "其他"}
+{"subject_type": "疾病", "predicate": "阶段", "object_type": "其他"}
+{"subject_type": "疾病", "predicate": "就诊科室", "object_type": "其他"}
+{"subject_type": "其他", "predicate": "同义词", "object_type": "其他"}
+{"subject_type": "疾病", "predicate": "辅助治疗", "object_type": "其他治疗"}
+...
+```
+
+### 2.10 DocRED文档级实体关系数据集
+
+- 介绍：基于维基百科的文档级关系抽取数据集
+- 时间：2019
+- 实体关系类型：命名实体提及、核心参考信息、句内和句间关系以及支持证据。关系类型涉及科学、艺术、时间、个人生活在内的96种Wikidata关系类型。
+- 数据集：在5053个维基百科文档上进行标注，包含132375个实体和56354个关系事实。
+- 地址：      https://github.com/thunlp/DocRED
+- 数据格式
+
+```s
+{
+  'title',
+  'sents':     [
+                  [word in sent 0],
+                  [word in sent 1]
+               ]
+  'vertexSet': [
+                  [
+                    { 'name': mention_name, 
+                      'sent_id': mention in which sentence, 
+                      'pos': postion of mention in a sentence, 
+                      'type': NER_type}
+                    {anthor mention}
+                  ], 
+                  [anthoer entity]
+                ]
+  'labels':   [
+                {
+                  'h': idx of head entity in vertexSet,
+                  't': idx of tail entity in vertexSet,
+                  'r': relation,
+                  'evidence': evidence sentences' id
+                }
+              ]
+}
+```
+
+### 2.9 Chinese Literature Text文档级实体关系数据集
+
+- 介绍：面向中文文学的一个实体关系数据集
+- 时间：2019
+- 实体关系类型：物体、人名、地名、时间名、容量名、组织和摘要共7类实体，位于、部分、家庭、概括、社会、拥有、使用、制造、邻接等9类实体关系
+- 数据集：共计726篇文章，29096句话，超过100000个字符。训练集695篇，验证集58篇、测试集84篇。
+- 地址：      https://github.com/lancopku/Chinese-Literature-NER-RE-Dataset
+- 数据格式
+
+> ner train.txt
+```s
+记 O
+得 O
+小 B_Time
+时 I_Time
+候 I_Time
+， O
+妈 B_Person
+妈 I_Person
+说 O
+起 O
+哪 O
+个 O
+典 O
+型 O
+败 B_Person
+家 I_Person
+子 I_Person
+形 O
+象 O
+， O
+挂 O
+在 O
+嘴 O
+边 O
+的 O
+就 O
+是 O
+那 B_Person
+人 I_Person
+吃 O
+喝 O
+嫖 O
+赌 O
+瘾 O
+五 O
+毒 O
+俱 O
+全 O
+。 O
+...
+```
+
+> relation_extraction
+
+> txt
+```s
+清明是人们祭扫先人，怀念追思的日子。正如宋代诗人高翥所云“南北山头多墓田，清明祭扫各纷然。纸灰飞作白蝴蝶，泪血染成红杜鹃
+”。凡清明之时，总是屡屡哀思涌上心头，对母亲怀念的情愫越发细腻绵长。
+...
+```
+
+> ann
+```s
+T1	Person-Name 20 26	宋代诗人高翥
+T2	Person-Pronoun 108 109	我
+...
+```
+
+### 2.8 人物实体关系数据集
+
+- 介绍：CCKS2019中的一个层级关系分类任务
+- 时间：2019
+- 实体关系类型：三大类(亲属关系、社交关系、师生关系)，四中类(配偶、血亲、姻亲、友谊）、35小类(现夫、前妻)种关系类型
+- 数据集：3841条验证集、287351条训练集以及77092条测试集句子
+- 地址：     https://github.com/SUDA-HLT/IPRE
+- 数据格式
+
+> bag_relation_train.txt
+```s
+TRAIN_BAG_ID_000001	金泰熙	金东	TRAIN_SENT_ID_000001	0
+TRAIN_BAG_ID_000002	辛文山	林散之	TRAIN_SENT_ID_000002	0
+...
+```
+
+> bag_relation_train.txt
+```s
+TRAIN_SENT_ID_000001	0
+TRAIN_SENT_ID_000002	0
+...
+```
+
+
+> sent_train_1.txt
+```s
+TRAIN_SENT_ID_000001	金泰熙	金东	韩国 梦想 演唱会 第十届 2004 年 : MC : 金泰熙 ， 金东 万
+TRAIN_SENT_ID_000002	辛文山	林散之	林散之 先生 等 当代 名家 对 辛文山 先生 的 书法 均 有 精辟 的 点评 ， 对 书法 爱好者 自学 书法 有 较 高 的 参考价值 。
+...
+```
+
+> schema.json
+```s
+NA	0
+人物关系/亲属关系/配偶/丈夫/现夫	1
+人物关系/亲属关系/配偶/丈夫/前夫	2
+人物关系/亲属关系/配偶/丈夫/未婚夫	3
+...
+```
+
+### 2.7 COAE2016实体关系数据集
+
+- 介绍：CAOE2016 task3任务中用到的一个关系数据集
+- 时间：2016
+- 实体关系类型：关系类别包括出生日期、出生地、毕业院校、配偶、子女、高管、员工数、创始人、总部、其他共十类关系。
+- 数据集：包含988个训练数据和483个测试数据
+- 地址：   NRE\chinese
+- 数据格式
+
+> 训练数据
+> schema.json
+```s
+{'NA': 0, '/人物/其它/职业': 1, '/人物/组织/毕业于': 2, '/人物/其它/民族': 3, '/地点/地点/毗邻': 4, '/人物/地点/出生地': 5, '/人物/地点/国籍': 6, '/人物/组织/属于': 7, '/人物/人物/家庭成员': 8, '/组织/组织/周边': 9, '/组织/地点/位于': 10, '/地点/地点/包含': 11, '/地点/组织/景点': 12, '/地点/人物/相关人物': 13, '/地点/地点/首都': 14, '/组织/人物/校长': 15, '/组织/人物/创始人': 16, '/地点/其它/气候': 17, '/组织/人物/领导人': 18, '/组织/人物/拥有者': 19, '/地点/地点/位于': 20, '/人物/人物/社交关系': 21, '/人物/地点/居住地': 22}
+```
+
+### 2.6 DuIE2.0实体关系数据集
+
+- 介绍：业界规模最大的基于schema的中文关系抽取数据集，来自百度百科、百度贴吧和百度信息流文本。
+- 时间：2020
+- 实体关系类型：包含超过43万三元组数据、21万中文句子及48个预定义的关系类型。
+- 数据集：包括171135个训练集、21055个测试数据，外加80184条混淆数据。
+- 地址：    https://github.com/PaddlePaddle/PaddleNLP/tree/develop/examples/information_extraction/DuIE
+- 数据格式
+
+> 训练数据
+```s
+    {"text": "吴宗宪遭服务生种族歧视, 他气呛: 我买下美国都行!艺人狄莺与孙鹏18岁的独子孙安佐赴美国读高中，没想到短短不到半年竟闹出校园安全事件被捕，因为美国正处于校园枪击案频传的敏感时机，加上国外种族歧视严重，外界对于孙安佐的情况感到不乐观 吴宗宪今（30）日录影前谈到美国民情，直言国外种族歧视严重，他甚至还被一名墨西哥裔的服务生看不起，让吴宗宪气到喊：「我是吃不起是不是", "spo_list": [{"predicate": "父亲", "object_type": {"@value": "人物"}, "subject_type": "人物", "object": {"@value": "孙鹏"}, "subject": "孙安佐"}, {"predicate": "母亲", "object_type": {"@value": "人物"}, "subject_type": "人物", "object": {"@value": "狄莺"}, "subject": "孙安佐"}, {"predicate": "丈夫", "object_type": {"@value": "人物"}, "subject_type": "人物", "object": {"@value": "孙鹏"}, "subject": "狄莺"}, {"predicate": "妻子", "object_type": {"@value": "人物"}, "subject_type": "人物", "object": {"@value": "狄莺"}, "subject": "孙鹏"}]}
+    ...
+```
+
+> schema.json
+```s
+    {"object_type": {"@value": "学校"}, "predicate": "毕业院校", "subject_type": "人物"}
+    {"object_type": {"@value": "人物"}, "predicate": "嘉宾", "subject_type": "电视综艺"}
+    {"object_type": {"inWork": "影视作品", "@value": "人物"}, "predicate": "配音", "subject_type": "娱乐人物"}
+    {"object_type": {"@value": "歌曲"}, "predicate": "主题曲", "subject_type": "影视作品"}
+    {"object_type": {"@value": "人物"}, "predicate": "代言人", "subject_type": "企业/品牌"}
+    {"object_type": {"@value": "音乐专辑"}, "predicate": "所属专辑", "subject_type": "歌曲"}
+    {"object_type": {"@value": "人物"}, "predicate": "父亲", "subject_type": "人物"}
+    {"object_type": {"@value": "人物"}, "predicate": "作者", "subject_type": "图书作品"}
+    {"object_type": {"inArea": "地点", "@value": "Date"}, "predicate": "上映时间", "subject_type": "影视作品"}
+    {"object_type": {"@value": "人物"}, "predicate": "母亲", "subject_type": "人物"}
+    {"object_type": {"@value": "Text"}, "predicate": "专业代码", "subject_type": "学科专业"}
+    {"object_type": {"@value": "Number"}, "predicate": "占地面积", "subject_type": "机构"}
+    {"object_type": {"@value": "Text"}, "predicate": "邮政编码", "subject_type": "行政区"}
+    {"object_type": {"inArea": "地点", "@value": "Number"}, "predicate": "票房", "subject_type": "影视作品"}
+    {"object_type": {"@value": "Number"}, "predicate": "注册资本", "subject_type": "企业"}
+    {"object_type": {"@value": "人物"}, "predicate": "主角", "subject_type": "文学作品"}
+    {"object_type": {"@value": "人物"}, "predicate": "妻子", "subject_type": "人物"}
+    {"object_type": {"@value": "人物"}, "predicate": "编剧", "subject_type": "影视作品"}
+    {"object_type": {"@value": "气候"}, "predicate": "气候", "subject_type": "行政区"}
+    {"object_type": {"@value": "人物"}, "predicate": "歌手", "subject_type": "歌曲"}
+    {"object_type": {"inWork": "作品", "onDate": "Date", "@value": "奖项", "period": "Number"}, "predicate": "获奖", "subject_type": "娱乐人物"}
+    {"object_type": {"@value": "人物"}, "predicate": "校长", "subject_type": "学校"}
+    {"object_type": {"@value": "人物"}, "predicate": "创始人", "subject_type": "企业"}
+    {"object_type": {"@value": "城市"}, "predicate": "首都", "subject_type": "国家"}
+    {"object_type": {"@value": "人物"}, "predicate": "丈夫", "subject_type": "人物"}
+    {"object_type": {"@value": "Text"}, "predicate": "朝代", "subject_type": "历史人物"}
+    {"object_type": {"inWork": "影视作品", "@value": "人物"}, "predicate": "饰演", "subject_type": "娱乐人物"}
+    {"object_type": {"@value": "Number"}, "predicate": "面积", "subject_type": "行政区"}
+    {"object_type": {"@value": "地点"}, "predicate": "总部地点", "subject_type": "企业"}
+    {"object_type": {"@value": "地点"}, "predicate": "祖籍", "subject_type": "人物"}
+    {"object_type": {"@value": "Number"}, "predicate": "人口数量", "subject_type": "行政区"}
+    {"object_type": {"@value": "人物"}, "predicate": "制片人", "subject_type": "影视作品"}
+    {"object_type": {"@value": "Number"}, "predicate": "修业年限", "subject_type": "学科专业"}
+    {"object_type": {"@value": "城市"}, "predicate": "所在城市", "subject_type": "景点"}
+    {"object_type": {"@value": "人物"}, "predicate": "董事长", "subject_type": "企业"}
+    {"object_type": {"@value": "人物"}, "predicate": "作词", "subject_type": "歌曲"}
+    {"object_type": {"@value": "作品"}, "predicate": "改编自", "subject_type": "影视作品"}
+    {"object_type": {"@value": "企业"}, "predicate": "出品公司", "subject_type": "影视作品"}
+    {"object_type": {"@value": "人物"}, "predicate": "导演", "subject_type": "影视作品"}
+    {"object_type": {"@value": "人物"}, "predicate": "作曲", "subject_type": "歌曲"}
+    {"object_type": {"@value": "人物"}, "predicate": "主演", "subject_type": "影视作品"}
+    {"object_type": {"@value": "人物"}, "predicate": "主持人", "subject_type": "电视综艺"}
+    {"object_type": {"@value": "Date"}, "predicate": "成立日期", "subject_type": "机构"}
+    {"object_type": {"@value": "Text"}, "predicate": "简称", "subject_type": "机构"}
+    {"object_type": {"@value": "Number"}, "predicate": "海拔", "subject_type": "地点"}
+    {"object_type": {"@value": "Text"}, "predicate": "号", "subject_type": "历史人物"}
+    {"object_type": {"@value": "国家"}, "predicate": "国籍", "subject_type": "人物"}
+    {"object_type": {"@value": "语言"}, "predicate": "官方语言", "subject_type": "国家"}
+```
+
+### 2.5 NYT10实体关系数据集
+
+- 介绍：在基于远程监督的关系抽取任务上最常用的数据集，由NYT corpus 在2010年基于Freebase远程监督得到的
+- 时间：2010
+- 实体关系类型：founders、place_of_birth在内的53种关系（包括一种NA），存在一定的噪声。
+
+```s
+{
+    "/location/fr_region/capital": 2, 
+     "/location/cn_province/capital": 3, 
+     "/location/in_state/administrative_capital": 4, 
+     "/base/locations/countries/states_provinces_within": 5, 
+     "/sports/sports_team_location/teams": 53, 
+     "/business/company/founders": 6, 
+     "/film/film_festival/location": 52, 
+     "/people/person/place_of_birth": 8, 
+     "/people/deceased_person/place_of_death": 9, 
+     "/location/it_region/capital": 10, 
+     "/people/family/members": 11, 
+     "/people/profession/people_with_this_profession": 14, 
+     "/people/ethnicity/people": 54, 
+     "/location/neighborhood/neighborhood_of": 1, 
+     "NA": 0, 
+     "/location/in_state/legislative_capital": 16, 
+     "/sports/sports_team/location": 17, 
+     "/location/in_state/judicial_capital": 19, 
+     "/business/company_advisor/companies_advised": 20, 
+     "/people/family/country": 21, 
+     "/location/country/capital": 47, 
+     "/business/company/place_founded": 23, 
+     "/location/administrative_division/country": 24, 
+     "/people/person/place_lived": 36, 
+     "/people/ethnicity/included_in_group": 25, 
+     "/business/company/industry": 56, 
+     "/location/br_state/capital": 15, 
+     "/location/location/contains": 48, 
+     "/location/province/capital": 27, 
+     "/people/person/nationality": 28, 
+     "/business/person/company": 29, 
+     "/business/shopping_center_owner/shopping_centers_owned": 30, 
+     "/business/company/advisors": 31, 
+     "/business/shopping_center/owner": 32, 
+     "/location/country/languages_spoken": 7, 
+     "/people/deceased_person/place_of_burial": 34, 
+     "/location/us_county/county_seat": 13, 
+     "/people/ethnicity/geographic_distribution": 35, 
+     "/people/person/religion": 18, 
+     "/business/company/major_shareholders": 37, 
+     "/broadcast/producer/location": 38, 
+     "/location/us_state/capital": 12, 
+     "/broadcast/content/location": 39, 
+     "/business/company_shareholder/major_shareholder_of": 55, 
+     "/business/business_location/parent_company": 40, 
+     "/film/film/featured_film_locations": 42, 
+     "/people/place_of_interment/interred_here": 43, 
+     "/location/de_state/capital": 44, 
+     "/people/person/profession": 45, 
+     "/business/company/locations": 46, 
+     "/time/event/locations": 22, 
+     "/location/mx_state/capital": 26, 
+     "/people/person/ethnicity": 33, 
+     "/location/country/administrative_divisions": 49, 
+     "/people/person/children": 50, 
+     "/film/film_location/featured_in_films": 51, 
+     "/location/jp_prefecture/capital": 41, 
+     "/people/ethnicity/includes_groups": 57
+}
+```
+
+- 数据集：466876条训练集、55167条验证集以及172448条测试集。
+- 地址：    https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_nyt10.sh
+- 数据格式
+
+```s
+{"text": "She also oversaw the refinancing of the state Superfund law ; the creation of a plan for decontaminating heavily polluted Onondaga Lake , near Syracuse ; the acquisition of hundreds of thousands of acres of Adirondack woodlands ; and the imposition of tough new acid rain rules .", "relation": "/location/location/contains", "h": {"id": "m.071cn", "name": "Syracuse", "pos": [143, 151]}, "t": {"id": "m.02_v74", "name": "Onondaga Lake", "pos": [122, 135]}}
+{"text": "More than 2.5 million cubic yards of contaminated mud will be dredged from Onondaga Lake , near Syracuse , under a consent decree between the state and Honeywell International that was announced yesterday .", "relation": "/location/location/contains", "h": {"id": "m.071cn", "name": "Syracuse", "pos": [96, 104]}, "t": {"id": "m.02_v74", "name": "Onondaga Lake", "pos": [75, 88]}}
+...
+```
+
+### 2.4 Wiki80实体关系数据集
+
+- 介绍：从数据集FewRel上提取的一个关系数据集
+- 时间：
+- 实体关系类型：包含location、part of、follows等80种关系，每种关系个数均为700，共56000个样本。
+
+```s
+{
+     "place served by transport hub": 0, 
+      "mountain range": 1, 
+      "religion": 2, 
+      "participating team": 3, 
+      "contains administrative territorial entity": 4, 
+      "head of government": 5, 
+      "country of citizenship": 6, 
+      "original network": 7, 
+      "heritage designation": 8, 
+      "performer": 9, 
+      "participant of": 10, 
+      "position held": 11, 
+      "has part": 12, 
+      "location of formation": 13, 
+      "located on terrain feature": 14, 
+      "architect": 15, 
+      "country of origin": 16, 
+      "publisher": 17, 
+      "director": 18, 
+      "father": 19, 
+      "developer": 20, 
+      "military branch": 21, 
+      "mouth of the watercourse": 22, 
+      "nominated for": 23, 
+      "movement": 24, 
+      "successful candidate": 25, 
+      "followed by": 26, 
+      "manufacturer": 27, 
+      "instance of": 28, 
+      "after a work by": 29, 
+      "member of political party": 30, 
+      "licensed to broadcast to": 31, 
+      "headquarters location": 32, 
+      "sibling": 33, 
+      "instrument": 34, 
+      "country": 35, 
+      "occupation": 36, 
+      "residence": 37, 
+      "work location": 38, 
+      "subsidiary": 39, 
+      "participant": 40, 
+      "operator": 41, 
+      "characters": 42, 
+      "occupant": 43, 
+      "genre": 44, 
+      "operating system": 45, 
+      "owned by": 46, 
+      "platform": 47, 
+      "tributary": 48, 
+      "winner": 49, 
+      "said to be the same as": 50, 
+      "composer": 51, 
+      "league": 52, 
+      "record label": 53, 
+      "distributor": 54, 
+      "screenwriter": 55, 
+      "sports season of league or competition": 56, 
+      "taxon rank": 57, 
+      "location": 58, 
+      "field of work": 59, 
+      "language of work or name": 60, 
+      "applies to jurisdiction": 61, 
+      "notable work": 62, 
+      "located in the administrative territorial entity": 63, 
+      "crosses": 64, 
+      "original language of film or TV show": 65, 
+      "competition class": 66, 
+      "part of": 67, 
+      "sport": 68, 
+      "constellation": 69, 
+      "position played on team / speciality": 70, 
+      "located in or next to body of water": 71, 
+      "voice type": 72, 
+      "follows": 73, 
+      "spouse": 74, 
+      "military rank": 75, 
+      "mother": 76, 
+      "member of": 77, 
+      "child": 78, 
+      "main subject": 79
+}
+```
+
+- 数据集：50400条训练集、5600条验证集
+- 地址：   https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_wiki80.sh
+- 数据格式
+
+```s
+  {"token": ["Merpati", "flight", "106", "departed", "Jakarta", "(", "CGK", ")", "on", "a", "domestic", "flight", "to", "Tanjung", "Pandan", "(", "TJQ", ")", "."], "h": {"name": "tjq", "id": "Q1331049", "pos": [16, 17]}, "t": {"name": "tanjung pandan", "id": "Q3056359", "pos": [13, 15]}, "relation": "place served by transport hub"}
+  {"token": ["The", "name", "was", "at", "one", "point", "changed", "to", "Nottingham", "East", "Midlands", "Airport", "so", "as", "to", "include", "the", "name", "of", "the", "city", "that", "is", "supposedly", "most", "internationally", "recognisable", ",", "mainly", "due", "to", "the", "Robin", "Hood", "legend", "."], "h": {"name": "east midlands airport", "id": "Q8977", "pos": [9, 12]}, "t": {"name": "nottingham", "id": "Q41262", "pos": [8, 9]}, "relation": "place served by transport hub"}
+  ...
+```
+
+### 2.3 FewRel实体关系数据集
+
+- 介绍：清华大学于2018年发布的精标注关系抽取数据集，是当前规模最大的中文实体关系数据集
+- 时间：2018
+- 实体关系类型：100个关系类别、70,000个关系实例
+
+```s
+  {
+    "P931": 0, 
+    "P4552": 1, 
+    "P140": 2, 
+    "P1923": 3, 
+    "P150": 4, 
+    "P6": 5, 
+    "P27": 6, 
+    "P449": 7, 
+    "P1435": 8, 
+    "P175": 9, 
+    "P1344": 10, 
+    "P39": 11, 
+    "P527": 12, 
+    "P740": 13, 
+    "P706": 14, 
+    "P84": 15, 
+    "P495": 16, 
+    "P123": 17, 
+    "P57": 18, 
+    "P22": 19, 
+    "P178": 20, 
+    "P241": 21, 
+    "P403": 22, 
+    "P1411": 23, 
+    "P135": 24, 
+    "P991": 25, 
+    "P156": 26, 
+    "P176": 27, 
+    "P31": 28, 
+    "P1877": 29, 
+    "P102": 30, 
+    "P1408": 31, 
+    "P159": 32, 
+    "P3373": 33, 
+    "P1303": 34, 
+    "P17": 35, 
+    "P106": 36, 
+    "P551": 37, 
+    "P937": 38, 
+    "P355": 39, 
+    "P710": 40, 
+    "P137": 41, 
+    "P674": 42, 
+    "P466": 43, 
+    "P136": 44, 
+    "P306": 45, 
+    "P127": 46, 
+    "P400": 47, 
+    "P974": 48, 
+    "P1346": 49, 
+    "P460": 50, 
+    "P86": 51, 
+    "P118": 52, 
+    "P264": 53, 
+    "P750": 54, 
+    "P58": 55, 
+    "P3450": 56, 
+    "P105": 57, 
+    "P276": 58, 
+    "P101": 59, 
+    "P407": 60, 
+    "P1001": 61, 
+    "P800": 62, 
+    "P131": 63
+}
+```
+
+- 数据集：每句的平均长度为24.99，一共出现 124,577 个不同的单词/符号。
+- 地址：  https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_fewrel.sh
+- 数据格式
+
+```s
+  {"token": ["Merpati", "flight", "106", "departed", "Jakarta", "(", "CGK", ")", "on", "a", "domestic", "flight", "to", "Tanjung", "Pandan", "(", "TJQ", ")", "."], "h": {"name": "tjq", "id": "Q1331049", "pos": [16, 17]}, "t": {"name": "tanjung pandan", "id": "Q3056359", "pos": [13, 15]}, "relation": "P931"}
+  {"token": ["The", "name", "was", "at", "one", "point", "changed", "to", "Nottingham", "East", "Midlands", "Airport", "so", "as", "to", "include", "the", "name", "of", "the", "city", "that", "is", "supposedly", "most", "internationally", "recognisable", ",", "mainly", "due", "to", "the", "Robin", "Hood", "legend", "."], "h": {"name": "east midlands airport", "id": "Q8977", "pos": [9, 12]}, "t": {"name": "nottingham", "id": "Q41262", "pos": [8, 9]}, "relation": "P931"}
+  ...
+```
+
+### 2.2 SemEval实体关系数据集
+
+- 介绍：2010年国际语义评测大会中Task8任务所使用的数据集
+- 时间：2010
+- 实体关系类型：Cause-Effect(因果关系)、Instrument-Agency(操作、使用关系)、Product-Producer(产品-生产者关系)、 Content-Container(空间包含关系)、Entity-Origin(起源关系)、Entity-Destination(导向关系)、 Component-Whole(组件-整体关系)、Member-Collection(成员-集合关系)、Message-Topic(主题关系)等10类关系。
+
+```s
+  {
+    "Component-Whole(e2,e1)": 0, 
+    "Other": 1, 
+    "Instrument-Agency(e2,e1)": 2, 
+    "Member-Collection(e1,e2)": 3, 
+    "Cause-Effect(e2,e1)": 4, 
+    "Entity-Destination(e1,e2)": 5, 
+    "Content-Container(e1,e2)": 6, 
+    "Message-Topic(e1,e2)": 7, 
+    "Product-Producer(e2,e1)": 8, 
+    "Member-Collection(e2,e1)": 9, 
+    "Entity-Origin(e1,e2)": 10, 
+    "Cause-Effect(e1,e2)": 11, 
+    "Component-Whole(e1,e2)": 12, 
+    "Message-Topic(e2,e1)": 13, 
+    "Product-Producer(e1,e2)": 14, 
+    "Entity-Origin(e2,e1)": 15, 
+    "Content-Container(e2,e1)": 16, 
+    "Instrument-Agency(e1,e2)": 17, 
+    "Entity-Destination(e2,e1)": 18
+} 
+```
+
+- 数据集：8000个训练样本，2717个测试样本
+- 地址：  https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_semeval.sh
+- 数据格式
+
+```s
+  {"token": ["the", "original", "play", "was", "filled", "with", "very", "topical", "humor", ",", "so", "the", "director", "felt", "free", "to", "add", "current", "topical", "humor", "to", "the", "script", "."], "h": {"name": "play", "pos": [2, 3]}, "t": {"name": "humor", "pos": [8, 9]}, "relation": "Component-Whole(e2,e1)"}
+  {"token": ["the", "crane", "arm", "raises", ",", "swivels", ",", "and", "extends", "to", "a", "maximum", "length", "of", "11", "''", "inches", ",", "just", "like", "our", "own", "poe", "ghostal", "."], "h": {"name": "crane", "pos": [1, 2]}, "t": {"name": "arm", "pos": [2, 3]}, "relation": "Component-Whole(e2,e1)"}
+  ...
+```
+
+### 2.1 ACE实体关系数据集
+
+- 介绍：包括英语，阿拉伯语和中文三部分数据，分成广播新闻和新闻专线两部分
+- 时间：2005
+- 实体关系类型：ART、Gen-affiliation在内的6种关系类型，Employment、Founder、Ownership在内的额18种子关系类型。
+- 数据集：451个文档和5 702个关系实例。ACE2005中文数据集包括633个文档、307991个字符
+- 地址：     https://catalog.ldc.upenn.edu/byproject
+- 数据格式
+
+```s
+
+```
+
+## 十一、翻译语料
+
+### 11.1 翻译语料(translation2019zh)
+
+- 介绍：中英文平行语料520万对。每一个对，包含一个英文和对应的中文。中文或英文，多数情况是一句带标点符号的完整的话。对于一个平行的中英文对，中文平均有36个字，英文平均有19个单词(单词如“she”)
+- 规模：520万个中英文平行语料( 原始数据1.1G，压缩文件596M)
+- 数据集划分：数据去重并分成三个部分。训练集：516万；验证集：3.9万；测试集，数万，不提供下载。
+- 数据地址：https://drive.google.com/open?id=1EX8eE5YWBxCaohBO8Fh4e2j3b9C2bTVQ
+- 用途：
+  - 可以用于训练中英文翻译系统，从中文翻译到英文，或从英文翻译到中文；
+  - 由于有上百万的中文句子，可以只抽取中文的句子，做为通用中文语料，训练词向量或做为预训练的语料。英文任务也可以类似操作；
+- 数据样式：
+
+```s
+  {"english": <english>, "chinese": <chinese>}
+
+  其中，english是英文句子，chinese是中文句子，中英文一一对应。
+
+  {"english": "In Italy, there is no real public pressure for a new, fairer tax system.", "chinese": "在意大利，公众不会真的向政府施压，要求实行新的、更公平的税收制度。"}
+```
+
+## 十、预训练语料
+
+### 10.1 维基百科json版(wiki2019zh)
+
+- 介绍：可以做为通用中文语料，做预训练的语料或构建词向量，也可以用于构建知识问答。
+- 规模：104万个词条(1,043,224条; 原始文件大小1.6G，压缩文件519M；数据更新时间：2019.2.7)
+- 数据地址：https://pan.baidu.com/s/1uPMlIY3vhusdnhAge318TA
+- 数据样式：
+
+```s
+  {"id":<id>,"url":<url>,"title":<title>,"text":<text>} 其中，title是词条的标题，text是正文；通过"\n\n"换行。
+
+  {"id": "53", "url": "https://zh.wikipedia.org/wiki?curid=53", "title": "经济学", "text": "经济学\n\n经济学是一门对产品和服务的生产、分配以及消费进行研究的社会科学。西方语言中的“经济学”一词源于古希腊的。\n\n经济学注重的是研究经济行为者在一个经济体系下的行为，以及他们彼此之间的互动。在现代，经济学的教材通常将这门领域的研究分为总体经济学和个体经济学。微观经济学检视一个社会里基本层次的行为，包括个体的行为者（例如个人、公司、买家或卖家）以及与市场的互动。而宏观经济学则分析整个经济体和其议题，包括失业、通货膨胀、经济成长、财政和货币政策等。..."}
+```
+
+## 九、文本生成
+
+### 9.1 现代诗生成
+
+- 数据链接：https://aclanthology.org/P19-1192/
+
+### 9.2 中文古诗生成
+
+- 数据链接：https://aclanthology.org/D14-1074/
+
+### 9.3 古诗数据
+
+- 数据链接：https://homepages.inf.ed.ac.uk/mlap/Data/EMNLP14/
+
 ## 八、对话语料
+
+### 8.4 Diamante中文开放域闲聊数据集
+
+#### 8.4.1 介绍
+
+机器辅助人工标注的中文闲聊数据集，含有机器生成的候选回复，以及人工选择/修改的最终回复，全方面提高对话系统的闲聊能力
+
+#### 8.4.2 数据预览
+
+| Json Key Name |    Description    |
+| ------------- | ---------- |
+| id | dialogue id |
+| conversation | the whole dialogue |
+| role | current utterance |
+| response_candidates | candidate responses for the current context |
+
+#### 8.4.3 数据样本
+
+```s
+{
+  "id": "dialogue-00000",
+  "conversation": [
+    {
+      "role": "speaker1",
+      "utterance": "最近天气好好，想出去拍照片",
+      "response_candidates": [
+        "去哪，带上我",
+        "想去哪拍？",
+        "去哪里拍，我也想拍",
+        "拍人还是拍景呢",
+        "我也想，可是不知道有啥好地方",
+        "你是摄影专业的么",
+        "我也有这个打算，不过我的相机是渣渣"
+      ]
+    },
+    {
+      "role": "speaker2",
+      "utterance": "我也有这个打算，不过我的相机是渣渣",
+      "response_candidates": [
+        "我也渣，我都是用手机拍的，相机还没买",
+        "我相机也是个渣渣",
+        "你用相机拍，我用手机帮你拍，哈哈",
+        "没事啊，我也是菜鸟",
+        "手机也可以拍啊，",
+        "可以一起拍啊，我是手机，没相机，你是什么相机啊？",
+        "我也就入门机"
+      ]
+    },
+    {
+      "role": "speaker1",
+      "utterance": "哈哈哈我也不是专业的，我就是瞎拍，多拍拍就好了",
+      "response_candidates": [
+        "那你打算什么时候去拍啊",
+        "你是什么相机啊",
+        "我都好久没拍了",
+        "哈哈，我是纯业余的",
+        "哈哈，我都没怎么好好拍过",
+        "你打算什么时候，在哪拍？",
+        "好，我也是业余的，可以加个微信吗"
+      ]
+    },
+    {
+      "role": "speaker2",
+      "utterance": "那你打算什么时候去拍啊",
+      "response_candidates": [
+        "这周没时间了，下周吧，你想去哪拍？",
+        "过两天，这两天没时间",
+        "这两天有时间就去",
+        "今天啊，天气这么好，明天也行啊",
+        "周末吧，平时上班的",
+        "我这几天都在上班，周末有空",
+        "我想拍的时候就去了啊"
+      ]
+    },
+    {
+      "role": "speaker1",
+      "utterance": "就这两天吧，刚好是清明节",
+      "response_candidates": [
+        "好啊，去哪里拍啊",
+        "你有没有想去的地方？",
+        "那你是在哪里拍啊",
+        "我是打算明天下午去拍的",
+        "嗯，我也差不多，清明后就要开始忙了",
+        "哦哦，我清明不在长沙",
+        "去拍的地方选好了没，我还不知道去拍什么"
+      ]
+    },
+    {
+      "role": "speaker2",
+      "utterance": "嗯，我也差不多，清明后就要开始忙了",
+      "response_candidates": [
+        "那你有没有想好要去哪",
+        "你是要拍人还是拍风景呀？",
+        "你是在哪边？",
+        "那要一起么？",
+        "那一起吧！我加你微信",
+        "那我们可以一起呀！你是在哪个区？",
+        "你要去吗，那你是男的女的"
+      ]
+    },
+    {
+      "role": "speaker1",
+      "utterance": "我是学生所以还好哈哈哈，平时间都比较多的",
+      "response_candidates": [
+        "嗯，那你是在哪里读书啊",
+        "真好，我已经毕业快一年了",
+        "羡慕，我都已经毕业了",
+        "好吧，我已经毕业了，我打算后天去拍",
+        "那你比我好多了，我工作了的",
+        "好吧，真幸福，我是打算这几天抽一天去拍的",
+        "那挺好的，有时间可以一起出去，我在南山这边"
+      ]
+    },
+    {
+      "role": "speaker2",
+      "utterance": "羡慕，我都已经毕业了",
+      "response_candidates": [
+        "我也快了，马上大四",
+        "我还想赶紧毕业呢",
+        "我也想快点毕业，然后赚钱",
+        "没事的，可以自己赚钱自己花！我就想这样！嘿嘿嘿",
+        "我现在都大二了也快啦",
+        "我还要读五年呢，也很苦",
+        "那是该努力赚钱咯"
+      ]
+    },
+    {
+      "role": "speaker1",
+      "utterance": "我也想快点毕业，然后赚钱",
+      "response_candidates": [
+        "等你毕业就不这么想了，还是在学校好，你是大几了",
+        "你还有多久毕业啊",
+        "毕业之后你就会怀念上学的时候，还是好好珍惜当下的生活吧",
+        "你是在长沙读书吗？",
+        "我还想在读大学呢",
+        "你大几啊？毕业就怀念大学了",
+        "毕业以后压力会大很多的"
+      ]
+    },
+    {
+      "role": "speaker2",
+      "utterance": "毕业之后你就会怀念上学的时候，还是好好珍惜当下的生活吧",
+      "response_candidates": [
+        "我知道，可是我现在很迷茫，都不知道自己该干什么",
+        "我知道啊，但是我现在就是想赚钱",
+        "那你是在工作了吗",
+        "是啊，但是现在也挺忙的",
+        "嗯嗯，珍惜现在",
+        "当下就要好好学习了",
+        "是的吧，但是我感觉自己现在就很不珍惜"
+      ]
+    },
+    {
+      "role": "speaker1",
+      "utterance": "哈哈哈，每个阶段都会怀念过去",
+      "response_candidates": [
+        "嗯，是的，你大几了",
+        "嗯，人都是这样的，所以要好好的珍惜现在",
+        "也是，都是这么过来的",
+        "嗯，你还不睡觉啊",
+        "是呀，所以现在好好生活就好了",
+        "是啊，所以我打算有机会就回去学校",
+        "是的，我现在就很怀念大学的时候"
+      ]
+    },
+    {
+      "role": "speaker2",
+      "utterance": "嗯，人都是这样的，所以要好好的珍惜现在",
+      "response_candidates": [
+        "嗯嗯，会的，我现在很努力的在过好每一天",
+        "所以我现在要睡觉了，好困，晚安",
+        "好的呢，我会的啦",
+        "嗯啊，都知道这个道理，可是总是事与愿违",
+        "嗯呐，好好享受现在",
+        "现在也就这样吧，一天忙得要死",
+        "嗯啊，现在就很好！你也是哈"
+      ]
+    },
+    {
+      "role": "speaker1",
+      "utterance": "对啊，人生无常，过好每一天",
+      "response_candidates": [
+        "是啊，过一天少一天",
+        "是的，活在当下",
+        "嗯，是的，活在当下嘛",
+        "是啊，活在当下",
+        "嗯，你的心态很好，继续保持",
+        "嗯，你是大学生？",
+        "是呀，活在当下嘛"
+      ]
+    },
+    {
+      "role": "speaker2",
+      "utterance": "你这么年纪轻轻就参悟生命的真谛哈哈哈",
+      "response_candidates": [
+        "是啊，我是一个有故事的男人",
+        "因为我觉得我现在就活的很无常",
+        "我是老了老了",
+        "我已经是老人家了好嘛",
+        "哈哈哈，你也很年轻啊",
+        "因为我是小仙女，哈哈哈",
+        "哈哈哈，不年轻了，只是觉得每一天都很重要"
+      ]
+    }
+  ]
+}
+```
 
 ### 8.1 对话语料介绍
 
@@ -34,6 +1303,51 @@ xiaohuangji（小黄鸡语料） | https://github.com/candlewill/Dialog_Corpus
 
 2. Google Drive  https://drive.google.com/file/d/1So-m83NdUHexfjJ912rQ4GItdLvnmJMD/view?usp=sharing
 
+### 8.3 KdConv
+
+- 介绍：KdConv是一个中国多领域知识驱动的对话数据集，将多回合对话中的主题与知识图联系起来。KdConv包含来自三个领域（电影、音乐和旅行）的4.5K个对话，以及86K个话语，平均轮次数为19.0。这些对话包含关于相关主题和多个主题之间的自然过渡的深入讨论，而语料库也可用于探索迁移学习和领域适应。
+- 数据链接：https://github.com/thu-coai/KdConv
+- 数据样式
+
+```s
+{
+  "messages": [
+    {
+      "message": "对《我喜欢上你时的内心活动》这首歌有了解吗？"
+    },
+    {
+      "attrs": [
+        {
+          "attrname": "Information",
+          "attrvalue": "《我喜欢上你时的内心活动》是由韩寒填词，陈光荣作曲，陈绮贞演唱的歌曲，作为电影《喜欢你》的主题曲于2017年4月10日首发。2018年，该曲先后提名第37届香港电影金像奖最佳原创电影歌曲奖、第7届阿比鹿音乐奖流行单曲奖。",
+          "name": "我喜欢上你时的内心活动"
+        }
+      ],
+      "message": "有些了解，是电影《喜欢你》的主题曲。"
+    },
+    ...
+    {
+      "attrs": [
+        {
+          "attrname": "代表作品",
+          "attrvalue": "旅行的意义",
+          "name": "陈绮贞"
+        },
+        {
+          "attrname": "代表作品",
+          "attrvalue": "时间的歌",
+          "name": "陈绮贞"
+        }
+      ],
+      "message": "我还知道《旅行的意义》与《时间的歌》，都算是她的代表作。"
+    },
+    {
+      "message": "好，有时间我找出来听听。"
+    }
+  ],
+  "name": "我喜欢上你时的内心活动"
+}
+```
 
 ## 七、文本匹配数据
 
@@ -109,7 +1423,20 @@ xiaohuangji（小黄鸡语料） | https://github.com/candlewill/Dialog_Corpus
 
 ## 六、文本摘要数据
 
+### 6.5 法律文本摘要
+
+- 介绍：该数据集包含了近24000条数据，有法律领域的知识问答构成。每条数据包含2～4条律师问答，并配以标准的答案摘要。
+- 数据链接：http://cail.cipsc.org.cn/task5.html?raceID=3
+
+```s
+
+```
+
 ### 6.4 nlpcc 自动摘要英文语料库
+
+- 介绍：该数据集由哈工大NLP团队提出，是质量相对较高的中文短文本摘要数据集，数据量较大，应作为中文短文本摘要的首选数据集。
+- 数据地址：https://arxiv.org/pdf/1506.05865.pdf
+- 实例：
 
 ```s
 {
@@ -1135,914 +2462,94 @@ title	question	reply	is_best
 ...
 ```
 
+### 3.7 WebQA 中文问题生成
 
-
-
-
-
-## 一、命名实体识别
-
-### 1.1 MSRA-NER实体数据集
-
-- 介绍：由微软亚洲研究院标注的新闻领域的实体识别数据集，也是SIGNAN backoff 2006的实体识别任务的数据集之一。
-- 时间：2016
-- 实体类型：LOC(地名), ORG(机构名), PER(人名)
-- 数据集：训练集46364个句子，验证集4365个句子
-- 地址： https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/MSRA
-- 数据格式
-
-```s
-    {"text": "当希望工程救助的百万儿童成长起来，科教兴国蔚然成风时，今天有收藏价值的书你没买，明日就叫你悔不当初！", "entity_list": []}
-    {"text": "藏书本来就是所有传统收藏门类中的第一大户，只是我们结束温饱的时间太短而已。", "entity_list": []}
-    {"text": "因有关日寇在京掠夺文物详情，藏界较为重视，也是我们收藏北京史料中的要件之一。", "entity_list": [{"entity_index": {"begin": 3, "end": 4}, "entity_type": "LOC", "entity": "日"}, {"entity_index": {"begin": 6, "end": 7}, "entity_type": "LOC", "entity": "京"}, {"entity_index": {"begin": 27, "end": 29}, "entity_type": "LOC", "entity": "北京"}]}
-    ...
-```
-
-### 1.2 人民日报实体数据集
-
-- 介绍：以1998年人民日报语料为对象，由北京大学计算语言学研究所和富士通研究开发中心有限公司共同制作的标注语料库。
-- 实体类型：LOC(地名), ORG(机构名), PER(人名)
-- 数据集：19359条数据集
-- 地址： https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/people_daily
-- 数据格式
-
-```s
-    {"text": "迈向充满希望的新世纪——一九九八年新年讲话(附图片1张)", "entity_list": [{"entity_index": {"begin": 12, "end": 19}, "entity_type": "DATE", "entity": "一九九八年新年"}]}
-    {"text": "中共中央总书记、国家主席江泽民", "entity_list": [{"entity_index": {"begin": 0, "end": 4}, "entity_type": "ORG", "entity": "中共中央"}, {"entity_index": {"begin": 12, "end": 15}, "entity_type": "PERSON", "entity": "江泽民"}]}
-    ...
-```
-
-### 1.3 新浪微博实体数据集
-
-- 介绍：根据新浪微博2013年11月至2014年12月间历史数据筛选过滤生成，包含1890条微博消息，基于LDC2014的DEFT ERE的标注标准进行标注。
-- 时间：2014
-- 实体类型：地名、人名、机构名、行政区名，并且每个类别可细分为特指（NAM，如“张三”标签为“PER.NAM”）和泛指（NOM，如“男人”标签为“PER.NOM”）。
-- 数据集：包括1890条微博消息，发布于2015年。包括1350条训练集、270条验证集、270条测试集。
-- 地址：  https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/weibo
-- 数据格式
-
-```s
-    {"text": "科技全方位资讯智能，快捷的汽车生活需要有三屏一云爱你", "entity_list": []}
-    {"text": "对，输给一个女人，的成绩。失望", "entity_list": []}
-    {"text": "今天下午起来看到外面的太阳。。。。我第一反应竟然是强烈的想回家泪想我们一起在嘉鱼个时候了。。。。有好多好多的话想对你说李巾凡想要瘦瘦瘦成李帆我是想切开云朵的心", "entity_list": [{"entity_index": {"begin": 38, "end": 39}, "entity_type": "LOC", "entity": "嘉"}, {"entity_index": {"begin": 59, "end": 62}, "entity_type": "PER", "entity": "李巾凡"}, {"entity_index": {"begin": 68, "end": 70}, "entity_type": "PER", "entity": "李帆"}]}
-    ...
-```
-
-### 1.4 CLUENER细粒度实体数据集
-
-- 介绍：根据清华大学开源的文本分类数据集THUCNEWS，进行筛选过滤、实体标注生成，原数据来源于Sina News RSS。
-- 时间：2020
-- 实体类型：组织(organization)、人名(name)、地址(address)、公司(company)、政府(government)、书籍(book)、游戏(game)、电影(movie)、职位(position)、景点(scene)等10个实体类别，且实体类别分布较为均衡。
-- 数据集：训练集10748个句子，验证集1343个句子
-- 地址：  https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/cluener_public
-- 数据格式
-
-```s
-    {"text": "浙商银行企业信贷部叶老桂博士则从另一个角度对五道门槛进行了解读。叶老桂认为，对目前国内商业银行而言，", "entity_list": [{"entity_type": "name", "entity": "叶老桂", "entity_index": {"begin": 9, "end": 12}}, {"entity_type": "company", "entity": "浙商银行", "entity_index": {"begin": 0, "end": 4}}]}
-    {"text": "生生不息CSOL生化狂潮让你填弹狂扫", "entity_list": [{"entity_type": "game", "entity": "CSOL", "entity_index": {"begin": 4, "end": 8}}]}
-    ...
-```
-
-### 1.5 Yidu-S4K医疗命名实体识别数据集
-
-- 介绍：源自CCKS2019评测任务一，即“面向中文电子病历的命名实体识别”的数据集。
-- 时间：2019
-- 实体类型：实验室检验、影像检查、手术、疾病和诊断、药物、解剖部位共6类实体类型。
-- 数据集：1000条训练集、379条测试集
-- 地址：  https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/yidu-s4k
-- 数据格式
-
-```s
-    {"text": "，患者3月前因“直肠癌”于在我院于全麻上行直肠癌根治术（DIXON术），手术过程顺利，术后给予抗感染及营养支持治疗，患者恢复好，切口愈合良好。，术后病理示：直肠腺癌（中低度分化），浸润溃疡型，面积3.5*2CM，侵达外膜。双端切线另送“近端”、“远端”及环周底部切除面未查见癌。肠壁一站（10个）、中间组（8个）淋巴结未查见癌。，免疫组化染色示：ERCC1弥漫（+）、TS少部分弱（+）、SYN（-）、CGA（-）。术后查无化疗禁忌后给予3周期化疗，，方案为：奥沙利铂150MG D1，亚叶酸钙0.3G+替加氟1.0G D2-D6，同时给与升白细胞、护肝、止吐、免疫增强治疗，患者副反应轻。院外期间患者一般情况好，无恶心，无腹痛腹胀胀不适，无现患者为行复查及化疗再次来院就诊，门诊以“直肠癌术后”收入院。   近期患者精神可，饮食可，大便正常，小便正常，近期体重无明显变化。", "entity_list": [{"entity_index": {"begin": 8, "end": 11}, "entity_type": "疾病和诊断", "entity": "直肠癌"}, {"entity_index": {"begin": 21, "end": 35}, "entity_type": "手术", "entity": "直肠癌根治术（DIXON术）"}, {"entity_index": {"begin": 78, "end": 95}, "entity_type": "疾病和诊断", "entity": "直肠腺癌（中低度分化），浸润溃疡型"}, {"entity_index": {"begin": 139, "end": 159}, "entity_type": "解剖部位", "entity": "肠壁一站（10个）、中间组（8个）淋巴结"}, {"entity_index": {"begin": 230, "end": 234}, "entity_type": "药物", "entity": "奥沙利铂"}, {"entity_index": {"begin": 243, "end": 247}, "entity_type": "药物", "entity": "亚叶酸钙"}, {"entity_index": {"begin": 252, "end": 255}, "entity_type": "药物", "entity": "替加氟"}, {"entity_index": {"begin": 276, "end": 277}, "entity_type": "解剖部位", "entity": "肝"}, {"entity_index": {"begin": 312, "end": 313}, "entity_type": "解剖部位", "entity": "腹"}, {"entity_index": {"begin": 314, "end": 315}, "entity_type": "解剖部位", "entity": "腹"}, {"entity_index": {"begin": 342, "end": 347}, "entity_type": "疾病和诊断", "entity": "直肠癌术后"}]}
-    ...
-```
-
-### 1.6 面向试验鉴定的实体数据集
-
-- 介绍：面向试验鉴定的命名实体数据集是由军事科学院系统工程研究院在CCKS 2020中组织的一个评测。
-- 时间：2020
-- 实体类型：试验要素(如：RS-24弹道导弹、SPY-1D相控阵雷达)、性能指标(如测量精度、圆概率偏差、失效距离)、系统组成(如中波红外导引头、助推器、整流罩)、任务场景(如法国海军、导弹预警、恐怖袭击)四大类。
-- 数据集：400篇的标注文档
-- 地址：   https://www.biendata.xyz/competition/ccks_2020_8/
-- 数据格式
-
-> 输入：
-```s
-美国洛马公司在新墨西哥州白沙导弹靶场，完成“微型碰撞杀伤”拦截弹重新设计后的第二次飞行试验，进一步检验了拦截弹的敏捷性和气动性能，标志着其成熟度进一步提升。“微型碰撞杀伤”拦截弹采取直接碰撞杀伤技术，主要用于提高美国陆军应对火箭弹威胁的能力。
-```
-
-> 输出：
-```s
-{
-"begin_pos":21,"end_pos":31,"试验要素"
-"begin_pos":56,"end_pos":58,"性能指标"
-"begin_pos":60,"end_pos":63,"性能指标"
-"begin_pos":91,"end_pos":98,"系统组成"
-"begin_pos":106,"end_pos":109,"任务场景"
-"begin_pos":112, "end_pos":116,"任务场景"
-}
-```
-
-### 1.7 BosonNLP实体数据集
-
-- 介绍：玻森数据提供的命名实体识别数据，采用UTF-8进行编码
-- 时间：2020
-- 实体类型：时间、地点、人名、组织名、公司名、产品名
-- 数据集：2000段落
-- 地址：   https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/boson
-- 数据格式
-
-```s
-    {"text": "高勇：男，中国国籍，无境外居留权，", "entity_list": [{"entity_index": {"begin": 0, "end": 2}, "entity_type": "NAME", "entity": "高勇"}, {"entity_index": {"begin": 5, "end": 9}, "entity_type": "CONT", "entity": "中国国籍"}]}
-    {"text": "1966年出生，汉族，中共党员，本科学历，工程师、美国项目管理协会注册会员（PMIMember）、注册项目管理专家（PMP）、项目经理。", "entity_list": [{"entity_index": {"begin": 8, "end": 10}, "entity_type": "RACE", "entity": "汉族"}, {"entity_index": {"begin": 11, "end": 15}, "entity_type": "TITLE", "entity": "中共党员"}, {"entity_index": {"begin": 16, "end": 20}, "entity_type": "EDU", "entity": "本科学历"}, {"entity_index": {"begin": 21, "end": 24}, "entity_type": "TITLE", "entity": "工程师"}, {"entity_index": {"begin": 25, "end": 33}, "entity_type": "ORG", "entity": "美国项目管理协会"}, {"entity_index": {"begin": 33, "end": 37}, "entity_type": "TITLE", "entity": "注册会员"}, {"entity_index": {"begin": 38, "end": 47}, "entity_type": "TITLE", "entity": "PMIMember"}, {"entity_index": {"begin": 49, "end": 57}, "entity_type": "TITLE", "entity": "注册项目管理专家"}, {"entity_index": {"begin": 58, "end": 61}, "entity_type": "TITLE", "entity": "PMP"}, {"entity_index": {"begin": 63, "end": 67}, "entity_type": "TITLE", "entity": "项目经理"}]}
-    ...
-```
-
-### 1.8 影视音乐书籍实体数据集
-
-- 介绍：影视音乐书籍实体数据集
+- 介绍：百度于2016年开源的数据集，数据来自于百度知道；格式为一个问题多篇意思基本一致的文章，分为人为标注以及浏览器检索；数据整体质量中，因为混合了很多检索而来的文章；文章分为人工标注(ANN)和浏览器检索(IR)；
 - 时间：
-- 实体类型：影视、音乐、书籍
-- 数据集：大约10000条，具体包括7814条训练集、977条验证集以及978条测试集。
-- 地址：   https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/video_music_book_datasets
+- 字段说明
+
+问题和文章的答案分为可回答(positive)和不可回答(other_negative)；
+
+- 数据集：572.3K
+- 地址： 链接: https://pan.baidu.com/s/1pLXEYtd 密码: 6fbf
 - 数据格式
 
-```s
-    {"text": "我个人前一段看过求无欲的诡案组系列，剧情不错，主要是人物特点表现的很好，人物性格很大众化", "entity_list": [{"entity_index": {"begin": 12, "end": 15}, "entity_type": "boo", "entity": "诡案组"}]}
-    {"text": "本人也比较喜欢看仙侠小说，推荐几个我个人爱看的：、绝世武魂、绝世武神、追鬼龙王之极品强少、万古武帝、", "entity_list": [{"entity_index": {"begin": 25, "end": 29}, "entity_type": "boo", "entity": "绝世武魂"}, {"entity_index": {"begin": 30, "end": 34}, "entity_type": "boo", "entity": "绝世武神"}, {"entity_index": {"begin": 35, "end": 44}, "entity_type": "boo", "entity": "追鬼龙王之极品强少"}, {"entity_index": {"begin": 45, "end": 49}, "entity_type": "boo", "entity": "万古武帝"}]}
-    ...
-```
+![](img/微信截图_20230305205800.png)
 
-### 1.9 中文电子病历实体数据集
+### 3.8 百科类问答json版(baike2018qa)
 
-- 介绍：目前现存公开的中文电子病历标注数据十分稀缺，为了推动CNER系统在中文临床文本上的表现， CCKS在2017、2018、2019、2020都组织了面向中文电子病历的命名实体识别评测任务。
-
-#### 1.9.1 CCKS2017数据集
-
-- 时间：2017
-- 实体类型：症状和体征、检查和检验、疾病和诊断、治疗、身体部位
-
-![](img/20230222204648.png)
-
-- 数据集：训练集包括300个医疗记录，测试集包含100个医疗记录
-- 地址：   https://www.biendata.xyz/competition/CCKS2017_2/
-- 数据格式
-
-```s
-  患者无明显胸闷，无胸痛，偶有头痛，无头晕，无心悸、气短，无恶心、呕吐，饮食可，睡眠及二便正常。查体：BP：140/90mmHg，口唇无发绀，双肺呼吸音清，未闻及干湿性啰音，心界不大，心率70次/分，律齐，各瓣膜未闻及病理性杂音，腹软，无压痛，无反跳痛及肌紧张，肝脾肋下未触及，肠鸣音正常。双下肢无水肿。神经系统查体：神清，言语不清，查体合作，额纹对称，双侧瞳孔正大等圆，对光反射灵敏。双侧鼻唇沟无变浅，伸舌居中，示齿口角不偏。右侧上肢肌力Ⅲ级，右侧下肢肌力Ⅲ级，肌张力减低，左侧上肢肌力Ⅴ级，左侧下肢肌Ⅴ级，肌张力正常，双侧肱二三头肌腱及跟膝腱反射正常存在，双侧巴氏征阴性。
-  ...
-```
-
-#### 1.9.2 CCKS2018数据集
-
-- 时间：2018
-- 实体类型：解剖部位、症状描述、独立症状、药物、手术
-- 数据集：训练集包括600个医疗记录，测试集包含400个医疗记录
-- 地址：  https://www.biendata.xyz/competition/CCKS2018_1
-- 百度云盘地址：[百度云盘](https://pan.baidu.com/share/init?surl=FfvhPd06iVX2CGS_VV3XOg) ( 提取码：ypqh )
-- 数据格式
-
-```s
-1,
-2,
-...
-64,
-65,
-66,乙状结肠 10  14  解剖部位;乙状结肠癌根治术   32  40  手术;乙状结肠 74  78  解剖部位;肠壁 138 140 解剖部位;淋巴结    149 152 解剖部位;淋巴结    160 163 解剖部位;奥沙利铂   264 268 药物;亚叶酸钙 277 281 药物;氟尿嘧啶 286 290 药物;肝    312 313 解剖部位;吐  315 316 独立症状;恶心 344 346 独立症状;腹  348 349 解剖部位;痛  349 350 症状描述;腹  350 351 解剖部位;胀  351 352 症状描述;不适 352 354 症状描述;乙状结肠   388 392 解剖部位;
-67,直肠   9   11  解剖部位;直肠癌DIXON手术 17  27  手术;直肠   67  69  解剖部位;横结肠造口术 79  85  手术;直肠   128 130 解剖部位;神经 144 146 解剖部位;肠壁 193 195 解剖部位;淋巴结    263 266 解剖部位;奥沙利铂   392 396 药物;氟尿嘧啶 404 408 药物;亚叶酸钙 420 424 药物;肝    438 439 解剖部位;胃  441 442 解剖部位;吐  444 445 独立症状;发热 486 488 独立症状;畏寒 488 490 独立症状;恶心 492 494 独立症状;呕吐 494 496 独立症状;咳嗽 498 500 独立症状;胸  500 501 解剖部位;闷  501 502 症状描述;腹  504 505 解剖部位;胀  505 506 症状描述;腹  506 507 解剖部位;泻  507 508 症状描述;腹  510 511 解剖部位;痛  511 512 症状描述;直肠 555 557 解剖部位;
-68,上腹   18  20  解剖部位;不适 20  22  症状描述;腹  25  26  解剖部位;痛  26  27  症状描述;嗳气 35  37  独立症状;反酸 39  41  独立症状;腹  42  43  解剖部位;胀  43  44  症状描述;恶心 45  47  独立症状;呕吐 48  50  独立症状;黑便 51  53  独立症状;胃  78  79  解剖部位;胃窦小弯侧  83  88  解剖部位;胃角 117 119 解剖部位;胃窦 121 123 解剖部位;胃  176 177 解剖部位;胃角 182 184 解剖部位;胃角 210 212 解剖部位;胃癌根治术  251 256 手术;胃    267 268 解剖部位;淋巴结    281 284 解剖部位;多西他赛   333 337 药物;S-1  338 341 药物;
-...
-```
-
-#### 1.9.3 CCKS2019数据集
-
-- 时间：2019
-- 实体类型：疾病和诊断、检查、检验、手术、药物、解剖部位
-- 数据集：训练集包括1000个医疗记录，测试集包含379个医疗记录
-- 地址：  https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/2020_ccks_ner
-- 数据格式
-
-```s
-    {"originalText": "，患者3月前因“直肠癌”于在我院于全麻上行直肠癌根治术（DIXON术），手术过程顺利，术后给予抗感染及营养支持治疗，患者恢复好，切口愈合良好。，术后病理示：直肠腺癌（中低度分化），浸润溃疡型，面积3.5*2CM，侵达外膜。双端切线另送“近端”、“远端”及环周底部切除面未查见癌。肠壁一站（10个）、中间组（8个）淋巴结未查见癌。，免疫组化染色示：ERCC1弥漫（+）、TS少部分弱（+）、SYN（-）、CGA（-）。术后查无化疗禁忌后给予3周期化疗，，方案为：奥沙利铂150MG D1，亚叶酸钙0.3G+替加氟1.0G D2-D6，同时给与升白细胞、护肝、止吐、免疫增强治疗，患者副反应轻。院外期间患者一般情况好，无恶心，无腹痛腹胀胀不适，无现患者为行复查及化疗再次来院就诊，门诊以“直肠癌术后”收入院。   近期患者精神可，饮食可，大便正常，小便正常，近期体重无明显变化。", "entities": [{"label_type": "疾病和诊断", "overlap": 0, "start_pos": 8, "end_pos": 11}, {"label_type": "手术", "overlap": 0, "start_pos": 21, "end_pos": 35}, {"label_type": "疾病和诊断", "overlap": 0, "start_pos": 78, "end_pos": 95}, {"label_type": "解剖部位", "overlap": 0, "start_pos": 139, "end_pos": 159}, {"end_pos": 234, "label_type": "药物", "overlap": 0, "start_pos": 230}, {"end_pos": 247, "label_type": "药物", "overlap": 0, "start_pos": 243}, {"end_pos": 255, "label_type": "药物", "overlap": 0, "start_pos": 252}, {"label_type": "解剖部位", "overlap": 0, "start_pos": 276, "end_pos": 277}, {"label_type": "解剖部位", "overlap": 0, "start_pos": 312, "end_pos": 313}, {"label_type": "解剖部位", "overlap": 0, "start_pos": 314, "end_pos": 315}, {"label_type": "疾病和诊断", "overlap": 0, "start_pos": 342, "end_pos": 347}]}
-    ...
-```
-
-#### 1.9.4 CCKS2020数据集
-
-- 时间：2020
-- 实体类型：疾病和诊断、检查、检验、手术、药物、解剖部位
-- 数据集：训练集包括1050个医疗记录
-- 地址：  https://www.biendata.xyz/competition/ccks_2020_2_1/
-- 数据格式
-
-```s
-    对儿童SARST细胞亚群的研究表明，与成人SARS相比，儿童细胞下降不明显，证明上述推测成立。|||3    9    bod|||19    24    dis|||
-    研究证实，细胞减少与肺内病变程度及肺内炎性病变吸收程度密切相关。|||10    10    bod|||10    13    sym|||17    17    bod|||17    22    sym|||
-    ...
-```
-
-### 1.10 中文电子简历实体数据集
-
-- 介绍：根据新浪财经网关于上市公司的高级经理人的简历摘要数据，进行筛选过滤和人工标注生成的，建于2018年。
-- 时间：2018
-- 实体类型：人名、国籍、籍贯、种族、专业、学位、机构、职称
-- 数据集：3821条训练集、463条验证集、477条测试集
-- 地址：   https://github.com/GuocaiL/nlp_corpus/tree/main/open_ner_data/ResumeNER
-- 数据格式
-
-```s
-    {"text": "高勇：男，中国国籍，无境外居留权，", "entity_list": [{"entity_index": {"begin": 0, "end": 2}, "entity_type": "NAME", "entity": "高勇"}, {"entity_index": {"begin": 5, "end": 9}, "entity_type": "CONT", "entity": "中国国籍"}]}
-    {"text": "1966年出生，汉族，中共党员，本科学历，工程师、美国项目管理协会注册会员（PMIMember）、注册项目管理专家（PMP）、项目经理。", "entity_list": [{"entity_index": {"begin": 8, "end": 10}, "entity_type": "RACE", "entity": "汉族"}, {"entity_index": {"begin": 11, "end": 15}, "entity_type": "TITLE", "entity": "中共党员"}, {"entity_index": {"begin": 16, "end": 20}, "entity_type": "EDU", "entity": "本科学历"}, {"entity_index": {"begin": 21, "end": 24}, "entity_type": "TITLE", "entity": "工程师"}, {"entity_index": {"begin": 25, "end": 33}, "entity_type": "ORG", "entity": "美国项目管理协会"}, {"entity_index": {"begin": 33, "end": 37}, "entity_type": "TITLE", "entity": "注册会员"}, {"entity_index": {"begin": 38, "end": 47}, "entity_type": "TITLE", "entity": "PMIMember"}, {"entity_index": {"begin": 49, "end": 57}, "entity_type": "TITLE", "entity": "注册项目管理专家"}, {"entity_index": {"begin": 58, "end": 61}, "entity_type": "TITLE", "entity": "PMP"}, {"entity_index": {"begin": 63, "end": 67}, "entity_type": "TITLE", "entity": "项目经理"}]}
-    ...
-```
-
-### 1.11 CoNLL 2003数据集
-
-- 介绍：1393篇英语新闻文章和909篇德语新闻文章
-- 时间：2013
-- 实体类型：LOC、ORG、PER、MISC
-- 数据集：1393篇英语新闻文章和909篇德语新闻文章
-- 地址：   https://www.clips.uantwerpen.be/conll2003/ner/
-- 数据格式
-
-```s
-   U.N.         NNP  I-NP  I-ORG 
-   official     NN   I-NP  O 
-   Ekeus        NNP  I-NP  I-PER 
-   heads        VBZ  I-VP  O 
-   for          IN   I-PP  O 
-   Baghdad      NNP  I-NP  I-LOC 
-   .            .    O     O 
-```
-
-### 1.12 OntoNotes5.0 数据集
-
-- 介绍：1745k英语、900k中文和300k阿拉伯语文本数据组成，来源于电话对话、新闻通讯社、广播新闻、广播对话和博客
-- 时间：2013
-- 实体类型：PERSON、ORGANIZATION和LOCATION等18个类别
-- 数据集：1393篇英语新闻文章和909篇德语新闻文章
-- 地址：    https://catalog.ldc.upenn.edu/ldc2013t19
-- 数据格式
-
-```s
-
-```
-
-### 1.13 CMeEE
-
-- 介绍：数据集全称是Chinese Medical Entity Extraction，由“北京大学”、“郑州大学”、“鹏城实验室”和“哈尔滨工业大学（深圳）”联合提供，这是一个标准的NER识别任务
-- 时间：2013
-- 实体类型：疾病(dis)，临床表现(sym)，药物(dru)，医疗设备(equ)，医疗程序(pro)，身体(bod)，医学检验项目(ite)，微生物类(mic)，科室(dep)
-- 数据集：
-- 地址：    https://tianchi.aliyun.com/specials/promotion/2021chinesemedicalnlpleaderboardchallenge
-- 数据格式
-
-```s
-[
-  {
-    "text": "（5）房室结消融和起搏器植入作为反复发作或难治性心房内折返性心动过速的替代疗法。",
-    "entities": [
-      {
-        "start_idx": 3,
-        "end_idx": 7,
-        "type": "pro",
-        "entity": "房室结消融"
-      },
-      {
-        "start_idx": 9,
-        "end_idx": 13,
-        "type": "pro",
-        "entity": "起搏器植入"
-      },
-      {
-        "start_idx": 16,
-        "end_idx": 33,
-        "type": "dis",
-        "entity": "反复发作或难治性心房内折返性心动过速"
-      }
-    ]
-  },...
-]
-```
-
-### 1.15 中药说明书实体识别数据集（“万创杯”中医药天池大数据竞赛）
-
-- 介绍：疫情催化下，人工智能正在持续助力中医药传承创新加速发展，其中中医用药知识体系沉淀挖掘是一个基础工作。通过挖掘中药说明书构建中药合理用药的知识图谱，将为中医规范诊疗奠定较好基础。挑战旨在通过抽取中药药品说明书中的关键信息，中医药药品知识库的目标。
-- 时间：2020-11-12
-- 实体类型：
-  - 药品(DRUG):中药名称，指在中医理论指导下，用于预防、治疗、诊断疾病并具有康复与保健作用的物质。中药主要来源于天然药及其加工品，包括植物药、动物药、矿物药及部分化学、生物制品类药物。例子: 六味地黄丸、逍遥散
-  - 药物成分(DRUG_INGREDIENT): 中药组成成分，指中药复方中所含有的所有与该复方临床应用目的密切相关的药理活性成分。例子:当归、人参、枸杞
-  - 疾病(DISEASE): 疾病名称，指人体在一定原因的损害性作用下，因自稳调节紊乱而发生的异常生命活动过程，是特定的异常病理情形，而且会影响生物体的部分或是所有器官。通常解释为“身体病况”（medical condition），而且伴随着特定的症状及医学征象。例子：高血压、心绞痛、糖尿病
-  - 症状(SYMPTOM): 指疾病过程中机体内的一系列机能、代谢和形态结构异常变化所引起的病人主观上的异常感觉或某些客观病态改变。例子_：头晕、心悸、小腹胀痛_
-  - 证候(SYNDROME): 中医学专用术语，概括为一系列有相互关联的症状总称，即通过望、闻、问、切四诊所获知的疾病过程中表现在整体层次上的机体反应状态及其运动、变化，简称证或者候，是指不同症状和体征的综合表现，单一的症状和体征无法表现一个完整的证候。 例子：血瘀、气滞、气血不足、气血两虚
-  - 疾病分组(DISEASE_GROUP): 疾病涉及有人体组织部位的疾病名称的统称概念，非某项具体医学疾病。例子：肾病、肝病、肺病
-  - 食物(FOOD):指能够满足机体正常生理和生化能量需求，并能延续正常寿命的物质。对人体而言，能够满足人的正常生活活动需求并利于寿命延长的物质称之为食物。例子：苹果、茶、木耳、萝卜
-  - 食物分组(FOOD_GROUP): 中医中饮食养生中，将食物分为寒热温凉四性，同时中医药禁忌中对于具有某类共同属性食物的统称，记为食物分组。例子：油腻食物、辛辣食物、凉性食物
-  - 人群(PERSON_GROUP): 中医药的适用及禁忌范围内相关特定人群。例子：孕妇、经期妇女、儿童、青春期少女
-  - 药品分组(DRUG_GROUP): 具有某一类共同属性的药品类统称概念，非某项具体药品名。例子：止咳药、退烧药
-  - 药物剂型(DRUG_DOSAGE): 药物在供给临床使用前，均必须制成适合于医疗和预防应用的形式，成为药物剂型。例子：浓缩丸、水蜜丸、糖衣片
-  - 药物性味(DRUG_TASTE): 药品的性质和气味。例子：味甘、酸涩、气凉
-  - 中药功效(DRUG_EFFICACY): 药品的主治功能和效果的统称，例子：滋阴补肾、去瘀生新、活血化瘀
-- 数据集：
-- 地址：    https://tianchi.aliyun.com/competition/entrance/531824/introduction
-- 数据格式
-
-```s
-{"text": " 口服，一次6克，一日2-3次。  用于子宫寒冷，月经量少子宫寒冷，月经量少、后错，痛经  尚不明确。  1.忌食生冷食物。2.感冒时不宜服用。患有其他疾病者，应在医师指导下服用。3.平素月经正常，突然出现月经过少，或经期错后，或阴道不规则出血，或带下伴阴痒，或赤带者应去医院就诊。4.治疗痛经，宜在经前3～5天开始服药，连服1周。如有生育要求，应在医师指导下服用。5.服药后痛经不减轻，或重度痛经者，应到医院诊治。6.服药2周症状无缓解，应去医院就诊。7.对本品过敏者禁用，过敏体质者慎用。8.本品性状发生改变时禁止使用。9.请将本品放在儿童不能接触的地方。10.如正在使用其他药品，使用本品前请咨询医师或药师。  云南腾药制药股份有限公司  补气养血，调经止带。用于气血凝滞，子宫寒冷，月经量少、后错，痛经，白带量多，小腹下坠，不思饮食 6g*9袋  非处方药物（甲类）  如与其他药物同时使用可能会发生药物相互作用，详情请咨询医师或药师。 ", "entity_list": [{"entity_index": {"begin": 25, "end": 29}, "entity_type": "症状", "entity": "月经量少"}, {"entity_index": {"begin": 29, "end": 33}, "entity_type": "症状", "entity": "子宫寒冷"}, {"entity_index": {"begin": 42, "end": 44}, "entity_type": "症状", "entity": "痛经"}, {"entity_index": {"begin": 57, "end": 59}, "entity_type": "食物分组", "entity": "生冷"}, {"entity_index": {"begin": 103, "end": 107}, "entity_type": "症状", "entity": "月经过少"}, {"entity_index": {"begin": 109, "end": 113}, "entity_type": "症状", "entity": "经期错后"}, {"entity_index": {"begin": 115, "end": 122}, "entity_type": "症状", "entity": "阴道不规则出血"}, {"entity_index": {"begin": 124, "end": 129}, "entity_type": "症状", "entity": "带下伴阴痒"}, {"entity_index": {"begin": 131, "end": 133}, "entity_type": "症状", "entity": "赤带"}, {"entity_index": {"begin": 143, "end": 147}, "entity_type": "中药功效", "entity": "治疗痛经"}, {"entity_index": {"begin": 188, "end": 193}, "entity_type": "症状", "entity": "痛经不减轻"}, {"entity_index": {"begin": 195, "end": 199}, "entity_type": "症状", "entity": "重度痛经"}, {"entity_index": {"begin": 232, "end": 235}, "entity_type": "人群", "entity": "过敏者"}, {"entity_index": {"begin": 270, "end": 272}, "entity_type": "人群", "entity": "儿童"}, {"entity_index": {"begin": 323, "end": 327}, "entity_type": "中药功效", "entity": "补气养血"}, {"entity_index": {"begin": 328, "end": 332}, "entity_type": "中药功效", "entity": "调经止带"}, {"entity_index": {"begin": 335, "end": 339}, "entity_type": "症状", "entity": "气血凝滞"}, {"entity_index": {"begin": 340, "end": 344}, "entity_type": "症状", "entity": "子宫寒冷"}, {"entity_index": {"begin": 345, "end": 349}, "entity_type": "症状", "entity": "月经量少"}, {"entity_index": {"begin": 353, "end": 355}, "entity_type": "症状", "entity": "痛经"}, {"entity_index": {"begin": 356, "end": 360}, "entity_type": "症状", "entity": "白带量多"}, {"entity_index": {"begin": 361, "end": 365}, "entity_type": "症状", "entity": "小腹下坠"}]}
-...
-```
-
-
-## 二、实体关系抽取数据集
-
-### 2.11 CMeIE
-
-- 介绍：数据集全称是Chinese Medical Information Extraction，与CMeEE的数据提供方一样。这是一个关系抽取任务，共包括53类关系类型（具体类型参加官网介绍），从关系种类数量来看，这是一个比较难的任务。这个任务与传统的关系抽取任务有两处不同： 1. 预测阶段并没有事先给出要判定的实体，输入就是原始的文本，因此选手需要同时处理实体识别和关系抽取，可以看作是一个端对端的关系抽取任务；2. 训练数据中的实体并没有给出具体的下标，如果一个实体在句子中多次出现，难点是无法得知关系中的实体具体是指哪一次出现的实体。
-- 时间：2020
-- 实体关系类型：53_schema
-- 数据集：14,339 training set data, 3,585 validation set data, 4,482 test set data
-- 地址：      https://tianchi.aliyun.com/dataset/dataDetail?dataId=95414&lang=en-us
-- 数据格式
-
-```s
-{  
-  "text": "慢性胰腺炎@ ###低剂量放射 自1964年起，有几项病例系列报道称外照射 (5-50Gy) 可以有效改善慢性胰腺炎患者的疼痛症状。慢性胰腺炎@从概念上讲，外照射可以起到抗炎和止痛作用，并且已经开始被用于非肿瘤性疼痛的治疗。", 
-  "spo_list": [ 
-    { 
-      "predicate": "放射治疗", 
-      "subject": "慢性胰腺炎", 
-      "subject_type": "疾病", 
-      "object": { "@value": "外照射" }, 
-      "object_type": { "@value": "其他治疗" } 
-    }, 
-    { 
-      "predicate": "放射治疗", 
-      "subject": "非肿瘤性疼痛", 
-      "subject_type": "疾病", 
-      "object": { "@value": "外照射" }, 
-      "object_type": { "@value": "其他治疗" } 
-      }
-    }
-  ] 
-}
-```
-
-> 53_schemas.json
-```s
-{"subject_type": "疾病", "predicate": "预防", "object_type": "其他"}
-{"subject_type": "疾病", "predicate": "阶段", "object_type": "其他"}
-{"subject_type": "疾病", "predicate": "就诊科室", "object_type": "其他"}
-{"subject_type": "其他", "predicate": "同义词", "object_type": "其他"}
-{"subject_type": "疾病", "predicate": "辅助治疗", "object_type": "其他治疗"}
-...
-```
-
-### 2.10 DocRED文档级实体关系数据集
-
-- 介绍：基于维基百科的文档级关系抽取数据集
-- 时间：2019
-- 实体关系类型：命名实体提及、核心参考信息、句内和句间关系以及支持证据。关系类型涉及科学、艺术、时间、个人生活在内的96种Wikidata关系类型。
-- 数据集：在5053个维基百科文档上进行标注，包含132375个实体和56354个关系事实。
-- 地址：      https://github.com/thunlp/DocRED
-- 数据格式
-
-```s
-{
-  'title',
-  'sents':     [
-                  [word in sent 0],
-                  [word in sent 1]
-               ]
-  'vertexSet': [
-                  [
-                    { 'name': mention_name, 
-                      'sent_id': mention in which sentence, 
-                      'pos': postion of mention in a sentence, 
-                      'type': NER_type}
-                    {anthor mention}
-                  ], 
-                  [anthoer entity]
-                ]
-  'labels':   [
-                {
-                  'h': idx of head entity in vertexSet,
-                  't': idx of tail entity in vertexSet,
-                  'r': relation,
-                  'evidence': evidence sentences' id
-                }
-              ]
-}
-```
-
-### 2.9 Chinese Literature Text文档级实体关系数据集
-
-- 介绍：面向中文文学的一个实体关系数据集
-- 时间：2019
-- 实体关系类型：物体、人名、地名、时间名、容量名、组织和摘要共7类实体，位于、部分、家庭、概括、社会、拥有、使用、制造、邻接等9类实体关系
-- 数据集：共计726篇文章，29096句话，超过100000个字符。训练集695篇，验证集58篇、测试集84篇。
-- 地址：      https://github.com/lancopku/Chinese-Literature-NER-RE-Dataset
-- 数据格式
-
-> ner train.txt
-```s
-记 O
-得 O
-小 B_Time
-时 I_Time
-候 I_Time
-， O
-妈 B_Person
-妈 I_Person
-说 O
-起 O
-哪 O
-个 O
-典 O
-型 O
-败 B_Person
-家 I_Person
-子 I_Person
-形 O
-象 O
-， O
-挂 O
-在 O
-嘴 O
-边 O
-的 O
-就 O
-是 O
-那 B_Person
-人 I_Person
-吃 O
-喝 O
-嫖 O
-赌 O
-瘾 O
-五 O
-毒 O
-俱 O
-全 O
-。 O
-...
-```
-
-> relation_extraction
-
-> txt
-```s
-清明是人们祭扫先人，怀念追思的日子。正如宋代诗人高翥所云“南北山头多墓田，清明祭扫各纷然。纸灰飞作白蝴蝶，泪血染成红杜鹃
-”。凡清明之时，总是屡屡哀思涌上心头，对母亲怀念的情愫越发细腻绵长。
-...
-```
-
-> ann
-```s
-T1	Person-Name 20 26	宋代诗人高翥
-T2	Person-Pronoun 108 109	我
-...
-```
-
-### 2.8 人物实体关系数据集
-
-- 介绍：CCKS2019中的一个层级关系分类任务
-- 时间：2019
-- 实体关系类型：三大类(亲属关系、社交关系、师生关系)，四中类(配偶、血亲、姻亲、友谊）、35小类(现夫、前妻)种关系类型
-- 数据集：3841条验证集、287351条训练集以及77092条测试集句子
-- 地址：     https://github.com/SUDA-HLT/IPRE
-- 数据格式
-
-> bag_relation_train.txt
-```s
-TRAIN_BAG_ID_000001	金泰熙	金东	TRAIN_SENT_ID_000001	0
-TRAIN_BAG_ID_000002	辛文山	林散之	TRAIN_SENT_ID_000002	0
-...
-```
-
-> bag_relation_train.txt
-```s
-TRAIN_SENT_ID_000001	0
-TRAIN_SENT_ID_000002	0
-...
-```
-
-
-> sent_train_1.txt
-```s
-TRAIN_SENT_ID_000001	金泰熙	金东	韩国 梦想 演唱会 第十届 2004 年 : MC : 金泰熙 ， 金东 万
-TRAIN_SENT_ID_000002	辛文山	林散之	林散之 先生 等 当代 名家 对 辛文山 先生 的 书法 均 有 精辟 的 点评 ， 对 书法 爱好者 自学 书法 有 较 高 的 参考价值 。
-...
-```
-
-> schema.json
-```s
-NA	0
-人物关系/亲属关系/配偶/丈夫/现夫	1
-人物关系/亲属关系/配偶/丈夫/前夫	2
-人物关系/亲属关系/配偶/丈夫/未婚夫	3
-...
-```
-
-### 2.7 COAE2016实体关系数据集
-
-- 介绍：CAOE2016 task3任务中用到的一个关系数据集
-- 时间：2016
-- 实体关系类型：关系类别包括出生日期、出生地、毕业院校、配偶、子女、高管、员工数、创始人、总部、其他共十类关系。
-- 数据集：包含988个训练数据和483个测试数据
-- 地址：   NRE\chinese
-- 数据格式
-
-> 训练数据
-> schema.json
-```s
-{'NA': 0, '/人物/其它/职业': 1, '/人物/组织/毕业于': 2, '/人物/其它/民族': 3, '/地点/地点/毗邻': 4, '/人物/地点/出生地': 5, '/人物/地点/国籍': 6, '/人物/组织/属于': 7, '/人物/人物/家庭成员': 8, '/组织/组织/周边': 9, '/组织/地点/位于': 10, '/地点/地点/包含': 11, '/地点/组织/景点': 12, '/地点/人物/相关人物': 13, '/地点/地点/首都': 14, '/组织/人物/校长': 15, '/组织/人物/创始人': 16, '/地点/其它/气候': 17, '/组织/人物/领导人': 18, '/组织/人物/拥有者': 19, '/地点/地点/位于': 20, '/人物/人物/社交关系': 21, '/人物/地点/居住地': 22}
-```
-
-### 2.6 DuIE2.0实体关系数据集
-
-- 介绍：业界规模最大的基于schema的中文关系抽取数据集，来自百度百科、百度贴吧和百度信息流文本。
-- 时间：2020
-- 实体关系类型：包含超过43万三元组数据、21万中文句子及48个预定义的关系类型。
-- 数据集：包括171135个训练集、21055个测试数据，外加80184条混淆数据。
-- 地址：    https://github.com/PaddlePaddle/PaddleNLP/tree/develop/examples/information_extraction/DuIE
-- 数据格式
-
-> 训练数据
-```s
-    {"text": "吴宗宪遭服务生种族歧视, 他气呛: 我买下美国都行!艺人狄莺与孙鹏18岁的独子孙安佐赴美国读高中，没想到短短不到半年竟闹出校园安全事件被捕，因为美国正处于校园枪击案频传的敏感时机，加上国外种族歧视严重，外界对于孙安佐的情况感到不乐观 吴宗宪今（30）日录影前谈到美国民情，直言国外种族歧视严重，他甚至还被一名墨西哥裔的服务生看不起，让吴宗宪气到喊：「我是吃不起是不是", "spo_list": [{"predicate": "父亲", "object_type": {"@value": "人物"}, "subject_type": "人物", "object": {"@value": "孙鹏"}, "subject": "孙安佐"}, {"predicate": "母亲", "object_type": {"@value": "人物"}, "subject_type": "人物", "object": {"@value": "狄莺"}, "subject": "孙安佐"}, {"predicate": "丈夫", "object_type": {"@value": "人物"}, "subject_type": "人物", "object": {"@value": "孙鹏"}, "subject": "狄莺"}, {"predicate": "妻子", "object_type": {"@value": "人物"}, "subject_type": "人物", "object": {"@value": "狄莺"}, "subject": "孙鹏"}]}
-    ...
-```
-
-> schema.json
-```s
-    {"object_type": {"@value": "学校"}, "predicate": "毕业院校", "subject_type": "人物"}
-    {"object_type": {"@value": "人物"}, "predicate": "嘉宾", "subject_type": "电视综艺"}
-    {"object_type": {"inWork": "影视作品", "@value": "人物"}, "predicate": "配音", "subject_type": "娱乐人物"}
-    {"object_type": {"@value": "歌曲"}, "predicate": "主题曲", "subject_type": "影视作品"}
-    {"object_type": {"@value": "人物"}, "predicate": "代言人", "subject_type": "企业/品牌"}
-    {"object_type": {"@value": "音乐专辑"}, "predicate": "所属专辑", "subject_type": "歌曲"}
-    {"object_type": {"@value": "人物"}, "predicate": "父亲", "subject_type": "人物"}
-    {"object_type": {"@value": "人物"}, "predicate": "作者", "subject_type": "图书作品"}
-    {"object_type": {"inArea": "地点", "@value": "Date"}, "predicate": "上映时间", "subject_type": "影视作品"}
-    {"object_type": {"@value": "人物"}, "predicate": "母亲", "subject_type": "人物"}
-    {"object_type": {"@value": "Text"}, "predicate": "专业代码", "subject_type": "学科专业"}
-    {"object_type": {"@value": "Number"}, "predicate": "占地面积", "subject_type": "机构"}
-    {"object_type": {"@value": "Text"}, "predicate": "邮政编码", "subject_type": "行政区"}
-    {"object_type": {"inArea": "地点", "@value": "Number"}, "predicate": "票房", "subject_type": "影视作品"}
-    {"object_type": {"@value": "Number"}, "predicate": "注册资本", "subject_type": "企业"}
-    {"object_type": {"@value": "人物"}, "predicate": "主角", "subject_type": "文学作品"}
-    {"object_type": {"@value": "人物"}, "predicate": "妻子", "subject_type": "人物"}
-    {"object_type": {"@value": "人物"}, "predicate": "编剧", "subject_type": "影视作品"}
-    {"object_type": {"@value": "气候"}, "predicate": "气候", "subject_type": "行政区"}
-    {"object_type": {"@value": "人物"}, "predicate": "歌手", "subject_type": "歌曲"}
-    {"object_type": {"inWork": "作品", "onDate": "Date", "@value": "奖项", "period": "Number"}, "predicate": "获奖", "subject_type": "娱乐人物"}
-    {"object_type": {"@value": "人物"}, "predicate": "校长", "subject_type": "学校"}
-    {"object_type": {"@value": "人物"}, "predicate": "创始人", "subject_type": "企业"}
-    {"object_type": {"@value": "城市"}, "predicate": "首都", "subject_type": "国家"}
-    {"object_type": {"@value": "人物"}, "predicate": "丈夫", "subject_type": "人物"}
-    {"object_type": {"@value": "Text"}, "predicate": "朝代", "subject_type": "历史人物"}
-    {"object_type": {"inWork": "影视作品", "@value": "人物"}, "predicate": "饰演", "subject_type": "娱乐人物"}
-    {"object_type": {"@value": "Number"}, "predicate": "面积", "subject_type": "行政区"}
-    {"object_type": {"@value": "地点"}, "predicate": "总部地点", "subject_type": "企业"}
-    {"object_type": {"@value": "地点"}, "predicate": "祖籍", "subject_type": "人物"}
-    {"object_type": {"@value": "Number"}, "predicate": "人口数量", "subject_type": "行政区"}
-    {"object_type": {"@value": "人物"}, "predicate": "制片人", "subject_type": "影视作品"}
-    {"object_type": {"@value": "Number"}, "predicate": "修业年限", "subject_type": "学科专业"}
-    {"object_type": {"@value": "城市"}, "predicate": "所在城市", "subject_type": "景点"}
-    {"object_type": {"@value": "人物"}, "predicate": "董事长", "subject_type": "企业"}
-    {"object_type": {"@value": "人物"}, "predicate": "作词", "subject_type": "歌曲"}
-    {"object_type": {"@value": "作品"}, "predicate": "改编自", "subject_type": "影视作品"}
-    {"object_type": {"@value": "企业"}, "predicate": "出品公司", "subject_type": "影视作品"}
-    {"object_type": {"@value": "人物"}, "predicate": "导演", "subject_type": "影视作品"}
-    {"object_type": {"@value": "人物"}, "predicate": "作曲", "subject_type": "歌曲"}
-    {"object_type": {"@value": "人物"}, "predicate": "主演", "subject_type": "影视作品"}
-    {"object_type": {"@value": "人物"}, "predicate": "主持人", "subject_type": "电视综艺"}
-    {"object_type": {"@value": "Date"}, "predicate": "成立日期", "subject_type": "机构"}
-    {"object_type": {"@value": "Text"}, "predicate": "简称", "subject_type": "机构"}
-    {"object_type": {"@value": "Number"}, "predicate": "海拔", "subject_type": "地点"}
-    {"object_type": {"@value": "Text"}, "predicate": "号", "subject_type": "历史人物"}
-    {"object_type": {"@value": "国家"}, "predicate": "国籍", "subject_type": "人物"}
-    {"object_type": {"@value": "语言"}, "predicate": "官方语言", "subject_type": "国家"}
-```
-
-### 2.5 NYT10实体关系数据集
-
-- 介绍：在基于远程监督的关系抽取任务上最常用的数据集，由NYT corpus 在2010年基于Freebase远程监督得到的
-- 时间：2010
-- 实体关系类型：founders、place_of_birth在内的53种关系（包括一种NA），存在一定的噪声。
-
-```s
-{
-    "/location/fr_region/capital": 2, 
-     "/location/cn_province/capital": 3, 
-     "/location/in_state/administrative_capital": 4, 
-     "/base/locations/countries/states_provinces_within": 5, 
-     "/sports/sports_team_location/teams": 53, 
-     "/business/company/founders": 6, 
-     "/film/film_festival/location": 52, 
-     "/people/person/place_of_birth": 8, 
-     "/people/deceased_person/place_of_death": 9, 
-     "/location/it_region/capital": 10, 
-     "/people/family/members": 11, 
-     "/people/profession/people_with_this_profession": 14, 
-     "/people/ethnicity/people": 54, 
-     "/location/neighborhood/neighborhood_of": 1, 
-     "NA": 0, 
-     "/location/in_state/legislative_capital": 16, 
-     "/sports/sports_team/location": 17, 
-     "/location/in_state/judicial_capital": 19, 
-     "/business/company_advisor/companies_advised": 20, 
-     "/people/family/country": 21, 
-     "/location/country/capital": 47, 
-     "/business/company/place_founded": 23, 
-     "/location/administrative_division/country": 24, 
-     "/people/person/place_lived": 36, 
-     "/people/ethnicity/included_in_group": 25, 
-     "/business/company/industry": 56, 
-     "/location/br_state/capital": 15, 
-     "/location/location/contains": 48, 
-     "/location/province/capital": 27, 
-     "/people/person/nationality": 28, 
-     "/business/person/company": 29, 
-     "/business/shopping_center_owner/shopping_centers_owned": 30, 
-     "/business/company/advisors": 31, 
-     "/business/shopping_center/owner": 32, 
-     "/location/country/languages_spoken": 7, 
-     "/people/deceased_person/place_of_burial": 34, 
-     "/location/us_county/county_seat": 13, 
-     "/people/ethnicity/geographic_distribution": 35, 
-     "/people/person/religion": 18, 
-     "/business/company/major_shareholders": 37, 
-     "/broadcast/producer/location": 38, 
-     "/location/us_state/capital": 12, 
-     "/broadcast/content/location": 39, 
-     "/business/company_shareholder/major_shareholder_of": 55, 
-     "/business/business_location/parent_company": 40, 
-     "/film/film/featured_film_locations": 42, 
-     "/people/place_of_interment/interred_here": 43, 
-     "/location/de_state/capital": 44, 
-     "/people/person/profession": 45, 
-     "/business/company/locations": 46, 
-     "/time/event/locations": 22, 
-     "/location/mx_state/capital": 26, 
-     "/people/person/ethnicity": 33, 
-     "/location/country/administrative_divisions": 49, 
-     "/people/person/children": 50, 
-     "/film/film_location/featured_in_films": 51, 
-     "/location/jp_prefecture/capital": 41, 
-     "/people/ethnicity/includes_groups": 57
-}
-```
-
-- 数据集：466876条训练集、55167条验证集以及172448条测试集。
-- 地址：    https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_nyt10.sh
-- 数据格式
-
-```s
-{"text": "She also oversaw the refinancing of the state Superfund law ; the creation of a plan for decontaminating heavily polluted Onondaga Lake , near Syracuse ; the acquisition of hundreds of thousands of acres of Adirondack woodlands ; and the imposition of tough new acid rain rules .", "relation": "/location/location/contains", "h": {"id": "m.071cn", "name": "Syracuse", "pos": [143, 151]}, "t": {"id": "m.02_v74", "name": "Onondaga Lake", "pos": [122, 135]}}
-{"text": "More than 2.5 million cubic yards of contaminated mud will be dredged from Onondaga Lake , near Syracuse , under a consent decree between the state and Honeywell International that was announced yesterday .", "relation": "/location/location/contains", "h": {"id": "m.071cn", "name": "Syracuse", "pos": [96, 104]}, "t": {"id": "m.02_v74", "name": "Onondaga Lake", "pos": [75, 88]}}
-...
-```
-
-### 2.4 Wiki80实体关系数据集
-
-- 介绍：从数据集FewRel上提取的一个关系数据集
+- 介绍：百含有150万个预先过滤过的、高质量问题和答案，每个问题属于一个类别。总共有492个类别，其中频率达到或超过10次的类别有434个。
+- 数据集划分：数据去重并分成三个部分。训练集：142.5万；验证集：4.5万；测试集，数万，不提供下载。
 - 时间：
-- 实体关系类型：包含location、part of、follows等80种关系，每种关系个数均为700，共56000个样本。
+- 字段说明
 
-```s
-{
-     "place served by transport hub": 0, 
-      "mountain range": 1, 
-      "religion": 2, 
-      "participating team": 3, 
-      "contains administrative territorial entity": 4, 
-      "head of government": 5, 
-      "country of citizenship": 6, 
-      "original network": 7, 
-      "heritage designation": 8, 
-      "performer": 9, 
-      "participant of": 10, 
-      "position held": 11, 
-      "has part": 12, 
-      "location of formation": 13, 
-      "located on terrain feature": 14, 
-      "architect": 15, 
-      "country of origin": 16, 
-      "publisher": 17, 
-      "director": 18, 
-      "father": 19, 
-      "developer": 20, 
-      "military branch": 21, 
-      "mouth of the watercourse": 22, 
-      "nominated for": 23, 
-      "movement": 24, 
-      "successful candidate": 25, 
-      "followed by": 26, 
-      "manufacturer": 27, 
-      "instance of": 28, 
-      "after a work by": 29, 
-      "member of political party": 30, 
-      "licensed to broadcast to": 31, 
-      "headquarters location": 32, 
-      "sibling": 33, 
-      "instrument": 34, 
-      "country": 35, 
-      "occupation": 36, 
-      "residence": 37, 
-      "work location": 38, 
-      "subsidiary": 39, 
-      "participant": 40, 
-      "operator": 41, 
-      "characters": 42, 
-      "occupant": 43, 
-      "genre": 44, 
-      "operating system": 45, 
-      "owned by": 46, 
-      "platform": 47, 
-      "tributary": 48, 
-      "winner": 49, 
-      "said to be the same as": 50, 
-      "composer": 51, 
-      "league": 52, 
-      "record label": 53, 
-      "distributor": 54, 
-      "screenwriter": 55, 
-      "sports season of league or competition": 56, 
-      "taxon rank": 57, 
-      "location": 58, 
-      "field of work": 59, 
-      "language of work or name": 60, 
-      "applies to jurisdiction": 61, 
-      "notable work": 62, 
-      "located in the administrative territorial entity": 63, 
-      "crosses": 64, 
-      "original language of film or TV show": 65, 
-      "competition class": 66, 
-      "part of": 67, 
-      "sport": 68, 
-      "constellation": 69, 
-      "position played on team / speciality": 70, 
-      "located in or next to body of water": 71, 
-      "voice type": 72, 
-      "follows": 73, 
-      "spouse": 74, 
-      "military rank": 75, 
-      "mother": 76, 
-      "member of": 77, 
-      "child": 78, 
-      "main subject": 79
-}
-```
+问题和文章的答案分为可回答(positive)和不可回答(other_negative)；
 
-- 数据集：50400条训练集、5600条验证集
-- 地址：   https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_wiki80.sh
+- 数据集：572.3K
+- 地址： 链接: https://pan.baidu.com/s/1pLXEYtd 密码: 6fbf
+- 数据格式
+
+### 3.9 百科类问答json版(baike2018qa)
+
+- 介绍：百含有150万个预先过滤过的、高质量问题和答案，每个问题属于一个类别。总共有492个类别，其中频率达到或超过10次的类别有434个。
+- 作用：可以做为通用中文语料，训练词向量或做为预训练的语料；也可以用于构建百科类问答；其中类别信息比较有用，可以用于做监督训练，从而构建更好句子表示的模型、句子相似性任务等。
+- 数据集划分：数据去重并分成三个部分。训练集：142.5万；验证集：4.5万；测试集，数万，不提供下载。
+- 时间：
+- 字段说明
+
+问题和文章的答案分为可回答(positive)和不可回答(other_negative)；
+
+- 数据集：150万个问答( 原始数据1G多，压缩文件663M；数据更新时间：2018年)
+- 地址： 链接: https://pan.baidu.com/share/init?surl=2TCEwC_Q3He65HtPKN17cA 密码: fu45
 - 数据格式
 
 ```s
-  {"token": ["Merpati", "flight", "106", "departed", "Jakarta", "(", "CGK", ")", "on", "a", "domestic", "flight", "to", "Tanjung", "Pandan", "(", "TJQ", ")", "."], "h": {"name": "tjq", "id": "Q1331049", "pos": [16, 17]}, "t": {"name": "tanjung pandan", "id": "Q3056359", "pos": [13, 15]}, "relation": "place served by transport hub"}
-  {"token": ["The", "name", "was", "at", "one", "point", "changed", "to", "Nottingham", "East", "Midlands", "Airport", "so", "as", "to", "include", "the", "name", "of", "the", "city", "that", "is", "supposedly", "most", "internationally", "recognisable", ",", "mainly", "due", "to", "the", "Robin", "Hood", "legend", "."], "h": {"name": "east midlands airport", "id": "Q8977", "pos": [9, 12]}, "t": {"name": "nottingham", "id": "Q41262", "pos": [8, 9]}, "relation": "place served by transport hub"}
-  ...
+  {"qid":<qid>,"category":<category>,"title":<title>,"desc":<desc>,"answer":<answer>}
+
+  其中，category是问题的类型，title是问题的标题，desc是问题的描述，可以为空或与标题内容一致。
+
+  {"qid": "qid_2540946131115409959", "category": "生活知识", "title": "冬天进补好一些呢，还是夏天进步好啊？ ", "desc": "", "answer": "你好！\r\r当然是冬天进补好的了，夏天人体的胃处于收缩状态，不适宜大量的进补，所以我们有时候说：“夏天就要吃些清淡的，就是这个道理的。”\r\r不过，秋季进补要注意“四忌” 一忌多多益善。任何补药服用过量都有害。认为“多吃补药，有病治病，无病强身”是不的。过量进补会加重脾胃、肝脏负担。在夏季里，人们由于喝冷饮，常食冻品，多有脾胃功能减弱的现象，这时候如果突然大量进补，会骤然加重脾胃及肝脏的负担，使长期处于疲弱的消化器官难于承受，导致消化器官功能紊乱。 \r\r二忌以药代食。重药物轻食物的做法是不科学的，许多食物也是好的滋补品。如多吃荠菜可治疗高血压；多吃萝卜可健胃消食，顺气宽胸；多吃山药能补脾胃。日常食用的胡桃、芝麻、花生、红枣、扁豆等也是进补的佳品。\r\r三忌越贵越好。每个人的身体状况不同，因此与之相适应的补品也是不同的。价格昂贵的补品如燕窝、人参之类并非对每个人都适合。每种进补品都有一定的对象和适应症，应以实用有效为滋补原则，缺啥补啥。 \r\r四忌只补肉类。秋季适当食用牛羊肉进补效果好。但经过夏季后，由于脾胃尚未完全恢复到正常功能，因此过于油腻的食品不易消化吸收。另外，体内过多的脂类、糖类等物质堆积可能诱发心脑血管病。"}
 ```
 
-### 2.3 FewRel实体关系数据集
+### 3.10 社区问答json版(webtext2019zh) ：大规模高质量数据集
 
-- 介绍：清华大学于2018年发布的精标注关系抽取数据集，是当前规模最大的中文实体关系数据集
-- 时间：2018
-- 实体关系类型：100个关系类别、70,000个关系实例
+- 介绍：含有410万个预先过滤过的、高质量问题和回复。每个问题属于一个【话题】，总共有2.8万个各式话题，话题包罗万象。从1400万个原始问答中，筛选出至少获得3个点赞以上的的答案，代表了回复的内容比较不错或有趣，从而获得高质量的数据集。除了对每个问题对应一个话题、问题的描述、一个或多个回复外，每个回复还带有点赞数、回复ID、回复者的标签。
+- 数据集划分：数据去重并分成三个部分。训练集：412万；验证集：6.8万；测试集a：6.8万；测试集b，不提供下载。
+- 时间：2015-2016年
+- 用途
 
 ```s
-  {
-    "P931": 0, 
-    "P4552": 1, 
-    "P140": 2, 
-    "P1923": 3, 
-    "P150": 4, 
-    "P6": 5, 
-    "P27": 6, 
-    "P449": 7, 
-    "P1435": 8, 
-    "P175": 9, 
-    "P1344": 10, 
-    "P39": 11, 
-    "P527": 12, 
-    "P740": 13, 
-    "P706": 14, 
-    "P84": 15, 
-    "P495": 16, 
-    "P123": 17, 
-    "P57": 18, 
-    "P22": 19, 
-    "P178": 20, 
-    "P241": 21, 
-    "P403": 22, 
-    "P1411": 23, 
-    "P135": 24, 
-    "P991": 25, 
-    "P156": 26, 
-    "P176": 27, 
-    "P31": 28, 
-    "P1877": 29, 
-    "P102": 30, 
-    "P1408": 31, 
-    "P159": 32, 
-    "P3373": 33, 
-    "P1303": 34, 
-    "P17": 35, 
-    "P106": 36, 
-    "P551": 37, 
-    "P937": 38, 
-    "P355": 39, 
-    "P710": 40, 
-    "P137": 41, 
-    "P674": 42, 
-    "P466": 43, 
-    "P136": 44, 
-    "P306": 45, 
-    "P127": 46, 
-    "P400": 47, 
-    "P974": 48, 
-    "P1346": 49, 
-    "P460": 50, 
-    "P86": 51, 
-    "P118": 52, 
-    "P264": 53, 
-    "P750": 54, 
-    "P58": 55, 
-    "P3450": 56, 
-    "P105": 57, 
-    "P276": 58, 
-    "P101": 59, 
-    "P407": 60, 
-    "P1001": 61, 
-    "P800": 62, 
-    "P131": 63
-}
+  1）构建百科类问答：输入一个问题，构建检索系统得到一个回复或生产一个回复；或根据相关关键词从，社区问答库中筛选出你相关的领域数据
+
+  2）训练话题预测模型：输入一个问题(和或描述)，预测属于话题。
+
+  3）训练社区问答(cQA)系统：针对一问多答的场景，输入一个问题，找到最相关的问题，在这个基础上基于不同答案回复的质量、
+
+    问题与答案的相关性，找到最好的答案。
+
+  4）做为通用中文语料，做大模型预训练的语料或训练词向量。其中类别信息也比较有用，可以用于做监督训练，从而构建更好句子表示的模型、句子相似性任务等。
+
+  5）结合点赞数量这一额外信息，预测回复的受欢迎程度或训练答案评分系统。
 ```
 
-- 数据集：每句的平均长度为24.99，一共出现 124,577 个不同的单词/符号。
-- 地址：  https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_fewrel.sh
+- 数据集：410万个问答( 过滤后数据3.7G，压缩文件1.7G；数据跨度：2015-2016年)
+- 地址： https://drive.google.com/open?id=1u2yW_XohbYL2YAK6Bzc5XrngHstQTf0v
 - 数据格式
 
 ```s
-  {"token": ["Merpati", "flight", "106", "departed", "Jakarta", "(", "CGK", ")", "on", "a", "domestic", "flight", "to", "Tanjung", "Pandan", "(", "TJQ", ")", "."], "h": {"name": "tjq", "id": "Q1331049", "pos": [16, 17]}, "t": {"name": "tanjung pandan", "id": "Q3056359", "pos": [13, 15]}, "relation": "P931"}
-  {"token": ["The", "name", "was", "at", "one", "point", "changed", "to", "Nottingham", "East", "Midlands", "Airport", "so", "as", "to", "include", "the", "name", "of", "the", "city", "that", "is", "supposedly", "most", "internationally", "recognisable", ",", "mainly", "due", "to", "the", "Robin", "Hood", "legend", "."], "h": {"name": "east midlands airport", "id": "Q8977", "pos": [9, 12]}, "t": {"name": "nottingham", "id": "Q41262", "pos": [8, 9]}, "relation": "P931"}
-  ...
-```
+  {"qid":<qid>,"title":<title>,"desc":<desc>,"topic":<topic>,"star":<star>,"content":<content>,"answer_id":<answer_id>,"answerer_tags":<answerer_tags>}
 
-### 2.2 SemEval实体关系数据集
+  其中，qid是问题的id，title是问题的标题，desc是问题的描述，可以为空；topic是问题所属的话题，star是该回复的点赞个数，
 
-- 介绍：2010年国际语义评测大会中Task8任务所使用的数据集
-- 时间：2010
-- 实体关系类型：Cause-Effect(因果关系)、Instrument-Agency(操作、使用关系)、Product-Producer(产品-生产者关系)、 Content-Container(空间包含关系)、Entity-Origin(起源关系)、Entity-Destination(导向关系)、 Component-Whole(组件-整体关系)、Member-Collection(成员-集合关系)、Message-Topic(主题关系)等10类关系。
+  content是回复的内容，answer_id是回复的ID,answerer_tags是回复者所携带的标签
 
-```s
-  {
-    "Component-Whole(e2,e1)": 0, 
-    "Other": 1, 
-    "Instrument-Agency(e2,e1)": 2, 
-    "Member-Collection(e1,e2)": 3, 
-    "Cause-Effect(e2,e1)": 4, 
-    "Entity-Destination(e1,e2)": 5, 
-    "Content-Container(e1,e2)": 6, 
-    "Message-Topic(e1,e2)": 7, 
-    "Product-Producer(e2,e1)": 8, 
-    "Member-Collection(e2,e1)": 9, 
-    "Entity-Origin(e1,e2)": 10, 
-    "Cause-Effect(e1,e2)": 11, 
-    "Component-Whole(e1,e2)": 12, 
-    "Message-Topic(e2,e1)": 13, 
-    "Product-Producer(e1,e2)": 14, 
-    "Entity-Origin(e2,e1)": 15, 
-    "Content-Container(e2,e1)": 16, 
-    "Instrument-Agency(e1,e2)": 17, 
-    "Entity-Destination(e2,e1)": 18
-} 
-```
-
-- 数据集：8000个训练样本，2717个测试样本
-- 地址：  https://github.com/thunlp/OpenNRE/blob/master/benchmark/download_semeval.sh
-- 数据格式
-
-```s
-  {"token": ["the", "original", "play", "was", "filled", "with", "very", "topical", "humor", ",", "so", "the", "director", "felt", "free", "to", "add", "current", "topical", "humor", "to", "the", "script", "."], "h": {"name": "play", "pos": [2, 3]}, "t": {"name": "humor", "pos": [8, 9]}, "relation": "Component-Whole(e2,e1)"}
-  {"token": ["the", "crane", "arm", "raises", ",", "swivels", ",", "and", "extends", "to", "a", "maximum", "length", "of", "11", "''", "inches", ",", "just", "like", "our", "own", "poe", "ghostal", "."], "h": {"name": "crane", "pos": [1, 2]}, "t": {"name": "arm", "pos": [2, 3]}, "relation": "Component-Whole(e2,e1)"}
-  ...
-```
-
-### 2.1 ACE实体关系数据集
-
-- 介绍：包括英语，阿拉伯语和中文三部分数据，分成广播新闻和新闻专线两部分
-- 时间：2005
-- 实体关系类型：ART、Gen-affiliation在内的6种关系类型，Employment、Founder、Ownership在内的额18种子关系类型。
-- 数据集：451个文档和5 702个关系实例。ACE2005中文数据集包括633个文档、307991个字符
-- 地址：     https://catalog.ldc.upenn.edu/byproject
-- 数据格式
-
-```s
+  {"qid": 65618973, "title": "AlphaGo只会下围棋吗？阿法狗能写小说吗？", "desc": "那么现在会不会有智能机器人能从事文学创作？<br>如果有，能写出什么水平的作品？", "topic": "机器人", "star": 3, "content": "AlphaGo只会下围棋，因为它的设计目的，架构，技术方案以及训练数据，都是围绕下围棋这个核心进行的。它在围棋领域的突破，证明了深度学习深度强化学习MCTS技术在围棋领域的有效性，并且取得了重大的PR效果。AlphaGo不会写小说，它是专用的，不会做跨出它领域的其它事情，比如语音识别，人脸识别，自动驾驶，写小说或者理解小说。如果要写小说，需要用到自然语言处理（NLP））中的自然语言生成技术，那是人工智能领域一个", "answer_id": 545576062, "answerer_tags": "人工智能@游戏业"}
 
 ```
 
 ## 参考
 
 1. [数据资源：常用12类实体识别、10类关系抽取数据集的梳理与思考](https://mp.weixin.qq.com/s/fjRcDANDGMFh9eH_YyO03w)
+2. [nlp_chinese_corpus 为中文自然语言处理领域发展贡献语料](https://github.com/brightmart/nlp_chinese_corpus)
+3. [中文文本生成数据集整理-NLG](https://zhuanlan.zhihu.com/p/427156319)
+
