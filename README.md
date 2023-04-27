@@ -43,6 +43,7 @@
           - [transformer 长文本改进篇](#transformer-长文本改进篇)
           - [transformer 变体综述篇](#transformer-变体综述篇)
         - [【关于 预训练模型】 那些的你不知道的事](#关于-预训练模型-那些的你不知道的事)
+        - [【关于 Tuning】 那些的你不知道的事](#关于-tuning-那些的你不知道的事)
         - [【关于 Prompt】 那些的你不知道的事](#关于-prompt-那些的你不知道的事)
           - [【关于 OpenPrompt 】 那些的你不知道的事](#关于-openprompt--那些的你不知道的事)
           - [【关于 Prompts2QA 】 那些的你不知道的事](#关于-prompts2qa--那些的你不知道的事)
@@ -581,6 +582,11 @@
         - 优点：不存在 方法1 的 未登录词数量限制 问题；
       - 方法三：
         - 优点：对于一些 占位符（eg：<e></e>），方法一和方法二可能都无法生效，因为 <, e, >和 <e></e>均存在于 vocab.txt，但前三者的优先级高于 <e></e>，而 add_special_tokens会起效，却会使得词汇表大小增大，从而需另外调整模型size。但是，如果同时在词汇表vocab.txt中替换[unused]，同时 add_special_tokens，则新增词会起效，同时词汇表大小不变。
+
+##### 【关于 Tuning】 那些的你不知道的事
+
+- [【关于 Tuning】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/Tuning_study/)
+
 
 ##### 【关于 Prompt】 那些的你不知道的事
 
