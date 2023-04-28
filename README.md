@@ -37,6 +37,7 @@
       - [经典会议论文研读篇](#经典会议论文研读篇)
       - [理论学习篇](#理论学习篇)
         - [经典论文研读篇](#经典论文研读篇)
+        - [【关于 LLMs 】 那些的你不知道的事](#关于-llms--那些的你不知道的事)
         - [【关于 transformer 】 那些的你不知道的事](#关于-transformer--那些的你不知道的事)
           - [transformer 篇](#transformer-篇)
           - [transformer 改进篇](#transformer-改进篇)
@@ -160,6 +161,23 @@
 - 那些你所不知道的事
   - [【关于Transformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer/)
   - [【关于Bert】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T1_bert/)
+
+##### 【关于 LLMs 】 那些的你不知道的事
+
+- [【关于 GLM 】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/LLMs/GLM)
+  - 论文名称：GLM: General Language Model Pretraining with Autoregressive Blank Infilling
+  - 论文地址：https://aclanthology.org/2022.acl-long.26.pdf
+  - github : https://github.com/THUDM/GLM
+  - 动机：预训练语言吗模型大体可以分为三种：**自回归（GPT系列）、自编码（BERT系列）、编码-解码（T5、BART）**，它们每一个都在各自的领域上表现不俗，但是，目前**没有一个预训练模型能够很好地完成所有任务**。
+  - GLM的核心是：Autoregressive Blank Infilling
+  - GLM 对于文档和句子采用不同的空白填充方式：
+    - 文档：span的长度从原始长度的50%-100%的均匀分布中抽取。该目标旨在生成长文本；
+    - 句子：限制masked span必须是完整的句子。多个span(句子)被取样，以覆盖15%的的原始标记。这个目标是针对seq2seq任务，其预测往往是完整的句子或段落。
+  - GLM 模型架构 
+    - 在 Transformer 的 架构上进行 修改：
+      - **调整layer normalization和residual connection的顺序**；
+      - **使用单一线性层进行输出token预测**；
+      - **将ReLU激活函数替换为GeLUs**；
 
 ##### 【关于 transformer 】 那些的你不知道的事
 
