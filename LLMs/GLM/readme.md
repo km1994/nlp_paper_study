@@ -1,12 +1,28 @@
-# GLM：ChatGLM的基座模型
+# ChatGLM-6B怎么火，你却还不懂 GLM？
 
+> 作者：西西嘛呦
+> 
+> 原文地址：https://zhuanlan.zhihu.com/p/618166630
+> 
 > 论文名称：GLM: General Language Model Pretraining with Autoregressive Blank Infilling
 > 
 > 论文地址：https://aclanthology.org/2022.acl-long.26.pdf
 > 
 > github : https://github.com/THUDM/GLM
+> NLP 百面百搭 地址：https://github.com/km1994/NLP-Interview-Notes
+> 
+> 推荐系统 百面百搭 地址：https://github.com/km1994/RES-Interview-Notes
+> 
+> 搜索引擎 百面百搭 地址：https://github.com/km1994/search-engine-Interview-Notes 【编写ing】
+> 
+> NLP论文学习笔记：https://github.com/km1994/nlp_paper_study
+> 
+> 推荐系统论文学习笔记：https://github.com/km1994/RS_paper_study
+> 
+> GCN 论文学习笔记：https://github.com/km1994/GCN_study
+> 
 
-- [GLM：ChatGLM的基座模型](#glmchatglm的基座模型)
+- [ChatGLM-6B怎么火，你却还不懂 GLM？](#chatglm-6b怎么火你却还不懂-glm)
   - [一、前言](#一前言)
   - [二、动机](#二动机)
   - [三、 什么是 GLM？](#三-什么是-glm)
