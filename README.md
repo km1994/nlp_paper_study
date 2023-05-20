@@ -37,6 +37,7 @@
       - [经典会议论文研读篇](#经典会议论文研读篇)
       - [理论学习篇](#理论学习篇)
         - [经典论文研读篇](#经典论文研读篇)
+        - [【关于 LLMs 】 那些的你不知道的事](#关于-llms--那些的你不知道的事)
         - [【关于 transformer 】 那些的你不知道的事](#关于-transformer--那些的你不知道的事)
           - [transformer 篇](#transformer-篇)
           - [transformer 改进篇](#transformer-改进篇)
@@ -160,6 +161,19 @@
 - 那些你所不知道的事
   - [【关于Transformer】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/transformer_study/Transformer/)
   - [【关于Bert】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study/tree/master/bert_study/T1_bert/)
+
+##### 【关于 LLMs 】 那些的你不知道的事
+
+- [【关于InstructBLIP】 那些的你不知道的事](ttps://github.com/km1994/nlp_paper_study/tree/master/LLMs_study/InstructBLIP/)
+  - 论文地址 ：https://arxiv.org/pdf/2305.06500.pdf
+  - githut 地址：https://github.com/salesforce/LAVIS/tree/main/projects/instructblip
+  - 论文动机： 
+    - 第一，不开源。
+    - 第二，数据安全。
+    - 第三，算力需求大。
+  - 论文方法：
+    - InstructBLIP 通过充分利用BLIP-2模型中的Q-Former架构，提出了一种指令感知的视觉特征提取方法。
+    - 根据BLIP-2的论文，Q-Former已经分成两个阶段进行了预训练，通过预训练，它学会了提取可以被LLM消化的文本对齐的视觉特征。在推理过程中，一个指令被附加在视觉提示之后，就可以指导LLM按照规定执行不同的任务。
 
 ##### 【关于 transformer 】 那些的你不知道的事
 
