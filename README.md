@@ -23,11 +23,13 @@
 > **推广搜 军火库**：https://github.com/km1994/recommendation_advertisement_search
 ![](other_study/resource/pic/微信截图_20210301212242.png)
 
+![](img/微信图片_20230818133801.jpg)
+
 > 手机版笔记，可以关注公众号 **【关于NLP那些你不知道的事】** 获取，并加入 【NLP && 推荐学习群】一起学习！！！
 
 > 注：github 网页版 看起来不舒服，可以加入 **知识星球【关于AiGC那些你不知道的事】**
 
-> **所有文章已经搬到 知识星球【关于AiGC那些你不知道的事】，方便大家利用手机学习**
+> **所有文章已经搬到 [【关于AiGC那些你不知道的事】](https://yaz1kaenukt.feishu.cn/mindnotes/OSsQbEhzomseronYdQmc6CmXnQH)，方便大家利用手机学习**
 ![](other_study/resource/pic/20230408151226.jpg)
 
 - [【关于 NLP】 那些你不知道的事](#关于-nlp-那些你不知道的事)

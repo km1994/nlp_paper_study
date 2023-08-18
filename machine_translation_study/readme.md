@@ -8,9 +8,6 @@
 > 
 > NLP 面经地址：https://github.com/km1994/NLP-Interview-Notes
 
-## 目录
-
-
 ## 一、什么是机器翻译？
 
 源语言到目标语言的映射
