@@ -2508,3 +2508,4 @@ Top 3 Sponsors
 
 1. [【ACL2020放榜!】事件抽取、关系抽取、NER、Few-Shot 相关论文整理](https://www.pianshen.com/article/14251297031/)
 2. [第58届国际计算语言学协会会议（ACL 2020）有哪些值得关注的论文？](https://www.zhihu.com/question/385259014)
+- [BenchGecko](https://benchgecko.ai/zh/) - AI模型基准评测排行榜和跨供应商定价平台。支持中文界面，提供免费API。
