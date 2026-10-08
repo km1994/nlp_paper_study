@@ -4,7 +4,9 @@
 > 
 > 介绍：研读顶会论文，复现论文相关代码
 > 
-> NLP 百面百搭 地址：https://github.com/km1994/NLP-Interview-Notes
+> 大模型面试宝典 地址：https://github.com/km1994/AIGC-Interview-Book
+> 
+> 介绍：AIGC 求职面试指南项目涵盖了 **📚 AIGC 求职面经**、**提示词工程**、**大模型面试题专题**、**计算机视觉与感知算法专题**、**深度学习基础与框架专题**、**手撕项目代码专题**、**优异开源资源推荐专题** 等 AIGC 求职你所需要知道的一切~
 > 
 > **[手机版NLP百面百搭](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100005719&idx=3&sn=5d8e62993e5ecd4582703684c0d12e44&chksm=1bbff26d2cc87b7bf2504a8a4cafc60919d722b6e9acbcee81a626924d80f53a49301df9bd97&scene=18#wechat_redirect)**
 > 
