@@ -7,23 +7,6 @@
 > 大模型面试宝典 地址：https://github.com/km1994/AIGC-Interview-Book
 > 
 > 介绍：AIGC 求职面试指南项目涵盖了 **📚 AIGC 求职面经**、**提示词工程**、**大模型面试题专题**、**计算机视觉与感知算法专题**、**深度学习基础与框架专题**、**手撕项目代码专题**、**优异开源资源推荐专题** 等 AIGC 求职你所需要知道的一切~
-> 
-> **[手机版NLP百面百搭](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100005719&idx=3&sn=5d8e62993e5ecd4582703684c0d12e44&chksm=1bbff26d2cc87b7bf2504a8a4cafc60919d722b6e9acbcee81a626924d80f53a49301df9bd97&scene=18#wechat_redirect)**
-> 
-> 推荐系统 百面百搭 地址：https://github.com/km1994/RES-Interview-Notes
-> 
-> **[手机版推荐系统百面百搭](https://mp.weixin.qq.com/s/b_KBT6rUw09cLGRHV_EUtw)**
-> 
-> 搜索引擎 百面百搭 地址：https://github.com/km1994/search-engine-Interview-Notes 【编写ing】
-> 
-> NLP论文学习笔记：https://github.com/km1994/nlp_paper_study
-> 
-> 推荐系统论文学习笔记：https://github.com/km1994/RS_paper_study
-> 
-> GCN 论文学习笔记：https://github.com/km1994/GCN_study
-> 
-> **推广搜 军火库**：https://github.com/km1994/recommendation_advertisement_search
-![](other_study/resource/pic/微信截图_20210301212242.png)
 
 ![](img/微信图片_20230818133801.jpg)
 
