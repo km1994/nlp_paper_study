@@ -119,35 +119,6 @@
 <img src="https://github.com/km1994/AIGC-Interview-Book/blob/main/img/题目.png" alt="大模型面试宝典：RAG 160 题题目清单" width="720"/>
 </div>
 
-## 🗓️ 更新计划
-
-| 状态 | 内容 |
-|---|---|
-| ✅ 已完成 | RAG 40 题、Agent 24 题、RL 后训练 40 题、Hermes 22 题 逐题详解 |
-| ✅ 已完成 | Loop Engineering / GraphRAG / 目标检测 各 100 题「考察点 + 得分项 + 作答要点」 |
-| ✅ 已完成 | RAG 进阶篇与实战篇（41-160 题）逐题详解补齐 |
-| ✅ 已完成 | Agent 工具系统、多 Agent 协作章节详解 |
-| 📌 计划中 | 面经投稿真实面试复盘、大厂题库整理、季度高频考点变化 |
-
-> 大模型这行变化快，本仓库会持续跟。想第一时间拿到更新，可以关注公众号（见文末）。
-
-## 🤝 参与共建
-
-内容靠大家，欢迎以任何方式参与：
-
-- **提出问题 / 补充新题** → 提 [Issue](https://github.com/km1994/nlp_paper_study/issues/new)
-- **修正答案、改错别字、补链接** → 提 [Pull Request](https://github.com/km1994/nlp_paper_study/pulls)，哪怕只改一个字
-- **分享真实面经** → 在 Issue 里按「公司 / 岗位 / 轮次 / 题目 / 复盘」写下来，我会整理进仓库
-- **发现题目过时或有争议** → 直接说出来，标注依据即可
-
-具体的提交规范见 [CONTRIBUTING.md](https://github.com/km1994/AIGC-Interview-Book/blob/main/CONTRIBUTING.md)。每一条 Issue 和 PR 我都会看，有贡献的伙伴会出现在更新说明里。
-
-## ⭐ 觉得有用？
-
-如果这份题库帮到了你的面试准备，**点一个 Star** 就是最大的支持——它能让更多正在准备面试的人搜到这份内容，也能让我知道该继续投入。
-
-> 也欢迎把它转给身边正在准备大模型面试的朋友。
-
 ## 📮 持续更新的地方
 
 题库的完整答案、更新最快的部分，放在公众号和知识星球的《大模型面试宝典》专栏：
